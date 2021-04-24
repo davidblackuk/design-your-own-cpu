@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\DAVID BLACK\.nuget\packages\microsoft.net.test.sdk\16.9.4\build\netcoreapp2.1" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\DAVID BLACK\.nuget\packages\microsoft.testplatform.testhost\16.9.4\build\netcoreapp2.1\x64\Microsoft.TestPlatform.PlatformAbstractions.dll" t="Include" />
+    <e p="C:\Users\DAVID BLACK\.nuget\packages\microsoft.testplatform.testhost\16.9.4\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
+    <e p="C:\Users\DAVID BLACK\.nuget\packages\microsoft.testplatform.testhost\16.9.4\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
+    <e p="C:\Users\DAVID BLACK\.nuget\packages\nunit3testadapter\3.17.0\build\netcoreapp2.1\nunit.engine.api.dll" t="Include" />
+    <e p="C:\Users\DAVID BLACK\.nuget\packages\nunit3testadapter\3.17.0\build\netcoreapp2.1\nunit.engine.core.dll" t="Include" />
+    <e p="C:\Users\DAVID BLACK\.nuget\packages\nunit3testadapter\3.17.0\build\netcoreapp2.1\nunit.engine.dll" t="Include" />
+    <e p="C:\Users\DAVID BLACK\.nuget\packages\nunit3testadapter\3.17.0\build\netcoreapp2.1\NUnit3.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\DAVID BLACK\.nuget\packages\nunit3testadapter\3.17.0\build\netcoreapp2.1\NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="C:\Users\DAVID BLACK\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\DAVID BLACK\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_DesignYourOwnCpu.205391904.00" t="ExcludeRecursive" />
+    <e p="D:\git\design-your-own-cpu\DesignYourOwnCpu" t="IncludeFlat">
+      <e p="Assembler" t="IncludeRecursive">
+        <e p="Assembler.cs" t="Include" />
+        <e p="Assembler.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="Assembler.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="AssemblerTests" t="IncludeRecursive">
+        <e p="AssemblerTests.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="AssemblerTests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="TestFramework.cs" t="Include" />
+      </e>
+      <e p="DesignYourOwnCpu.sln" t="IncludeFlat" />
+      <e p="Emulator" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Emulator.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="Emulator.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="EmulatorTests" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="EmulatorTests.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="EmulatorTests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="TestFramework.cs" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Shared" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="Shared.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="RandomAccessMemory.cs" t="Include" />
+        <e p="Shared.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="SharedTests" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="SharedTests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="SharedTests.csproj" t="IncludeRecursive" />
+        <e p="TestFramework.cs" t="Include" />
+      </e>
+      <e p="Tests" t="Include" />
+    </e>
+  </component>
+</project>
