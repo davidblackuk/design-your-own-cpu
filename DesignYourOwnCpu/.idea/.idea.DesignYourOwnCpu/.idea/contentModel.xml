@@ -19,6 +19,25 @@
         <e p="Assembler.cs" t="Include" />
         <e p="Assembler.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="CodeGenerator.cs" t="Include" />
+        <e p="Exceptions" t="Include">
+          <e p="AssemblerException.cs" t="Include" />
+        </e>
+        <e p="Instructions" t="Include">
+          <e p="IInstruction.cs" t="Include" />
+          <e p="IInstructionFactory.cs" t="Include" />
+          <e p="IInstructionNameParser.cs" t="Include" />
+          <e p="InstructionFactory.cs" t="Include" />
+          <e p="InstructionNameParser.cs" t="Include" />
+          <e p="NopInstruction.cs" t="Include" />
+        </e>
+        <e p="IParser.cs" t="Include" />
+        <e p="lINEsOURCES" t="Include">
+          <e p="CommentStrippingLineSource.cs" t="Include" />
+          <e p="ILineSource.cs" t="Include" />
+          <e p="MemoryLineSource.cs" t="Include" />
+          <e p="WhitespaceRemovalLineSource.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="net5.0" t="Include">
@@ -26,17 +45,38 @@
             </e>
           </e>
         </e>
+        <e p="Parser.cs" t="Include" />
         <e p="Program.cs" t="Include" />
+        <e p="Symbols" t="Include">
+          <e p="ISymbolTable.cs" t="Include" />
+          <e p="Symbol.cs" t="Include" />
+          <e p="SymbolTable.cs" t="Include" />
+        </e>
       </e>
       <e p="AssemblerTests" t="IncludeRecursive">
         <e p="AssemblerTests.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Instructions" t="Include">
+          <e p="InstructionFactoryTests.cs" t="Include" />
+          <e p="InstructionNameParserTests.cs" t="Include" />
+          <e p="InstructionTests.cs" t="Include" />
+          <e p="ParserTests.cs" t="Include" />
+        </e>
+        <e p="lINEsOURCES" t="Include">
+          <e p="CommentStrippingLineSourceTests.cs" t="Include" />
+          <e p="MemoryLineSourceTests.cs" t="Include" />
+          <e p="WhitespaceRemovalLineSourceTests.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="net5.0" t="Include">
               <e p="AssemblerTests.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
+        </e>
+        <e p="Symbol" t="Include">
+          <e p="SymbolTableTests.cs" t="Include" />
+          <e p="SymbolTests.cs" t="Include" />
         </e>
         <e p="TestFramework.cs" t="Include" />
       </e>
@@ -68,6 +108,7 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="Shared" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Constants.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="net5.0" t="Include">
@@ -75,6 +116,7 @@
             </e>
           </e>
         </e>
+        <e p="OpCodes.cs" t="Include" />
         <e p="RandomAccessMemory.cs" t="Include" />
         <e p="Shared.csproj" t="IncludeRecursive" />
       </e>
@@ -87,8 +129,8 @@
             </e>
           </e>
         </e>
+        <e p="RandomAccessMemoryTests.cs" t="Include" />
         <e p="SharedTests.csproj" t="IncludeRecursive" />
-        <e p="TestFramework.cs" t="Include" />
       </e>
       <e p="Tests" t="Include" />
     </e>

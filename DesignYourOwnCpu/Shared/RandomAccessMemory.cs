@@ -4,8 +4,14 @@ namespace Shared
 {
     public class RandomAccessMemory
     {
-        public const uint RamTop = 0xFFFF;
+        public const ushort RamTop = 0xFFFF;
         
         public byte [] RawBytes { get; } = new byte[RamTop+1];
+
+        public byte this[ushort address]
+        {
+            get => RawBytes[address];
+            set => RawBytes[address] = value;
+        }
     }
 }
