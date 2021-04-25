@@ -11,10 +11,6 @@ Specific videos:
 Gary's [orininal source][2] is availble on Github
 
 
-
-
-
-
 [1]: https://www.youtube.com/c/GaryExplains
 [2]: https://github.com/garyexplains/examples
 [3]: https://www.youtube.com/watch?v=wjHlvQfo5uI&list=PLxLxbi4e2mYGvzNw2RzIsM_rxnNC8m2Kz&index=4
