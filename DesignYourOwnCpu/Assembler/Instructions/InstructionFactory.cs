@@ -13,6 +13,8 @@ namespace Assembler.Instructions
                     return new NopInstruction(); 
                 case HaltInstruction.InstructionName:
                     return new HaltInstruction();
+                case LoadInstruction.InstructionName:
+                    return new LoadInstruction();
                 default:
                     throw new AssemblerException("Unknown instruction: " + name);
             }
