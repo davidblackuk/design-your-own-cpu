@@ -14,7 +14,7 @@ namespace Assembler
         private readonly ISymbolTable symbolTable;
 
         public List<IInstruction> Instructions { get; } = new List<IInstruction>();
-        
+
         public Parser(IInstructionNameParser nameParser, IInstructionFactory instructionFactory, ISymbolTable symbolTable)
         {
             this.nameParser = nameParser ?? throw new ArgumentNullException(nameof(nameParser));

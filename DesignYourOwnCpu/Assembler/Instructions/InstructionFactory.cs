@@ -15,6 +15,8 @@ namespace Assembler.Instructions
                     return new HaltInstruction();
                 case LoadInstruction.InstructionName:
                     return new LoadInstruction();
+                case StoreInstruction.InstructionName:
+                    return new StoreInstruction();
                 default:
                     throw new AssemblerException("Unknown instruction: " + name);
             }

@@ -46,6 +46,9 @@ namespace Assembler
 #ADD R1, 1
 #BLT loop
 LD R1, 0x39
+ST R1, (0xDD07)
+LD R3, 0xDD01
+ST R1, (R3)
 LD R3, 3
 LD R2, R3
 .loop2

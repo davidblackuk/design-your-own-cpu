@@ -6,7 +6,7 @@ using Shared;
 
 namespace Assembler
 {
-    public class CodeGenerator
+    public class CodeGenerator : ICodeGenerator
     {
         private readonly ISymbolTable symbolTable;
         private readonly RandomAccessMemory ram;

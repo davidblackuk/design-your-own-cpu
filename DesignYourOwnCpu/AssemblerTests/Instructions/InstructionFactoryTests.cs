@@ -21,6 +21,7 @@ namespace AssemblerTests.Instructions
         [TestCase("nop", typeof(NopInstruction))]
         [TestCase("halt", typeof(HaltInstruction))]
         [TestCase("ld", typeof(LoadInstruction))]
+        [TestCase("st", typeof(StoreInstruction))]
         public void Create_WhenCalledWithAKnownInstructionName_ShouldReturnCorrectType(
             string instructionName, Type expectedType)
         {
