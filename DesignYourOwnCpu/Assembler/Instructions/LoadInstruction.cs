@@ -32,14 +32,16 @@ namespace Assembler.Instructions
         [ExcludeFromCodeCoverage]
         public override string ToString()
         {
+            string bytes = base.ToString();
+            
             switch (OpCode)
             {
                 case OpCodes.LoadRegisterWithConstant:
-                    return $"{OpCode:X2} {Register:X2} {ByteHigh:X2} {ByteLow:X2}    # {InstructionName} r{Register}, 0x{ByteHigh:X2}{ByteLow:X2}";
+                    return $"{bytes}    # {InstructionName} r{Register}, 0x{ByteHigh:X2}{ByteLow:X2}";
                 case OpCodes.LoadRegisterFromRegister:
-                    return $"{OpCode:X2} {Register:X2} {ByteHigh:X2} {ByteLow:X2}    # {InstructionName}  r{Register}, r{ByteLow}";
+                    return $"{bytes}    # {InstructionName}  r{Register}, r{ByteLow}";
                 case OpCodes.LoadRegisterFromMemory:
-                    return $"{OpCode:X2} {Register:X2} {ByteHigh:X2} {ByteLow:X2}    # {InstructionName} r{Register}, (0x{ByteHigh:X2}{ByteLow:X2})";
+                    return $"{bytes}    # {InstructionName} r{Register}, (0x{ByteHigh:X2}{ByteLow:X2})";
                     
             }
 

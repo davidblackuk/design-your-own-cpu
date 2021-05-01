@@ -106,5 +106,10 @@ namespace Assembler.Instructions
             ByteLow = (byte) (value & 0xff);
             ByteHigh = (byte) (value >> 8 & 0xff);
         }
+
+        public override string ToString()
+        {
+            return $"{OpCode:X2} {Register:X2} {ByteHigh:X2} {ByteLow:X2}";
+        } 
     }
 }

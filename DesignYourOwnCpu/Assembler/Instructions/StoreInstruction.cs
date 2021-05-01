@@ -3,41 +3,80 @@ using Shared;
 
 namespace Assembler.Instructions
 {
-    public class StoreInstruction: Instruction, IInstruction
+    public class StoreInstructionBase : Instruction, IInstruction
     {
-        public const string InstructionName = "st";
+        private readonly string instructionName;
+        private readonly byte indirectOpCode;
+        private readonly byte directOpCode;
 
-
+        public StoreInstructionBase(string instructionName, byte indirectOpCode, byte directOpCode)
+        {
+            this.instructionName = instructionName;
+            this.indirectOpCode = indirectOpCode;
+            this.directOpCode = directOpCode;
+        }
         public void Parse(string source)
         {
-            var operands = GetOperands(InstructionName, source);
+            var operands = GetOperands(instructionName, source);
             Register = ParseRegister(operands.left);
             if (IsIndirectAddress(operands.right))
             {
                 ByteLow = ParseIndirectAddress(operands.right);
-                
-                OpCode = OpCodes.StoreRegisterIndirect;
+
+                OpCode = indirectOpCode;
             }
             else // its load a constant
             {
                 ParseAddress(operands.right);
-                OpCode = OpCodes.StoreRegisterDirect;
+                OpCode = directOpCode;
             }
         }
+        
         
         [ExcludeFromCodeCoverage]
         public override string ToString()
         {
-            switch (OpCode)
+            string bytes = base.ToString();
+            if (OpCode == directOpCode)
             {
-                case OpCodes.StoreRegisterDirect:
-                    return $"{OpCode:X2} {Register:X2} {ByteHigh:X2} {ByteLow:X2}    # {InstructionName} r{Register}, (0x{ByteHigh:X2}{ByteLow:X2})";
-                case OpCodes.StoreRegisterIndirect:
-                    return $"{OpCode:X2} {Register:X2} {ByteHigh:X2} {ByteLow:X2}    # {InstructionName}  r{Register}, (r{ByteLow})";
-                    
+                return $"{bytes}    # {instructionName} r{Register}, (0x{ByteHigh:X2}{ByteLow:X2})";
             }
+            else if (OpCode == indirectOpCode)
+            {
+                return $"{bytes}    # {instructionName}  r{Register}, (r{ByteLow})";
+            }
+            else
+            {
+                return "!!ERROR!!";
+            }
+        }
+    }
 
-            return "ERROR!!";
+    public class StoreInstruction : StoreInstructionBase
+    {
+        public const string InstructionName = "st";
+
+        public StoreInstruction() : base(InstructionName, OpCodes.StoreRegisterIndirect, OpCodes.StoreRegisterDirect)
+        {
+            
+        }
+    }
+    
+    public class StoreHiInstruction : StoreInstructionBase
+    {
+        public const string InstructionName = "sth";
+
+        public StoreHiInstruction(): base(InstructionName, OpCodes.StoreRegisterHiIndirect, OpCodes.StoreRegisterHiDirect)
+        {
+        }
+    }
+
+    public class StoreLowInstruction : StoreInstructionBase
+    {
+        public const string InstructionName = "stl";
+
+        public StoreLowInstruction(): base(InstructionName, OpCodes.StoreRegisterLowIndirect, OpCodes.StoreRegisterLowDirect)
+        {
         }
     }
 }

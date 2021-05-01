@@ -41,7 +41,7 @@ namespace Assembler
 
         private const string SourceSupported =
 @"nop
-#STL R1, $0xFBFF
+STL R1, $0xFBFF
 #CMP R1, 0x39
 #ADD R1, 1
 #BLT loop
@@ -52,7 +52,7 @@ ST R1, (R3)
 LD R3, 3
 LD R2, R3
 .loop2
-#STL R1, $0xFC00
+STL R1, $0xFC00
 #CMP R1, 0x30
 #SUB R1, R2
 #BGT loop2

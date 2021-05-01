@@ -22,6 +22,8 @@ namespace AssemblerTests.Instructions
         [TestCase("halt", typeof(HaltInstruction))]
         [TestCase("ld", typeof(LoadInstruction))]
         [TestCase("st", typeof(StoreInstruction))]
+        [TestCase("stl", typeof(StoreLowInstruction))]
+        [TestCase("sth", typeof(StoreHiInstruction))]
         public void Create_WhenCalledWithAKnownInstructionName_ShouldReturnCorrectType(
             string instructionName, Type expectedType)
         {
