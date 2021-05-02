@@ -4,12 +4,12 @@ using NUnit.Framework;
 
 namespace AssemblerTests.Instructions
 {
-    public class StoreInstructionTests
+    public class StoreLowInstructionTests
     {
         
         [Test]
-        [TestCase("r4, (0x1234)", 0x10, 4, 0x12, 0x34)]
-        [TestCase("r5, (r3)", (0x13), 5, 0x0, 0x3)]
+        [TestCase("r4, (0x1234)", 0x11, 4, 0x12, 0x34)]
+        [TestCase("r5, (r3)", 0x14, 5, 0x0, 0x3)]
         public void Parse_whenCalled_ShouldCorrectlyParseInstruction(
             string line, byte opcode, byte register, byte dataHigh, byte dataLow
         )
@@ -25,9 +25,9 @@ namespace AssemblerTests.Instructions
         
         
 
-        private StoreInstruction CreateSut()
+        private StoreLowInstruction CreateSut()
         {
-            return new StoreInstruction();
+            return new StoreLowInstruction();
         }
     }
 }

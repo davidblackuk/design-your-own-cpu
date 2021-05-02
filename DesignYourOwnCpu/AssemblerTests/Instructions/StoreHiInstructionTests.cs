@@ -4,12 +4,12 @@ using NUnit.Framework;
 
 namespace AssemblerTests.Instructions
 {
-    public class StoreInstructionTests
+    public class StoreHiInstructionTests
     {
         
         [Test]
-        [TestCase("r4, (0x1234)", 0x10, 4, 0x12, 0x34)]
-        [TestCase("r5, (r3)", (0x13), 5, 0x0, 0x3)]
+        [TestCase("r4, (0x1234)", 0x12, 4, 0x12, 0x34)]
+        [TestCase("r5, (r3)", (0x15), 5, 0x0, 0x3)]
         public void Parse_whenCalled_ShouldCorrectlyParseInstruction(
             string line, byte opcode, byte register, byte dataHigh, byte dataLow
         )
@@ -22,12 +22,9 @@ namespace AssemblerTests.Instructions
             sut.ByteLow.Should().Be(dataLow);
         }
         
-        
-        
-
-        private StoreInstruction CreateSut()
+        private StoreHiInstruction CreateSut()
         {
-            return new StoreInstruction();
+            return new StoreHiInstruction();
         }
     }
 }

@@ -21,6 +21,8 @@ namespace Assembler.Instructions
                     return new StoreHiInstruction();
                 case StoreLowInstruction.InstructionName:
                     return new StoreLowInstruction();
+                case CompareInstruction.InstructionName:
+                    return new CompareInstruction();
                 default:
                     throw new AssemblerException("Unknown instruction: " + name);
             }

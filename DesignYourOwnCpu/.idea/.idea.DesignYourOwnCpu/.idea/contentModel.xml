@@ -25,6 +25,7 @@
         </e>
         <e p="ICodeGenerator.cs" t="Include" />
         <e p="Instructions" t="Include">
+          <e p="CompareInstruction.cs" t="Include" />
           <e p="HaltInstruction.cs" t="Include" />
           <e p="IInstruction.cs" t="Include" />
           <e p="IInstructionFactory.cs" t="Include" />
@@ -34,7 +35,10 @@
           <e p="InstructionNameParser.cs" t="Include" />
           <e p="LoadInstruction.cs" t="Include" />
           <e p="NopInstruction.cs" t="Include" />
+          <e p="StoreHiInstruction.cs" t="Include" />
           <e p="StoreInstruction.cs" t="Include" />
+          <e p="StoreInstructionBase.cs" t="Include" />
+          <e p="StoreLowInstruction.cs" t="Include" />
         </e>
         <e p="IParser.cs" t="Include" />
         <e p="lINEsOURCES" t="Include">
@@ -63,6 +67,7 @@
         <e p="AssemblerTests.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Instructions" t="Include">
+          <e p="CompareInstructionTests.cs" t="Include" />
           <e p="HaltInstructionTests.cs" t="Include" />
           <e p="InstructionFactoryTests.cs" t="Include" />
           <e p="InstructionNameParserTests.cs" t="Include" />
@@ -70,7 +75,9 @@
           <e p="LoadInstructionTests.cs" t="Include" />
           <e p="NopInstructionTests.cs" t="Include" />
           <e p="ParserTests.cs" t="Include" />
+          <e p="StoreHiInstructionTests.cs" t="Include" />
           <e p="StoreInstructionTests.cs" t="Include" />
+          <e p="StoreLowInstructionTests.cs" t="Include" />
         </e>
         <e p="lINEsOURCES" t="Include">
           <e p="CommentStrippingLineSourceTests.cs" t="Include" />
