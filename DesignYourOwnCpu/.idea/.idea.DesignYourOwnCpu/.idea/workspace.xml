@@ -30,17 +30,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assembler/Instructions/CompareInstruction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assembler/Instructions/StoreHiInstruction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assembler/Instructions/StoreInstructionBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assembler/Instructions/StoreLowInstruction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/CompareInstructionTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/StoreHiInstructionTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/StoreLowInstructionTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/HaltInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/HaltInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/Instruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/Instruction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembler/Instructions/InstructionFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/InstructionFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/NopInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/NopInstruction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembler/Instructions/StoreInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/StoreInstruction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembler/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/InstructionFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/InstructionFactoryTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/StoreInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/StoreInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared/OpCodes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/OpCodes.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
@@ -88,7 +91,6 @@
         <option value="$PROJECT_DIR$/Assembler/Symbols/Symbol.cs" />
         <option value="$PROJECT_DIR$/AssemblerTests/Symbol/SymbolTests.cs" />
         <option value="$PROJECT_DIR$/Shared/Constants.cs" />
-        <option value="$PROJECT_DIR$/AssemblerTests/Instructions/LoadInstructionTests.cs" />
         <option value="$PROJECT_DIR$/AssemblerTests/Instructions/InstructionTests.cs" />
         <option value="$PROJECT_DIR$/Assembler/CodeGenerator.cs" />
         <option value="$PROJECT_DIR$/AssemblerTests/AssemblerClassTests.cs" />
@@ -96,16 +98,18 @@
         <option value="$PROJECT_DIR$/Assembler/Parser.cs" />
         <option value="$PROJECT_DIR$/Assembler/Assembler.cs" />
         <option value="$PROJECT_DIR$/Emulator/Program.cs" />
-        <option value="$PROJECT_DIR$/Shared/OpCodes.cs" />
-        <option value="$PROJECT_DIR$/AssemblerTests/Instructions/StoreInstructionTests.cs" />
-        <option value="$PROJECT_DIR$/Assembler/Instructions/InstructionFactory.cs" />
-        <option value="$PROJECT_DIR$/AssemblerTests/Instructions/InstructionFactoryTests.cs" />
-        <option value="$PROJECT_DIR$/Assembler/Program.cs" />
         <option value="$PROJECT_DIR$/Assembler/Instructions/Instruction.cs" />
         <option value="$PROJECT_DIR$/Assembler/Instructions/StoreInstruction.cs" />
         <option value="$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" />
         <option value="$PROJECT_DIR$/Assembler/Instructions/NopInstruction.cs" />
         <option value="$PROJECT_DIR$/Assembler/Instructions/HaltInstruction.cs" />
+        <option value="$PROJECT_DIR$/Shared/OpCodes.cs" />
+        <option value="$PROJECT_DIR$/AssemblerTests/Instructions/LoadInstructionTests.cs" />
+        <option value="$PROJECT_DIR$/AssemblerTests/Instructions/StoreInstructionTests.cs" />
+        <option value="$PROJECT_DIR$/Assembler/Instructions/CompareInstruction.cs" />
+        <option value="$PROJECT_DIR$/AssemblerTests/Instructions/InstructionFactoryTests.cs" />
+        <option value="$PROJECT_DIR$/Assembler/Instructions/InstructionFactory.cs" />
+        <option value="$PROJECT_DIR$/Assembler/Program.cs" />
       </list>
     </option>
   </component>
@@ -119,8 +123,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34997028" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.3000594" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35009798" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30013064" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -243,7 +247,11 @@
       <workItem from="1619527003408" duration="5380000" />
       <workItem from="1619614268216" duration="6278000" />
       <workItem from="1619773347644" duration="11143000" />
-      <workItem from="1619863613263" duration="6505000" />
+      <workItem from="1619863613263" duration="7257000" />
+      <workItem from="1619882524194" duration="786000" />
+      <workItem from="1619883328044" duration="1703000" />
+      <workItem from="1619946499611" duration="51000" />
+      <workItem from="1619947293815" duration="1352000" />
     </task>
     <servers />
   </component>
@@ -253,61 +261,69 @@
   <component name="UnitTestsCoverage.Settings">
     <option name="coveragePercentColumnWidth" value="150" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="479" />
+    <option name="symbolColumnWidth" value="517" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 96% 26/637" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 96% 26/656" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 96% 26/637" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Assembler 93% 22/303" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 96% 26/656" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Assembler 93% 22/311" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 96% 26/637" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Assembler 93% 22/303" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Assembler 93% 22/303" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 96% 26/656" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Assembler 93% 22/311" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Assembler 93% 22/311" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 96% 26/637" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Assembler 93% 22/303" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Assembler 93% 22/303" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Instructions 98% 3/147" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 96% 26/656" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Assembler 93% 22/311" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Assembler 93% 22/311" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Instructions 98% 3/155" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 96% 26/637" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Assembler 93% 22/303" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Assembler 93% 22/303" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Instructions 98% 3/147" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 96% 26/656" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Assembler 93% 22/311" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Assembler 93% 22/311" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Instructions 98% 3/155" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="CompareInstruction 100% 0/13" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 96% 26/656" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Assembler 93% 22/311" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Assembler 93% 22/311" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Instructions 98% 3/155" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="StoreHiInstruction 100% 0/3" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 96% 26/637" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Assembler 93% 22/303" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Assembler 93% 22/303" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Instructions 98% 3/147" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 96% 26/656" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Assembler 93% 22/311" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Assembler 93% 22/311" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Instructions 98% 3/155" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="StoreInstructionBase 100% 0/19" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 96% 26/637" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 96% 26/656" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Shared 50% 2/4" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 96% 26/637" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 96% 26/656" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Shared 50% 2/4" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Shared 50% 2/4" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 96% 26/637" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 96% 26/656" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Shared 50% 2/4" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Shared 50% 2/4" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="RandomAccessMemory 50% 2/4" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
@@ -342,86 +358,86 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="397" height="464" key="DebuggerActiveHint/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619365569532" />
-    <state width="3397" height="518" key="GridCell.Tab.0.bottom" timestamp="1619876081459">
+    <state width="3093" height="514" key="GridCell.Tab.0.bottom" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.0.bottom/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081459" />
-    <state width="3397" height="518" key="GridCell.Tab.0.center" timestamp="1619876081459">
+    <state width="3093" height="514" key="GridCell.Tab.0.bottom/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.0.center" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.0.center/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081459" />
-    <state width="3397" height="518" key="GridCell.Tab.0.left" timestamp="1619876081459">
+    <state width="3093" height="514" key="GridCell.Tab.0.center/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.0.left" timestamp="1619950691051">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.0.left/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081459" />
-    <state width="3397" height="518" key="GridCell.Tab.0.right" timestamp="1619876081459">
+    <state width="3093" height="514" key="GridCell.Tab.0.left/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691051" />
+    <state width="3093" height="514" key="GridCell.Tab.0.right" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.0.right/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081459" />
-    <state width="3397" height="518" key="GridCell.Tab.1.bottom" timestamp="1619876081328">
+    <state width="3093" height="514" key="GridCell.Tab.0.right/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.1.bottom" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.1.bottom/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081328" />
-    <state width="3397" height="518" key="GridCell.Tab.1.center" timestamp="1619876081328">
+    <state width="3093" height="514" key="GridCell.Tab.1.bottom/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.1.center" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.1.center/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081328" />
-    <state width="3397" height="518" key="GridCell.Tab.1.left" timestamp="1619876081328">
+    <state width="3093" height="514" key="GridCell.Tab.1.center/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.1.left" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.1.left/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081328" />
-    <state width="3397" height="518" key="GridCell.Tab.1.right" timestamp="1619876081328">
+    <state width="3093" height="514" key="GridCell.Tab.1.left/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.1.right" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.1.right/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081328" />
-    <state width="3397" height="518" key="GridCell.Tab.2.bottom" timestamp="1619876081329">
+    <state width="3093" height="514" key="GridCell.Tab.1.right/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.2.bottom" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.2.bottom/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081329" />
-    <state width="3397" height="518" key="GridCell.Tab.2.center" timestamp="1619876081329">
+    <state width="3093" height="514" key="GridCell.Tab.2.bottom/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.2.center" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.2.center/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081329" />
-    <state width="3397" height="518" key="GridCell.Tab.2.left" timestamp="1619876081328">
+    <state width="3093" height="514" key="GridCell.Tab.2.center/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.2.left" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.2.left/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081328" />
-    <state width="3397" height="518" key="GridCell.Tab.2.right" timestamp="1619876081329">
+    <state width="3093" height="514" key="GridCell.Tab.2.left/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.2.right" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.2.right/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081329" />
-    <state width="3397" height="518" key="GridCell.Tab.3.bottom" timestamp="1619876081329">
+    <state width="3093" height="514" key="GridCell.Tab.2.right/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.3.bottom" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.3.bottom/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081329" />
-    <state width="3397" height="518" key="GridCell.Tab.3.center" timestamp="1619876081329">
+    <state width="3093" height="514" key="GridCell.Tab.3.bottom/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.3.center" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.3.center/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081329" />
-    <state width="3397" height="518" key="GridCell.Tab.3.left" timestamp="1619876081329">
+    <state width="3093" height="514" key="GridCell.Tab.3.center/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.3.left" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.3.left/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081329" />
-    <state width="3397" height="518" key="GridCell.Tab.3.right" timestamp="1619876081329">
+    <state width="3093" height="514" key="GridCell.Tab.3.left/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.3.right" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.3.right/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081329" />
-    <state width="3397" height="518" key="GridCell.Tab.4.bottom" timestamp="1619876081329">
+    <state width="3093" height="514" key="GridCell.Tab.3.right/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.4.bottom" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.4.bottom/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081329" />
-    <state width="3397" height="518" key="GridCell.Tab.4.center" timestamp="1619876081329">
+    <state width="3093" height="514" key="GridCell.Tab.4.bottom/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.4.center" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.4.center/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081329" />
-    <state width="3397" height="518" key="GridCell.Tab.4.left" timestamp="1619876081329">
+    <state width="3093" height="514" key="GridCell.Tab.4.center/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.4.left" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.4.left/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081329" />
-    <state width="3397" height="518" key="GridCell.Tab.4.right" timestamp="1619876081329">
+    <state width="3093" height="514" key="GridCell.Tab.4.left/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
+    <state width="3093" height="514" key="GridCell.Tab.4.right" timestamp="1619950691052">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="518" key="GridCell.Tab.4.right/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619876081329" />
+    <state width="3093" height="514" key="GridCell.Tab.4.right/0.0.3440.1400/3440.0.3440.1400@0.0.3440.1400" timestamp="1619950691052" />
     <state x="1628" y="407" key="RiderGenerateDialog" timestamp="1619442360113">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>

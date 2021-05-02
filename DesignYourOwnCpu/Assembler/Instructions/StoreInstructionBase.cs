@@ -1,0 +1,53 @@
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Assembler.Instructions
+{
+    public class StoreInstructionBase : Instruction, IInstruction
+    {
+        private readonly string instructionName;
+        private readonly byte indirectOpCode;
+        private readonly byte directOpCode;
+
+        public StoreInstructionBase(string instructionName, byte indirectOpCode, byte directOpCode)
+        {
+            this.instructionName = instructionName;
+            this.indirectOpCode = indirectOpCode;
+            this.directOpCode = directOpCode;
+        }
+        public void Parse(string source)
+        {
+            var operands = GetOperands(instructionName, source);
+            Register = ParseRegister(operands.left);
+            if (IsIndirectAddress(operands.right))
+            {
+                ByteLow = ParseIndirectAddress(operands.right);
+
+                OpCode = indirectOpCode;
+            }
+            else // its load a constant
+            {
+                ParseAddress(operands.right);
+                OpCode = directOpCode;
+            }
+        }
+        
+        
+        [ExcludeFromCodeCoverage]
+        public override string ToString()
+        {
+            string bytes = base.ToString();
+            if (OpCode == directOpCode)
+            {
+                return $"{bytes}    # {instructionName} r{Register}, (0x{ByteHigh:X2}{ByteLow:X2})";
+            }
+            else if (OpCode == indirectOpCode)
+            {
+                return $"{bytes}    # {instructionName}  r{Register}, (r{ByteLow})";
+            }
+            else
+            {
+                return "!!ERROR!!";
+            }
+        }
+    }
+}
