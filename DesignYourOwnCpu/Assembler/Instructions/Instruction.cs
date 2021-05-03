@@ -6,11 +6,21 @@ namespace Assembler.Instructions
 {
     public class Instruction
     {
-        public byte OpCode { get; set; }
-        public byte Register { get; set; }
-        public byte ByteHigh { get; set; }
-        public byte ByteLow { get; set; }
+        public byte OpCode { get; protected set; }
+        public byte Register { get; protected set; }
+        public byte ByteHigh { get; protected set; }
+        public byte ByteLow { get; protected set; }
+        
+        /// <summary>
+        /// For symbols this contains the name that needs to be resolved
+        /// </summary>
+        public string Symbol { get; private set; }
 
+        /// <summary>
+        /// Does this instruction require a symbol to be resolved for it to be output
+        /// </summary>
+        public bool RequresSymbolResolution => !String.IsNullOrWhiteSpace(Symbol);
+        
         /// <summary>
         /// Splits the remaining line into two parts on a comma, returns the left operand and right
         /// operand as trimmed strings
@@ -32,7 +42,10 @@ namespace Assembler.Instructions
 
         protected bool IsRegister(string source)
         {
-            return source.ToLowerInvariant().StartsWith("r");
+            source = source.ToLowerInvariant();
+            return source.StartsWith("r") && 
+                   source.Length >= 2 &&
+                   Char.IsDigit(source[1]);
         }
 
         protected bool IsAddress(string source)
@@ -48,10 +61,21 @@ namespace Assembler.Instructions
         protected bool IsIndirectAddress(string text)
         {
             return IsAddress(text) &&  
-                   text.Substring(1).Substring(0, text.Length - 2).Trim().ToLowerInvariant().StartsWith("r");
+                   text.Substring(1)
+                       .Substring(0, text.Length - 2)
+                       .Trim()
+                       .ToLowerInvariant()
+                       .StartsWith("r");
+        }
+        
+        protected bool IsLabel(string source)
+        {
+            source = source.Trim();
+            return !String.IsNullOrWhiteSpace(source) && 
+                   !IsRegister(source) && 
+                   !Char.IsDigit(source[0]);
         }
 
-        
         protected byte ParseRegister(string source)
         {
             if (IsRegister(source))
@@ -86,10 +110,19 @@ namespace Assembler.Instructions
             return ParseRegister(registerText);
         }
 
+        /// <summary>
+        /// Resolve the value associated with a symbol / label.
+        /// </summary>
+        /// <param name="value"></param>
+        public void ResolveSymbol(ushort value)
+        {
+            StoreData(value);
+        }
+        
         protected void ParseValue(string text)
         {
             text = text.Trim();
-            int value = 0;
+            ushort value = 0;
             if (text.ToLowerInvariant().StartsWith("0x"))
             {
                 value = Convert.ToUInt16(text.Substring(2), 16);
@@ -103,11 +136,21 @@ namespace Assembler.Instructions
                 value = Convert.ToUInt16(text, 10);
             }
 
+            StoreData(value);
+        }
+
+        public void StoreData(ushort value)
+        {
             ByteLow = (byte) (value & 0xff);
             ByteHigh = (byte) (value >> 8 & 0xff);
         }
 
-        public override string ToString()
+        protected void RecordSymbolForResolution(string symbol)
+        {
+            Symbol = symbol.ToLowerInvariant();
+        }
+
+        public string BytesString()
         {
             return $"{OpCode:X2} {Register:X2} {ByteHigh:X2} {ByteLow:X2}";
         } 

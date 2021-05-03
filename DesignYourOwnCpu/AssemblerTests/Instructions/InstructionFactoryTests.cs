@@ -25,6 +25,10 @@ namespace AssemblerTests.Instructions
         [TestCase("stl", typeof(StoreLowInstruction))]
         [TestCase("sth", typeof(StoreHiInstruction))]
         [TestCase("cmp", typeof(CompareInstruction))]
+        [TestCase("blt", typeof(BranchLessThanInstruction))]
+        [TestCase("bgt", typeof(BranchGreaterThanInstruction))]
+        [TestCase("beq", typeof(BranchEqualInstruction))]
+        [TestCase("bra", typeof(BranchAlwaysInstruction))]
         public void Create_WhenCalledWithAKnownInstructionName_ShouldReturnCorrectType(
             string instructionName, Type expectedType)
         {

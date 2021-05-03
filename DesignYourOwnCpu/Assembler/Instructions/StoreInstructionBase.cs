@@ -35,14 +35,13 @@ namespace Assembler.Instructions
         [ExcludeFromCodeCoverage]
         public override string ToString()
         {
-            string bytes = base.ToString();
             if (OpCode == directOpCode)
             {
-                return $"{bytes}    # {instructionName} r{Register}, (0x{ByteHigh:X2}{ByteLow:X2})";
+                return $"{instructionName} r{Register}, (0x{ByteHigh:X2}{ByteLow:X2})";
             }
             else if (OpCode == indirectOpCode)
             {
-                return $"{bytes}    # {instructionName}  r{Register}, (r{ByteLow})";
+                return $"{instructionName} r{Register}, (r{ByteLow})";
             }
             else
             {

@@ -24,14 +24,12 @@ namespace Assembler.Instructions
         [ExcludeFromCodeCoverage]
         public override string ToString()
         {
-            string bytes = base.ToString();
-            
             switch (OpCode)
             {
                 case OpCodes.CompareWithConstant:
-                    return $"{bytes}    # {InstructionName} r{Register}, 0x{ByteHigh:X2}{ByteLow:X2}";
+                    return $"{InstructionName} r{Register}, 0x{ByteHigh:X2}{ByteLow:X2}";
                 case OpCodes.CompareWithRegister:
-                    return $"{bytes}    # {InstructionName}  r{Register}, r{ByteLow}";
+                    return $"{InstructionName}  r{Register}, r{ByteLow}";
             }
 
             return "ERROR!!";

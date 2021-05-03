@@ -25,6 +25,7 @@
         </e>
         <e p="ICodeGenerator.cs" t="Include" />
         <e p="Instructions" t="Include">
+          <e p="BranchEqualInstruction.cs" t="Include" />
           <e p="CompareInstruction.cs" t="Include" />
           <e p="HaltInstruction.cs" t="Include" />
           <e p="IInstruction.cs" t="Include" />
@@ -67,6 +68,7 @@
         <e p="AssemblerTests.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Instructions" t="Include">
+          <e p="BranchEqualInstructionTests.cs" t="Include" />
           <e p="CompareInstructionTests.cs" t="Include" />
           <e p="HaltInstructionTests.cs" t="Include" />
           <e p="InstructionFactoryTests.cs" t="Include" />

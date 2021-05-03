@@ -23,6 +23,14 @@ namespace Assembler.Instructions
                     return new StoreLowInstruction();
                 case CompareInstruction.InstructionName:
                     return new CompareInstruction();
+                case BranchEqualInstruction.InstructionName:
+                    return new BranchEqualInstruction();
+                case BranchLessThanInstruction.InstructionName:
+                    return new BranchLessThanInstruction();
+                case BranchGreaterThanInstruction.InstructionName:
+                    return new BranchGreaterThanInstruction();
+                case BranchAlwaysInstruction.InstructionName:
+                    return new BranchAlwaysInstruction();
                 default:
                     throw new AssemblerException("Unknown instruction: " + name);
             }

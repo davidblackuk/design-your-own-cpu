@@ -17,12 +17,17 @@
         
         public const byte CompareWithRegister = 0x20;
         public const byte CompareWithConstant = 0x21;
-        
 
+
+        public const byte BranchEqual = 0x30;
+        public const byte BranchGreaterThan = 0x31;
+        public const byte BranchLessThan = 0x32;
+        public const byte Branch = 0x33;
         
         
         public const byte Nop = 0xFF;
         public const byte Halt = 0xFE;
         
     }
+    
 }
