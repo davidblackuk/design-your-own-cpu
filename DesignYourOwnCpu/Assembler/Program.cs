@@ -39,23 +39,26 @@ namespace Assembler
     
 
         private const string SourceSupported =
-@"nop
-STL R1, $0xFBFF
-CMP R1, 0x39
-#ADD R1, 1
-#BLT loop
-LD R1, 0x39
-ST R1, (0xDD07)
-LD R3, 0xDD01
-ST R1, (R3)
-LD R3, 3
-LD R2, R3
-.loop2
-STL R1, $0xFC00
-CMP R1, 0x30
-#SUB R1, R2
-#BGT loop2
-halt";
+@"  NOP
+    LD R1, 0x30
+.loop
+    STL R1, $0xFBFF
+    CMP R1, 0x39
+    #ADD R1, 1
+    BLT loop
+    LD R1, 0x39
+    ST R1, (0xDD07)
+    LD R3, 0xDD01
+    ST R1, (R3)
+    LD R3, 3
+    LD R2, R3
+.Loop2
+    STL R1, $0xFC00
+    CMP R1, 0x30
+    #SUB R1, R2
+    BGT loop2
+
+    HALT";
         
         private const string SourceReal =
 @"LD R1, 0x30

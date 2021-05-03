@@ -15,8 +15,7 @@ namespace Assembler.Instructions
         [ExcludeFromCodeCoverage]
         public override string ToString()
         {
-            string bytes = base.ToString();
-            return $"{bytes}    # {InstructionName}";
+            return InstructionName;
         }
     }
 }
