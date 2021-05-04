@@ -26,6 +26,28 @@ namespace SharedTests
             sut[expectedAddress].Should().Be(expectedValue);
         }
 
+        [Test]
+        public void Instruction_WhenCalled_returnsTheInstructionDataForTheAddress()
+        {
+            var sut = CreateSut();
+            byte expectedOpCode = 0xFF;
+            byte expectedRegister = 0xEE;
+            byte expectedByteHigh = 0xDD;
+            byte expectedByteLow = 0xCC;
+            
+            sut[12] = expectedOpCode;
+            sut[13] = expectedRegister;
+            sut[14] = expectedByteHigh;
+            sut[15] = expectedByteLow;
+            
+            var res = sut.Instruction(12);
+            
+            res.opcode.Should().Be(expectedOpCode);
+            res.register.Should().Be(expectedRegister);
+            res.byteHigh.Should().Be(expectedByteHigh);
+            res.byteLow.Should().Be(expectedByteLow);
+        }
+
         private RandomAccessMemory CreateSut()
         {
             return new RandomAccessMemory();

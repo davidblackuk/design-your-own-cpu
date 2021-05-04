@@ -1,6 +1,6 @@
 ﻿namespace Emulator
 {
-    public class Registers
+    public class Registers : IRegisters
     {
         private ushort[] registers { get; } = new ushort[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0xFF};
         

@@ -118,6 +118,17 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="CPU.cs" t="Include" />
         <e p="Emulator.csproj" t="IncludeRecursive" />
+        <e p="EmulatorException.cs" t="Include" />
+        <e p="ICPU.cs" t="Include" />
+        <e p="Instructions" t="Include">
+          <e p="EmulatorInstruction.cs" t="Include" />
+          <e p="EmulatorInstructionFactory.cs" t="Include" />
+          <e p="HaltInstruction.cs" t="Include" />
+          <e p="IEmulatorInstruction.cs" t="Include" />
+          <e p="IEmulatorInstructionFactory.cs" t="Include" />
+          <e p="NopInstruction.cs" t="Include" />
+        </e>
+        <e p="IRegisters.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="net5.0" t="Include">

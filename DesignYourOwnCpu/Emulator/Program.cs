@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using Emulator.Instructions;
 using Shared;
 
 namespace Emulator
@@ -10,8 +11,15 @@ namespace Emulator
         static void Main(string[] args)
         {
             RandomAccessMemory memory = new RandomAccessMemory();
+
+            memory[0] = 0xFF; // NOP
+            memory[4] = 0xFF; // NOP
+            memory[8] = 0xFE; // HALT
+            
             Registers registers = new Registers();
-            CPU cpu = new CPU(memory, registers);
+            EmulatorInstructionFactory factory = new EmulatorInstructionFactory();
+            CPU cpu = new CPU(memory, registers, factory);
+            cpu.Run();
         }
     }
 }
