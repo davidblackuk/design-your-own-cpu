@@ -11,9 +11,9 @@ namespace Assembler
     public class CodeGenerator : ICodeGenerator
     {
         private readonly ISymbolTable symbolTable;
-        private readonly RandomAccessMemory ram;
+        private readonly IRandomAccessMemory ram;
 
-        public CodeGenerator(ISymbolTable symbolTable, RandomAccessMemory ram)
+        public CodeGenerator(ISymbolTable symbolTable, IRandomAccessMemory ram)
         {
             this.symbolTable = symbolTable ?? throw new ArgumentNullException(nameof(symbolTable));
             this.ram = ram ?? throw new ArgumentNullException(nameof(ram));
@@ -21,27 +21,35 @@ namespace Assembler
 
         public void GenerateCode(IEnumerable<IInstruction> instructions)
         {
-            
             ushort address = 0;
             foreach (var instruction in instructions)
             {
-                if (instruction.RequresSymbolResolution)
-                {
-                    var symbol = symbolTable.GetSymbol(instruction.Symbol);
-                    instruction.StoreData(symbol.Address.Value);
-                }
+                ResolveSymbolsIfRequired(instruction);
                 
                 Console.Write($"0x{address:X4}  ".Pastel(Color.Goldenrod) );
                 Console.Write($"{instruction.BytesString()} ".Pastel(Color.Orchid) );
                 
-                
-                // patch up symbols if required
-                ram[address++] = instruction.OpCode;
-                ram[address++] = instruction.Register;
-                ram[address++] = instruction.ByteHigh;
-                ram[address++] = instruction.ByteLow;
+                StoreBytesForInstruction(address, instruction);
+                address += instruction.Size;
                 
                 Console.WriteLine($" # {instruction}".Pastel(Color.Teal));
+            }
+        }
+
+        private void StoreBytesForInstruction(ushort address, IInstruction instruction)
+        {
+            ram[address++] = instruction.OpCode;
+            ram[address++] = instruction.Register;
+            ram[address++] = instruction.ByteHigh;
+            ram[address++] = instruction.ByteLow;
+        }
+
+        private void ResolveSymbolsIfRequired(IInstruction instruction)
+        {
+            if (instruction.RequresSymbolResolution)
+            {
+                var symbol = symbolTable.GetSymbol(instruction.Symbol);
+                instruction.StoreData(symbol.Address.Value);
             }
         }
     }

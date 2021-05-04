@@ -25,7 +25,13 @@
         </e>
         <e p="ICodeGenerator.cs" t="Include" />
         <e p="Instructions" t="Include">
+          <e p="AddInstruction.cs" t="Include" />
+          <e p="ArithmeticInstruction.cs" t="Include" />
+          <e p="BranchAlwaysInstruction.cs" t="Include" />
           <e p="BranchEqualInstruction.cs" t="Include" />
+          <e p="BranchGreaterThanInstruction.cs" t="Include" />
+          <e p="BranchInstruction.cs" t="Include" />
+          <e p="BranchLessThanInstruction.cs" t="Include" />
           <e p="CompareInstruction.cs" t="Include" />
           <e p="HaltInstruction.cs" t="Include" />
           <e p="IInstruction.cs" t="Include" />
@@ -40,6 +46,7 @@
           <e p="StoreInstruction.cs" t="Include" />
           <e p="StoreInstructionBase.cs" t="Include" />
           <e p="StoreLowInstruction.cs" t="Include" />
+          <e p="SubtractInstruction.cs" t="Include" />
         </e>
         <e p="IParser.cs" t="Include" />
         <e p="lINEsOURCES" t="Include">
@@ -67,8 +74,14 @@
         <e p="AssemblerClassTests.cs" t="Include" />
         <e p="AssemblerTests.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="CodeGeneratorTests.cs" t="Include" />
         <e p="Instructions" t="Include">
+          <e p="AddInstructionTests.cs" t="Include" />
+          <e p="BranchAlwaysInstructionTests.cs" t="Include" />
           <e p="BranchEqualInstructionTests.cs" t="Include" />
+          <e p="BranchGreaterThanInstructionTests.cs" t="Include" />
+          <e p="BranchInstructionTests.cs" t="Include" />
+          <e p="BranchLessthanInstructionTests.cs" t="Include" />
           <e p="CompareInstructionTests.cs" t="Include" />
           <e p="HaltInstructionTests.cs" t="Include" />
           <e p="InstructionFactoryTests.cs" t="Include" />
@@ -80,6 +93,7 @@
           <e p="StoreHiInstructionTests.cs" t="Include" />
           <e p="StoreInstructionTests.cs" t="Include" />
           <e p="StoreLowInstructionTests.cs" t="Include" />
+          <e p="SubtractInstructionTests.cs" t="Include" />
         </e>
         <e p="lINEsOURCES" t="Include">
           <e p="CommentStrippingLineSourceTests.cs" t="Include" />
@@ -122,7 +136,6 @@
             </e>
           </e>
         </e>
-        <e p="TestFramework.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="Shared" t="IncludeRecursive">

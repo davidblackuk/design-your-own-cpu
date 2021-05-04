@@ -82,12 +82,22 @@ namespace AssemblerTests.Instructions
         [TestCase("(0xff55)")]
         [TestCase("raster")]
         [TestCase("r11")]
+        [TestCase("r")]
         public void ParseRegister_WhenInvokedWithIllegalRegister_ShouldThrowAssemblerException(string text)
         {
             var sut = CreateSut();
             Assert.Throws<AssemblerException>(() => sut.TestParseRegister(text));
         }
 
+        [Test]
+        public void ParseRegister_WhenInvokedWithAValidRegister_ShouldReturnTHeRagisterNumber()
+        {
+            var sut = CreateSut();
+            sut.TestParseRegister("r3").Should().Be(3);
+        }
+        
+        
+        
         [Test]
         [TestCase("hello", true)]
         [TestCase("  hello  ", true)]
@@ -155,6 +165,12 @@ namespace AssemblerTests.Instructions
             sut.BytesString().Should().Be("12 34 56 78");
         } 
         
+        [Test]
+        public void Size_whenRead_ShouldBeFour()
+        {
+            var sut = CreateSut();
+            sut.Size.Should().Be(4);
+        } 
         
         private SpyInstruction CreateSut()
         {
@@ -171,7 +187,7 @@ namespace AssemblerTests.Instructions
             public bool TestIsAddress(string text) => IsAddress(text);
             public void TestParseValue(string text) => ParseValue(text);
             public void TestParseAddress(string text) => ParseAddress(text);
-            public void TestParseRegister(string text) => ParseRegister(text);
+            public byte TestParseRegister(string text) => ParseRegister(text);
 
             public void TestResolveSymbol(ushort value) => ResolveSymbol(value);
             

@@ -23,7 +23,11 @@
         public const byte BranchGreaterThan = 0x31;
         public const byte BranchLessThan = 0x32;
         public const byte Branch = 0x33;
-        
+
+        public const byte AddConstantToRegister = 0x40;
+        public const byte SubtractConstantFromRegister = 0x41;
+        public const byte AddRegisterToRegister = 0x42;
+        public const byte SubtractRegisterFromRegister = 0x43;
         
         public const byte Nop = 0xFF;
         public const byte Halt = 0xFE;
