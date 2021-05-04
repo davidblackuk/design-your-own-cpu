@@ -13,14 +13,14 @@ namespace AssemblerTests.Instructions
     public class ParserTests
     {
         private Mock<IInstructionNameParser> nameParserMock;
-        private Mock<IInstructionFactory> instructionFactoryMock;
+        private Mock<IAssemblerInstructionFactory> instructionFactoryMock;
         private Mock<ISymbolTable> symbolTableMock;
 
         [SetUp]
         public void SetUp()
         {
             nameParserMock = new Mock<IInstructionNameParser>();
-            instructionFactoryMock = new Mock<IInstructionFactory>();
+            instructionFactoryMock = new Mock<IAssemblerInstructionFactory>();
             symbolTableMock = new Mock<ISymbolTable>();
         }
 
@@ -58,7 +58,7 @@ namespace AssemblerTests.Instructions
         {
             var sut = CreateSut();
 
-            var mockInstruction = new Mock<IInstruction>();
+            var mockInstruction = new Mock<IAssemblerInstruction>();
             sut.Instructions.Add(mockInstruction.Object);
             sut.Instructions.Add(mockInstruction.Object);
             
@@ -78,7 +78,7 @@ namespace AssemblerTests.Instructions
             nameParserMock.Setup(np => np.Parse("blah"))
                 .Returns(("blah", ""));
 
-            var mockInstruction = new Mock<IInstruction>();
+            var mockInstruction = new Mock<IAssemblerInstruction>();
             instructionFactoryMock.Setup(i => i.Create("blah"))
                 .Returns(mockInstruction.Object);
             

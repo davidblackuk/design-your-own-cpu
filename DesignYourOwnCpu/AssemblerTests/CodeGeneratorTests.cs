@@ -18,7 +18,7 @@ namespace AssemblerTests
         
         private Mock<ISymbolTable> symbolTableMock;
         private Mock<IRandomAccessMemory> memoryMock;
-        private Mock<IInstruction> mockInstruction;
+        private Mock<IAssemblerInstruction> mockInstruction;
 
         [SetUp]
         public void SetUp()
@@ -26,7 +26,7 @@ namespace AssemblerTests
             memoryMock = new Mock<IRandomAccessMemory>();
             symbolTableMock = new Mock<ISymbolTable>();
             
-            mockInstruction = new Mock<IInstruction>();
+            mockInstruction = new Mock<IAssemblerInstruction>();
             mockInstruction.SetupGet(instr => instr.OpCode).Returns(ExpectedOpCode);
             mockInstruction.SetupGet(instr => instr.Register).Returns(ExpectedRegister);
             mockInstruction.SetupGet(instr => instr.ByteHigh).Returns(ExpectedByteHigh);
@@ -50,7 +50,7 @@ namespace AssemblerTests
         [Test]
         public void GenerateCode_WhenCalled_ShouldStoreTheCorrectBytes()
         {
-            var instructions = new List<IInstruction>() {mockInstruction.Object};
+            var instructions = new List<IAssemblerInstruction>() {mockInstruction.Object};
             var sut = CreateSut();
             sut.GenerateCode(instructions);
             memoryMock.VerifySet(ram => ram[0] = ExpectedOpCode, Times.Once);
@@ -70,7 +70,7 @@ namespace AssemblerTests
             Assembler.Symbols.Symbol symbol = new Assembler.Symbols.Symbol(expectedSymbol, expectedAddress);
             symbolTableMock.Setup(st => st.GetSymbol(expectedSymbol)).Returns(symbol);
             
-            var instructions = new List<IInstruction>() {mockInstruction.Object};
+            var instructions = new List<IAssemblerInstruction>() {mockInstruction.Object};
             var sut = CreateSut();
             sut.GenerateCode(instructions);
             

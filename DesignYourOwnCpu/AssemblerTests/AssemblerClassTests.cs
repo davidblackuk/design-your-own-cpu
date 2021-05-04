@@ -42,7 +42,7 @@ namespace AssemblerTests
         [Test]
         public void Assemble_WhenInvoked_ShouldPArseAndGenerateCode()
         {
-            var instructions = new List<IInstruction>();
+            var instructions = new List<IAssemblerInstruction>();
             parserMock.SetupGet(p => p.Instructions).Returns(instructions);
 
             var sut = CreateSut();

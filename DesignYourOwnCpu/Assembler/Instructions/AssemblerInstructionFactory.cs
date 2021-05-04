@@ -3,9 +3,9 @@ using Assembler.Exceptions;
 
 namespace Assembler.Instructions
 {
-    public class InstructionFactory : IInstructionFactory
+    public class AssemblerInstructionFactory : IAssemblerInstructionFactory
     {
-        public IInstruction Create(string name)
+        public IAssemblerInstruction Create(string name)
         {
             switch (name)
             {

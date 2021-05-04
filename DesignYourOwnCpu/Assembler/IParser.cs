@@ -16,7 +16,7 @@ namespace Assembler
         /// <summary>
         /// Instructions generated for the assembly pass
         /// </summary>
-        List<IInstruction> Instructions { get; }
+        List<IAssemblerInstruction> Instructions { get; }
     
     }
 }

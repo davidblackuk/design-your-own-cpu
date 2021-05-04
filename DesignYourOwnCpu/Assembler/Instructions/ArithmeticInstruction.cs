@@ -2,7 +2,7 @@
 
 namespace Assembler.Instructions
 {
-    public class ArithmeticInstruction: Instruction, IInstruction
+    public class ArithmeticInstruction: AssemblerInstruction, IAssemblerInstruction
     {
         private readonly byte opcodeRegister;
         private readonly byte opcodeConstant;
@@ -43,8 +43,6 @@ namespace Assembler.Instructions
             {
                 return $"{instructionName}  r{Register}, r{ByteLow}";
             }
-
-            return "ERROR!!";
         }
     }
 }
