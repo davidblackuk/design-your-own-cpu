@@ -177,7 +177,7 @@ namespace AssemblerTests.Instructions
             return new SpyInstruction();
         }
 
-        public class SpyInstruction : Instruction
+        public class SpyInstruction : AssemblerInstruction
         {
 
             public string Left { get; set; }

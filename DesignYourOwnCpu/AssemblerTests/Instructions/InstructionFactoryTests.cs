@@ -39,9 +39,9 @@ namespace AssemblerTests.Instructions
             instruction.GetType().Name.Should().Be(expectedType.Name);
         }
 
-        private InstructionFactory CreateSut()
+        private AssemblerInstructionFactory CreateSut()
         {
-            return new InstructionFactory();
+            return new AssemblerInstructionFactory();
         }
     }
 }

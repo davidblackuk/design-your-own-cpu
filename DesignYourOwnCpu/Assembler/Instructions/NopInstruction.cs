@@ -3,7 +3,7 @@ using Shared;
 
 namespace Assembler.Instructions
 {
-    public class NopInstruction : Instruction, IInstruction
+    public class NopInstruction : AssemblerInstruction, IAssemblerInstruction
     {
         public const string InstructionName = "nop";
 

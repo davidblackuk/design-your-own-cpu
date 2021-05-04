@@ -19,7 +19,7 @@ namespace Assembler
             this.ram = ram ?? throw new ArgumentNullException(nameof(ram));
         }
 
-        public void GenerateCode(IEnumerable<IInstruction> instructions)
+        public void GenerateCode(IEnumerable<IAssemblerInstruction> instructions)
         {
             ushort address = 0;
             foreach (var instruction in instructions)
@@ -36,7 +36,7 @@ namespace Assembler
             }
         }
 
-        private void StoreBytesForInstruction(ushort address, IInstruction instruction)
+        private void StoreBytesForInstruction(ushort address, IAssemblerInstruction instruction)
         {
             ram[address++] = instruction.OpCode;
             ram[address++] = instruction.Register;
@@ -44,7 +44,7 @@ namespace Assembler
             ram[address++] = instruction.ByteLow;
         }
 
-        private void ResolveSymbolsIfRequired(IInstruction instruction)
+        private void ResolveSymbolsIfRequired(IAssemblerInstruction instruction)
         {
             if (instruction.RequresSymbolResolution)
             {

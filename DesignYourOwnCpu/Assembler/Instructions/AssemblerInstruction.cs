@@ -4,14 +4,9 @@ using Shared;
 
 namespace Assembler.Instructions
 {
-    public class Instruction
+    public class AssemblerInstruction: Instruction
     {
-        public byte OpCode { get; protected set; }
-        public byte Register { get; protected set; }
-        public byte ByteHigh { get; protected set; }
-        public byte ByteLow { get; protected set; }
-        
-        public ushort Size { get; } = 4;
+
 
         /// <summary>
         /// For symbols this contains the name that needs to be resolved

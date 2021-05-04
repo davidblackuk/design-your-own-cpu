@@ -5,6 +5,6 @@ namespace Assembler
 {
     public interface ICodeGenerator
     {
-        void GenerateCode(IEnumerable<IInstruction> instructions);
+        void GenerateCode(IEnumerable<IAssemblerInstruction> instructions);
     }
 }

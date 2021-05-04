@@ -1,4 +1,4 @@
-﻿namespace Assembler.Instructions
+﻿namespace Shared
 {
     public interface IInstruction
     {
@@ -27,32 +27,33 @@
         /// </summary>
         public ushort Size { get;  }
 
-        /// <summary>
-        /// Does this instruction require a symbol to be resolved for it to be output
-        /// </summary>
-        public bool RequresSymbolResolution { get; }
+    }
 
+    public class Instruction : IInstruction
+    {
         /// <summary>
-        /// For symbols this contains the name that needs to be resolved
+        /// The op code of the instruction
         /// </summary>
-        string Symbol { get; }
-
-        /// <summary>
-        /// Stores a word value in the instruction
-        /// </summary>
-        /// <param name="value"></param>
-        void StoreData(ushort value);
+        public byte OpCode { get; protected set; }
         
         /// <summary>
-        /// Parse the instruction and set the values for Opcode, register, high and low bytes (if necessary)
+        /// The rsgister r0..7
         /// </summary>
-        /// <param name="source"></param>
-        void Parse(string source);
-
+        public byte Register { get; protected set; }
+        
         /// <summary>
-        /// Returns the data associated with in the instruction as 4 space separated, two digit hex values,
-        /// in the order Opcode / Register / High byte / Low byte
+        /// High byte of the data associated with the instruction 
         /// </summary>
-        string BytesString();
+        public byte ByteHigh { get; protected set; }
+        
+        /// <summary>
+        /// Low byte of the data associated with the instruction
+        /// </summary>
+        public byte ByteLow { get; protected set; }
+        
+        /// <summary>
+        /// All instructions are size 4 in this architecture, but...
+        /// </summary>
+        public ushort Size { get; } = 4;
     }
 }

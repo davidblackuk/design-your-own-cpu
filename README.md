@@ -11,7 +11,7 @@ Specific videos:
 Gary's [orininal source][2] is availble on Github
 
 
-# Assembly language
+## Assembly language
 
 Asembly language is written one instruction per line. Lines starting with the commen character `#` are ignored. Any lines with training comments 
 
@@ -35,7 +35,12 @@ Numeric constants can be decimal, hexadecimal, or octal.
 | 10 | 32768 | Decimal numbers have no prefix, first digit cannot be 0, digits are `0 - 9`
 | 8 | 03422 | Octal numbers are prefixed with a 0, digits are `0 - 7`
 
-# Instruction set
+## Registers
+
+There are eight general purpose registers `r0` ... `r7`, available to user code. Register `r8` is the program counter
+and `r9` the stack pointer, neither of which can be accessed by user code. So there.
+
+## Instruction set
 
 Instruction definitions. All instructions are 32 bits long, unsed bytes set to 0. Registers are 16 bit.
 

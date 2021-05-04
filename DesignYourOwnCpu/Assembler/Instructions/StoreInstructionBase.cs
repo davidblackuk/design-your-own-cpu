@@ -2,7 +2,7 @@
 
 namespace Assembler.Instructions
 {
-    public class StoreInstructionBase : Instruction, IInstruction
+    public class StoreInstructionBase : AssemblerInstruction, IAssemblerInstruction
     {
         private readonly string instructionName;
         private readonly byte indirectOpCode;

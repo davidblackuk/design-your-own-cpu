@@ -2,7 +2,7 @@
 
 namespace Assembler.Instructions
 {
-    public class BranchInstruction : Instruction, IInstruction
+    public class BranchInstruction : AssemblerInstruction, IAssemblerInstruction
     {
         private readonly string instructionName;
 

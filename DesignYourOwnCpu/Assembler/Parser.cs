@@ -10,15 +10,15 @@ namespace Assembler
     public class Parser : IParser
     {
         private readonly IInstructionNameParser nameParser;
-        private readonly IInstructionFactory instructionFactory;
+        private readonly IAssemblerInstructionFactory assemblerInstructionFactory;
         private readonly ISymbolTable symbolTable;
 
-        public List<IInstruction> Instructions { get; } = new List<IInstruction>();
+        public List<IAssemblerInstruction> Instructions { get; } = new List<IAssemblerInstruction>();
 
-        public Parser(IInstructionNameParser nameParser, IInstructionFactory instructionFactory, ISymbolTable symbolTable)
+        public Parser(IInstructionNameParser nameParser, IAssemblerInstructionFactory assemblerInstructionFactory, ISymbolTable symbolTable)
         {
             this.nameParser = nameParser ?? throw new ArgumentNullException(nameof(nameParser));
-            this.instructionFactory = instructionFactory ?? throw new ArgumentNullException(nameof(instructionFactory));
+            this.assemblerInstructionFactory = assemblerInstructionFactory ?? throw new ArgumentNullException(nameof(assemblerInstructionFactory));
             this.symbolTable = symbolTable ?? throw new ArgumentNullException(nameof(symbolTable));
         }
         
@@ -35,7 +35,7 @@ namespace Assembler
                 }
                 else
                 {
-                    var instruction = instructionFactory.Create(parsedLine.instruction);
+                    var instruction = assemblerInstructionFactory.Create(parsedLine.instruction);
                     instruction.Parse(parsedLine.remainder);
                     Instructions.Add(instruction);
                 }

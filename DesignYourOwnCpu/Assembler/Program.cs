@@ -20,8 +20,8 @@ namespace Assembler
             // poor man's injection for now!
             ISymbolTable symbolTable = new SymbolTable();
             IInstructionNameParser nameParser = new InstructionNameParser();
-            IInstructionFactory instructionFactory = new InstructionFactory();
-            Parser parser = new Parser(nameParser, instructionFactory, symbolTable);
+            IAssemblerInstructionFactory assemblerInstructionFactory = new AssemblerInstructionFactory();
+            Parser parser = new Parser(nameParser, assemblerInstructionFactory, symbolTable);
             RandomAccessMemory ram = new RandomAccessMemory();
             CodeGenerator codeGenerator = new CodeGenerator(symbolTable, ram);
             
