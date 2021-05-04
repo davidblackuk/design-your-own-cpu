@@ -116,6 +116,7 @@
       <e p="DesignYourOwnCpu.sln" t="IncludeFlat" />
       <e p="Emulator" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="CPU.cs" t="Include" />
         <e p="Emulator.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -125,6 +126,7 @@
           </e>
         </e>
         <e p="Program.cs" t="Include" />
+        <e p="Registers.cs" t="Include" />
       </e>
       <e p="EmulatorTests" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />

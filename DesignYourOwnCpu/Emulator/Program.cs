@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using Shared;
 
 namespace Emulator
 {
@@ -8,7 +9,9 @@ namespace Emulator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            RandomAccessMemory memory = new RandomAccessMemory();
+            Registers registers = new Registers();
+            CPU cpu = new CPU(memory, registers);
         }
     }
 }

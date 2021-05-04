@@ -30,35 +30,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assembler/Instructions/AddInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assembler/Instructions/ArithmeticInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assembler/Instructions/BranchAlwaysInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assembler/Instructions/BranchGreaterThanInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assembler/Instructions/BranchInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assembler/Instructions/BranchLessThanInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assembler/Instructions/SubtractInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblerTests/CodeGeneratorTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/AddInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/BranchAlwaysInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/BranchGreaterThanInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/BranchInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/BranchLessthanInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/SubtractInstructionTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emulator/CPU.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emulator/Registers.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/CodeGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/CodeGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/BranchEqualInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/BranchEqualInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/IInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/IInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/Instruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/Instruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/InstructionFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/InstructionFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/BranchEqualInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/BranchEqualInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/InstructionFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/InstructionFactoryTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/InstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/InstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/TestFramework.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/OpCodes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/OpCodes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/RandomAccessMemory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/RandomAccessMemory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SharedTests/RandomAccessMemoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SharedTests/RandomAccessMemoryTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,8 +52,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/AssemblerTests/LineSources/MemoryLineSourceTests.cs" />
-        <option value="$PROJECT_DIR$/Assembler/LineSources/WhitespaceRemovalLineSource.cs" />
         <option value="$PROJECT_DIR$/AssemblerTests/LineSources/WhitespaceRemovalLineSourceTests.cs" />
         <option value="$PROJECT_DIR$/Assembler/LineSources/CommentStrippingLineSource.cs" />
         <option value="$PROJECT_DIR$/Assembler/SymbolTable.cs" />
@@ -100,7 +74,6 @@
         <option value="$PROJECT_DIR$/Assembler/IParser.cs" />
         <option value="$PROJECT_DIR$/Assembler/Parser.cs" />
         <option value="$PROJECT_DIR$/Assembler/Assembler.cs" />
-        <option value="$PROJECT_DIR$/Emulator/Program.cs" />
         <option value="$PROJECT_DIR$/Assembler/Instructions/StoreInstruction.cs" />
         <option value="$PROJECT_DIR$/AssemblerTests/Instructions/LoadInstructionTests.cs" />
         <option value="$PROJECT_DIR$/AssemblerTests/Instructions/StoreInstructionTests.cs" />
@@ -127,6 +100,9 @@
         <option value="$PROJECT_DIR$/Assembler/Instructions/Instruction.cs" />
         <option value="$PROJECT_DIR$/Assembler/Instructions/AddInstruction.cs" />
         <option value="$PROJECT_DIR$/AssemblerTests/Instructions/AddInstructionTests.cs" />
+        <option value="$PROJECT_DIR$/Emulator/Program.cs" />
+        <option value="$PROJECT_DIR$/Emulator/CPU.cs" />
+        <option value="$PROJECT_DIR$/Emulator/Registers.cs" />
       </list>
     </option>
   </component>
@@ -275,6 +251,7 @@
       <workItem from="1620052512268" duration="14000" />
       <workItem from="1620055539011" duration="1229000" />
       <workItem from="1620122680371" duration="9975000" />
+      <workItem from="1620135967013" duration="3040000" />
     </task>
     <servers />
   </component>
@@ -282,9 +259,9 @@
     <option name="version" value="3" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="99" />
+    <option name="coveragePercentColumnWidth" value="97" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="353" />
+    <option name="symbolColumnWidth" value="342" />
     <coverage-tree-state>
       <expand>
         <path>
