@@ -29,6 +29,8 @@ namespace AssemblerTests.Instructions
         [TestCase("bgt", typeof(BranchGreaterThanInstruction))]
         [TestCase("beq", typeof(BranchEqualInstruction))]
         [TestCase("bra", typeof(BranchAlwaysInstruction))]
+        [TestCase("add", typeof(AddInstruction))]
+        [TestCase("sub", typeof(SubtractInstruction))]
         public void Create_WhenCalledWithAKnownInstructionName_ShouldReturnCorrectType(
             string instructionName, Type expectedType)
         {

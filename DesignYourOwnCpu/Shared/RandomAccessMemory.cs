@@ -2,7 +2,13 @@
 
 namespace Shared
 {
-    public class RandomAccessMemory
+    public interface IRandomAccessMemory
+    {
+        byte[] RawBytes { get; }
+        byte this[ushort address] { get; set; }
+    }
+
+    public class RandomAccessMemory : IRandomAccessMemory
     {
         public const ushort RamTop = 0xFFFF;
         

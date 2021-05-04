@@ -31,6 +31,10 @@ namespace Assembler.Instructions
                     return new BranchGreaterThanInstruction();
                 case BranchAlwaysInstruction.InstructionName:
                     return new BranchAlwaysInstruction();
+                case AddInstruction.InstructionName:
+                    return new AddInstruction();
+                case SubtractInstruction.InstructionName:
+                    return new SubtractInstruction();
                 default:
                     throw new AssemblerException("Unknown instruction: " + name);
             }

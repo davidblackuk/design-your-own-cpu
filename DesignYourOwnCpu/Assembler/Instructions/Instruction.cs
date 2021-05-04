@@ -11,6 +11,8 @@ namespace Assembler.Instructions
         public byte ByteHigh { get; protected set; }
         public byte ByteLow { get; protected set; }
         
+        public ushort Size { get; } = 4;
+
         /// <summary>
         /// For symbols this contains the name that needs to be resolved
         /// </summary>
@@ -78,20 +80,20 @@ namespace Assembler.Instructions
 
         protected byte ParseRegister(string source)
         {
-            if (IsRegister(source))
+            if (!IsRegister(source))
             {
-                var registerNumber = source.Substring(1);
-                if (byte.TryParse(registerNumber, out var register))
-                {
-                    if (register > Constants.MaxRegisterNumber)
-                    {
-                        throw new AssemblerException($"{source} is an illegal register number, values registers are r0..r7");
-                    }
-                    return register;
-                }
+                throw new AssemblerException("Expected a register but got: " + source);
             }
 
-            throw new AssemblerException("Expected a register but got: " + source);
+            var registerNumber = source.Substring(1);
+            
+            // no need to try parse as we know it's a valis register so has to be a numeric digit
+            byte register = Byte.Parse(registerNumber);
+            if (register > Constants.MaxRegisterNumber)
+            {
+                throw new AssemblerException($"{source} is an illegal register number, values registers are r0..r7");
+            }
+            return register;
         }
 
         protected void ParseAddress(string text)

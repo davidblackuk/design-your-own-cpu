@@ -44,20 +44,21 @@ namespace Assembler
 .loop
     STL R1, $0xFBFF
     CMP R1, 0x39
-    #ADD R1, 1
+    ADD R1, 1
     BLT loop
     LD R1, 0x39
-    ST R1, (0xDD07)
-    LD R3, 0xDD01
-    ST R1, (R3)
-    LD R3, 3
-    LD R2, R3
-.Loop2
+    LD R2, 3
+.loop2
     STL R1, $0xFC00
     CMP R1, 0x30
-    #SUB R1, R2
+    SUB R1, R2
     BGT loop2
+    BRA stopApp
+    nop
+    nop
+    nop
 
+.stopApp
     HALT";
         
         private const string SourceReal =
