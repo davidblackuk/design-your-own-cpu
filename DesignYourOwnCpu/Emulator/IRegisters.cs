@@ -2,7 +2,7 @@
 {
     public interface IRegisters
     {
-        ushort this[ushort address] { get; set; }
+        ushort this[byte index] { get; set; }
 
         /// <summary>
         /// points to the next instruction to execute

@@ -31,7 +31,13 @@
         
         public const byte Nop = 0xFF;
         public const byte Halt = 0xFE;
-        
+
+
+        /// <summary>
+        /// The unused opcode is useful for unit tests as it is gaurenteed never to be inimplemented
+        /// </summary>
+        public const byte Unused = 0xFD;
+
     }
     
 }

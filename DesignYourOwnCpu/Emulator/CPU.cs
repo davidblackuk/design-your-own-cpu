@@ -14,6 +14,12 @@ namespace Emulator
         // has the cpu halted and should we stop executing
         public bool Halted { get; set; }
 
+        public IRegisters Registers => registers;
+
+        public IRandomAccessMemory Memory => memory;
+
+        
+        
         public CPU(IRandomAccessMemory memory, IRegisters registers, IEmulatorInstructionFactory instructionFactory)
         {
             this.memory = memory ?? throw new ArgumentNullException(nameof(memory));
@@ -24,7 +30,9 @@ namespace Emulator
         /// <summary>
         /// Executes till a halt instruction is hit
         /// </summary>
-        public void Run()
+        public void 
+            
+            Run()
         {
             do
             {

@@ -11,5 +11,7 @@ namespace Emulator.Instructions
             ByteHigh = high;
             ByteLow = low;
         }
+
+        protected ushort Value => (ushort)(ByteHigh << 8 |  ByteLow);
     }
 }

@@ -126,7 +126,16 @@
           <e p="HaltInstruction.cs" t="Include" />
           <e p="IEmulatorInstruction.cs" t="Include" />
           <e p="IEmulatorInstructionFactory.cs" t="Include" />
+          <e p="LoadRegisterFromMemoryInstruction.cs" t="Include" />
+          <e p="LoadRegisterFromRegisterInstruction.cs" t="Include" />
+          <e p="LoadRegisterWithConstantInstruction.cs" t="Include" />
           <e p="NopInstruction.cs" t="Include" />
+          <e p="StoreRegisterDirectInstruction.cs" t="Include" />
+          <e p="StoreRegisterHighDirectInstruction.cs" t="Include" />
+          <e p="StoreRegisterHighIndirectInstruction.cs" t="Include" />
+          <e p="StoreRegisterIndirectInstruction.cs" t="Include" />
+          <e p="StoreRegisterLowDirectInstruction.cs" t="Include" />
+          <e p="StoreRegisterLowIndirectInstruction.cs" t="Include" />
         </e>
         <e p="IRegisters.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
@@ -142,6 +151,22 @@
       <e p="EmulatorTests" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="EmulatorTests.csproj" t="IncludeRecursive" />
+        <e p="Instructions" t="Include">
+          <e p="EmulatorInstructionFactoryTests.cs" t="Include" />
+          <e p="emulatorInstructionTests.cs" t="Include" />
+          <e p="EmulatorUnitTest.cs" t="Include" />
+          <e p="HaltInstructionTests.cs" t="Include" />
+          <e p="LoadRegisterFromMemoryInstructionTests.cs" t="Include" />
+          <e p="LoadRegisterFromRegisterInstructionTests.cs" t="Include" />
+          <e p="LoadRegisterWithConstantInstructionTests.cs" t="Include" />
+          <e p="NopInstructionTests.cs" t="Include" />
+          <e p="StoreRegisterDirectInstructionTests.cs" t="Include" />
+          <e p="StoreRegisterHighDirectInstructionTests.cs" t="Include" />
+          <e p="StoreRegisterHighIndirectInstructionTests.cs" t="Include" />
+          <e p="StoreRegisterIndirectInstructionTests.cs" t="Include" />
+          <e p="StoreRegisterLowDirectInstructionTests.cs" t="Include" />
+          <e p="StoreRegisterLowIndirectInstructionTests.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="net5.0" t="Include">
@@ -149,6 +174,7 @@
             </e>
           </e>
         </e>
+        <e p="RegistersTests.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="Shared" t="IncludeRecursive">

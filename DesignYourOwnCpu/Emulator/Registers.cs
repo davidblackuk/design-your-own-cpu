@@ -4,10 +4,10 @@
     {
         private ushort[] registers { get; } = new ushort[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0xFF};
         
-        public ushort this[ushort address]
+        public ushort this[byte index]
         {
-            get => registers[address];
-            set => registers[address] = value;
+            get => registers[index];
+            set => registers[index] = value;
         }
 
         /// <summary>
