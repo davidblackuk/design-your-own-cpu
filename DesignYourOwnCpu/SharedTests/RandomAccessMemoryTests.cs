@@ -48,6 +48,18 @@ namespace SharedTests
             res.byteLow.Should().Be(expectedByteLow);
         }
 
+        [Test]
+        public void GetWord_WWhenCalled_returnsValueInABigEndianFormat()
+        {
+            var sut = CreateSut();
+            
+            sut[12] = 0xFF;
+            sut[13] = 0x55;
+
+            sut.GetWord(12).Should().Be(0xFF55);
+
+        }
+        
         private RandomAccessMemory CreateSut()
         {
             return new RandomAccessMemory();

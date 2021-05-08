@@ -1,7 +1,13 @@
-﻿namespace Emulator
+﻿using Shared;
+
+namespace Emulator
 {
     public interface ICPU
     {
+        public IRegisters Registers { get;  }
+
+        public IRandomAccessMemory Memory { get; }
+        
         /// <summary>
         /// Is the CPU halted?
         /// </summary>
