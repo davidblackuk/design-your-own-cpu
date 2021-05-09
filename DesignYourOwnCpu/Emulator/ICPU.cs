@@ -7,6 +7,8 @@ namespace Emulator
         public IRegisters Registers { get;  }
 
         public IRandomAccessMemory Memory { get; }
+
+        public IFlags Flags { get; set; }
         
         /// <summary>
         /// Is the CPU halted?

@@ -17,14 +17,16 @@ namespace Emulator
         public IRegisters Registers => registers;
 
         public IRandomAccessMemory Memory => memory;
+        
+        public IFlags Flags { get; set; }
 
-        
-        
-        public CPU(IRandomAccessMemory memory, IRegisters registers, IEmulatorInstructionFactory instructionFactory)
+
+        public CPU(IRandomAccessMemory memory, IRegisters registers, IFlags flags, IEmulatorInstructionFactory instructionFactory)
         {
             this.memory = memory ?? throw new ArgumentNullException(nameof(memory));
             this.registers = registers;
             this.instructionFactory = instructionFactory;
+            this.Flags = flags;
         }
 
         /// <summary>

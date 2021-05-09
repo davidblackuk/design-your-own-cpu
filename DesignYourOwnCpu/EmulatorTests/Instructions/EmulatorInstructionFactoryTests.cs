@@ -13,12 +13,27 @@ namespace EmulatorTests.Instructions
         [Test]
         [TestCase(OpCodes.Nop, typeof(NopInstruction))]
         [TestCase(OpCodes.Halt, typeof(HaltInstruction))]
+        
         [TestCase(OpCodes.LoadRegisterWithConstant, typeof(LoadRegisterWithConstantInstruction))]
         [TestCase(OpCodes.LoadRegisterFromMemory, typeof(LoadRegisterFromMemoryInstruction))]
         [TestCase(OpCodes.LoadRegisterFromRegister, typeof(LoadRegisterFromRegisterInstruction))]
+        
         [TestCase(OpCodes.StoreRegisterDirect, typeof(StoreRegisterDirectInstruction))]
         [TestCase(OpCodes.StoreRegisterHiDirect, typeof(StoreRegisterHighDirectInstruction))]
         [TestCase(OpCodes.StoreRegisterLowDirect, typeof(StoreRegisterLowDirectInstruction))]
+
+        [TestCase(OpCodes.StoreRegisterIndirect, typeof(StoreRegisterIndirectInstruction))]
+        [TestCase(OpCodes.StoreRegisterLowIndirect, typeof(StoreRegisterLowIndirectInstruction))]
+        [TestCase(OpCodes.StoreRegisterHiIndirect, typeof(StoreRegisterHighIndirectInstruction))]
+        
+        [TestCase(OpCodes.CompareWithConstant, typeof(CompareWithConstantInstruction))]
+        [TestCase(OpCodes.CompareWithRegister, typeof(CompareWithRegisterInstruction))]
+        
+        [TestCase(OpCodes.Branch, typeof(BranchAlwaysInstruction))]
+        [TestCase(OpCodes.BranchEqual, typeof(BranchEqualInstruction))]
+        [TestCase(OpCodes.BranchGreaterThan, typeof(BranchGreaterThanInstruction))]
+        [TestCase(OpCodes.BranchLessThan, typeof(BranchLessThanInstruction))]
+
         public void Create_WhenCalledWithAKnownOpcode_ShouldReturnCorrectType(
             byte opcode, Type expectedType)
         {
