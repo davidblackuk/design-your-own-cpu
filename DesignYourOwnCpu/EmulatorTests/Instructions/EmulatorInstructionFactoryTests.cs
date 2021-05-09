@@ -33,6 +33,14 @@ namespace EmulatorTests.Instructions
         [TestCase(OpCodes.BranchEqual, typeof(BranchEqualInstruction))]
         [TestCase(OpCodes.BranchGreaterThan, typeof(BranchGreaterThanInstruction))]
         [TestCase(OpCodes.BranchLessThan, typeof(BranchLessThanInstruction))]
+        
+        
+        [TestCase(OpCodes.AddConstantToRegister, typeof(AddConstantToRegisterInstruction))]
+        [TestCase(OpCodes.AddRegisterToRegister, typeof(AddRegisterToRegisterInstruction))]
+        [TestCase(OpCodes.SubtractConstantFromRegister, typeof(SubtractConstantFromRegisterInstruction))]
+        [TestCase(OpCodes.SubtractRegisterFromRegister, typeof(SubtractRegisterFromRegisterInstruction))]
+        
+        
 
         public void Create_WhenCalledWithAKnownOpcode_ShouldReturnCorrectType(
             byte opcode, Type expectedType)

@@ -30,35 +30,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Emulator/Flags.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/IFlags.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/BranchAlwaysInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/BranchEqualInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/BranchGreaterThanInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/BranchLessThanInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/CompareInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/CompareWithConstantInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/CompareWithRegisterInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/BrancLessThanInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/BranchAlwaysInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/BranchEqualInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/BranchGreaterThanInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/CompareWithConstantInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/CompareWithRegisternstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/modules.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/AddConstantToRegisterInstruction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/AddRegisterToRegisterInstruction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/SubtractConstantFromRegisterInstruction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/SubtractRegisterFromRegisterInstruction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/AddConstantToRegisterTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/AddRegisterToRegisterTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/SubtractConstantToRegisterTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/SubtractRegisterFromRegisterTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/riderModule.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/CPU.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/CPU.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/ICPU.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/ICPU.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Emulator/Instructions/EmulatorInstructionFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/EmulatorInstructionFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/StoreRegisterHighIndirectInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/StoreRegisterHighIndirectInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorUnitTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorUnitTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/emulatorInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/RegistersTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/RegistersTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,9 +74,12 @@
       <option value="$PROJECT_DIR$/Emulator/Instructions/Branch.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/bRANCHiNSTRUCTIONtESTS.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/BranchEqualInstructionTests.cs" />
-      <option value="$PROJECT_DIR$/Emulator/Instructions/EmulatorInstructionFactory.cs" />
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" />
       <option value="$PROJECT_DIR$/Emulator/Instructions/StoreRegisterHighIndirectInstruction.cs" />
+      <option value="$PROJECT_DIR$/Emulator/Instructions/ArthmeticInstruction.cs" />
+      <option value="$PROJECT_DIR$/Emulator/Instructions/EmulatorInstructionFactory.cs" />
+      <option value="$PROJECT_DIR$/Emulator/Instructions/AddConstantToRegisterInstruction.cs" />
+      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/ArthmeticInstructions.cs" />
+      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rcEJyjMFUCIcpJ49MOx4qWONpN" />
@@ -251,6 +236,7 @@
       <workItem from="1620485420109" duration="1347000" />
       <workItem from="1620487096476" duration="2947000" />
       <workItem from="1620552490267" duration="4688000" />
+      <workItem from="1620560699170" duration="6519000" />
     </task>
     <servers />
   </component>
@@ -260,30 +246,45 @@
   <component name="UnitTestsCoverage.Settings">
     <option name="coveragePercentColumnWidth" value="91" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="329" />
+    <option name="symbolColumnWidth" value="330" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 97% 39/1446" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 97% 39/1530" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 97% 39/1446" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 85% 29/196" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 97% 39/1530" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 87% 29/224" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 97% 39/1446" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 85% 29/196" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 85% 29/196" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 97% 39/1530" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 87% 29/224" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 87% 29/224" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 97% 39/1446" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 85% 29/196" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 85% 29/196" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Instructions 100% 0/156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 97% 39/1530" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 87% 29/224" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 87% 29/224" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Instructions 100% 0/184" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 97% 39/1530" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 87% 29/224" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 87% 29/224" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Instructions 100% 0/184" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="EmulatorInstructionFactory 100% 0/25" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 97% 39/1530" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 87% 29/224" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 87% 29/224" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Flags 0% 6/6" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />

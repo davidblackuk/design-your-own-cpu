@@ -1,5 +1,6 @@
 ﻿using System.Net.WebSockets;
 using System.Runtime.InteropServices;
+using Emulator.Instructions;
 using Shared;
 
 namespace Emulator.Instructions
@@ -50,6 +51,15 @@ namespace Emulator.Instructions
                     return new BranchGreaterThanInstruction(register, high, low);
                 case OpCodes.BranchEqual:
                     return new BranchEqualInstruction(register, high, low);
+
+                case OpCodes.AddConstantToRegister:
+                    return new AddConstantToRegisterInstruction(register, high, low);
+                case OpCodes.AddRegisterToRegister:
+                    return new AddRegisterToRegisterInstruction(register, high, low);
+                case OpCodes.SubtractConstantFromRegister:
+                    return new SubtractConstantFromRegisterInstruction(register, high, low);
+                case OpCodes.SubtractRegisterFromRegister:
+                    return new SubtractRegisterFromRegisterInstruction(register, high, low);
 
                 
                 default:
