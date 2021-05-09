@@ -18,7 +18,8 @@ namespace Emulator
             
             Registers registers = new Registers();
             EmulatorInstructionFactory factory = new EmulatorInstructionFactory();
-            CPU cpu = new CPU(memory, registers, factory);
+            IFlags flags = new Flags();
+            CPU cpu = new CPU(memory, registers, flags, factory);
             cpu.Run();
         }
     }

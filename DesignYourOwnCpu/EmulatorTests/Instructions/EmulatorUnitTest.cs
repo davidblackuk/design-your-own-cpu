@@ -10,6 +10,7 @@ namespace EmulatorTests.Instructions
         protected Mock<ICPU> CpuMock;
         protected Mock<IRegisters> RegistersMock;
         protected Mock<IRandomAccessMemory> MemoryMock;
+        protected Mock<IFlags> FlagsMock;
 
         [SetUp]
         public void SetUp()
@@ -17,8 +18,10 @@ namespace EmulatorTests.Instructions
             CpuMock = new Mock<ICPU>();
             RegistersMock = new Mock<IRegisters>();
             MemoryMock = new Mock<IRandomAccessMemory>();
+            FlagsMock = new Mock<IFlags>();
             CpuMock.SetupGet(cpu => cpu.Registers).Returns(RegistersMock.Object);
             CpuMock.SetupGet(cpu => cpu.Memory).Returns(MemoryMock.Object);
+            CpuMock.SetupGet(cpu => cpu.Flags).Returns(FlagsMock.Object);
         }
 
         protected byte HighByte(ushort value)

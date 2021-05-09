@@ -1,7 +1,7 @@
 ﻿using Emulator;
 using FluentAssertions;
 using NUnit.Framework;
-using System.Linq;
+
 namespace EmulatorTests
 {
     public class RegistersTests
