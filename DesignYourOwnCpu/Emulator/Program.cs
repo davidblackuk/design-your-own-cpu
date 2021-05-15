@@ -10,11 +10,9 @@ namespace Emulator
     {
         static void Main(string[] args)
         {
-            RandomAccessMemory memory = new RandomAccessMemory();
-
-            memory[0] = 0xFF; // NOP
-            memory[4] = 0xFF; // NOP
-            memory[8] = 0xFE; // HALT
+            IRamFactory ramFactory = new RamFactory();
+            
+            RandomAccessMemory memory = ramFactory.Create(args.Length == 1 ? args[0] : null);
             
             Registers registers = new Registers();
             EmulatorInstructionFactory factory = new EmulatorInstructionFactory();

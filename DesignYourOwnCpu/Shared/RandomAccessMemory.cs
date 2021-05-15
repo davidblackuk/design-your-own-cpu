@@ -23,6 +23,20 @@ namespace Shared
     public class RandomAccessMemory : IRandomAccessMemory
     {
         public const ushort RamTop = 0xFFFF;
+
+        internal RandomAccessMemory()
+        {
+            
+        }
+        
+        internal RandomAccessMemory(byte [] from)
+        {
+            if (from.Length != RamTop + 1)
+            {
+                throw new ArgumentException($"Expected exactly {RamTop + 1} bytes to be passed for a RAM image", nameof(from));
+            }
+            RawBytes = from;
+        }
         
         public byte [] RawBytes { get; } = new byte[RamTop+1];
 
