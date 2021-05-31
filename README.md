@@ -25,7 +25,7 @@ Instructions are parsed in a case insensitive manner. The following two lines ar
     ld r1, 0xfe03
 
 
-
+\
 
 Numeric constants can be decimal, hexadecimal, or octal.
 
@@ -65,12 +65,17 @@ Instruction definitions. All instructions are 32 bits long, unsed bytes set to 0
 | `BEQ 0xDEBA`   | `0x30`   | `0x00` | `0xDE` | `0xBA` | Branch if last comp was equal, to address (or label)   |
 | `BGT .LOOP`   | `0x31`   | `0x00` | `0xDE` | `0xBA` | Branch if last comp was greater than, to address (or label)   |
 | `BLT 0xDEBA`   | `0x32`   | `0x00` | `0xDE` | `0xBA` | Branch if last comp was less than, to address (or label)   |
-| `BRA .HALT_APP`   | `0x33`   | `0x00` | `0xDE` | `0xBA` | Branch always to address (or label)   |
+| `BRA LABEL`   | `0x33`   | `0x00` | `0xDE` | `0xBA` | Branch always to address (or label)   |
 | **Arithmetic** |
 | `ADD R1, 0xabcd` | `0x40` | `0..7` | `0xAB` | `0xCD` | add constant value to register|
 | `SUB R1, 0xabcd` | `0x41` | `0..7` | `0xAB` | `0xCD` | subtract constant valu from register|
 | `ADD R1, R2`     | `0x42` | `0..7` | `0x00` |  `0..7` | add register 2 to register 1 (result in r1) |
 | `SUB R1, R2`     | `0x43` | `0..7` | `0x00` |  `0..7` | subtract register 2 from register 1 (result in r1)|
+| **Stack based** |
+| `PUSH R2` | `0x50` | `0..7` | `0x00` | `0x00` | Push register onto the stack|
+| `POP R2` | `0x51` | `0..7` | `0x00` | `0x00` | pop register from the stack|
+| `CALL 0x3498` | `0x52` | `0x00` | `0x34` | `0x98` | calls a subroutine, storing the return address on the stack|
+| `RET` | `0x53` | `0x00` | `0x00` | `0x00` | pop the return address of a subroutine from the stack and jump there|
 | **Miscelanious** |
 | `HALT`             | `0xFE`   | `0x00` | `0x00` | `0x00` | Stops the processor from executing        |
 | `NOOP`             | `0xFF`   | `0x00` | `0x00` | `0xoo` | Does nothing, with no side effects        |

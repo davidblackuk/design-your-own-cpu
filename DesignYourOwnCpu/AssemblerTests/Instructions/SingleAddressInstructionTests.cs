@@ -5,7 +5,7 @@ using Shared;
 
 namespace AssemblerTests.Instructions
 {
-    public class BranchInstructionTests
+    public class SingleAddressInstructionTests
     {
         [Test]
         public void Ctor_WhenInvoked_ShouldCorrectlySetOpCode()
@@ -15,7 +15,7 @@ namespace AssemblerTests.Instructions
         }
 
         [Test]
-        public void Parse_WhenItIsALabel_ShouldStoreTHeSymbolCorrectly()
+        public void Parse_WhenItIsALabel_ShouldStoreTheSymbolCorrectly()
         {
             var sut = CreateSut();
             var expected = "loop1";
@@ -41,7 +41,7 @@ namespace AssemblerTests.Instructions
             sut.ByteLow.Should().Be(0xEE);
         }
 
-        
-        private BranchInstruction CreateSut() => new BranchInstruction("blt", OpCodes.BranchLessThan);
+
+        private SingleAddressInstruction CreateSut() => new SingleAddressInstruction("blt", OpCodes.BranchLessThan);
     }
 }

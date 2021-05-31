@@ -17,4 +17,7 @@ namespace Emulator.Instructions
             Compare(left, right, cpu.Flags);
         }
     }
+    
+ 
+    
 }

@@ -2,7 +2,6 @@
 {
     public class CompareInstruction : EmulatorInstruction
     {
-
         public CompareInstruction(byte opcode, byte register, byte high, byte low) : base(opcode, register, high, low)
         {
         }
