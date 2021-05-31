@@ -3,7 +3,7 @@ using Shared;
 
 namespace Assembler.Instructions
 {
-    public class BranchEqualInstruction: BranchInstruction
+    public class BranchEqualInstruction: SingleAddressInstruction
     {
         public const string InstructionName = "beq";
 

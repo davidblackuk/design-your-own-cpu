@@ -2,7 +2,10 @@
 
 namespace Assembler.Instructions
 {
-    public class BranchInstruction : AssemblerInstruction, IAssemblerInstruction
+    /// <summary>
+    /// Base class for single register instructions like push, pop, rotr, rotl etc
+    /// </summary>
+    public class SingleRegisterInstruction : AssemblerInstruction, IAssemblerInstruction
     {
         private readonly string instructionName;
 
@@ -13,7 +16,7 @@ namespace Assembler.Instructions
         /// </summary>
         /// <param name="instructionName">The instruction name (beq, bra etc)</param>
         /// <param name="opCode">Op code for this instruction</param>
-        public BranchInstruction(string instructionName, byte opCode)
+        public SingleRegisterInstruction(string instructionName, byte opCode)
         {
             this.instructionName = instructionName;
             this.OpCode = opCode;
@@ -25,22 +28,13 @@ namespace Assembler.Instructions
         /// <param name="source"></param>
         public void Parse(string source)
         {
-            if (IsLabel(source))
-            {
-                RecordSymbolForResolution(source);
-            }
-            else
-            {
-                ParseValue(source);
-            }
+            Register = ParseRegister(source);
         }
         
         [ExcludeFromCodeCoverage]
         public override string ToString()
         {
-            string address = $"0x{ByteHigh:X2}{ByteLow:X2}";
-            string postfix = RequresSymbolResolution ? $" => {Symbol}" : "";
-            return $"{instructionName} {address}{postfix}";
+            return $"{instructionName} r{Register}";
                     
         }
     }

@@ -7,7 +7,7 @@ using NUnit.Framework;
 
 namespace AssemblerTests.Instructions
 {
-    public class InstructionFactoryTests
+    public class AssemblerInstructionFactoryTests
     {
 
         [Test]
@@ -26,11 +26,15 @@ namespace AssemblerTests.Instructions
         [TestCase("sth", typeof(StoreHiInstruction))]
         [TestCase("cmp", typeof(CompareInstruction))]
         [TestCase("blt", typeof(BranchLessThanInstruction))]
-        [TestCase("bgt", typeof(BranchGreaterThanInstruction))]
+        [TestCase("bgt", typeof(BrachGreaterThanInstruction))]
         [TestCase("beq", typeof(BranchEqualInstruction))]
         [TestCase("bra", typeof(BranchAlwaysInstruction))]
         [TestCase("add", typeof(AddInstruction))]
         [TestCase("sub", typeof(SubtractInstruction))]
+        [TestCase("call", typeof(CallInstruction))]
+        [TestCase("ret", typeof(ReturnInstruction))]
+        [TestCase("push", typeof(PushInstruction))]
+        [TestCase("pop", typeof(PopInstruction))]
         public void Create_WhenCalledWithAKnownInstructionName_ShouldReturnCorrectType(
             string instructionName, Type expectedType)
         {

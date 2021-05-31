@@ -2,7 +2,7 @@
 
 namespace Assembler.Instructions
 {
-    public class BranchLessThanInstruction: BranchInstruction
+    public class BranchLessThanInstruction: SingleAddressInstruction
     {
         public const string InstructionName = "blt";
 

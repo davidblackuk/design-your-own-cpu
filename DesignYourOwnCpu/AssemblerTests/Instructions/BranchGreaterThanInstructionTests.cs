@@ -10,6 +10,6 @@ namespace AssemblerTests.Instructions
         [Test]
         public void Ctor_WhenInvoked_ShouldCorrectlySetOpCode() => CreateSut().OpCode.Should().Be(OpCodes.BranchGreaterThan);
 
-        private BranchGreaterThanInstruction CreateSut() => new BranchGreaterThanInstruction();
+        private BrachGreaterThanInstruction CreateSut() => new BrachGreaterThanInstruction();
     }
 }

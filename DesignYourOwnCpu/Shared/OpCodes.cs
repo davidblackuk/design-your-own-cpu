@@ -29,8 +29,15 @@
         public const byte AddRegisterToRegister = 0x42;
         public const byte SubtractRegisterFromRegister = 0x43;
         
+        public const byte Push = 0x50;
+        public const byte Pop = 0x51;
+        public const byte Call = 0x52;
+        public const byte Ret = 0x53;
+
+        
         public const byte Nop = 0xFF;
         public const byte Halt = 0xFE;
+        
 
 
         /// <summary>

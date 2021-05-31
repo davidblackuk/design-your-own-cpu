@@ -21,6 +21,7 @@ namespace Assembler
                 Console.WriteLine($"Could not find input file: {args[0]}");
                 return;
             }
+            Console.WriteLine($"\nAssembling file: {args[0]}\n");
 
             var lineSource =
                 new CommentStrippingLineSource(new WhitespaceRemovalLineSource(new FileLineSource(args[0])));
@@ -39,11 +40,13 @@ namespace Assembler
 
             try
             {
+                DateTime start = DateTime.Now;
                 assembler.Assemble(lineSource);
                 if (args.Length == 1)
                 {
                     ram.Save($"{args[0]}.bin");
                 }
+                Console.WriteLine($"\nComplete in {(DateTime.Now - start).TotalMilliseconds} (ms)\n");
             }
             catch (AssemblerException ae)
             {
