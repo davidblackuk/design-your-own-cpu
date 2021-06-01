@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using Assembler.Extensions;
 using Assembler.Instructions;
 using Assembler.Symbols;
 using Pastel;
@@ -25,23 +26,10 @@ namespace Assembler
             foreach (var instruction in instructions)
             {
                 ResolveSymbolsIfRequired(instruction);
-                
-                Console.Write($"0x{address:X4}  ".Pastel(Color.Goldenrod) );
-                Console.Write($"{instruction.BytesString()} ".Pastel(Color.Orchid) );
-                
-                StoreBytesForInstruction(address, instruction);
+                instruction.WriteBytes(ram, address);
+                instruction.ToConsole(address);
                 address += instruction.Size;
-                
-                Console.WriteLine($" # {instruction}".Pastel(Color.Teal));
             }
-        }
-
-        private void StoreBytesForInstruction(ushort address, IAssemblerInstruction instruction)
-        {
-            ram[address++] = instruction.OpCode;
-            ram[address++] = instruction.Register;
-            ram[address++] = instruction.ByteHigh;
-            ram[address++] = instruction.ByteLow;
         }
 
         private void ResolveSymbolsIfRequired(IAssemblerInstruction instruction)

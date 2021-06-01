@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Assembler.Exceptions;
+using Assembler.Extensions;
 using Assembler.Instructions;
 using Assembler.LineSources;
 using Assembler.Symbols;
@@ -21,7 +22,12 @@ namespace Assembler
                 Console.WriteLine($"Could not find input file: {args[0]}");
                 return;
             }
-            Console.WriteLine($"\nAssembling file: {args[0]}\n");
+            string binaryFile = Path.ChangeExtension(args[0], "bin");
+            string symbolFile = Path.ChangeExtension(args[0], "sym");
+
+            Console.WriteLine($"\nSource file: {args[0]}");
+            Console.WriteLine($"Output file: {binaryFile}");
+            Console.WriteLine($"Symbol file: {symbolFile}\n");
 
             var lineSource =
                 new CommentStrippingLineSource(new WhitespaceRemovalLineSource(new FileLineSource(args[0])));
@@ -44,14 +50,17 @@ namespace Assembler
                 assembler.Assemble(lineSource);
                 if (args.Length == 1)
                 {
-                    ram.Save($"{args[0]}.bin");
+                    ram.Save(binaryFile);
+                    Console.WriteLine("\nSymbols\n");
+                    symbolTable.Save(symbolFile);
                 }
                 Console.WriteLine($"\nComplete in {(DateTime.Now - start).TotalMilliseconds} (ms)\n");
             }
             catch (AssemblerException ae)
             {
-                Console.WriteLine(ae.Message);
+                ae.ToConsole();
             }
+            Console.WriteLine();
         }
     }
 }

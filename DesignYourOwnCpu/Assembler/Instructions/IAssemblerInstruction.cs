@@ -28,9 +28,22 @@ namespace Assembler.Instructions
         void Parse(string source);
 
         /// <summary>
-        /// Returns the data associated with in the instruction as 4 space separated, two digit hex values,
-        /// in the order Opcode / Register / High byte / Low byte
+        /// Returns the data associated with in the instruction as space separated, two digit hex values,
+        /// (for most instructions in the order Opcode / Register / High byte / Low byte)
         /// </summary>
         string BytesString();
+
+        /// <summary>
+        /// Write the instruction bytes to memory, at the specified address, this will write IInstruction.Size bytes
+        ///
+        /// <para>
+        /// Note all executable instructions write 4 bytes, but psuedo instructions like defs, defb or defw will write
+        /// variable amounts of data
+        /// </para>
+        /// </summary>
+        /// <param name="ram">The ram to write to</param>
+        /// <param name="address">the address to write data to</param>
+        public void WriteBytes(IRandomAccessMemory ram, ushort address);
+
     }
 }

@@ -1,0 +1,10 @@
+buffer: 0x003C
+byte_primes: 0x0064
+downcounter: 0x0064
+increment_r1: 0x0030
+loop: 0x0004
+loop2: 0x001C
+message1: 0x0064
+other_routine: 0x005C
+primes: 0x0081
+upcounter: 0x0064

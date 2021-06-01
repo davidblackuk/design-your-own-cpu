@@ -1,4 +1,8 @@
-﻿namespace Emulator
+﻿using System;
+using System.Drawing;
+using Pastel;
+
+namespace Emulator
 {
     public class Registers : IRegisters
     {
@@ -28,6 +32,5 @@
             get => registers[9];
             set => registers[9] = value;
         }
-
     }
 }

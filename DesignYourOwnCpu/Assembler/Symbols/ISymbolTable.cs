@@ -28,5 +28,11 @@
         /// <returns>The requested symbol</returns>
         /// <exception cref="???"></exception>
         Symbol GetSymbol(string name);
+
+        /// <summary>
+        /// Saves the symbol table to the specified file
+        /// </summary>
+        /// <param name="symbolFile"></param>
+        void Save(string symbolFile);
     }
 }

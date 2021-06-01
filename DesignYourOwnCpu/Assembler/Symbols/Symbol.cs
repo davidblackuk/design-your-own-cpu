@@ -19,5 +19,7 @@
         public string Name { get;  }
         
         public ushort? Address { get; }
+
+        public override string ToString() => $"{Name}: 0x{Address:X4}";
     }
 }

@@ -12,7 +12,7 @@ namespace Emulator.Instructions
 
         public void Execute(ICPU cpu)
         {
-            cpu.Halted = true;
+            cpu.Flags.Halted = true;
         }
     }
 }

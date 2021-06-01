@@ -26,7 +26,7 @@ namespace Assembler.Instructions
         /// Parses the branch instruction and 
         /// </summary>
         /// <param name="source"></param>
-        public void Parse(string source)
+        public override void Parse(string source)
         {
             Register = ParseRegister(source);
         }

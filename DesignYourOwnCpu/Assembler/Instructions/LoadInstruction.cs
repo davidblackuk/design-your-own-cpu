@@ -8,7 +8,7 @@ namespace Assembler.Instructions
         public const string InstructionName = "ld";
 
 
-        public void Parse(string source)
+        public override void Parse(string source)
         {
             var operands = GetOperands(InstructionName, source);
             Register = ParseRegister(operands.left);

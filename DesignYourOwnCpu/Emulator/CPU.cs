@@ -10,10 +10,7 @@ namespace Emulator
         private readonly IRandomAccessMemory memory;
         private readonly IRegisters registers;
         private readonly IEmulatorInstructionFactory instructionFactory;
-
-        // has the cpu halted and should we stop executing
-        public bool Halted { get; set; }
-
+        
         public IRegisters Registers => registers;
 
         public IRandomAccessMemory Memory => memory;
@@ -47,7 +44,7 @@ namespace Emulator
                 
                 instruction.Execute(this);
 
-            } while (!Halted);
+            } while (!Flags.Halted);
             
             Console.WriteLine("Halted");
         }

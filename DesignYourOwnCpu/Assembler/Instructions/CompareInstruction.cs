@@ -5,7 +5,7 @@ namespace Assembler.Instructions
     public class CompareInstruction: AssemblerInstruction, IAssemblerInstruction
     {
         public const string InstructionName = "cmp";
-        public void Parse(string source)
+        public override void Parse(string source)
         {
             var operands = GetOperands(InstructionName, source);
             Register = ParseRegister(operands.left);

@@ -14,7 +14,7 @@ namespace Assembler.Instructions
             this.indirectOpCode = indirectOpCode;
             this.directOpCode = directOpCode;
         }
-        public void Parse(string source)
+        public override void Parse(string source)
         {
             var operands = GetOperands(instructionName, source);
             Register = ParseRegister(operands.left);

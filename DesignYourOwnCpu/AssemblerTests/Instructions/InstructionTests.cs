@@ -205,7 +205,7 @@ namespace AssemblerTests.Instructions
 
             public void TestRecordSymbolForResolution(string symbol) => RecordSymbolForResolution(symbol); 
             
-            public void Parse(string source)
+            public override void Parse(string source)
             {
                 var parts = base.GetOperands("xor",source);
                 Left = parts.left;
