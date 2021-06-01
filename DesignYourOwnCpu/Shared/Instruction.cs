@@ -52,8 +52,9 @@
         public byte ByteLow { get; protected set; }
         
         /// <summary>
-        /// All instructions are size 4 in this architecture, but...
+        /// All instructions are size 4 in this architecture, but storage psuedo-instructions like
+        /// defs, defw and defb produce variable size data (These instructions are also never executed) 
         /// </summary>
-        public ushort Size { get; } = 4;
+        public virtual ushort Size { get; } = 4;
     }
 }

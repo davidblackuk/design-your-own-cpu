@@ -1,5 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
 using Assembler.Exceptions;
+using Assembler.Extensions;
+using Pastel;
 
 namespace Assembler.Symbols
 {
@@ -55,6 +62,21 @@ namespace Assembler.Symbols
             if (!table.ContainsKey(name))
                 throw new AssemblerException($"Undefined symbol: {name}");
             return table[name];
+        }
+
+        public void Save(string symbolFile)
+        {
+            StringBuilder allText = new StringBuilder();
+
+            foreach (var symbol in table.Keys.OrderBy(o => o))
+            {
+                var definition = table[symbol];
+                allText.Append($"{definition}\n");
+                definition.ToConsole();
+
+            }
+            File.WriteAllText(symbolFile, allText.ToString());
+            
         }
     }
 }

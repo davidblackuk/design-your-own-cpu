@@ -40,6 +40,11 @@ namespace EmulatorTests.Instructions
         [TestCase(OpCodes.SubtractConstantFromRegister, typeof(SubtractConstantFromRegisterInstruction))]
         [TestCase(OpCodes.SubtractRegisterFromRegister, typeof(SubtractRegisterFromRegisterInstruction))]
         
+        [TestCase(OpCodes.Push, typeof(PushInstruction))]
+        [TestCase(OpCodes.Pop, typeof(PopInstruction))]
+        [TestCase(OpCodes.Call, typeof(CallInstruction))]
+        [TestCase(OpCodes.Ret, typeof(ReturnInstruction))]
+        
         
 
         public void Create_WhenCalledWithAKnownOpcode_ShouldReturnCorrectType(

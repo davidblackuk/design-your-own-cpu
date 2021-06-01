@@ -53,10 +53,7 @@ namespace AssemblerTests
             var instructions = new List<IAssemblerInstruction>() {mockInstruction.Object};
             var sut = CreateSut();
             sut.GenerateCode(instructions);
-            memoryMock.VerifySet(ram => ram[0] = ExpectedOpCode, Times.Once);
-            memoryMock.VerifySet(ram => ram[1] = ExpectedRegister, Times.Once);
-            memoryMock.VerifySet(ram => ram[2] = ExpectedByteHigh, Times.Once);
-            memoryMock.VerifySet(ram => ram[3] = ExpectedByteLow, Times.Once);
+            mockInstruction.Verify(i => i.WriteBytes(memoryMock.Object, 0));
         }
 
         [Test]

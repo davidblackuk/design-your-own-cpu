@@ -4,7 +4,7 @@ using Shared;
 
 namespace Assembler.Instructions
 {
-    public class AssemblerInstruction: Instruction
+    public class AssemblerInstruction: Instruction, IAssemblerInstruction
     {
 
 
@@ -136,10 +136,17 @@ namespace Assembler.Instructions
             StoreData(value);
         }
 
+        
+        
         public void StoreData(ushort value)
         {
             ByteLow = (byte) (value & 0xff);
             ByteHigh = (byte) (value >> 8 & 0xff);
+        }
+
+        public virtual void Parse(string source)
+        {
+            throw new NotImplementedException();
         }
 
         protected void RecordSymbolForResolution(string symbol)
@@ -147,9 +154,25 @@ namespace Assembler.Instructions
             Symbol = symbol.ToLowerInvariant();
         }
 
-        public string BytesString()
+        public virtual string BytesString()
         {
             return $"{OpCode:X2} {Register:X2} {ByteHigh:X2} {ByteLow:X2}";
-        } 
+        }
+
+        /// <summary>
+        /// For the vast majority of instructions this base method writes the 4 bytes of
+        /// the instruction to memory, but for the storage instructions (defs, defw, defb etc)
+        /// there are a variable number of bytes to output
+        /// </summary>
+        /// <param name="ram"></param>
+        /// <param name="address"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        public virtual void WriteBytes(IRandomAccessMemory ram, ushort address)
+        {
+            ram[address++] = OpCode;
+            ram[address++] = Register;
+            ram[address++] = ByteHigh;
+            ram[address++] = ByteLow;
+        }
     }
 }

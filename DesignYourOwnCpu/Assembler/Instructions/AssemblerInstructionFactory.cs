@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using Assembler.Exceptions;
+using Assembler.Instructions.PsuedoInstructions;
 
 namespace Assembler.Instructions
 {
@@ -47,6 +48,11 @@ namespace Assembler.Instructions
                     return new NopInstruction(); 
                 case HaltInstruction.InstructionName:
                     return new HaltInstruction();
+                
+                case DefineSpaceInstruction.InstructionName:
+                    return new DefineSpaceInstruction();
+                case DefineMessageInstruction.InstructionName:
+                    return new DefineMessageInstruction();
 
                 default:
                     throw new AssemblerException("Unknown instruction: " + name);

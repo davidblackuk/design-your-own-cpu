@@ -7,7 +7,7 @@ namespace Assembler.Instructions
     {
         public const string InstructionName = "nop";
 
-        public void Parse(string source)
+        public override void Parse(string source)
         {
             this.OpCode = OpCodes.Nop;
         }

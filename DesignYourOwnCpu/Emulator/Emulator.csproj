@@ -9,4 +9,8 @@
     <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Pastel" Version="2.1.0" />
+  </ItemGroup>
+
 </Project>

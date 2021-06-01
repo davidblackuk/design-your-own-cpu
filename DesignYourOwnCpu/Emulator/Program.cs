@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using Emulator.Extensions;
 using Emulator.Instructions;
 using Shared;
 
@@ -19,6 +20,15 @@ namespace Emulator
             IFlags flags = new Flags();
             CPU cpu = new CPU(memory, registers, flags, factory);
             cpu.Run();
+            
+            
+            Console.WriteLine();
+            registers.ToConsole();
+            Console.WriteLine();
+            memory.ToConsole(0, 128);
+            Console.WriteLine();
+
+            
         }
     }
 }

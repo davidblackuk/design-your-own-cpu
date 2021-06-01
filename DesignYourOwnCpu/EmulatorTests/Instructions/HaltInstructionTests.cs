@@ -12,9 +12,11 @@ namespace EmulatorTests.Instructions
         {
             var sut = CreateSut();
             Mock<ICPU> cpuMock = new Mock<ICPU>();
+            Mock<IFlags> flagsMock = new Mock<IFlags>();
+            cpuMock.SetupGet(c => c.Flags).Returns(flagsMock.Object);
             sut.Execute(cpuMock.Object);
 
-            cpuMock.VerifySet(cpu => cpu.Halted = true, Times.Once());
+            flagsMock.VerifySet(f => f.Halted = true, Times.Once());
         }
 
         private HaltInstruction CreateSut()

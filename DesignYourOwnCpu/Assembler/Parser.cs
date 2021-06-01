@@ -24,6 +24,7 @@ namespace Assembler
         
         public void ParseAllLines(ILineSource lineSource)
         {
+            ushort currentAddress = 0;
             foreach (string line in lineSource.Lines())
             {
                 (string instruction, string remainder) parsedLine = nameParser.Parse(line);
@@ -31,13 +32,14 @@ namespace Assembler
                 // defining a label?
                 if (parsedLine.instruction.StartsWith("."))
                 {
-                    DefineSymbol(parsedLine.instruction.Substring(1));
+                    DefineSymbol(parsedLine.instruction.Substring(1), currentAddress);
                 }
                 else
                 {
                     var instruction = assemblerInstructionFactory.Create(parsedLine.instruction);
                     instruction.Parse(parsedLine.remainder);
                     Instructions.Add(instruction);
+                    currentAddress += instruction.Size;
                 }
             }
             // todo: throw exception with message for any undefined symbols at this point.
@@ -49,9 +51,9 @@ namespace Assembler
         //
         // <para>The label may already exist, not have an address (ie forward reference), or
         // be a new one. </para>
-        private void DefineSymbol(string labelName)
+        private void DefineSymbol(string labelName, ushort currentAddress)
         {
-            symbolTable.DefineSymbol(labelName, (ushort)(Instructions.Count * Constants.InstructionWidth));
+            symbolTable.DefineSymbol(labelName, currentAddress);
         }
     }
 }

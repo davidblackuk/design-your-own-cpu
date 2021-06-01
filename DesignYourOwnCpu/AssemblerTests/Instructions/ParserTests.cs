@@ -52,20 +52,6 @@ namespace AssemblerTests.Instructions
 
             symbolTableMock.Verify(st => st.DefineSymbol("loop", 0));
         }
-        
-        [Test]
-        public void Parse_whenInvokedWithALabelOnLine3_DefinedTHeLabelAtAddress8()
-        {
-            var sut = CreateSut();
-
-            var mockInstruction = new Mock<IAssemblerInstruction>();
-            sut.Instructions.Add(mockInstruction.Object);
-            sut.Instructions.Add(mockInstruction.Object);
-            
-            AddLoopSymbolDefinition(sut);
-
-            symbolTableMock.Verify(st => st.DefineSymbol("loop", 8));
-        }
 
         [Test]
         public void Parse_whenInvokedWithAnInstruction_ShouldParseAndAddIt()

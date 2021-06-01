@@ -61,7 +61,15 @@ namespace Emulator.Instructions
                 case OpCodes.SubtractRegisterFromRegister:
                     return new SubtractRegisterFromRegisterInstruction(register, high, low);
 
-                
+                case OpCodes.Push:
+                    return new PushInstruction(register, high, low);
+                case OpCodes.Pop:
+                    return new PopInstruction(register, high, low);
+                case OpCodes.Call:
+                    return new CallInstruction(register, high, low);
+                case OpCodes.Ret:
+                    return new ReturnInstruction(register, high, low);
+
                 default:
                     throw new EmulatorException($"Unknown opcode: {opcode:X2}");
             }
