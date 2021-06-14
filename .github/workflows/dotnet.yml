@@ -20,12 +20,9 @@ jobs:
     - name: Build Assembler
       run: dotnet build 
       working-directory: ./DesignYourOwnCpu/Assembler
-    - name: Test Assembler
-      run: dotnet test --verbosity normal
-      working-directory: ./DesignYourOwnCpu/AssemblerTests
     - name: Build Emulator
       run: dotnet build 
       working-directory: ./DesignYourOwnCpu/Emulator
-    - name: Test Emulator
-      run: dotnet test 
-      working-directory: ./DesignYourOwnCpu/EmulatorTests
+    - name: Test Emulator and Assembler
+      run: dotnet test ./DesignYourOwnCpu.sln
+      working-directory: ./DesignYourOwnCpu
