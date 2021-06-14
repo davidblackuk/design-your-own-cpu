@@ -17,10 +17,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-        working-directory: Assembler
-
     - name: Restore dependencies for  Assembler
       run: dotnet restore
+      working-directory: Assembler
     - name: Build  Assembler
       run: dotnet build --no-restore 
     - name: Test  Assembler
