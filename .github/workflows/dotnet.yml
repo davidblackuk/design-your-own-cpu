@@ -17,10 +17,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-    - name: Restore dependencies for  Assembler
+    - name: Restore dependencies for Assembler
       run: dotnet restore
-      working-directory: ./Assembler
-    - name: Build  Assembler
+      working-directory: ./DesignYourOwnCpu/Assembler
+    - name: Build Assembler
       run: dotnet build --no-restore 
-    - name: Test  Assembler
+      working-directory: ./DesignYourOwnCpu/Assembler
+    - name: Test Assembler
       run: dotnet test --verbosity normal
+      working-directory: ./DesignYourOwnCpu/Assembler
