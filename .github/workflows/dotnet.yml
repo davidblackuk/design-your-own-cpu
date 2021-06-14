@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies for  Assembler
-      run: dotnet restore Assembler
+      run: dotnet restore .\Assembler
     - name: Build  Assembler
-      run: dotnet build --no-restore  Assembler
+      run: dotnet build --no-restore  .\Assembler
     - name: Test  Assembler
-      run: dotnet test --no-build --verbosity normal  Assembler
+      run: dotnet test --no-build --verbosity normal  .\Assembler
