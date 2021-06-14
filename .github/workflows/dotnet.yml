@@ -19,7 +19,7 @@ jobs:
         dotnet-version: 5.0.x
     - name: Restore dependencies for  Assembler
       run: dotnet restore
-      working-directory: Assembler
+      working-directory: ./Assembler
     - name: Build  Assembler
       run: dotnet build --no-restore 
     - name: Test  Assembler
