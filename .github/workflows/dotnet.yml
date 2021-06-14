@@ -23,3 +23,9 @@ jobs:
     - name: Test Assembler
       run: dotnet test --verbosity normal
       working-directory: ./DesignYourOwnCpu/AssemblerTests
+    - name: Build Emulator
+      run: dotnet build 
+      working-directory: ./DesignYourOwnCpu/Emulator
+    - name: Test Emulator
+      run: dotnet test --verbosity normal
+      working-directory: ./DesignYourOwnCpu/EmulatorTests
