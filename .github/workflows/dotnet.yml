@@ -17,12 +17,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-    - name: Build Assembler
-      run: dotnet build 
-      working-directory: ./DesignYourOwnCpu/Assembler
-    - name: Build Emulator
-      run: dotnet build 
-      working-directory: ./DesignYourOwnCpu/Emulator
+    - name: Build Assembler and Emulator
+      run: dotnet build  ./DesignYourOwnCpu.sln
+      working-directory: ./DesignYourOwnCpu
     - name: Test Emulator and Assembler
-      run: dotnet test ./DesignYourOwnCpu.sln
+      run: dotnet test --no-restore ./DesignYourOwnCpu.sln
       working-directory: ./DesignYourOwnCpu
