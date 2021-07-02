@@ -1,45 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Shared
 {
-    public static class AsciiMapper
+    public static class MockAsciiMapper
     {
-        public static char ConvertByteToChar(byte ascii)
-        {
-            if (ByteToCharMap.ContainsKey(ascii))
-            {
-                return ByteToCharMap[ascii];
-            }
-
-            return '.';
-        }
-        
-        public static byte ConvertCharToByte(char character)
-        {
-            if (CharToByteMap.Keys.Count == 0)
-            {
-                CreateCharToByteMap();
-            }
-
-            if (!CharToByteMap.ContainsKey(character))
-            {
-                return 255;
-            }
-            return CharToByteMap[character];
-        }
-
-        private static void CreateCharToByteMap()
-        {
-            foreach (var code in ByteToCharMap.Keys)
-            {
-                // the byte to char map maps a couple of things to underscore, so the reverse map only need one
-                if (!CharToByteMap.ContainsKey(ByteToCharMap[code]))
-                {
-                    CharToByteMap.Add(ByteToCharMap[code], code);
-                }
-            }
-        }
+        public const byte NewLine = 0x0A;
+        public const byte Tab = 0x09;
+        public const byte Quote = 0x22;
+        public const byte Slash = 0x5C;
 
 
         private static readonly Dictionary<byte, char> ByteToCharMap = new()
@@ -264,9 +232,32 @@ namespace Shared
             [252] = '³',
             [253] = '²',
             [254] = '■',
-            [255] = '☐',
+            [255] = '☐'
         };
 
-        private static Dictionary<char, byte> CharToByteMap = new Dictionary<char, byte>();
+        private static readonly Dictionary<char, byte> CharToByteMap = new();
+
+        public static char ConvertByteToChar(byte ascii)
+        {
+            if (ByteToCharMap.ContainsKey(ascii)) return ByteToCharMap[ascii];
+
+            return '.';
+        }
+
+        public static byte ConvertCharToByte(char character)
+        {
+            if (CharToByteMap.Keys.Count == 0) CreateCharToByteMap();
+
+            if (!CharToByteMap.ContainsKey(character)) return 255;
+            return CharToByteMap[character];
+        }
+
+        private static void CreateCharToByteMap()
+        {
+            foreach (var code in ByteToCharMap.Keys)
+                // the byte to char map maps a couple of things to underscore, so the reverse map only need one
+                if (!CharToByteMap.ContainsKey(ByteToCharMap[code]))
+                    CharToByteMap.Add(ByteToCharMap[code], code);
+        }
     }
 }

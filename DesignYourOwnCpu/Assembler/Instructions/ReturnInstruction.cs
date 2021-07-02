@@ -6,12 +6,12 @@ namespace Assembler.Instructions
     public class ReturnInstruction : AssemblerInstruction, IAssemblerInstruction
     {
         public const string InstructionName = "ret";
-        
+
         public override void Parse(string source)
         {
-            this.OpCode = OpCodes.Ret;
+            OpCode = OpCodes.Ret;
         }
-        
+
         [ExcludeFromCodeCoverage]
         public override string ToString()
         {

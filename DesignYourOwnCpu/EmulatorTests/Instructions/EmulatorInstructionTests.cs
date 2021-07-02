@@ -1,11 +1,11 @@
-﻿using Emulator.Instructions;
+﻿using System.Diagnostics.CodeAnalysis;
+using Emulator.Instructions;
 using FluentAssertions;
-using FluentAssertions.Common;
 using NUnit.Framework;
-using Shared;
 
 namespace EmulatorTests.Instructions
 {
+    [ExcludeFromCodeCoverage]
     public class EmulatorInstructionTests
     {
         [Test]
@@ -21,7 +21,7 @@ namespace EmulatorTests.Instructions
 
         private SpyEmulatorInstruction CreateSut(byte opcode, byte register, byte high, byte low)
         {
-            return new SpyEmulatorInstruction(opcode, register, high, low);
+            return new(opcode, register, high, low);
         }
 
         private class SpyEmulatorInstruction : EmulatorInstruction

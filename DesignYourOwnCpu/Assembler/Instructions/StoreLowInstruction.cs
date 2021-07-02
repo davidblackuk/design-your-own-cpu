@@ -6,7 +6,8 @@ namespace Assembler.Instructions
     {
         public const string InstructionName = "stl";
 
-        public StoreLowInstruction(): base(InstructionName, OpCodes.StoreRegisterLowIndirect, OpCodes.StoreRegisterLowDirect)
+        public StoreLowInstruction() : base(InstructionName, OpCodes.StoreRegisterLowIndirect,
+            OpCodes.StoreRegisterLowDirect)
         {
         }
     }

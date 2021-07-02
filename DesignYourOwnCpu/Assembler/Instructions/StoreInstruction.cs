@@ -8,7 +8,6 @@ namespace Assembler.Instructions
 
         public StoreInstruction() : base(InstructionName, OpCodes.StoreRegisterIndirect, OpCodes.StoreRegisterDirect)
         {
-            
         }
     }
 }

@@ -1,18 +1,19 @@
-﻿using Emulator.Instructions;
+﻿using System.Diagnostics.CodeAnalysis;
+using Emulator.Instructions;
 using Moq;
 using NUnit.Framework;
 
 namespace EmulatorTests.Instructions
 {
-    public class BrancLessThanInstructionTests: EmulatorUnitTest
+    [ExcludeFromCodeCoverage]
+    public class BrancLessThanInstructionTests : EmulatorUnitTest
     {
-
         [Test]
         public void Execute_WhenFlagTrue_ShouldSetProgramCounterToValue()
         {
             ushort expectedProgramCounter = 0x3141;
             FlagsMock.SetupGet(f => f.LessThan).Returns(true);
-            BranchLessThanInstruction sut = CreateSut(expectedProgramCounter);
+            var sut = CreateSut(expectedProgramCounter);
             sut.Execute(CpuMock.Object);
             RegistersMock.VerifySet(reg => reg.ProgramCounter = expectedProgramCounter);
         }
@@ -22,16 +23,15 @@ namespace EmulatorTests.Instructions
         {
             ushort expectedProgramCounter = 0x3141;
             FlagsMock.SetupGet(f => f.LessThan).Returns(false);
-            BranchLessThanInstruction sut = CreateSut(expectedProgramCounter);
+            var sut = CreateSut(expectedProgramCounter);
             sut.Execute(CpuMock.Object);
             RegistersMock.VerifySet(reg => reg.ProgramCounter = expectedProgramCounter, Times.Never);
         }
 
-        
-        private BranchLessThanInstruction CreateSut( ushort expectedProgramCounter)
+
+        private BranchLessThanInstruction CreateSut(ushort expectedProgramCounter)
         {
-            return new BranchLessThanInstruction(0, HighByte(expectedProgramCounter), LowByte(expectedProgramCounter));
+            return new(0, HighByte(expectedProgramCounter), LowByte(expectedProgramCounter));
         }
-        
     }
 }

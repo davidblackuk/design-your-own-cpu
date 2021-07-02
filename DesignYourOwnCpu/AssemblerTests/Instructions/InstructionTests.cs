@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Diagnostics.CodeAnalysis;
 using Assembler.Exceptions;
 using Assembler.Instructions;
 using FluentAssertions;
@@ -6,6 +6,7 @@ using NUnit.Framework;
 
 namespace AssemblerTests.Instructions
 {
+    [ExcludeFromCodeCoverage]
     public class InstructionTests
     {
         [Test]
@@ -17,11 +18,12 @@ namespace AssemblerTests.Instructions
             var sut = CreateSut();
             Assert.Throws<AssemblerException>(() => sut.Parse(line));
         }
-        
+
         [Test]
         [TestCase("r1,34", "r1", "34")]
         [TestCase("  r1,    34   ", "r1", "34")]
-        public void Operands_WhenCalledWithTwoParts_ShouldReturnTrimmedParts(string line, string expectedLeft, string expectedRight)
+        public void Operands_WhenCalledWithTwoParts_ShouldReturnTrimmedParts(string line, string expectedLeft,
+            string expectedRight)
         {
             var sut = CreateSut();
             sut.Parse(line);
@@ -40,7 +42,7 @@ namespace AssemblerTests.Instructions
             var res = sut.TestIsRegister(text);
             res.Should().Be(isRegister);
         }
-        
+
         [Test]
         [TestCase("r1", false)]
         [TestCase("R1", false)]
@@ -64,12 +66,13 @@ namespace AssemblerTests.Instructions
             sut.ByteHigh.Should().Be(expectedHigh);
             sut.ByteLow.Should().Be(expectedLow);
         }
-        
+
         [Test]
         [TestCase("(0x5678)", 0x56, 0x78)]
         [TestCase("(04567)", 0x09, 0x77)]
         [TestCase("(9876)", 0x26, 0x94)]
-        public void ParseAddress_whenInvoked_shouldParseInTheCorrectBase(string text, byte expectedHigh, byte expectedLow)
+        public void ParseAddress_whenInvoked_shouldParseInTheCorrectBase(string text, byte expectedHigh,
+            byte expectedLow)
         {
             var sut = CreateSut();
             sut.TestParseAddress(text);
@@ -95,26 +98,25 @@ namespace AssemblerTests.Instructions
             var sut = CreateSut();
             sut.TestParseRegister("r3").Should().Be(3);
         }
-        
-        
-        
+
+
         [Test]
         [TestCase("hello", true)]
         [TestCase("  hello  ", true)]
         [TestCase(" hello", true)]
         [TestCase("hello ", true)]
         [TestCase("r2", false)]
-        [TestCase(" r2 " , false)]
-        [TestCase(" 0x3456 " , false)]
-        [TestCase(" 03456 " , false)]
-        [TestCase("" , false)]
-        [TestCase(" 3456 " , false)]
+        [TestCase(" r2 ", false)]
+        [TestCase(" 0x3456 ", false)]
+        [TestCase(" 03456 ", false)]
+        [TestCase("", false)]
+        [TestCase(" 3456 ", false)]
         public void IsLabel_WhenCalled_ShouldHandle(string text, bool expectedIsLabel)
         {
             var sut = CreateSut();
             sut.TestIsLabel(text).Should().Be(expectedIsLabel);
         }
-        
+
         [Test]
         public void ResolveSymbol_WhenCalledWithConstant_ShouldCorrectlyParseInstruction()
         {
@@ -132,6 +134,7 @@ namespace AssemblerTests.Instructions
             sut.TestRecordSymbolForResolution(expected);
             sut.Symbol.Should().Be(expected);
         }
+
         [Test]
         public void RecordSymbolForResolution_WhenCalled_ShouldStoreTheSymbolLowered()
         {
@@ -149,7 +152,7 @@ namespace AssemblerTests.Instructions
             sut.TestRecordSymbolForResolution(expected);
             sut.RequresSymbolResolution.Should().BeTrue();
         }
-        
+
         [Test]
         public void RequresSymbolResolution_WhenNoSymbolPresent_ShouldBeFalse()
         {
@@ -163,35 +166,60 @@ namespace AssemblerTests.Instructions
             var sut = CreateSut();
             sut.SetBytes(0x12, 0x34, 0x56, 0x78);
             sut.BytesString().Should().Be("12 34 56 78");
-        } 
-        
+        }
+
         [Test]
         public void Size_whenRead_ShouldBeFour()
         {
             var sut = CreateSut();
             sut.Size.Should().Be(4);
-        } 
-        
-        private SpyInstruction CreateSut()
-        {
-            return new SpyInstruction();
         }
 
+        private SpyInstruction CreateSut()
+        {
+            return new();
+        }
+
+        [ExcludeFromCodeCoverage]
         public class SpyInstruction : AssemblerInstruction
         {
-
             public string Left { get; set; }
             public string Right { get; set; }
 
-            public bool TestIsRegister(string text) => IsRegister(text);
-            public bool TestIsAddress(string text) => IsAddress(text);
-            public void TestParseValue(string text) => ParseValue(text);
-            public void TestParseAddress(string text) => ParseAddress(text);
-            public byte TestParseRegister(string text) => ParseRegister(text);
+            public bool TestIsRegister(string text)
+            {
+                return IsRegister(text);
+            }
 
-            public void TestResolveSymbol(ushort value) => ResolveSymbol(value);
-            
-            public bool TestIsLabel(string text) => IsLabel(text);
+            public bool TestIsAddress(string text)
+            {
+                return IsAddress(text);
+            }
+
+            public void TestParseValue(string text)
+            {
+                ParseValue(text);
+            }
+
+            public void TestParseAddress(string text)
+            {
+                ParseAddress(text);
+            }
+
+            public byte TestParseRegister(string text)
+            {
+                return ParseRegister(text);
+            }
+
+            public void TestResolveSymbol(ushort value)
+            {
+                ResolveSymbol(value);
+            }
+
+            public bool TestIsLabel(string text)
+            {
+                return IsLabel(text);
+            }
 
             public void SetBytes(byte opcode, byte register, byte dataHigh, byte dataLow)
             {
@@ -199,15 +227,17 @@ namespace AssemblerTests.Instructions
                 Register = register;
                 ByteHigh = dataHigh;
                 ByteLow = dataLow;
-
             }
-            
 
-            public void TestRecordSymbolForResolution(string symbol) => RecordSymbolForResolution(symbol); 
-            
+
+            public void TestRecordSymbolForResolution(string symbol)
+            {
+                RecordSymbolForResolution(symbol);
+            }
+
             public override void Parse(string source)
             {
-                var parts = base.GetOperands("xor",source);
+                var parts = GetOperands("xor", source);
                 Left = parts.left;
                 Right = parts.right;
             }

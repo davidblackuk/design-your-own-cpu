@@ -1,12 +1,12 @@
-﻿using FluentAssertions;
+﻿using System.Diagnostics.CodeAnalysis;
+using FluentAssertions;
 using NUnit.Framework;
 
 namespace AssemblerTests.Symbol
 {
-    using Assembler.Symbols;
+    [ExcludeFromCodeCoverage]
     public class SymbolTests
     {
-
         [Test]
         public void Ctor_whenInvoked_ShoutSetCorrectValues()
         {
@@ -14,10 +14,10 @@ namespace AssemblerTests.Symbol
             sut.Name.Should().Be("hello");
             sut.Address.Should().Be(234);
         }
-        
-        private Symbol CreateSut(string name, ushort value)
+
+        private Assembler.Symbols.Symbol CreateSut(string name, ushort value)
         {
-            return new Symbol(name, value);
+            return new(name, value);
         }
     }
 }

@@ -1,10 +1,12 @@
-﻿using Assembler.Instructions;
+﻿using System.Diagnostics.CodeAnalysis;
+using Assembler.Instructions;
 using FluentAssertions;
 using NUnit.Framework;
 using Shared;
 
 namespace AssemblerTests.Instructions
 {
+    [ExcludeFromCodeCoverage]
     public class SingleRegisterInstructionTests
     {
         [Test]
@@ -32,6 +34,9 @@ namespace AssemblerTests.Instructions
             sut.RequresSymbolResolution.Should().BeFalse();
         }
 
-        private SingleRegisterInstruction CreateSut() => new SingleRegisterInstruction("push", OpCodes.Push);
+        private SingleRegisterInstruction CreateSut()
+        {
+            return new("push", OpCodes.Push);
+        }
     }
 }

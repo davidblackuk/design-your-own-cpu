@@ -2,43 +2,23 @@
 
 namespace Shared
 {
-    public interface IRandomAccessMemory
-    {
-        byte[] RawBytes { get; }
-        byte this[ushort address] { get; set; }
-
-        
-        /// <summary>
-        /// Gets the instruction data for the instruction at the specified address
-        /// </summary>
-        /// <param name="address"></param>
-        /// <returns></returns>
-        (byte opcode, byte register, byte byteHigh, byte byteLow) Instruction(ushort address);
-
-        ushort GetWord(ushort address);
-        
-        void SetWord(ushort address, ushort value);
-    }
-
     public class RandomAccessMemory : IRandomAccessMemory
     {
         public const ushort RamTop = 0xFFFF;
 
-        internal RandomAccessMemory()
+        public RandomAccessMemory()
         {
-            
         }
-        
-        internal RandomAccessMemory(byte [] from)
+
+        internal RandomAccessMemory(byte[] from)
         {
             if (from.Length != RamTop + 1)
-            {
-                throw new ArgumentException($"Expected exactly {RamTop + 1} bytes to be passed for a RAM image", nameof(from));
-            }
+                throw new ArgumentException($"Expected exactly {RamTop + 1} bytes to be passed for a RAM image",
+                    nameof(@from));
             RawBytes = from;
         }
-        
-        public byte [] RawBytes { get; } = new byte[RamTop+1];
+
+        public byte[] RawBytes { get; } = new byte[RamTop + 1];
 
         public byte this[ushort address]
         {
@@ -50,9 +30,9 @@ namespace Shared
         {
             ushort hi = RawBytes[address];
             ushort low = RawBytes[++address];
-            return (ushort)(hi << 8 | low);
+            return (ushort) ((hi << 8) | low);
         }
-        
+
         public void SetWord(ushort address, ushort value)
         {
             var valueBytes = DecomposeWord(value);
@@ -67,8 +47,7 @@ namespace Shared
 
         private (byte high, byte low) DecomposeWord(ushort value)
         {
-            return ( (byte)((value >> 8) & 0xFF), (byte)(value & 0xFF ));
+            return ((byte) ((value >> 8) & 0xFF), (byte) (value & 0xFF));
         }
-        
     }
 }

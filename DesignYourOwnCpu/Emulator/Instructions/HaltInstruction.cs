@@ -6,7 +6,7 @@ namespace Emulator.Instructions
     {
         public const byte Opcode = OpCodes.Halt;
 
-        public HaltInstruction(byte  register, byte high, byte low) : base(Opcode, register, high, low)
+        public HaltInstruction(byte register, byte high, byte low) : base(Opcode, register, high, low)
         {
         }
 

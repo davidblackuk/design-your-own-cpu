@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Assembler;
 using Assembler.Instructions;
 using Assembler.LineSources;
@@ -9,13 +10,14 @@ using NUnit.Framework;
 namespace AssemblerTests
 {
     /// <summary>
-    /// Not the best class name but avoid conflicts with the name space / project
+    ///     Not the best class name but avoid conflicts with the name space / project
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public class AssemblerClassTests
     {
-        private Mock<IParser> parserMock;
         private Mock<ICodeGenerator> codeGeneratorMock;
         private Mock<ILineSource> lineSourceMock;
+        private Mock<IParser> parserMock;
 
         [SetUp]
         public void SetUp()
@@ -47,14 +49,14 @@ namespace AssemblerTests
 
             var sut = CreateSut();
             sut.Assemble(lineSourceMock.Object);
-            
+
             parserMock.Verify(pm => pm.ParseAllLines(lineSourceMock.Object), Times.Once);
             codeGeneratorMock.Verify(cg => cg.GenerateCode(instructions), Times.Once);
         }
-        
+
         private Assembler.Assembler CreateSut()
         {
-            return new Assembler.Assembler(parserMock?.Object, codeGeneratorMock?.Object);
+            return new(parserMock?.Object, codeGeneratorMock?.Object);
         }
     }
 }

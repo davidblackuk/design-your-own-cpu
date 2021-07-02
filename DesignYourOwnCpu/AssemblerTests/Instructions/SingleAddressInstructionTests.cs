@@ -1,10 +1,12 @@
-﻿using Assembler.Instructions;
+﻿using System.Diagnostics.CodeAnalysis;
+using Assembler.Instructions;
 using FluentAssertions;
 using NUnit.Framework;
 using Shared;
 
 namespace AssemblerTests.Instructions
 {
+    [ExcludeFromCodeCoverage]
     public class SingleAddressInstructionTests
     {
         [Test]
@@ -42,6 +44,9 @@ namespace AssemblerTests.Instructions
         }
 
 
-        private SingleAddressInstruction CreateSut() => new SingleAddressInstruction("blt", OpCodes.BranchLessThan);
+        private SingleValueInstruction CreateSut()
+        {
+            return new("blt", OpCodes.BranchLessThan);
+        }
     }
 }

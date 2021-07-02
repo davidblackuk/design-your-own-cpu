@@ -1,10 +1,12 @@
-﻿using Assembler.Exceptions;
+﻿using System.Diagnostics.CodeAnalysis;
+using Assembler.Exceptions;
 using Assembler.Symbols;
 using FluentAssertions;
 using NUnit.Framework;
 
 namespace AssemblerTests.Symbol
 {
+    [ExcludeFromCodeCoverage]
     public class SymbolTableTests
     {
         [Test]
@@ -23,7 +25,7 @@ namespace AssemblerTests.Symbol
             sut.ReferenceSymbol("label");
             sut.ReferenceSymbol("label");
         }
-        
+
         [Test]
         public void DefineSymbol_WhenANewSymbolIsCreated_ShouldStoreAddress()
         {
@@ -32,7 +34,7 @@ namespace AssemblerTests.Symbol
             var symbol = sut.GetSymbol("label");
             symbol.Address.Value.Should().Be(3456);
         }
-        
+
         [Test]
         public void DefineSymbol_WhenASymbolIsDefinedMultipleTimes_ShouldThrowDuplicateSymbolException()
         {
@@ -46,12 +48,11 @@ namespace AssemblerTests.Symbol
         {
             var sut = CreateSut();
             Assert.Throws<AssemblerException>(() => sut.GetSymbol("label"));
-            
         }
 
         private SymbolTable CreateSut()
         {
-            return new SymbolTable();
+            return new();
         }
     }
 }

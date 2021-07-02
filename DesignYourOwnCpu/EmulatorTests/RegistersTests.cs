@@ -1,12 +1,13 @@
-﻿using Emulator;
+﻿using System.Diagnostics.CodeAnalysis;
+using Emulator;
 using FluentAssertions;
 using NUnit.Framework;
 
 namespace EmulatorTests
 {
+    [ExcludeFromCodeCoverage]
     public class RegistersTests
     {
-
         [Test]
         [TestCase(0)]
         [TestCase(1)]
@@ -20,16 +21,11 @@ namespace EmulatorTests
         {
             byte ExpectedValue = 0x38;
             var sut = CreateSut();
-            sut[(byte)register] = ExpectedValue;
+            sut[(byte) register] = ExpectedValue;
             sut[(byte) register].Should().Be(ExpectedValue);
             for (byte i = 0; i < 8; i++)
-            {
                 if (i != register)
-                {
                     sut[i].Should().Be(0);
-                }
-            }
-
         }
 
         [Test]
@@ -40,7 +36,7 @@ namespace EmulatorTests
             sut.ProgramCounter = expectedValue;
             sut.ProgramCounter.Should().Be(expectedValue);
         }
-        
+
         [Test]
         public void StackPointer_WhenSet_ShouldPersist()
         {
@@ -50,9 +46,9 @@ namespace EmulatorTests
             sut.StackPointer.Should().Be(expectedValue);
         }
 
-    private Registers CreateSut()
+        private Registers CreateSut()
         {
-            return new Registers();
+            return new();
         }
     }
 }

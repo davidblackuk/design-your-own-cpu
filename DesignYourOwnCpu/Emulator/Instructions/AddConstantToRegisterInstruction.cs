@@ -1,6 +1,7 @@
-﻿namespace Emulator.Instructions
+﻿using Shared;
+
+namespace Emulator.Instructions
 {
-    using Shared;
     public class AddConstantToRegisterInstruction : EmulatorInstruction, IEmulatorInstruction
     {
         public const byte Opcode = OpCodes.AddConstantToRegister;

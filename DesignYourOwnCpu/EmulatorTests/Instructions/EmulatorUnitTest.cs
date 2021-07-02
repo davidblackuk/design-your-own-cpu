@@ -1,19 +1,21 @@
-﻿using Emulator;
+﻿using System.Diagnostics.CodeAnalysis;
+using Emulator;
 using Moq;
 using NUnit.Framework;
 using Shared;
 
 namespace EmulatorTests.Instructions
 {
+    [ExcludeFromCodeCoverage]
     public class EmulatorUnitTest
     {
         protected Mock<ICPU> CpuMock;
-        protected Mock<IRegisters> RegistersMock;
-        protected Mock<IRandomAccessMemory> MemoryMock;
         protected Mock<IFlags> FlagsMock;
+        protected Mock<IRandomAccessMemory> MemoryMock;
+        protected Mock<IRegisters> RegistersMock;
 
         [SetUp]
-        public void SetUp()
+        public virtual void SetUp()
         {
             CpuMock = new Mock<ICPU>();
             RegistersMock = new Mock<IRegisters>();
@@ -33,6 +35,5 @@ namespace EmulatorTests.Instructions
         {
             return (byte) (value & 0xff);
         }
-        
     }
 }

@@ -2,22 +2,19 @@
 
 namespace Assembler.Instructions.PsuedoInstructions
 {
-
-    
     /// <summary>
-    /// Reserves a chunk of memory for storage etc. Only accepts a single size argument
+    ///     Reserves a chunk of memory for storage etc. Only accepts a single size argument
     /// </summary>
-    public class DefineSpaceInstruction: AssemblerInstruction, IAssemblerInstruction
+    public class DefineSpaceInstruction : AssemblerInstruction, IAssemblerInstruction
     {
         public const string InstructionName = "defs";
 
         /// <summary>
-        /// Size of space defined in bytes
+        ///     Size of space defined in bytes
         /// </summary>
-        public override ushort Size => (ushort)((ByteHigh << 8) | (ByteLow));
+        public override ushort Size => (ushort) ((ByteHigh << 8) | ByteLow);
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="source"></param>
         public override void Parse(string source)

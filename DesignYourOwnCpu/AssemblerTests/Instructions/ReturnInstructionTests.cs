@@ -1,13 +1,14 @@
-﻿using Assembler.Instructions;
+﻿using System.Diagnostics.CodeAnalysis;
+using Assembler.Instructions;
 using FluentAssertions;
 using NUnit.Framework;
 using Shared;
 
 namespace AssemblerTests.Instructions
 {
+    [ExcludeFromCodeCoverage]
     public class ReturnInstructionTests
     {
-
         [Test]
         public void Parse_WhenInvoked_ShouldSetValuesCorrectly()
         {
@@ -18,10 +19,10 @@ namespace AssemblerTests.Instructions
             sut.ByteHigh.Should().Be(0);
             sut.ByteLow.Should().Be(0);
         }
-        
+
         private ReturnInstruction CreateSut()
         {
-            return new ReturnInstruction();
+            return new();
         }
     }
 }

@@ -1,9 +1,11 @@
-﻿using Emulator.Instructions;
+﻿using System.Diagnostics.CodeAnalysis;
+using Emulator.Instructions;
 using NUnit.Framework;
 
 namespace EmulatorTests.Instructions
 {
-    public class LoadRegisterWithConstantInstructionTests: EmulatorUnitTest
+    [ExcludeFromCodeCoverage]
+    public class LoadRegisterWithConstantInstructionTests : EmulatorUnitTest
     {
         [Test]
         public void Execute_WhenInvoked_ShouldStoreTheValueInTheRegister()
@@ -17,7 +19,7 @@ namespace EmulatorTests.Instructions
 
         private LoadRegisterWithConstantInstruction CreateSut(byte register, ushort value)
         {
-            return new LoadRegisterWithConstantInstruction(register, HighByte(value), LowByte(value));
+            return new(register, HighByte(value), LowByte(value));
         }
     }
 }

@@ -1,12 +1,13 @@
-﻿using Assembler.Instructions;
+﻿using System.Diagnostics.CodeAnalysis;
+using Assembler.Instructions;
 using FluentAssertions;
 using NUnit.Framework;
 
 namespace AssemblerTests.Instructions
 {
+    [ExcludeFromCodeCoverage]
     public class AddInstructionTests
     {
-
         [Test]
         [TestCase("r4, 0x1234", 0x40, 4, 0x12, 0x34)]
         [TestCase("r5, r3", 0x42, 5, 0x0, 0x3)]
@@ -21,11 +22,11 @@ namespace AssemblerTests.Instructions
             sut.ByteHigh.Should().Be(dataHigh);
             sut.ByteLow.Should().Be(dataLow);
         }
-        
+
 
         private AddInstruction CreateSut()
         {
-            return new AddInstruction();
+            return new();
         }
     }
 }

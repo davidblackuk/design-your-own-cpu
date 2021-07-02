@@ -6,7 +6,8 @@ namespace Assembler.Instructions
     {
         public const string InstructionName = "sth";
 
-        public StoreHiInstruction(): base(InstructionName, OpCodes.StoreRegisterHiIndirect, OpCodes.StoreRegisterHiDirect)
+        public StoreHiInstruction() : base(InstructionName, OpCodes.StoreRegisterHiIndirect,
+            OpCodes.StoreRegisterHiDirect)
         {
         }
     }

@@ -1,14 +1,12 @@
 ﻿using System;
-using Assembler.Instructions;
 using Assembler.LineSources;
-using Shared;
 
 namespace Assembler
 {
     public class Assembler
     {
-        private readonly IParser parser;
         private readonly ICodeGenerator codeGenerator;
+        private readonly IParser parser;
 
         public Assembler(IParser parser, ICodeGenerator codeGenerator)
         {

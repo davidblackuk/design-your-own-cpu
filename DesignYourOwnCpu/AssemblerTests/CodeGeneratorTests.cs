@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Assembler;
 using Assembler.Instructions;
 using Assembler.Symbols;
@@ -9,23 +10,24 @@ using Shared;
 
 namespace AssemblerTests
 {
+    [ExcludeFromCodeCoverage]
     public class CodeGeneratorTests
     {
         private const byte ExpectedOpCode = 0x23;
         private const byte ExpectedRegister = 0x03;
         private const byte ExpectedByteHigh = 0xEE;
         private const byte ExpectedByteLow = 0xF4;
-        
-        private Mock<ISymbolTable> symbolTableMock;
         private Mock<IRandomAccessMemory> memoryMock;
         private Mock<IAssemblerInstruction> mockInstruction;
+
+        private Mock<ISymbolTable> symbolTableMock;
 
         [SetUp]
         public void SetUp()
         {
             memoryMock = new Mock<IRandomAccessMemory>();
             symbolTableMock = new Mock<ISymbolTable>();
-            
+
             mockInstruction = new Mock<IAssemblerInstruction>();
             mockInstruction.SetupGet(instr => instr.OpCode).Returns(ExpectedOpCode);
             mockInstruction.SetupGet(instr => instr.Register).Returns(ExpectedRegister);
@@ -50,7 +52,7 @@ namespace AssemblerTests
         [Test]
         public void GenerateCode_WhenCalled_ShouldStoreTheCorrectBytes()
         {
-            var instructions = new List<IAssemblerInstruction>() {mockInstruction.Object};
+            var instructions = new List<IAssemblerInstruction> {mockInstruction.Object};
             var sut = CreateSut();
             sut.GenerateCode(instructions);
             mockInstruction.Verify(i => i.WriteBytes(memoryMock.Object, 0));
@@ -64,21 +66,20 @@ namespace AssemblerTests
             mockInstruction.SetupGet(i => i.RequresSymbolResolution).Returns(true);
             mockInstruction.SetupGet(i => i.Symbol).Returns(expectedSymbol);
 
-            Assembler.Symbols.Symbol symbol = new Assembler.Symbols.Symbol(expectedSymbol, expectedAddress);
+            var symbol = new Assembler.Symbols.Symbol(expectedSymbol, expectedAddress);
             symbolTableMock.Setup(st => st.GetSymbol(expectedSymbol)).Returns(symbol);
-            
-            var instructions = new List<IAssemblerInstruction>() {mockInstruction.Object};
+
+            var instructions = new List<IAssemblerInstruction> {mockInstruction.Object};
             var sut = CreateSut();
             sut.GenerateCode(instructions);
-            
+
             mockInstruction.Verify(i => i.StoreData(expectedAddress));
-            
         }
 
-        
+
         private CodeGenerator CreateSut()
         {
-            return new CodeGenerator(symbolTableMock?.Object, memoryMock?.Object);
+            return new(symbolTableMock?.Object, memoryMock?.Object);
         }
     }
 }

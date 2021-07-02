@@ -1,11 +1,12 @@
-﻿using Emulator.Instructions;
+﻿using System.Diagnostics.CodeAnalysis;
+using Emulator.Instructions;
 using NUnit.Framework;
 
 namespace EmulatorTests.Instructions
 {
-    public class LoadRegisterFromRegisterInstructionTests: EmulatorUnitTest
+    [ExcludeFromCodeCoverage]
+    public class LoadRegisterFromRegisterInstructionTests : EmulatorUnitTest
     {
-
         [Test]
         public void Execute_WhenInvoked_ShouldStoreTheValueInTheRegister()
         {
@@ -22,7 +23,7 @@ namespace EmulatorTests.Instructions
 
         private LoadRegisterFromRegisterInstruction CreateSut(byte register, byte sourceRegister)
         {
-            return new LoadRegisterFromRegisterInstruction(register, 0, sourceRegister);
+            return new(register, 0, sourceRegister);
         }
     }
 }

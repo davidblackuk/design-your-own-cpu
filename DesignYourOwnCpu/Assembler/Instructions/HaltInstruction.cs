@@ -6,12 +6,12 @@ namespace Assembler.Instructions
     public class HaltInstruction : AssemblerInstruction, IAssemblerInstruction
     {
         public const string InstructionName = "halt";
-        
+
         public override void Parse(string source)
         {
-            this.OpCode = OpCodes.Halt;
+            OpCode = OpCodes.Halt;
         }
-        
+
         [ExcludeFromCodeCoverage]
         public override string ToString()
         {

@@ -1,8 +1,9 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System.Diagnostics.CodeAnalysis;
+using NUnit.Framework;
 
 namespace AssemblerTests
 {
+    [ExcludeFromCodeCoverage]
     public class TestFramework
     {
         [Test]
