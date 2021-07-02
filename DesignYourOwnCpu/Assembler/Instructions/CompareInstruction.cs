@@ -1,10 +1,12 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Shared;
+
 namespace Assembler.Instructions
 {
-    public class CompareInstruction: AssemblerInstruction, IAssemblerInstruction
+    public class CompareInstruction : AssemblerInstruction, IAssemblerInstruction
     {
         public const string InstructionName = "cmp";
+
         public override void Parse(string source)
         {
             var operands = GetOperands(InstructionName, source);

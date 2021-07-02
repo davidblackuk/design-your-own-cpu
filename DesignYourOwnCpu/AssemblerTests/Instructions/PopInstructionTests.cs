@@ -1,10 +1,12 @@
-﻿using Assembler.Instructions;
+﻿using System.Diagnostics.CodeAnalysis;
+using Assembler.Instructions;
 using FluentAssertions;
 using NUnit.Framework;
 using Shared;
 
 namespace AssemblerTests.Instructions
 {
+    [ExcludeFromCodeCoverage]
     public class PopInstructionTests
     {
         [Test]
@@ -14,6 +16,9 @@ namespace AssemblerTests.Instructions
             sut.OpCode.Should().Be(OpCodes.Pop);
         }
 
-        private PopInstruction CreateSut() => new PopInstruction();
+        private PopInstruction CreateSut()
+        {
+            return new();
+        }
     }
 }

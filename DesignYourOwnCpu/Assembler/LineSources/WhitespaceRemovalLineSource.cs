@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Assembler.LineSources
 {
-    public class WhitespaceRemovalLineSource: ILineSource
+    public class WhitespaceRemovalLineSource : ILineSource
     {
         private readonly ILineSource source;
 
@@ -14,13 +13,9 @@ namespace Assembler.LineSources
 
         public IEnumerable<string> Lines()
         {
-            foreach (string line in source.Lines())
-            {
-                if (!String.IsNullOrWhiteSpace(line))
-                {
+            foreach (var line in source.Lines())
+                if (!string.IsNullOrWhiteSpace(line))
                     yield return line;
-                }
-            }
         }
     }
 }

@@ -1,18 +1,20 @@
-﻿using Emulator;
+﻿using System.Diagnostics.CodeAnalysis;
+using Emulator;
 using Emulator.Instructions;
 using Moq;
 using NUnit.Framework;
 
 namespace EmulatorTests.Instructions
 {
+    [ExcludeFromCodeCoverage]
     public class HaltInstructionTests
     {
         [Test]
         public void Execute_WhenInvoked_ShouldStoreTheValueInTheRegister()
         {
             var sut = CreateSut();
-            Mock<ICPU> cpuMock = new Mock<ICPU>();
-            Mock<IFlags> flagsMock = new Mock<IFlags>();
+            var cpuMock = new Mock<ICPU>();
+            var flagsMock = new Mock<IFlags>();
             cpuMock.SetupGet(c => c.Flags).Returns(flagsMock.Object);
             sut.Execute(cpuMock.Object);
 
@@ -21,7 +23,7 @@ namespace EmulatorTests.Instructions
 
         private HaltInstruction CreateSut()
         {
-            return new HaltInstruction(0, 0, 0);
+            return new(0, 0, 0);
         }
     }
 }

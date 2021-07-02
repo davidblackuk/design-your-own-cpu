@@ -1,7 +1,7 @@
 ﻿namespace Assembler.Symbols
 {
     /// <summary>
-    ///  a symbol in the symbol table, a name and an address
+    ///     a symbol in the symbol table, a name and an address
     /// </summary>
     public class Symbol
     {
@@ -9,17 +9,20 @@
         {
             Name = name;
             Address = address;
-        } 
-        
+        }
+
         public Symbol(string name)
         {
             Name = name;
         }
 
-        public string Name { get;  }
-        
+        public string Name { get; }
+
         public ushort? Address { get; }
 
-        public override string ToString() => $"{Name}: 0x{Address:X4}";
+        public override string ToString()
+        {
+            return $"{Name}: 0x{Address:X4}";
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Assembler.Instructions
 
         public override void Parse(string source)
         {
-            this.OpCode = OpCodes.Nop;
+            OpCode = OpCodes.Nop;
         }
 
         [ExcludeFromCodeCoverage]

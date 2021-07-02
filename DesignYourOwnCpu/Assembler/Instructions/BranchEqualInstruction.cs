@@ -1,15 +1,13 @@
-﻿using System.Threading.Tasks.Sources;
-using Shared;
+﻿using Shared;
 
 namespace Assembler.Instructions
 {
-    public class BranchEqualInstruction: SingleAddressInstruction
+    public class BranchEqualInstruction : SingleValueInstruction
     {
         public const string InstructionName = "beq";
 
-        public BranchEqualInstruction(): base(InstructionName, OpCodes.BranchEqual)
+        public BranchEqualInstruction() : base(InstructionName, OpCodes.BranchEqual)
         {
-            
         }
     }
 }

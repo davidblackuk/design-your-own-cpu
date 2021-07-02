@@ -5,15 +5,16 @@ namespace Emulator.Instructions
     public class StoreRegisterHighIndirectInstruction : EmulatorInstruction, IEmulatorInstruction
     {
         public const byte Opcode = OpCodes.StoreRegisterHiIndirect;
-        
-        public StoreRegisterHighIndirectInstruction(byte register, byte high, byte low) : base(Opcode, register, high, low)
+
+        public StoreRegisterHighIndirectInstruction(byte register, byte high, byte low) : base(Opcode, register, high,
+            low)
         {
         }
 
         public void Execute(ICPU cpu)
         {
             var indirectAddress = cpu.Registers[ByteLow];
-            byte value = (byte)((cpu.Registers[Register] >> 8) & 0xFF);
+            var value = (byte) ((cpu.Registers[Register] >> 8) & 0xFF);
             cpu.Memory[indirectAddress] = value;
         }
     }

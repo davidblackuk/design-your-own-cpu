@@ -11,19 +11,18 @@ using Shared;
 namespace Assembler
 {
     [ExcludeFromCodeCoverage]
-    class Program
+    internal class Program
     {
-
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-                        
             if (!File.Exists(args[0]))
             {
                 Console.WriteLine($"Could not find input file: {args[0]}");
                 return;
             }
-            string binaryFile = Path.ChangeExtension(args[0], "bin");
-            string symbolFile = Path.ChangeExtension(args[0], "sym");
+
+            var binaryFile = Path.ChangeExtension(args[0], "bin");
+            var symbolFile = Path.ChangeExtension(args[0], "sym");
 
             Console.WriteLine($"\nSource file: {args[0]}");
             Console.WriteLine($"Output file: {binaryFile}");
@@ -37,16 +36,16 @@ namespace Assembler
             IInstructionNameParser nameParser = new InstructionNameParser();
             IAssemblerInstructionFactory assemblerInstructionFactory = new AssemblerInstructionFactory();
             IRamFactory ramFactory = new RamFactory();
-            Parser parser = new Parser(nameParser, assemblerInstructionFactory, symbolTable);
-            RandomAccessMemory ram = ramFactory.Create();
+            var parser = new Parser(nameParser, assemblerInstructionFactory, symbolTable);
+            var ram = ramFactory.Create();
 
-            CodeGenerator codeGenerator = new CodeGenerator(symbolTable, ram);
+            var codeGenerator = new CodeGenerator(symbolTable, ram);
 
-            Assembler assembler = new Assembler(parser, codeGenerator);
+            var assembler = new Assembler(parser, codeGenerator);
 
             try
             {
-                DateTime start = DateTime.Now;
+                var start = DateTime.Now;
                 assembler.Assemble(lineSource);
                 if (args.Length == 1)
                 {
@@ -54,12 +53,14 @@ namespace Assembler
                     Console.WriteLine("\nSymbols\n");
                     symbolTable.Save(symbolFile);
                 }
+
                 Console.WriteLine($"\nComplete in {(DateTime.Now - start).TotalMilliseconds} (ms)\n");
             }
             catch (AssemblerException ae)
             {
                 ae.ToConsole();
             }
+
             Console.WriteLine();
         }
     }

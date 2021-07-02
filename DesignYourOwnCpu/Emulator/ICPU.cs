@@ -4,14 +4,14 @@ namespace Emulator
 {
     public interface ICPU
     {
-        public IRegisters Registers { get;  }
+        public IRegisters Registers { get; }
 
         public IRandomAccessMemory Memory { get; }
 
         public IFlags Flags { get; set; }
-        
+
         /// <summary>
-        /// Executes till a halt instruction is hit
+        ///     Executes till a halt instruction is hit
         /// </summary>
         void Run();
     }

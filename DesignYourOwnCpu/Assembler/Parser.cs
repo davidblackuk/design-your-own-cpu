@@ -3,31 +3,32 @@ using System.Collections.Generic;
 using Assembler.Instructions;
 using Assembler.LineSources;
 using Assembler.Symbols;
-using Shared;
 
 namespace Assembler
 {
     public class Parser : IParser
     {
-        private readonly IInstructionNameParser nameParser;
         private readonly IAssemblerInstructionFactory assemblerInstructionFactory;
+        private readonly IInstructionNameParser nameParser;
         private readonly ISymbolTable symbolTable;
 
-        public List<IAssemblerInstruction> Instructions { get; } = new List<IAssemblerInstruction>();
-
-        public Parser(IInstructionNameParser nameParser, IAssemblerInstructionFactory assemblerInstructionFactory, ISymbolTable symbolTable)
+        public Parser(IInstructionNameParser nameParser, IAssemblerInstructionFactory assemblerInstructionFactory,
+            ISymbolTable symbolTable)
         {
             this.nameParser = nameParser ?? throw new ArgumentNullException(nameof(nameParser));
-            this.assemblerInstructionFactory = assemblerInstructionFactory ?? throw new ArgumentNullException(nameof(assemblerInstructionFactory));
+            this.assemblerInstructionFactory = assemblerInstructionFactory ??
+                                               throw new ArgumentNullException(nameof(assemblerInstructionFactory));
             this.symbolTable = symbolTable ?? throw new ArgumentNullException(nameof(symbolTable));
         }
-        
+
+        public List<IAssemblerInstruction> Instructions { get; } = new();
+
         public void ParseAllLines(ILineSource lineSource)
         {
             ushort currentAddress = 0;
-            foreach (string line in lineSource.Lines())
+            foreach (var line in lineSource.Lines())
             {
-                (string instruction, string remainder) parsedLine = nameParser.Parse(line);
+                var parsedLine = nameParser.Parse(line);
 
                 // defining a label?
                 if (parsedLine.instruction.StartsWith("."))

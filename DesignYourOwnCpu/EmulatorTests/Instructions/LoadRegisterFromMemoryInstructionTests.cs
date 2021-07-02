@@ -1,11 +1,12 @@
-﻿using Emulator.Instructions;
+﻿using System.Diagnostics.CodeAnalysis;
+using Emulator.Instructions;
 using NUnit.Framework;
 
 namespace EmulatorTests.Instructions
 {
-    public class LoadRegisterFromMemoryInstructionTests: EmulatorUnitTest
+    [ExcludeFromCodeCoverage]
+    public class LoadRegisterFromMemoryInstructionTests : EmulatorUnitTest
     {
-
         [Test]
         public void Execute_WhenInvoked_ShouldStoreTheValueInTheRegister()
         {
@@ -15,7 +16,7 @@ namespace EmulatorTests.Instructions
             ushort expectedAddress = 0x0034;
 
             MemoryMock.Setup(m => m.GetWord(expectedAddress)).Returns(expectedValue);
-            
+
             var sut = CreateSut(targetRegister, expectedAddress);
             sut.Execute(CpuMock.Object);
             RegistersMock.VerifySet(r => r[targetRegister] = expectedValue);
@@ -23,7 +24,7 @@ namespace EmulatorTests.Instructions
 
         private LoadRegisterFromMemoryInstruction CreateSut(byte register, ushort expectedAddress)
         {
-            return new LoadRegisterFromMemoryInstruction(register, HighByte(expectedAddress), LowByte(expectedAddress));
+            return new(register, HighByte(expectedAddress), LowByte(expectedAddress));
         }
     }
 }

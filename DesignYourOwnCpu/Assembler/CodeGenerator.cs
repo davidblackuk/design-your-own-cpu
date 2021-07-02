@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using Assembler.Extensions;
 using Assembler.Instructions;
 using Assembler.Symbols;
-using Pastel;
 using Shared;
 
 namespace Assembler
 {
     public class CodeGenerator : ICodeGenerator
     {
-        private readonly ISymbolTable symbolTable;
         private readonly IRandomAccessMemory ram;
+        private readonly ISymbolTable symbolTable;
 
         public CodeGenerator(ISymbolTable symbolTable, IRandomAccessMemory ram)
         {

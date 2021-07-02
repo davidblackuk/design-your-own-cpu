@@ -1,5 +1,4 @@
-﻿using System.Data;
-using Assembler.Exceptions;
+﻿using Assembler.Exceptions;
 using Assembler.Instructions.PsuedoInstructions;
 
 namespace Assembler.Instructions
@@ -18,7 +17,7 @@ namespace Assembler.Instructions
                     return new StoreHiInstruction();
                 case StoreLowInstruction.InstructionName:
                     return new StoreLowInstruction();
-                
+
                 case CompareInstruction.InstructionName:
                     return new CompareInstruction();
                 case BranchEqualInstruction.InstructionName:
@@ -29,12 +28,12 @@ namespace Assembler.Instructions
                     return new BrachGreaterThanInstruction();
                 case BranchAlwaysInstruction.InstructionName:
                     return new BranchAlwaysInstruction();
-                
+
                 case AddInstruction.InstructionName:
                     return new AddInstruction();
                 case SubtractInstruction.InstructionName:
                     return new SubtractInstruction();
-                
+
                 case ReturnInstruction.InstructionName:
                     return new ReturnInstruction();
                 case CallInstruction.InstructionName:
@@ -43,12 +42,14 @@ namespace Assembler.Instructions
                     return new PushInstruction();
                 case PopInstruction.InstructionName:
                     return new PopInstruction();
-                
+                case SoftwareInterruptInstruction.InstructionName:
+                    return new SoftwareInterruptInstruction();
+
                 case NopInstruction.InstructionName:
-                    return new NopInstruction(); 
+                    return new NopInstruction();
                 case HaltInstruction.InstructionName:
                     return new HaltInstruction();
-                
+
                 case DefineSpaceInstruction.InstructionName:
                     return new DefineSpaceInstruction();
                 case DefineMessageInstruction.InstructionName:

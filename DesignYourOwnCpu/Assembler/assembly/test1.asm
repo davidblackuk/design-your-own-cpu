@@ -2,6 +2,12 @@
 # Simple assembly test app for the assembler.
 #
 
+    # say hello world (has to be the first thing in all languages!)
+    ld r0, hello-world
+    swi sys-write-string
+    halt
+    
+
     LD R1, 0x30
 .loop
     STL R1, (0x4000)
@@ -29,6 +35,10 @@ BGT loop2
 # storage for our app
 #
 
+.hello-world    
+defm "\nHello world!\n\n\0"
+
+
 .buffer
 defs 32
 
@@ -45,8 +55,6 @@ defs 32
 .byte_primes 
 #defb 2,	3,	5,	7,	11,	13,	17,	19,	23
  
-.message1    
-defm "messages add zero terminator"
 
 .primes
 # defw 2,	3,	5,	7,	11,	13,	17,	19,	23,	29,	31,	37,	41,	43,	47,	53,	59,	61,	67,	71

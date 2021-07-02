@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using Assembler.Exceptions;
 using Assembler.Instructions;
 using FluentAssertions;
@@ -7,9 +7,9 @@ using NUnit.Framework;
 
 namespace AssemblerTests.Instructions
 {
+    [ExcludeFromCodeCoverage]
     public class AssemblerInstructionFactoryTests
     {
-
         [Test]
         public void Create_WhenInvokedWithAnUnknownInstruction_ShouldThrow()
         {
@@ -45,7 +45,7 @@ namespace AssemblerTests.Instructions
 
         private AssemblerInstructionFactory CreateSut()
         {
-            return new AssemblerInstructionFactory();
+            return new();
         }
     }
 }

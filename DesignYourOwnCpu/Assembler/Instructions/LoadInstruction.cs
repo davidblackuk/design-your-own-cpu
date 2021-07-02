@@ -24,7 +24,7 @@ namespace Assembler.Instructions
             }
             else // its load a constant
             {
-                ParseValue(operands.right);
+                ParseConstantValueOrSymbol(operands.right);
                 OpCode = OpCodes.LoadRegisterWithConstant;
             }
         }
@@ -40,7 +40,6 @@ namespace Assembler.Instructions
                     return $"{InstructionName}  r{Register}, r{ByteLow}";
                 case OpCodes.LoadRegisterFromMemory:
                     return $"{InstructionName}  r{Register}, (0x{ByteHigh:X2}{ByteLow:X2})";
-                    
             }
 
             return "ERROR!!";

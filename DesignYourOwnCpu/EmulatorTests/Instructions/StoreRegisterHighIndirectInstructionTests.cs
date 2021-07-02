@@ -1,11 +1,12 @@
-﻿using Emulator.Instructions;
+﻿using System.Diagnostics.CodeAnalysis;
+using Emulator.Instructions;
 using NUnit.Framework;
 
 namespace EmulatorTests.Instructions
 {
-    public class StoreRegisterHighIndirectInstructionTests: EmulatorUnitTest
+    [ExcludeFromCodeCoverage]
+    public class StoreRegisterHighIndirectInstructionTests : EmulatorUnitTest
     {
-
         [Test]
         public void Execute_WhenInvoked_ShouldStoreTheValueInMemory()
         {
@@ -19,8 +20,8 @@ namespace EmulatorTests.Instructions
 
             RegistersMock.SetupGet(r => r[targetRegister]).Returns(expectedValue);
             RegistersMock.SetupGet(r => r[expectedAddressRegister]).Returns(expectedAddress);
-            
-            
+
+
             var sut = CreateSut(targetRegister, expectedAddressRegister);
             sut.Execute(CpuMock.Object);
             MemoryMock.VerifySet(m => m[expectedAddress] = HighByte(expectedValue));
@@ -28,7 +29,7 @@ namespace EmulatorTests.Instructions
 
         private StoreRegisterHighIndirectInstruction CreateSut(byte register, byte indirectRegister)
         {
-            return new StoreRegisterHighIndirectInstruction(register, 0, indirectRegister);
+            return new(register, 0, indirectRegister);
         }
     }
 }

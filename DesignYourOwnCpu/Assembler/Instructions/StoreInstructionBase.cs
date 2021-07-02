@@ -4,9 +4,9 @@ namespace Assembler.Instructions
 {
     public class StoreInstructionBase : AssemblerInstruction, IAssemblerInstruction
     {
-        private readonly string instructionName;
-        private readonly byte indirectOpCode;
         private readonly byte directOpCode;
+        private readonly byte indirectOpCode;
+        private readonly string instructionName;
 
         public StoreInstructionBase(string instructionName, byte indirectOpCode, byte directOpCode)
         {
@@ -14,6 +14,7 @@ namespace Assembler.Instructions
             this.indirectOpCode = indirectOpCode;
             this.directOpCode = directOpCode;
         }
+
         public override void Parse(string source)
         {
             var operands = GetOperands(instructionName, source);
@@ -30,23 +31,16 @@ namespace Assembler.Instructions
                 OpCode = directOpCode;
             }
         }
-        
-        
+
+
         [ExcludeFromCodeCoverage]
         public override string ToString()
         {
             if (OpCode == directOpCode)
-            {
                 return $"{instructionName} r{Register}, (0x{ByteHigh:X2}{ByteLow:X2})";
-            }
-            else if (OpCode == indirectOpCode)
-            {
+            if (OpCode == indirectOpCode)
                 return $"{instructionName} r{Register}, (r{ByteLow})";
-            }
-            else
-            {
-                return "!!ERROR!!";
-            }
+            return "!!ERROR!!";
         }
     }
 }

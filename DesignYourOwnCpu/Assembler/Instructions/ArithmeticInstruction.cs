@@ -2,20 +2,20 @@
 
 namespace Assembler.Instructions
 {
-    public class ArithmeticInstruction: AssemblerInstruction, IAssemblerInstruction
+    public class ArithmeticInstruction : AssemblerInstruction, IAssemblerInstruction
     {
-        private readonly byte opcodeRegister;
-        private readonly byte opcodeConstant;
         private readonly string instructionName;
+        private readonly byte opcodeConstant;
+        private readonly byte opcodeRegister;
 
 
         public ArithmeticInstruction(string instruction, byte opcodeRegister, byte opcodeConstant)
         {
             this.opcodeRegister = opcodeRegister;
             this.opcodeConstant = opcodeConstant;
-            this.instructionName = instruction;
+            instructionName = instruction;
         }
-        
+
         public override void Parse(string source)
         {
             var operands = GetOperands(instructionName, source);
@@ -36,13 +36,8 @@ namespace Assembler.Instructions
         public override string ToString()
         {
             if (OpCode == opcodeConstant)
-            {
                 return $"{instructionName} r{Register}, 0x{ByteHigh:X2}{ByteLow:X2}";
-            }
-            else
-            {
-                return $"{instructionName}  r{Register}, r{ByteLow}";
-            }
+            return $"{instructionName}  r{Register}, r{ByteLow}";
         }
     }
 }

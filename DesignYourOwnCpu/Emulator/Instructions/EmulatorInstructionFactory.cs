@@ -1,12 +1,16 @@
-﻿using System.Net.WebSockets;
-using System.Runtime.InteropServices;
-using Emulator.Instructions;
+﻿using Emulator.Instructions.Interrupts;
 using Shared;
 
 namespace Emulator.Instructions
 {
     public class EmulatorInstructionFactory : IEmulatorInstructionFactory
     {
+        private readonly IInterruptFactory interruptFactory;
+
+        public EmulatorInstructionFactory(IInterruptFactory interruptFactory)
+        {
+            this.interruptFactory = interruptFactory;
+        }
 
         public IEmulatorInstruction Create(byte opcode, byte register, byte high, byte low)
         {
@@ -16,7 +20,7 @@ namespace Emulator.Instructions
                     return new HaltInstruction(register, high, low);
                 case OpCodes.Nop:
                     return new NopInstruction(register, high, low);
-                
+
                 case OpCodes.LoadRegisterWithConstant:
                     return new LoadRegisterWithConstantInstruction(register, high, low);
                 case OpCodes.LoadRegisterFromMemory:
@@ -30,14 +34,14 @@ namespace Emulator.Instructions
                     return new StoreRegisterHighDirectInstruction(register, high, low);
                 case OpCodes.StoreRegisterLowDirect:
                     return new StoreRegisterLowDirectInstruction(register, high, low);
-                
+
                 case OpCodes.StoreRegisterIndirect:
                     return new StoreRegisterIndirectInstruction(register, high, low);
                 case OpCodes.StoreRegisterHiIndirect:
                     return new StoreRegisterHighIndirectInstruction(register, high, low);
                 case OpCodes.StoreRegisterLowIndirect:
                     return new StoreRegisterLowIndirectInstruction(register, high, low);
-                
+
                 case OpCodes.CompareWithConstant:
                     return new CompareWithConstantInstruction(register, high, low);
                 case OpCodes.CompareWithRegister:
@@ -69,6 +73,8 @@ namespace Emulator.Instructions
                     return new CallInstruction(register, high, low);
                 case OpCodes.Ret:
                     return new ReturnInstruction(register, high, low);
+                case OpCodes.Swi:
+                    return new SoftwareInterruptInstruction(interruptFactory, register, high, low);
 
                 default:
                     throw new EmulatorException($"Unknown opcode: {opcode:X2}");
