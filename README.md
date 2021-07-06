@@ -1,19 +1,19 @@
 # Simple assembler and emulator
 
 A implementation of the assembler and emulator for the simple processor design presented in the
-[Gary explains videos][1] on youtube.
+[Gary explains videos][1] on YouTube.
 
 Specific videos:
  - [Design your own instruction format][3]
  - [Write Your Own Assembler for Your Own CPU][4]
  - [As yet un released video][5]
 
-Gary's [orininal source][2] is availble on Github
+Gary's [original source][2] is available on Github
 
 
 ## Assembly language
 
-Asembly language is written one instruction per line. Lines starting with the commen character `#` are ignored. Any lines with training comments 
+Assembly language is written one instruction per line. Lines starting with the comment character `#` are ignored. Any lines with trailing comments 
 
     LD R1, 65535 # set all bits to 1
 
@@ -40,7 +40,7 @@ and `r9` the stack pointer, neither of which can be accessed by user code. So th
 
 ## Instruction set
 
-Instruction definitions. All instructions are 32 bits long, unsed bytes set to 0. Registers are 16 bit.
+Instruction definitions. All instructions are 32 bits long, unused bytes set to 0. Registers are 16 bit.
 
 ### Load and store instructions
 |   Instruction   | Opcode | Register | Data H | Data L | Description |
@@ -69,7 +69,7 @@ Instruction definitions. All instructions are 32 bits long, unsed bytes set to 0
 |   Instruction   | Opcode | Register | Data H | Data L | Description |
 |-----------------|--------|----------|--------|--------|-------------|
 | `ADD R1, 0xabcd` | `0x40` | `0..7` | `0xAB` | `0xCD` | add constant value to register|
-| `SUB R1, 0xabcd` | `0x41` | `0..7` | `0xAB` | `0xCD` | subtract constant valu from register|
+| `SUB R1, 0xabcd` | `0x41` | `0..7` | `0xAB` | `0xCD` | subtract constant value from register|
 | `ADD R1, R2`     | `0x42` | `0..7` | `0x00` |  `0..7` | add register 2 to register 1 (result in r1) |
 | `SUB R1, R2`     | `0x43` | `0..7` | `0x00` |  `0..7` | subtract register 2 from register 1 (result in r1)|
 
@@ -80,26 +80,26 @@ Instruction definitions. All instructions are 32 bits long, unsed bytes set to 0
 | `POP R2` | `0x51` | `0..7` | `0x00` | `0x00` | pop register from the stack|
 | `CALL 0x3498` | `0x52` | `0x00` | `0x34` | `0x98` | calls a subroutine, storing the return address on the stack|
 | `RET` | `0x53` | `0x00` | `0x00` | `0x00` | pop the return address of a subroutine from the stack and jump there|
-| `SWI 0x0003` | `0x54` | `0x00` | `0x00` | `0x03` | invokes a software interupt (see section below) exectution continues with the next instruction after this when the interrupt exits.|
+| `SWI 0x0003` | `0x54` | `0x00` | `0x00` | `0x03` | invokes a software interrupt (see section below) execution continues with the next instruction after this when the interrupt exits.|
 
-### Miscelanious instructions
+### Miscellaneous instructions
 |   Instruction   | Opcode | Register | Data H | Data L | Description |
 |-----------------|--------|----------|--------|--------|-------------|
 | `HALT`             | `0xFE`   | `0x00` | `0x00` | `0x00` | Stops the processor from executing        |
 | `NOOP`             | `0xFF`   | `0x00` | `0x00` | `0xoo` | Does nothing, with no side effects        |
 
-### Assembler psuedo-instructions
+### Assembler pseudo-instructions
 |   Instruction   | Description |
 |-----------------|-----------------------------------------------------------------------------------|
 | `.label`        | Defines a label that holds the current address. placed on a line by itself        |
 | `defs 0x20`     | reserves 0x20 bytes of storage at the current address                             |
-| `defm "hello world\n\0"` | Defines a message. This is a MASCII string that can contain any valid MASCII characters, plus \0 (0 byte terminator) \n (strart new line) \t (tab) |
+| `defm "hello world\n\0"` | Defines a message. This is a MASCII string that can contain any valid MASCII characters, plus \0 (0 byte terminator) \n (start new line) \t (tab) |
 
-## Software interupts
+## Software interrupts
 
-Software interupts allow the program to invoke methods in the psudo-kernel or ROM (What ever takes your fancy). These software interupts allow the user to read and write strings and intergers etc. the folling software interupts are defined, and the associated symbols are pre-defined in the assembler symbol table.
+Software interrupts allow the program to invoke methods in the pseudo-kernel or ROM (What ever takes your fancy). These software interrupts allow the user to read and write strings and integers etc. the following software interrupts are defined, and the associated symbols are pre-defined in the assembler symbol table.
 
-| Interupt name | interupt number | DEscription |
+| Interrupt name | interrupt number | DEscription |
 | --- | --- | --- |
 | `sys-write-string` | Write the MASCII string whose address is contained in `R0` to the console |
 | `sys-write-word` | Write the 32 bit word whose value is contained in `R0` to the console |
@@ -110,7 +110,7 @@ Software interupts allow the program to invoke methods in the psudo-kernel or RO
 ### Example: `sys-write-string`
   
         ld r0, hello-world      # load r0 with the address of the string
-        swi sys-write-string    # invoke the software interupt
+        swi sys-write-string    # invoke the software interrupt
         halt                    # hal the processor we are done
 
     .hello-world    
@@ -158,7 +158,8 @@ Output
     0x0002 sys-write-word
 
 
-The assembler will assemble the code in `hello-world.asm` and will produce to files: `hello-world.bin` and `hello-world.sym`. The assembler also shows the opcodes associated with the assembly code and a dump of the sysmol table including built in sysbos like `sys-write-string`.
+The assembler will assemble the code in `hello-world.asm` and will produce to files: `hello-world.bin` and `hello-world.sym`. The assembler also shows the opcodes associated with the assembly code and a dump of the symbol table including built in symbols like `sys-write-string`.
+
 
 To execute the assembled code use the emulator via dotnet run. In windows use
 
@@ -191,7 +192,7 @@ The following example applications available
 
 | Name | Description |
 |--|--|
-| hello-world.asm | The most basic and nessesary program in existense. Prints `Hello World!` to the console. |
+| hello-world.asm | The most basic and necessary program in existence. Prints `Hello World!` to the console. |
 | sum-two-ints-register-based.asm | Prompts the user to enter two numbers and writes the sum of the two numbers to the console.  |
 
 
