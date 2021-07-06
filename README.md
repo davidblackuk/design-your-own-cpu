@@ -122,7 +122,7 @@ this will produce the following output
     Halted
 
 
-## Instructions for use (windows)
+## Instructions for use (Windows or Linux)
 
 + Make sure you have the DotNet Core 5 SKD installed.
 + Clone the git repository
@@ -157,9 +157,9 @@ Output
     0x0002 sys-write-word
 
 
-The assembler will assemble the code in `hello-world.asm` and will produce to files: `hello-world.bin` and `hello-world.sym`, the `.bin` as hown in the output. The assembler also shows the opcodes associated with the assembly code and a dump of the sysmol table including built in sysbos like `sys-write-string`.
+The assembler will assemble the code in `hello-world.asm` and will produce to files: `hello-world.bin` and `hello-world.sym`. The assembler also shows the opcodes associated with the assembly code and a dump of the sysmol table including built in sysbos like `sys-write-string`.
 
-To execute the assembled code use the emulator via dotnet run. In wondows use
+To execute the assembled code use the emulator via dotnet run. In windows use
 
     dotnet run -p .\Emulator\Emulator.csproj --input .\Asm\hello-world.bin
 
@@ -186,7 +186,7 @@ The output consists of the text output from the emulation and then a dump of the
 
 ### Example apps
 
-Currently there are the following example applications available
+The following example applications available
 
 | Name | Description |
 |--|--|
