@@ -125,7 +125,9 @@ this will produce the following output
 
 ## Instructions for use (Windows or Linux)
 
-+ Make sure you have the DotNet Core 5 SKD installed.
+
+
++ Make sure you have the DotNet Core 5 SDK installed.
 + Clone the git repository
 
 cd into the folder `repo\DesignYourOwnCpu` (where repo is the folder you cloned the source into)
@@ -195,6 +197,16 @@ The following example applications available
 | [hello-world.asm][6] | The most basic and necessary program in existence. Prints `Hello World!` to the console. |
 | [sum-two-ints-register-based.asm][7] | Prompts the user to enter two numbers and writes the sum of the two numbers to the console.  |
 
+
+## Gratuitous screenshots
+
+Here is the assembler and emulator running on windows 
+
+![Drag Racing](images/windows.png)
+
+and here they are gamboling on Linux
+
+![Drag Racing](images/linux.png)
 
 
 
