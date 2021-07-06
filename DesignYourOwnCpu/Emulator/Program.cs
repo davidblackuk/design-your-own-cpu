@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using Emulator.Extensions;
 using Microsoft.Extensions.DependencyInjection;
+using Pastel;
 
 namespace Emulator
 {
@@ -16,15 +18,22 @@ namespace Emulator
             startup.ConfigureServices(services);
             IServiceProvider serviceProvider = services.BuildServiceProvider();
 
-            // Get Service and call method
-            var cpu = serviceProvider.GetService<ICPU>();
-            cpu.Run();
+            try
+            {
+                // Get Service and call method
+                var cpu = serviceProvider.GetService<ICPU>();
+                cpu.Run();
 
-            Console.WriteLine();
-            cpu.Registers.ToConsole();
-            Console.WriteLine();
-            cpu.Memory.ToConsole(0, 128);
-            Console.WriteLine();
+                Console.WriteLine();
+                cpu.Registers.ToConsole();
+                Console.WriteLine();
+                cpu.Memory.ToConsole(0, 128);
+                Console.WriteLine();
+            }
+            catch (EmulatorException e)
+            {
+                Console.WriteLine($"Emulator error: {e.Message}\n".Pastel(Color.Tomato));
+            }
         }
     }
 }

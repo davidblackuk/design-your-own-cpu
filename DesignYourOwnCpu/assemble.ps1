@@ -1,1 +1,0 @@
-dotnet run -p .\Assembler\Assembler.csproj .\Assembler\assembly\test1.asm

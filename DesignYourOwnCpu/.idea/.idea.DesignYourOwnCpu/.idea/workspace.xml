@@ -30,89 +30,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assembler/AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assembler/Instructions/SoftwareInterruptInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/PsuedoInstructions/DefineMessageInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/IInterrupt.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/InterruptFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteStringInterrupt.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/SoftwareInterruptInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Startup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmulatorTests/CpuTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmulatorTests/FlagsTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Shared/IInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Shared/IRamFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Shared/IRandomAccessMemory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Shared/InternalSymbols.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Shared/RamFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assemble.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/execute.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assembler/assembly/hello-world.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assembler/assembly/sum-two-ints-register-based.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/IInterruptFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/ReadWordInterrupt.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteWordInterrupt.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shared/NumberParser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Assembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Assembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/CodeGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/CodeGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Extensions/SymbolExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Extensions/SymbolExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembler/Instructions/AssemblerInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/AssemblerInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/AssemblerInstructionFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/AssemblerInstructionFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/BrachGreaterThanInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/BrachGreaterThanInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/BranchAlwaysInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/BranchAlwaysInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/BranchEqualInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/BranchEqualInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/BranchLessThanInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/BranchLessThanInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/CallInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/CallInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/InstructionNameParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/InstructionNameParser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/PsuedoInstructions/DefineMessageInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/PsuedoInstructions/DefineMessageInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/SingleAddressInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/SingleValueInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Parser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Parser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Symbols/SymbolTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Symbols/SymbolTable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/assembly/test1.asm" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/assembly/test1.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/assembly/test1.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/assembly/test1.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/assembly/test1.sym" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/assembly/test1.sym" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/AssemblerInstructionFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/AssemblerInstructionFactoryTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/BranchEqualInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/BranchEqualInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/InstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/InstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/SingleAddressInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/SingleAddressInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/TestFramework.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/TestFramework.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Symbols/Symbol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Symbols/Symbol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/assembly/test1.asm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/assembly/test1.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/assembly/test1.sym" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Emulator/CPU.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/CPU.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Emulator.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Emulator.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Extensions/RamExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Extensions/RamExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/EmulatorInstructionFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/EmulatorInstructionFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/InterruptFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/InterruptFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteStringInterrupt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteStringInterrupt.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Emulator/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Registers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Registers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/AddConstantToRegisterTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/AddConstantToRegisterTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/AddRegisterToRegisterTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/AddRegisterToRegisterTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/BrancLessThanInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/BrancLessThanInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/BranchAlwaysInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/BranchAlwaysInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/BranchEqualInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/BranchEqualInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/BranchGreaterThanInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/BranchGreaterThanInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/CallInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/CallInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/CompareWithConstantInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/CompareWithConstantInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/CompareWithRegisternstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/CompareWithRegisternstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorUnitTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorUnitTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/HaltInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/HaltInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/LoadRegisterFromMemoryInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/LoadRegisterFromMemoryInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/LoadRegisterFromRegisterInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/LoadRegisterFromRegisterInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/LoadRegisterWithConstantInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/LoadRegisterWithConstantInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/NopInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/NopInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/PopInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/PopInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/PushInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/PushInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/ReturnInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/ReturnInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/StoreRegisterDirectInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/StoreRegisterDirectInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/StoreRegisterHighDirectInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/StoreRegisterHighDirectInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/StoreRegisterHighIndirectInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/StoreRegisterHighIndirectInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/StoreRegisterIndirectInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/StoreRegisterIndirectInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/StoreRegisterLowDirectInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/StoreRegisterLowDirectInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/StoreRegisterLowIndirectInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/StoreRegisterLowIndirectInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/SubtractConstantToRegisterTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/SubtractConstantToRegisterTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/SubtractRegisterFromRegisterTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/SubtractRegisterFromRegisterTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/RegistersTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/RegistersTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/AsciiMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/MockAsciiMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/Instruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Instruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/OpCodes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/OpCodes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/RamPersistence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/RamPersistence.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/RandomAccessMemory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/RandomAccessMemory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SharedTests/RandomAccessMemoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SharedTests/RandomAccessMemoryTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assemble.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/assemble.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/execute.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/execute.ps1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,17 +90,12 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assembler/Instructions/CompareInstruction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assembler/Instructions/AddInstruction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D94C1F53-2F57-404A-8517-2A13A68E0ED8/5E/FilterException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/633820B9-579F-4675-BABE-D79321255F17/c8/86b5e841/Int32.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B8EF69D3-A481-43FE-8568-E981A8FFA98B/83/7f6aa48e/StringSplitOptions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B8EF69D3-A481-43FE-8568-E981A8FFA98B/40/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CB6B23B5-581D-4AB7-9805-5B57B3FD8D86/59/ContextUtils.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/08109C2A-FEE7-4771-96BE-0A5032500380/e1/18f10394/ConsoleKey.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/08109C2A-FEE7-4771-96BE-0A5032500380/92/1ba3a7f2/ConsoleModifiers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3AF4A867-99E6-48CE-9223-DE32448B0B30/23/File.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C7788B2B-C733-412D-8EE3-9C302FF7CE57/4/HostingHostBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/49954EB5-6C67-4E76-8BE7-A97E2A6794C3/36/CastleProxyFactory.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/49954EB5-6C67-4E76-8BE7-A97E2A6794C3/2E/Mock`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B8EF69D3-A481-43FE-8568-E981A8FFA98B/394/FileStream.Windows.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/23C4E601-3839-4471-9686-3C89842D5158/08/192dc7ae/AbstractInvocation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B8EF69D3-A481-43FE-8568-E981A8FFA98B/1F2/Encoding.cs" root0="SKIP_HIGHLIGHTING" />
@@ -170,27 +103,22 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/49954EB5-6C67-4E76-8BE7-A97E2A6794C3/86/IReturns.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/IAssemblerInstruction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assembler/Instructions/CompareInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B8EF69D3-A481-43FE-8568-E981A8FFA98B/11C/CultureInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assembler/Instructions/AddInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D94C1F53-2F57-404A-8517-2A13A68E0ED8/5E/FilterException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/08109C2A-FEE7-4771-96BE-0A5032500380/7/ConsolePal.Windows.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B8EF69D3-A481-43FE-8568-E981A8FFA98B/83/7f6aa48e/StringSplitOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B8EF69D3-A481-43FE-8568-E981A8FFA98B/40/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/08109C2A-FEE7-4771-96BE-0A5032500380/4/Console.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CB6B23B5-581D-4AB7-9805-5B57B3FD8D86/59/ContextUtils.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/49954EB5-6C67-4E76-8BE7-A97E2A6794C3/2E/Mock`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/08109C2A-FEE7-4771-96BE-0A5032500380/6/ConsoleKeyInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2A671DD6-9EA5-40B0-8031-40B5C39022B0/A/ConfigurationRoot.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Shared/InternalSymbols.cs" />
-      <option value="$PROJECT_DIR$/Assembler/Symbols/SymbolTable.cs" />
-      <option value="$PROJECT_DIR$/Assembler/AssemblyInfo.cs" />
-      <option value="$PROJECT_DIR$/Shared/MockAsciiMapper.cs" />
-      <option value="$PROJECT_DIR$/AssemblerTests/Instructions/PsuedoInstructions/DefineMessageInstruction.cs" />
-      <option value="$PROJECT_DIR$/Assembler/assembly/test1.asm" />
-      <option value="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteStringInterrupt.cs" />
-      <option value="$PROJECT_DIR$/Assembler/Instructions/PsuedoInstructions/DefineMessageInstruction.cs" />
-      <option value="$PROJECT_DIR$/Shared/RamPersistence.cs" />
-      <option value="$PROJECT_DIR$/Emulator/StartUp.cs" />
-      <option value="$PROJECT_DIR$/Emulator/appsettings.json" />
-      <option value="$PROJECT_DIR$/Shared/RandomAccessMemory.cs" />
       <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.cs" />
-      <option value="$PROJECT_DIR$/Emulator/Program.cs" />
-      <option value="$PROJECT_DIR$/Emulator/CPU.cs" />
-      <option value="$PROJECT_DIR$/Emulator/Instructions/Interrupts/InterruptFactory.cs" />
-      <option value="$PROJECT_DIR$/Emulator/Startup.cs" />
       <option value="$PROJECT_DIR$/Emulator/Instructions/SoftwareInterruptInstruction.cs" />
       <option value="$PROJECT_DIR$/Emulator/Instructions/EmulatorInstructionFactory.cs" />
       <option value="$PROJECT_DIR$/SharedTests/RandomAccessMemoryTests.cs" />
@@ -225,6 +153,22 @@
       <option value="$PROJECT_DIR$/EmulatorTests/FlagsTest.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/RegistersTests.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/CompareWithConstantInstructionTests.cs" />
+      <option value="$PROJECT_DIR$/Emulator/Startup.cs" />
+      <option value="$PROJECT_DIR$/Emulator/CPU.cs" />
+      <option value="$PROJECT_DIR$/Assembler/Symbols/Symbol.cs" />
+      <option value="$PROJECT_DIR$/Assembler/Extensions/SymbolExtensions.cs" />
+      <option value="$PROJECT_DIR$/Assembler/assembly/sum_two_ints.asm" />
+      <option value="$PROJECT_DIR$/Assembler/assembly/test1.asm" />
+      <option value="$PROJECT_DIR$/Assembler/assembly/hello-world.asm" />
+      <option value="$PROJECT_DIR$/assemble.ps1" />
+      <option value="$PROJECT_DIR$/execute.ps1" />
+      <option value="$PROJECT_DIR$/Emulator/Program.cs" />
+      <option value="$PROJECT_DIR$/Emulator/Instructions/Interrupts/InterruptFactory.cs" />
+      <option value="$PROJECT_DIR$/Assembler/assembly/sum-two-ints-register-based.asm" />
+      <option value="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteStringInterrupt.cs" />
+      <option value="$PROJECT_DIR$/Shared/NumberParser.cs" />
+      <option value="$PROJECT_DIR$/Assembler/Instructions/AssemblerInstruction.cs" />
+      <option value="$PROJECT_DIR$/Emulator/Instructions/Interrupts/ReadWordInterrupt.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rcEJyjMFUCIcpJ49MOx4qWONpN" />
@@ -237,9 +181,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3499552" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3498954" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="C#" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -411,6 +356,9 @@
       <workItem from="1624107019217" duration="1000" />
       <workItem from="1624555246124" duration="4000" />
       <workItem from="1625224068606" duration="1603000" />
+      <workItem from="1625227756051" duration="2941000" />
+      <workItem from="1625231353829" duration="6844000" />
+      <workItem from="1625307054301" duration="7256000" />
     </task>
     <servers />
   </component>
@@ -418,19 +366,14 @@
     <option name="version" value="3" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="78" />
+    <option name="coveragePercentColumnWidth" value="63" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="328" />
+    <option name="symbolColumnWidth" value="251" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 215/2039" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 215/2039" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Tests 99% 11/1048" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 75% 249/980" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
@@ -458,13 +401,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Emulator/Startup.cs</url>
-          <line>23</line>
+          <line>24</line>
           <properties documentPath="D:\git\my-cpu\DesignYourOwnCpu\Emulator\Startup.cs" initialLine="22" containingFunctionPresentation="method 'ConfigureServices'">
             <startOffsets>
-              <option value="613" />
+              <option value="627" />
             </startOffsets>
             <endOffsets>
-              <option value="658" />
+              <option value="672" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />

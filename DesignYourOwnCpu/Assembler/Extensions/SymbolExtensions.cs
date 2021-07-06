@@ -9,8 +9,8 @@ namespace Assembler.Extensions
     {
         public static void ToConsole(this Symbol symbol)
         {
-            Console.Write($"{symbol.Name}: ".Pastel(Color.Goldenrod));
-            Console.WriteLine($"0x{symbol.Address:X4}".Pastel(Color.Orchid));
+            Console.Write($"0x{symbol.Address:X4} ".Pastel(Color.Goldenrod));
+            Console.WriteLine($"{symbol.Name}".Pastel(Color.Orchid));
         }
     }
 }

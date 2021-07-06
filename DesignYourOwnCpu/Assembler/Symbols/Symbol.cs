@@ -22,7 +22,7 @@
 
         public override string ToString()
         {
-            return $"{Name}: 0x{Address:X4}";
+            return $"0x{Address:X4} {Name}";
         }
     }
 }

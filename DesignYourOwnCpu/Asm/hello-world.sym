@@ -1,0 +1,5 @@
+0x000C hello-world
+0x0003 sys-read-string
+0x0004 sys-read-word
+0x0001 sys-write-string
+0x0002 sys-write-word

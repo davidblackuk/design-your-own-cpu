@@ -2,11 +2,6 @@
 
 namespace Emulator.Instructions.Interrupts
 {
-    public interface IInterruptFactory
-    {
-        IInterrupt Create(ushort vector);
-    }
-
     public class InterruptFactory : IInterruptFactory
     {
         public IInterrupt Create(ushort vector)
@@ -15,6 +10,10 @@ namespace Emulator.Instructions.Interrupts
             {
                 case InternalSymbols.WriteStringInterrupt:
                     return new WriteStringInterrupt();
+                case InternalSymbols.ReadWordInterrupt:
+                    return new ReadWordInterrupt();
+                case InternalSymbols.WriteWordInterrupt:
+                    return new WriteWordInterrupt();
                 default:
                     throw new EmulatorException($"Unknown interrupt vector {vector}");
             }
