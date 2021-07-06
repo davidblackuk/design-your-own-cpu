@@ -16,6 +16,10 @@
 # Mono auto generated files
 mono_crash.*
 
+**/assembly/*.bin
+**/assembly/*.sym
+
+
 #rider files
 # User specific
 **/.idea/**/workspace.xml

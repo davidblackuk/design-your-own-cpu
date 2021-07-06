@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Drawing;
 using Emulator.Instructions;
+using Pastel;
 using Shared;
 
 namespace Emulator
@@ -42,7 +44,7 @@ namespace Emulator
                 instruction.Execute(this);
             } while (!Flags.Halted);
 
-            Console.WriteLine("Halted");
+            Console.WriteLine("Halted".Pastel(Color.Gray));
         }
     }
 }

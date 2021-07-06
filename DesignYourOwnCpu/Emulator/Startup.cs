@@ -1,4 +1,5 @@
-﻿using Emulator.Instructions;
+﻿using System;
+using Emulator.Instructions;
 using Emulator.Instructions.Interrupts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +23,12 @@ namespace Emulator
         public void ConfigureServices(IServiceCollection services)
         {
             var binaryToExecute = Configuration["input"];
+
+            if (binaryToExecute == null)
+            {
+                Usage();
+            }
+            
             IRamFactory ramFactory = new RamFactory();
             var memory = ramFactory.Create(binaryToExecute);
             services.AddSingleton<IRandomAccessMemory>(memory);
@@ -34,6 +41,15 @@ namespace Emulator
             services.AddSingleton<IFlags, Flags>();
             services.AddSingleton<IRamFactory, RamFactory>();
             services.AddSingleton<IInterruptFactory, InterruptFactory>();
+        }
+
+        private void Usage()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Usage:");
+            Console.WriteLine($"    dotnet run  -p <path to project file> --input <path for the bin file>");
+            Console.WriteLine();
+            Environment.Exit(0);
         }
     }
 }

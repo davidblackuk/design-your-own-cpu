@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using Shared;
 
 namespace Emulator.Instructions.Interrupts
