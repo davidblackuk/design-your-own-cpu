@@ -158,7 +158,7 @@ Output
     0x0002 sys-write-word
 
 
-The assembler will assemble the code in `hello-world.asm` and will produce to files: `hello-world.bin` and `hello-world.sym`. The assembler also shows the opcodes associated with the assembly code and a dump of the symbol table including built in symbols like `sys-write-string`.
+The assembler will assemble the code in `hello-world.asm` and will produce two files: `hello-world.bin` and `hello-world.sym`. The assembler also shows the opcodes associated with the assembly code and a dump of the symbol table including built in symbols like `sys-write-string`.
 
 
 To execute the assembled code use the emulator via dotnet run. In windows use
@@ -192,8 +192,8 @@ The following example applications available
 
 | Name | Description |
 |--|--|
-| hello-world.asm | The most basic and necessary program in existence. Prints `Hello World!` to the console. |
-| sum-two-ints-register-based.asm | Prompts the user to enter two numbers and writes the sum of the two numbers to the console.  |
+| [hello-world.asm][6] | The most basic and necessary program in existence. Prints `Hello World!` to the console. |
+| [sum-two-ints-register-based.asm][7] | Prompts the user to enter two numbers and writes the sum of the two numbers to the console.  |
 
 
 
@@ -204,3 +204,5 @@ The following example applications available
 [4]: https://www.youtube.com/watch?v=5ImTvOyvH2w&list=PLxLxbi4e2mYGvzNw2RzIsM_rxnNC8m2Kz&index=1
 
 [5]: https://www.google.com
+[6]: https://github.com/davidblackuk/design-your-own-cpu/blob/main/DesignYourOwnCpu/Asm/hello-world.asm
+[7]: https://github.com/davidblackuk/design-your-own-cpu/blob/main/DesignYourOwnCpu/Asm/sum-two-ints-register-based.asm
