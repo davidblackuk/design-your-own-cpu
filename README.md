@@ -80,6 +80,7 @@ Instruction definitions. All instructions are 32 bits long, unsed bytes set to 0
 | `POP R2` | `0x51` | `0..7` | `0x00` | `0x00` | pop register from the stack|
 | `CALL 0x3498` | `0x52` | `0x00` | `0x34` | `0x98` | calls a subroutine, storing the return address on the stack|
 | `RET` | `0x53` | `0x00` | `0x00` | `0x00` | pop the return address of a subroutine from the stack and jump there|
+| `SWI 0x0003` | `0x54` | `0x00` | `0x00` | `0x03` | invokes a software interupt (see section below) exectution continues with the next instruction after this when the interrupt exits.|
 
 ### Miscelanious instructions
 |   Instruction   | Opcode | Register | Data H | Data L | Description |

@@ -29,30 +29,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assembler/assembly/hello-world.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assembler/assembly/sum-two-ints-register-based.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/IInterruptFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/ReadWordInterrupt.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteWordInterrupt.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Shared/NumberParser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Extensions/SymbolExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Extensions/SymbolExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/AssemblerInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/AssemblerInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Symbols/Symbol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Symbols/Symbol.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/assembly/test1.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/assembly/test1.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/assembly/test1.sym" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/CPU.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/CPU.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/InterruptFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/InterruptFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteStringInterrupt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteStringInterrupt.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assemble.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/assemble.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/execute.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/execute.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-    </list>
+    <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -359,6 +336,7 @@
       <workItem from="1625227756051" duration="2941000" />
       <workItem from="1625231353829" duration="6844000" />
       <workItem from="1625307054301" duration="7256000" />
+      <workItem from="1625585773045" duration="603000" />
     </task>
     <servers />
   </component>
@@ -368,7 +346,7 @@
   <component name="UnitTestsCoverage.Settings">
     <option name="coveragePercentColumnWidth" value="63" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="251" />
+    <option name="symbolColumnWidth" value="250" />
     <coverage-tree-state>
       <expand>
         <path>
