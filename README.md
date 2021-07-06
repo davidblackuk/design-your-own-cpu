@@ -206,3 +206,6 @@ The following example applications available
 [5]: https://www.google.com
 [6]: https://github.com/davidblackuk/design-your-own-cpu/blob/main/DesignYourOwnCpu/Asm/hello-world.asm
 [7]: https://github.com/davidblackuk/design-your-own-cpu/blob/main/DesignYourOwnCpu/Asm/sum-two-ints-register-based.asm
+[8]: https://github.com/davidblackuk/design-your-own-cpu/blob/main/images/linux.png
+[9]: https://github.com/davidblackuk/design-your-own-cpu/blob/main/images/windows.png
+
