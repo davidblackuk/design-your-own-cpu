@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Emulator.Instructions;
 using Emulator.Instructions.Interrupts;
 using Microsoft.Extensions.Configuration;
@@ -7,6 +8,7 @@ using Shared;
 
 namespace Emulator
 {
+    [ExcludeFromCodeCoverage]
     public class Startup
     {
         public Startup(string[] args)
@@ -41,6 +43,7 @@ namespace Emulator
             services.AddSingleton<IFlags, Flags>();
             services.AddSingleton<IRamFactory, RamFactory>();
             services.AddSingleton<IInterruptFactory, InterruptFactory>();
+            services.AddSingleton<INumberParser, NumberParser>();
         }
 
         private void Usage()

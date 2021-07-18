@@ -19,8 +19,8 @@ namespace Emulator.Instructions
 
         public void Execute(ICPU cpu)
         {
-            var instruction = interruptFactory.Create(Value);
-            instruction.Execute(cpu);
+            var interrupt = interruptFactory.Create(Value);
+            interrupt.Execute(cpu);
         }
     }
 }

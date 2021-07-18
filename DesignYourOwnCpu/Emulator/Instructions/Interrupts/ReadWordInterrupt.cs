@@ -18,7 +18,13 @@ namespace Emulator.Instructions.Interrupts
         /// <summary>
         /// TODO: We should inject this
         /// </summary>
-        private readonly INumberParser numberParser = new NumberParser();
+        private readonly INumberParser numberParser;
+
+        public ReadWordInterrupt(INumberParser numberParser)
+        {
+            this.numberParser = numberParser;
+        }
+        
         public void Execute(ICPU cpu)
         {
             string text = EditNumber();

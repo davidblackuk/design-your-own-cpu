@@ -29,7 +29,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="" />
+    <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/SoftwareInterruptInstructionTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Extensions/RamExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Extensions/RamExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Extensions/RegisterExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Extensions/RegisterExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/InterruptFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/InterruptFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/ReadWordInterrupt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/ReadWordInterrupt.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/SoftwareInterruptInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/SoftwareInterruptInstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/RandomAccessMemory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/RandomAccessMemory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SharedTests/RandomAccessMemoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SharedTests/RandomAccessMemoryTests.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +81,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/633820B9-579F-4675-BABE-D79321255F17/c8/86b5e841/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/08109C2A-FEE7-4771-96BE-0A5032500380/e1/18f10394/ConsoleKey.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/08109C2A-FEE7-4771-96BE-0A5032500380/92/1ba3a7f2/ConsoleModifiers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/08109C2A-FEE7-4771-96BE-0A5032500380/92/1ba3a7f2/ConsoleModifiers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3AF4A867-99E6-48CE-9223-DE32448B0B30/23/File.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C7788B2B-C733-412D-8EE3-9C302FF7CE57/4/HostingHostBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/49954EB5-6C67-4E76-8BE7-A97E2A6794C3/36/CastleProxyFactory.cs" root0="SKIP_HIGHLIGHTING" />
@@ -95,19 +107,11 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.cs" />
-      <option value="$PROJECT_DIR$/Emulator/Instructions/SoftwareInterruptInstruction.cs" />
-      <option value="$PROJECT_DIR$/Emulator/Instructions/EmulatorInstructionFactory.cs" />
-      <option value="$PROJECT_DIR$/SharedTests/RandomAccessMemoryTests.cs" />
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/AddConstantToRegisterTests.cs" />
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/AddRegisterToRegisterTests.cs" />
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/BranchAlwaysInstructionTests.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/BranchEqualInstructionTests.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/BranchGreaterThanInstructionTests.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/BrancLessThanInstructionTests.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/CallInstructionTests.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/CompareWithRegisternstructionTests.cs" />
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionTests.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorUnitTest.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/HaltInstructionTests.cs" />
@@ -130,7 +134,6 @@
       <option value="$PROJECT_DIR$/EmulatorTests/FlagsTest.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/RegistersTests.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/CompareWithConstantInstructionTests.cs" />
-      <option value="$PROJECT_DIR$/Emulator/Startup.cs" />
       <option value="$PROJECT_DIR$/Emulator/CPU.cs" />
       <option value="$PROJECT_DIR$/Assembler/Symbols/Symbol.cs" />
       <option value="$PROJECT_DIR$/Assembler/Extensions/SymbolExtensions.cs" />
@@ -140,12 +143,21 @@
       <option value="$PROJECT_DIR$/assemble.ps1" />
       <option value="$PROJECT_DIR$/execute.ps1" />
       <option value="$PROJECT_DIR$/Emulator/Program.cs" />
-      <option value="$PROJECT_DIR$/Emulator/Instructions/Interrupts/InterruptFactory.cs" />
       <option value="$PROJECT_DIR$/Assembler/assembly/sum-two-ints-register-based.asm" />
       <option value="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteStringInterrupt.cs" />
       <option value="$PROJECT_DIR$/Shared/NumberParser.cs" />
       <option value="$PROJECT_DIR$/Assembler/Instructions/AssemblerInstruction.cs" />
+      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/SoftwareInterruptInstruction.cs" />
+      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" />
+      <option value="$PROJECT_DIR$/Emulator/Instructions/SoftwareInterruptInstruction.cs" />
+      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/SoftwareInterruptInstructionTests.cs" />
+      <option value="$PROJECT_DIR$/SharedTests/RandomAccessMemoryTests.cs" />
+      <option value="$PROJECT_DIR$/Shared/RandomAccessMemory.cs" />
+      <option value="$PROJECT_DIR$/Emulator/Extensions/RamExtensions.cs" />
+      <option value="$PROJECT_DIR$/Emulator/Extensions/RegisterExtensions.cs" />
       <option value="$PROJECT_DIR$/Emulator/Instructions/Interrupts/ReadWordInterrupt.cs" />
+      <option value="$PROJECT_DIR$/Emulator/Startup.cs" />
+      <option value="$PROJECT_DIR$/Emulator/Instructions/Interrupts/InterruptFactory.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rcEJyjMFUCIcpJ49MOx4qWONpN" />
@@ -337,6 +349,11 @@
       <workItem from="1625231353829" duration="6844000" />
       <workItem from="1625307054301" duration="7256000" />
       <workItem from="1625585773045" duration="603000" />
+      <workItem from="1626523786704" duration="596000" />
+      <workItem from="1626606005928" duration="1209000" />
+      <workItem from="1626608821603" duration="3907000" />
+      <workItem from="1626614619614" duration="131000" />
+      <workItem from="1626614773511" duration="1206000" />
     </task>
     <servers />
   </component>
@@ -346,12 +363,12 @@
   <component name="UnitTestsCoverage.Settings">
     <option name="coveragePercentColumnWidth" value="63" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="250" />
+    <option name="symbolColumnWidth" value="763" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 75% 249/980" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 84% 145/917" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
@@ -373,24 +390,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Emulator/Startup.cs</url>
-          <line>24</line>
-          <properties documentPath="D:\git\my-cpu\DesignYourOwnCpu\Emulator\Startup.cs" initialLine="22" containingFunctionPresentation="method 'ConfigureServices'">
-            <startOffsets>
-              <option value="627" />
-            </startOffsets>
-            <endOffsets>
-              <option value="672" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using Pastel;
 
 namespace Emulator.Extensions
 {
+    [ExcludeFromCodeCoverage]
     public static class RegisterExtensions
     {
         public static void ToConsole(this IRegisters registers)

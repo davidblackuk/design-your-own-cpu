@@ -10,24 +10,6 @@ using Shared;
 
 namespace EmulatorTests.Instructions
 {
-    [ExcludeFromCodeCoverage]
-    public class SoftwareInterruptInstructionTests : EmulatorUnitTest
-    {
-        private const byte ExpectedValue = 3;
-        private Mock<IInterruptFactory> interruptFactoryMock;
-
-        [SetUp]
-        public override void SetUp()
-        {
-            base.SetUp();
-            interruptFactoryMock = new Mock<IInterruptFactory>();
-        }
-
-        private SoftwareInterruptInstruction CreateSut()
-        {
-            return new(interruptFactoryMock.Object, 0, 0, ExpectedValue);
-        }
-    }
 
     [ExcludeFromCodeCoverage]
     public class EmulatorInstructionFactoryTests

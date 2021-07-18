@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Text;
 using Pastel;
@@ -6,6 +7,7 @@ using Shared;
 
 namespace Emulator.Extensions
 {
+    [ExcludeFromCodeCoverage]
     public static class RamExtensions
     {
         public static void ToConsole(this IRandomAccessMemory ram, ushort start, ushort length)

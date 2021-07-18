@@ -13,8 +13,11 @@ namespace Shared
         internal RandomAccessMemory(byte[] from)
         {
             if (from.Length != RamTop + 1)
+            {
                 throw new ArgumentException($"Expected exactly {RamTop + 1} bytes to be passed for a RAM image",
                     nameof(@from));
+            }
+
             RawBytes = from;
         }
 

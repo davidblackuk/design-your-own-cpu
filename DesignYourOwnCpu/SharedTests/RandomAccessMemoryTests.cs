@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using NUnit.Framework;
 using Shared;
@@ -50,7 +51,7 @@ namespace SharedTests
         }
 
         [Test]
-        public void GetWord_WWhenCalled_returnsValueInABigEndianFormat()
+        public void GetWord_WhenCalled_returnsValueInABigEndianFormat()
         {
             var sut = CreateSut();
 
@@ -58,11 +59,51 @@ namespace SharedTests
             sut[13] = 0x55;
 
             sut.GetWord(12).Should().Be(0xFF55);
+        }   
+        
+        [Test]
+        public void GetWord_WhenCalled_ShouldStoreTheValueInABigEndianFormat()
+        {
+            var sut = CreateSut();
+            sut.SetWord(12, 0x1278);
+            
+            sut.GetWord(12).Should().Be(0x1278);
+
+            sut[12].Should().Be(0x12);
+            sut[13].Should().Be(0x78);
+        }
+       
+        [Test]
+        public void Ctor_WhenInvokedWithAByteArray_ShouldInitializeMemory()
+        {
+            var originalRam = CreateSut();
+            originalRam.SetWord(12, 0x1278);
+
+            var clonedRam = CreateSut(originalRam.RawBytes);
+            
+            clonedRam.GetWord(12).Should().Be(0x1278);
         }
 
-        private RandomAccessMemory CreateSut()
+      
+        [Test]
+        [TestCase(RandomAccessMemory.RamTop - 1)]
+        [TestCase(RandomAccessMemory.RamTop + 1)]
+        public void Ctor_WhenInvokedWithAIllegallySizedByteArray_ShouldThrowArgumentException(int arraySize)
         {
-            return new();
+            byte[] ram = new byte[arraySize];
+            Assert.Throws<ArgumentException>(() => CreateSut(ram));
+        }   
+        
+        private RandomAccessMemory CreateSut(byte [] bytes = null)
+        {
+            if (bytes == null)
+            {
+                return new RandomAccessMemory();
+            }
+            else
+            {
+                return new RandomAccessMemory(bytes);
+            }
         }
     }
 }
