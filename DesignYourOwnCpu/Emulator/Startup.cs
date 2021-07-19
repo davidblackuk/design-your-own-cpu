@@ -44,6 +44,7 @@ namespace Emulator
             services.AddSingleton<IRamFactory, RamFactory>();
             services.AddSingleton<IInterruptFactory, InterruptFactory>();
             services.AddSingleton<INumberParser, NumberParser>();
+            services.AddSingleton<IFileOperations, FileOperations>();
         }
 
         private void Usage()

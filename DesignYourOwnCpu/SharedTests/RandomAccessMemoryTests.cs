@@ -86,8 +86,8 @@ namespace SharedTests
 
       
         [Test]
-        [TestCase(RandomAccessMemory.RamTop - 1)]
-        [TestCase(RandomAccessMemory.RamTop + 1)]
+        [TestCase(RandomAccessMemory.RamTop)]
+        [TestCase(RandomAccessMemory.RamTop + 2)]
         public void Ctor_WhenInvokedWithAIllegallySizedByteArray_ShouldThrowArgumentException(int arraySize)
         {
             byte[] ram = new byte[arraySize];
