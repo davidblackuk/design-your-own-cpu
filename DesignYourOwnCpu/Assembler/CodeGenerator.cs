@@ -9,13 +9,14 @@ namespace Assembler
 {
     public class CodeGenerator : ICodeGenerator
     {
-        private readonly IRandomAccessMemory ram;
-        private readonly ISymbolTable symbolTable;
+        public IRandomAccessMemory Ram { get; }
+    
+        public ISymbolTable SymbolTable  { get; }
 
         public CodeGenerator(ISymbolTable symbolTable, IRandomAccessMemory ram)
         {
-            this.symbolTable = symbolTable ?? throw new ArgumentNullException(nameof(symbolTable));
-            this.ram = ram ?? throw new ArgumentNullException(nameof(ram));
+            this.SymbolTable = symbolTable ?? throw new ArgumentNullException(nameof(symbolTable));
+            this.Ram = ram ?? throw new ArgumentNullException(nameof(ram));
         }
 
         public void GenerateCode(IEnumerable<IAssemblerInstruction> instructions)
@@ -24,7 +25,7 @@ namespace Assembler
             foreach (var instruction in instructions)
             {
                 ResolveSymbolsIfRequired(instruction);
-                instruction.WriteBytes(ram, address);
+                instruction.WriteBytes(Ram, address);
                 instruction.ToConsole(address);
                 address += instruction.Size;
             }
@@ -34,7 +35,7 @@ namespace Assembler
         {
             if (instruction.RequresSymbolResolution)
             {
-                var symbol = symbolTable.GetSymbol(instruction.Symbol);
+                var symbol = SymbolTable.GetSymbol(instruction.Symbol);
                 instruction.StoreData(symbol.Address.Value);
             }
         }

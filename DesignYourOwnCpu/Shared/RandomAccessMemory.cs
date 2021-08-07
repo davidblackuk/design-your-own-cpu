@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Shared
 {
@@ -42,6 +43,7 @@ namespace Shared
             RawBytes[address] = valueBytes.high;
             RawBytes[address + 1] = valueBytes.low;
         }
+        
 
         public (byte opcode, byte register, byte byteHigh, byte byteLow) Instruction(ushort address)
         {
