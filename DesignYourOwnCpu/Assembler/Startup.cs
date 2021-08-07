@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using Assembler.Instructions;
+using Assembler.Symbols;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shared;
 
 namespace Assembler
 {
@@ -21,21 +25,20 @@ namespace Assembler
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var binaryToExecute = Configuration["input"];
-
-            if (binaryToExecute == null)
-            {
-                Usage();
-            }
+            services.AddLogging();
+            services.AddSingleton(Configuration);
+            services.AddSingleton<ISymbolTable, SymbolTable>();
+            services.AddSingleton<IInstructionNameParser, InstructionNameParser>();
+            services.AddSingleton<IAssemblerInstructionFactory, AssemblerInstructionFactory>();
+            services.AddSingleton<IRandomAccessMemory, RandomAccessMemory>();
+            services.AddSingleton<ICodeGenerator, CodeGenerator>();
+            services.AddSingleton<IParser, Parser>();
+            services.AddSingleton<IAssemblerFiles, AssemblerFiles>();
+            services.AddSingleton<IAssembler, Assembler>();
+            
             
         }
 
-        private void Usage()
-        {
-            Console.WriteLine();
-            Console.WriteLine("Usage:");
-            Console.WriteLine($"    dotnet run  -p <path to project file> --input <path for the bin file>");
-            Console.WriteLine();
-            Environment.Exit(0);
-        }
+     
     }
+}

@@ -30,10 +30,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assembler/Startup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assembler/AssemblerFiles.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assembler/Extensions/IAssemblerFilesExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assembler/IAssembler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assembler/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Assembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Assembler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembler/Assembler.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Assembler.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/CodeGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/CodeGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/ICodeGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/ICodeGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembler/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/IRandomAccessMemory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/IRandomAccessMemory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/RamPersistence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/RamPersistence.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/RandomAccessMemory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/RandomAccessMemory.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,22 +82,69 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assembler/Instructions/CompareInstruction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Shared/RandomAccessMemory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Shared/RandomAccessMemory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Shared/RandomAccessMemory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Shared/RandomAccessMemory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/IAssemblerInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assembler/Instructions/CompareInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Shared/RandomAccessMemory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/AddInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Shared/RandomAccessMemory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Shared/RandomAccessMemory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Shared/RandomAccessMemory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Shared/RandomAccessMemory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Shared/RandomAccessMemory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Shared/RandomAccessMemory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Shared/RandomAccessMemory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/CompareWithRegisternstructionTests.cs" />
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionTests.cs" />
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorUnitTest.cs" />
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/HaltInstructionTests.cs" />
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/LoadRegisterFromMemoryInstructionTests.cs" />
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/LoadRegisterFromRegisterInstructionTests.cs" />
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/LoadRegisterWithConstantInstructionTests.cs" />
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/NopInstructionTests.cs" />
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/PopInstructionTests.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/PushInstructionTests.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/ReturnInstructionTests.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/StoreRegisterDirectInstructionTests.cs" />
@@ -119,7 +176,6 @@
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" />
       <option value="$PROJECT_DIR$/Emulator/Instructions/SoftwareInterruptInstruction.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/SoftwareInterruptInstructionTests.cs" />
-      <option value="$PROJECT_DIR$/Shared/RandomAccessMemory.cs" />
       <option value="$PROJECT_DIR$/Emulator/Extensions/RamExtensions.cs" />
       <option value="$PROJECT_DIR$/Emulator/Extensions/RegisterExtensions.cs" />
       <option value="$PROJECT_DIR$/Emulator/Instructions/Interrupts/ReadWordInterrupt.cs" />
@@ -128,7 +184,17 @@
       <option value="$PROJECT_DIR$/Emulator/Startup.cs" />
       <option value="$PROJECT_DIR$/Shared/FileOperations.cs" />
       <option value="$PROJECT_DIR$/Shared/RamFactory.cs" />
+      <option value="$PROJECT_DIR$/Assembler/appsettings.json" />
+      <option value="$PROJECT_DIR$/Assembler/Assembler.cs" />
+      <option value="$PROJECT_DIR$/Assembler/ICodeGenerator.cs" />
+      <option value="$PROJECT_DIR$/Assembler/IAssembler.cs" />
+      <option value="$PROJECT_DIR$/Assembler/CodeGenerator.cs" />
+      <option value="$PROJECT_DIR$/Shared/RandomAccessMemory.cs" />
+      <option value="$PROJECT_DIR$/Shared/IRandomAccessMemory.cs" />
+      <option value="$PROJECT_DIR$/Shared/RamPersistence.cs" />
+      <option value="$PROJECT_DIR$/Assembler/AssemblerFiles.cs" />
       <option value="$PROJECT_DIR$/Assembler/Startup.cs" />
+      <option value="$PROJECT_DIR$/Assembler/Extensions/IAssemblerFilesExtensions.cs" />
       <option value="$PROJECT_DIR$/Assembler/Program.cs" />
     </changedPaths>
   </component>
@@ -142,7 +208,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3498954" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34970817" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -162,7 +228,7 @@
   <component name="RunManager" selected=".NET Project.Assembler">
     <configuration name="Assembler" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Assembler/bin/Debug/net5.0/Assembler.exe" />
-      <option name="PROGRAM_PARAMETERS" value="..\..\..\assembly\test1.asm" />
+      <option name="PROGRAM_PARAMETERS" value="--input ..\..\..\..\Asm\hello-world.asm" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Assembler/bin/Debug/net5.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -198,7 +264,7 @@
     </configuration>
     <configuration name="Emulator" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Emulator/bin/Debug/net5.0/Emulator.exe" />
-      <option name="PROGRAM_PARAMETERS" value="--input ..\..\..\..\Assembler\assembly\test1.bin" />
+      <option name="PROGRAM_PARAMETERS" value="--input ..\..\..\..\Asm\hello-world.bin" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Emulator/bin/Debug/net5.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -330,6 +396,7 @@
       <workItem from="1626705563683" duration="758000" />
       <workItem from="1626707122773" duration="738000" />
       <workItem from="1626707919539" duration="4266000" />
+      <workItem from="1628337908678" duration="6841000" />
     </task>
     <servers />
   </component>
@@ -339,29 +406,29 @@
   <component name="UnitTestsCoverage.Settings">
     <option name="coveragePercentColumnWidth" value="71" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="266" />
+    <option name="symbolColumnWidth" value="528" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 84% 145/917" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 82% 170/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 84% 145/917" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 82% 16/89" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 82% 170/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Shared 80% 18/89" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 84% 145/917" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 82% 16/89" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 82% 16/89" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 82% 170/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Shared 80% 18/89" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Shared 80% 18/89" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 84% 145/917" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 82% 16/89" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 82% 16/89" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 82% 170/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Shared 80% 18/89" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Shared 80% 18/89" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="RamFactory 0% 7/7" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
@@ -384,5 +451,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assembler/Program.cs</url>
+          <line>27</line>
+          <properties documentPath="D:\git\my-cpu\DesignYourOwnCpu\Assembler\Program.cs" initialLine="27" containingFunctionPresentation="method 'Main'">
+            <startOffsets>
+              <option value="749" />
+            </startOffsets>
+            <endOffsets>
+              <option value="819" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using System.IO;
 using Assembler.Exceptions;
 using Assembler.Extensions;
 using Assembler.Instructions;
 using Assembler.LineSources;
 using Assembler.Symbols;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Pastel;
 using Shared;
 
 namespace Assembler
@@ -15,52 +19,57 @@ namespace Assembler
     {
         private static void Main(string[] args)
         {
-            if (!File.Exists(args[0]))
+            IServiceCollection services = new ServiceCollection();
+
+            var startup = new Startup(args);
+            startup.ConfigureServices(services);
+            IServiceProvider serviceProvider = services.BuildServiceProvider();
+
+            IAssemblerFiles files = serviceProvider.GetService<IAssemblerFiles>();
+
+            if (files.SourceFilename == null)
             {
-                Console.WriteLine($"Could not find input file: {args[0]}");
+                Usage();
                 return;
             }
 
-            var binaryFile = Path.ChangeExtension(args[0], "bin");
-            var symbolFile = Path.ChangeExtension(args[0], "sym");
-
-            Console.WriteLine($"\nSource file: {args[0]}");
-            Console.WriteLine($"Output file: {binaryFile}");
-            Console.WriteLine($"Symbol file: {symbolFile}\n");
+            files.ToConsole();
 
             var lineSource =
-                new CommentStrippingLineSource(new WhitespaceRemovalLineSource(new FileLineSource(args[0])));
-
-            // poor man's injection for now!
-            ISymbolTable symbolTable = new SymbolTable();
-            IInstructionNameParser nameParser = new InstructionNameParser();
-            IAssemblerInstructionFactory assemblerInstructionFactory = new AssemblerInstructionFactory();
-            IRamFactory ramFactory = new RamFactory();
-            var parser = new Parser(nameParser, assemblerInstructionFactory, symbolTable);
-            var ram = ramFactory.Create();
-
-            var codeGenerator = new CodeGenerator(symbolTable, ram);
-
-            var assembler = new Assembler(parser, codeGenerator);
+                new CommentStrippingLineSource(
+                    new WhitespaceRemovalLineSource(new FileLineSource(files.SourceFilename)));
 
             try
             {
                 var start = DateTime.Now;
+
+                var assembler = serviceProvider.GetService<IAssembler>();
                 assembler.Assemble(lineSource);
-                if (args.Length == 1)
-                {
-                    ram.Save(binaryFile);
-                    Console.WriteLine("\nSymbols\n");
-                    symbolTable.Save(symbolFile);
-                }
+                assembler.Ram.Save(files.BinaryFilename);
+                Console.WriteLine("\nSymbols\n");
+                assembler.SymbolTable.Save(files.SymbolFilename);
+
                 Console.WriteLine($"\nComplete in {(DateTime.Now - start).TotalMilliseconds} (ms)\n");
             }
-            catch (AssemblerException ae)
+            catch (AssemblerException e)
             {
-                ae.ToConsole();
+                Console.WriteLine($"Emulator error: {e.Message}\n".Pastel(Color.Tomato));
+            }
+            catch (Exception otherException)
+            {
+                Console.WriteLine($"Emulator Failure: {otherException.Message}\n".Pastel(Color.Tomato));
             }
 
             Console.WriteLine();
+        }
+
+        private static void Usage()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Usage:");
+            Console.WriteLine($"    dotnet run  -p <path to project file> --input <path for the bin file>");
+            Console.WriteLine();
+            Environment.Exit(0);
         }
     }
 }
