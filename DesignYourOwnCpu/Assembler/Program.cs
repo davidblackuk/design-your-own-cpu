@@ -53,7 +53,6 @@ namespace Assembler
                     Console.WriteLine("\nSymbols\n");
                     symbolTable.Save(symbolFile);
                 }
-
                 Console.WriteLine($"\nComplete in {(DateTime.Now - start).TotalMilliseconds} (ms)\n");
             }
             catch (AssemblerException ae)

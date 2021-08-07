@@ -30,14 +30,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Shared/FileOperations.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assembler/Startup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/ReadWordInterrupt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/ReadWordInterrupt.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteStringInterrupt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteStringInterrupt.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/SoftwareInterruptInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/SoftwareInterruptInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/RamFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/RamFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SharedTests/RandomAccessMemoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SharedTests/RandomAccessMemoryTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Assembler.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Assembler.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,8 +79,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/BrancLessThanInstructionTests.cs" />
-      <option value="$PROJECT_DIR$/EmulatorTests/Instructions/CallInstructionTests.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/CompareWithRegisternstructionTests.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionTests.cs" />
       <option value="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorUnitTest.cs" />
@@ -134,6 +128,8 @@
       <option value="$PROJECT_DIR$/Emulator/Startup.cs" />
       <option value="$PROJECT_DIR$/Shared/FileOperations.cs" />
       <option value="$PROJECT_DIR$/Shared/RamFactory.cs" />
+      <option value="$PROJECT_DIR$/Assembler/Startup.cs" />
+      <option value="$PROJECT_DIR$/Assembler/Program.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rcEJyjMFUCIcpJ49MOx4qWONpN" />
@@ -160,7 +156,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="RiderNuGetOptionsPageId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Project.Assembler">
@@ -333,7 +329,7 @@
       <workItem from="1626614773511" duration="1206000" />
       <workItem from="1626705563683" duration="758000" />
       <workItem from="1626707122773" duration="738000" />
-      <workItem from="1626707919539" duration="1903000" />
+      <workItem from="1626707919539" duration="4266000" />
     </task>
     <servers />
   </component>
