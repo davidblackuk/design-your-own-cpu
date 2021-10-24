@@ -134,11 +134,11 @@ cd into the folder `repo\DesignYourOwnCpu` (where repo is the folder you cloned 
 
 To assemble the `hello-world.asm` file on windows:
 
-    dotnet run -p .\Assembler\Assembler.csproj .\Asm\hello-world.asm
+    dotnet run -p .\Assembler\Assembler.csproj --input .\Asm\hello-world.asm
 
 and on Linux, use:
 
-    dotnet run -p ./Assembler/Assembler.csproj ./Asm/hello-world.asm
+    dotnet run -p ./Assembler/Assembler.csproj --input ./Asm/hello-world.asm
 
 Output
 

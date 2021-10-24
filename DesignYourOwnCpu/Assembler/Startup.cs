@@ -35,10 +35,6 @@ namespace Assembler
             services.AddSingleton<IParser, Parser>();
             services.AddSingleton<IAssemblerFiles, AssemblerFiles>();
             services.AddSingleton<IAssembler, Assembler>();
-            
-            
         }
-
-     
     }
 }

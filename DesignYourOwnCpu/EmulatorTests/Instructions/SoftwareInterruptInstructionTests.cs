@@ -12,8 +12,9 @@ namespace EmulatorTests.Instructions
         private Mock<IInterruptFactory> interruptFactoryMock;
         
         [SetUp]
-        public void SetUp()
+        public override void SetUp()
         {
+            base.SetUp();
             interruptFactoryMock = new Mock<IInterruptFactory>();
         }
 
