@@ -46,7 +46,7 @@ namespace AssemblerTests.Instructions
 
         private SingleValueInstruction CreateSut()
         {
-            return new("blt", OpCodes.BranchLessThan);
+            return new SingleValueInstruction("blt", OpCodes.BranchLessThan);
         }
     }
 }

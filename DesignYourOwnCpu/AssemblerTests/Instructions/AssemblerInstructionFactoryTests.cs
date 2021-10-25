@@ -45,7 +45,7 @@ namespace AssemblerTests.Instructions
 
         private AssemblerInstructionFactory CreateSut()
         {
-            return new();
+            return new AssemblerInstructionFactory();
         }
     }
 }

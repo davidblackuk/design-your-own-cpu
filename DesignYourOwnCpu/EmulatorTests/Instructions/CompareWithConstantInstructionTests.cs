@@ -15,9 +15,9 @@ namespace EmulatorTests.Instructions
         {
             // CMP r1, 0xNNNN 
             byte leftRegister = 1;
-            RegistersMock.SetupGet(r => r[leftRegister]).Returns((ushort) lvalue);
+            RegistersMock.SetupGet(r => r[leftRegister]).Returns((ushort)lvalue);
 
-            var sut = CreateSut(leftRegister, (ushort) rvalue);
+            var sut = CreateSut(leftRegister, (ushort)rvalue);
             sut.Execute(CpuMock.Object);
 
             FlagsMock.VerifySet(f => f.Equal = eq);
@@ -28,7 +28,7 @@ namespace EmulatorTests.Instructions
 
         private CompareWithConstantInstruction CreateSut(byte register, ushort value)
         {
-            return new(register, HighByte(value), LowByte(value));
+            return new CompareWithConstantInstruction(register, HighByte(value), LowByte(value));
         }
     }
 }

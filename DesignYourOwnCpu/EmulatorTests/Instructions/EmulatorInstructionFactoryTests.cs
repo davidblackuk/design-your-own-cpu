@@ -10,7 +10,6 @@ using Shared;
 
 namespace EmulatorTests.Instructions
 {
-
     [ExcludeFromCodeCoverage]
     public class EmulatorInstructionFactoryTests
     {
@@ -73,7 +72,7 @@ namespace EmulatorTests.Instructions
 
         private EmulatorInstructionFactory CreateSut()
         {
-            return new(interruptFactoryMock?.Object);
+            return new EmulatorInstructionFactory(interruptFactoryMock?.Object);
         }
     }
 }

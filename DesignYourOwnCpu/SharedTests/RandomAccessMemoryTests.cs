@@ -59,20 +59,20 @@ namespace SharedTests
             sut[13] = 0x55;
 
             sut.GetWord(12).Should().Be(0xFF55);
-        }   
-        
+        }
+
         [Test]
         public void GetWord_WhenCalled_ShouldStoreTheValueInABigEndianFormat()
         {
             var sut = CreateSut();
             sut.SetWord(12, 0x1278);
-            
+
             sut.GetWord(12).Should().Be(0x1278);
 
             sut[12].Should().Be(0x12);
             sut[13].Should().Be(0x78);
         }
-       
+
         [Test]
         public void Ctor_WhenInvokedWithAByteArray_ShouldInitializeMemory()
         {
@@ -80,30 +80,25 @@ namespace SharedTests
             originalRam.SetWord(12, 0x1278);
 
             var clonedRam = CreateSut(originalRam.RawBytes);
-            
+
             clonedRam.GetWord(12).Should().Be(0x1278);
         }
 
-      
+
         [Test]
         [TestCase(RandomAccessMemory.RamTop)]
         [TestCase(RandomAccessMemory.RamTop + 2)]
         public void Ctor_WhenInvokedWithAIllegallySizedByteArray_ShouldThrowArgumentException(int arraySize)
         {
-            byte[] ram = new byte[arraySize];
+            var ram = new byte[arraySize];
             Assert.Throws<ArgumentException>(() => CreateSut(ram));
-        }   
-        
-        private RandomAccessMemory CreateSut(byte [] bytes = null)
+        }
+
+        private RandomAccessMemory CreateSut(byte[] bytes = null)
         {
             if (bytes == null)
-            {
                 return new RandomAccessMemory();
-            }
-            else
-            {
-                return new RandomAccessMemory(bytes);
-            }
+            return new RandomAccessMemory(bytes);
         }
     }
 }

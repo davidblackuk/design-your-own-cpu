@@ -22,7 +22,7 @@ namespace AssemblerTests.Instructions
 
         private ReturnInstruction CreateSut()
         {
-            return new();
+            return new ReturnInstruction();
         }
     }
 }

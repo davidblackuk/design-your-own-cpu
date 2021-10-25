@@ -21,8 +21,8 @@ namespace EmulatorTests
         {
             byte ExpectedValue = 0x38;
             var sut = CreateSut();
-            sut[(byte) register] = ExpectedValue;
-            sut[(byte) register].Should().Be(ExpectedValue);
+            sut[(byte)register] = ExpectedValue;
+            sut[(byte)register].Should().Be(ExpectedValue);
             for (byte i = 0; i < 8; i++)
                 if (i != register)
                     sut[i].Should().Be(0);
@@ -48,7 +48,7 @@ namespace EmulatorTests
 
         private Registers CreateSut()
         {
-            return new();
+            return new Registers();
         }
     }
 }

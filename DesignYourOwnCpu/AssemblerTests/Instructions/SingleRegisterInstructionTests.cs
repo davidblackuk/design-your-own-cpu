@@ -30,13 +30,13 @@ namespace AssemblerTests.Instructions
             var sut = CreateSut();
 
             sut.Parse($"r{expectedRegister}");
-            sut.Register.Should().Be((byte) expectedRegister);
+            sut.Register.Should().Be((byte)expectedRegister);
             sut.RequresSymbolResolution.Should().BeFalse();
         }
 
         private SingleRegisterInstruction CreateSut()
         {
-            return new("push", OpCodes.Push);
+            return new SingleRegisterInstruction("push", OpCodes.Push);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace Shared
 {
@@ -14,10 +13,8 @@ namespace Shared
         internal RandomAccessMemory(byte[] from)
         {
             if (from.Length != RamTop + 1)
-            {
                 throw new ArgumentException($"Expected exactly {RamTop + 1} bytes to be passed for a RAM image",
                     nameof(@from));
-            }
 
             RawBytes = from;
         }
@@ -34,7 +31,7 @@ namespace Shared
         {
             ushort hi = RawBytes[address];
             ushort low = RawBytes[++address];
-            return (ushort) ((hi << 8) | low);
+            return (ushort)((hi << 8) | low);
         }
 
         public void SetWord(ushort address, ushort value)
@@ -43,7 +40,7 @@ namespace Shared
             RawBytes[address] = valueBytes.high;
             RawBytes[address + 1] = valueBytes.low;
         }
-        
+
 
         public (byte opcode, byte register, byte byteHigh, byte byteLow) Instruction(ushort address)
         {
@@ -52,7 +49,7 @@ namespace Shared
 
         private (byte high, byte low) DecomposeWord(ushort value)
         {
-            return ((byte) ((value >> 8) & 0xFF), (byte) (value & 0xFF));
+            return ((byte)((value >> 8) & 0xFF), (byte)(value & 0xFF));
         }
     }
 }

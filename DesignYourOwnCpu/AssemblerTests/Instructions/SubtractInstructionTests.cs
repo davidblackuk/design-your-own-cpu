@@ -26,7 +26,7 @@ namespace AssemblerTests.Instructions
 
         private SubtractInstruction CreateSut()
         {
-            return new();
+            return new SubtractInstruction();
         }
     }
 }

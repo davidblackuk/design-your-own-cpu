@@ -21,7 +21,7 @@ namespace EmulatorTests.Instructions
 
         private NopInstruction CreateSut()
         {
-            return new(0, 0, 0);
+            return new NopInstruction(0, 0, 0);
         }
     }
 }

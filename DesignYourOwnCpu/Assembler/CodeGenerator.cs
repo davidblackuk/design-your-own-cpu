@@ -9,15 +9,15 @@ namespace Assembler
 {
     public class CodeGenerator : ICodeGenerator
     {
-        public IRandomAccessMemory Ram { get; }
-    
-        public ISymbolTable SymbolTable  { get; }
-
         public CodeGenerator(ISymbolTable symbolTable, IRandomAccessMemory ram)
         {
-            this.SymbolTable = symbolTable ?? throw new ArgumentNullException(nameof(symbolTable));
-            this.Ram = ram ?? throw new ArgumentNullException(nameof(ram));
+            SymbolTable = symbolTable ?? throw new ArgumentNullException(nameof(symbolTable));
+            Ram = ram ?? throw new ArgumentNullException(nameof(ram));
         }
+
+        public IRandomAccessMemory Ram { get; }
+
+        public ISymbolTable SymbolTable { get; }
 
         public void GenerateCode(IEnumerable<IAssemblerInstruction> instructions)
         {

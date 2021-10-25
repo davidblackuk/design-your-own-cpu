@@ -18,7 +18,7 @@ namespace AssemblerTests.Instructions
 
         private CallInstruction CreateSut()
         {
-            return new();
+            return new CallInstruction();
         }
     }
 }

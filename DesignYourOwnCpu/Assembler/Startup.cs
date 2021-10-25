@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
+﻿using System.Diagnostics.CodeAnalysis;
 using Assembler.Instructions;
 using Assembler.Symbols;
 using Microsoft.Extensions.Configuration;

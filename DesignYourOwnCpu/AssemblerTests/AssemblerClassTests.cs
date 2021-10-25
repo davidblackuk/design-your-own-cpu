@@ -4,8 +4,11 @@ using System.Diagnostics.CodeAnalysis;
 using Assembler;
 using Assembler.Instructions;
 using Assembler.LineSources;
+using Assembler.Symbols;
+using FluentAssertions;
 using Moq;
 using NUnit.Framework;
+using Shared;
 
 namespace AssemblerTests
 {
@@ -42,6 +45,31 @@ namespace AssemblerTests
         }
 
         [Test]
+        public void Ctor_WhenCorrectDependenciesPassed_ShouldInitializeCodeGeneratorProperty()
+        {
+            var sut = CreateSut();
+            sut.CodeGenerator.Should().Be(codeGeneratorMock.Object);
+        }
+
+        [Test]
+        public void Ctor_WhenCorrectDependenciesPassed_ShouldInitializeRamProperty()
+        {
+            var ram = new Mock<IRandomAccessMemory>();
+            codeGeneratorMock.SetupGet(c => c.Ram).Returns(ram.Object);
+            var sut = CreateSut();
+            sut.Ram.Should().Be(codeGeneratorMock.Object.Ram);
+        }
+
+        [Test]
+        public void Ctor_WhenCorrectDependenciesPassed_ShouldInitializeSymbolTableProperty()
+        {
+            var symbolTable = new Mock<ISymbolTable>();
+            codeGeneratorMock.SetupGet(c => c.SymbolTable).Returns(symbolTable.Object);
+            var sut = CreateSut();
+            sut.SymbolTable.Should().Be(codeGeneratorMock.Object.SymbolTable);
+        }
+
+        [Test]
         public void Assemble_WhenInvoked_ShouldPArseAndGenerateCode()
         {
             var instructions = new List<IAssemblerInstruction>();
@@ -54,9 +82,10 @@ namespace AssemblerTests
             codeGeneratorMock.Verify(cg => cg.GenerateCode(instructions), Times.Once);
         }
 
+
         private Assembler.Assembler CreateSut()
         {
-            return new(parserMock?.Object, codeGeneratorMock?.Object);
+            return new Assembler.Assembler(parserMock?.Object, codeGeneratorMock?.Object);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace AssemblerTests.Instructions
 
         private BrachGreaterThanInstruction CreateSut()
         {
-            return new();
+            return new BrachGreaterThanInstruction();
         }
     }
 }

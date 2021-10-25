@@ -52,7 +52,7 @@ namespace AssemblerTests
         [Test]
         public void GenerateCode_WhenCalled_ShouldStoreTheCorrectBytes()
         {
-            var instructions = new List<IAssemblerInstruction> {mockInstruction.Object};
+            var instructions = new List<IAssemblerInstruction> { mockInstruction.Object };
             var sut = CreateSut();
             sut.GenerateCode(instructions);
             mockInstruction.Verify(i => i.WriteBytes(memoryMock.Object, 0));
@@ -69,7 +69,7 @@ namespace AssemblerTests
             var symbol = new Assembler.Symbols.Symbol(expectedSymbol, expectedAddress);
             symbolTableMock.Setup(st => st.GetSymbol(expectedSymbol)).Returns(symbol);
 
-            var instructions = new List<IAssemblerInstruction> {mockInstruction.Object};
+            var instructions = new List<IAssemblerInstruction> { mockInstruction.Object };
             var sut = CreateSut();
             sut.GenerateCode(instructions);
 
@@ -79,7 +79,7 @@ namespace AssemblerTests
 
         private CodeGenerator CreateSut()
         {
-            return new(symbolTableMock?.Object, memoryMock?.Object);
+            return new CodeGenerator(symbolTableMock?.Object, memoryMock?.Object);
         }
     }
 }

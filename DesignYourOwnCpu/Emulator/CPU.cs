@@ -14,8 +14,8 @@ namespace Emulator
         public CPU(IRandomAccessMemory memory, IRegisters registers, IFlags flags,
             IEmulatorInstructionFactory instructionFactory)
         {
-            this.Memory = memory ?? throw new ArgumentNullException(nameof(memory));
-            this.Registers = registers;
+            Memory = memory ?? throw new ArgumentNullException(nameof(memory));
+            Registers = registers;
             this.instructionFactory = instructionFactory;
             Flags = flags;
         }
@@ -39,7 +39,7 @@ namespace Emulator
 
                 // we increment the program counter here, instructions that directly modify the program counter
                 // may do so during execution (BRA, CALL etc)
-                Registers.ProgramCounter = (ushort) (Registers.ProgramCounter + instruction.Size);
+                Registers.ProgramCounter = (ushort)(Registers.ProgramCounter + instruction.Size);
 
                 instruction.Execute(this);
             } while (!Flags.Halted);

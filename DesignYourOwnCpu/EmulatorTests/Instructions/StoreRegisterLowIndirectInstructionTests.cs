@@ -29,7 +29,7 @@ namespace EmulatorTests.Instructions
 
         private StoreRegisterLowIndirectInstruction CreateSut(byte register, byte indirectRegister)
         {
-            return new(register, 0, indirectRegister);
+            return new StoreRegisterLowIndirectInstruction(register, 0, indirectRegister);
         }
     }
 }

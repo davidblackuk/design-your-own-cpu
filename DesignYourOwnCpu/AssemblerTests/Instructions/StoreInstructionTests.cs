@@ -26,7 +26,7 @@ namespace AssemblerTests.Instructions
 
         private StoreInstruction CreateSut()
         {
-            return new();
+            return new StoreInstruction();
         }
     }
 }

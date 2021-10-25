@@ -17,7 +17,7 @@ namespace AssemblerTests.Symbol
 
         private Assembler.Symbols.Symbol CreateSut(string name, ushort value)
         {
-            return new(name, value);
+            return new Assembler.Symbols.Symbol(name, value);
         }
     }
 }

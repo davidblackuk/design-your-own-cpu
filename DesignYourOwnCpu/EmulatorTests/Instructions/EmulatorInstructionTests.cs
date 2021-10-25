@@ -16,12 +16,12 @@ namespace EmulatorTests.Instructions
         public void ValueWhenAccessed_ShouldReturnCorrectValue(byte high, byte low, int expectedValue)
         {
             var sut = CreateSut(0x01, 0x01, high, low);
-            sut.TestValue.Should().Be((ushort) expectedValue);
+            sut.TestValue.Should().Be((ushort)expectedValue);
         }
 
         private SpyEmulatorInstruction CreateSut(byte opcode, byte register, byte high, byte low)
         {
-            return new(opcode, register, high, low);
+            return new SpyEmulatorInstruction(opcode, register, high, low);
         }
 
         private class SpyEmulatorInstruction : EmulatorInstruction

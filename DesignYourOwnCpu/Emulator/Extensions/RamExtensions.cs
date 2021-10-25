@@ -25,7 +25,7 @@ namespace Emulator.Extensions
                 var bytes = new byte[16];
                 for (ushort column = 0; column < width; column++)
                 {
-                    var value = ram[(ushort) (address + column)];
+                    var value = ram[(ushort)(address + column)];
                     bytes[column] = value;
                     bytesBuilder.Append($"{value:X2} ");
                     characterBuilder.Append(MockAsciiMapper.ConvertByteToChar(value));

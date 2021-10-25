@@ -7,15 +7,15 @@ using Shared;
 namespace Emulator.Instructions.Interrupts
 {
     /// <summary>
-    /// Reads a word from the console. Acceptable formats
-    /// <para>01234 (octal)</para>
-    /// <para>0x1234 (hexadecimal)</para>
-    /// <para>1234 (decimal)</para>
+    ///     Reads a word from the console. Acceptable formats
+    ///     <para>01234 (octal)</para>
+    ///     <para>0x1234 (hexadecimal)</para>
+    ///     <para>1234 (decimal)</para>
     /// </summary>
     public class ReadWordInterrupt : IInterrupt
     {
         /// <summary>
-        /// TODO: We should inject this
+        ///     TODO: We should inject this
         /// </summary>
         private readonly INumberParser numberParser;
 
@@ -23,27 +23,27 @@ namespace Emulator.Instructions.Interrupts
         {
             this.numberParser = numberParser;
         }
-        
+
         public void Execute(ICPU cpu)
         {
-            string text = EditNumber();
+            var text = EditNumber();
             cpu.Registers[0] = numberParser.Parse(text);
         }
 
         private string EditNumber()
         {
-            bool finished = false;
-            StringBuilder text = new StringBuilder();
+            var finished = false;
+            var text = new StringBuilder();
             do
             {
-                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-                string key = keyInfo.KeyChar.ToString();
+                var keyInfo = Console.ReadKey(true);
+                var key = keyInfo.KeyChar.ToString();
                 if (keyInfo.Key == ConsoleKey.Enter && text.Length > 0)
                 {
                     finished = true;
                     Console.WriteLine();
                 }
-                else if (Char.IsDigit(key[0]) || (key.ToLowerInvariant() == "x" && text.Length == 1 && text[0] == '0'))
+                else if (char.IsDigit(key[0]) || key.ToLowerInvariant() == "x" && text.Length == 1 && text[0] == '0')
                 {
                     text.Append(key);
                     Console.Out.Write(key.Pastel(Color.DodgerBlue));
@@ -54,5 +54,3 @@ namespace Emulator.Instructions.Interrupts
         }
     }
 }
-
-

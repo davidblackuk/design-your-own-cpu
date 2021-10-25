@@ -22,7 +22,7 @@ namespace AssemblerTests.Instructions
 
         private NopInstruction CreateSut()
         {
-            return new();
+            return new NopInstruction();
         }
     }
 }

@@ -17,8 +17,8 @@ namespace EmulatorTests.Instructions
             byte leftRegister = 1;
             byte rightRegister = 4;
 
-            RegistersMock.SetupGet(r => r[leftRegister]).Returns((ushort) lvalue);
-            RegistersMock.SetupGet(r => r[rightRegister]).Returns((ushort) rvalue);
+            RegistersMock.SetupGet(r => r[leftRegister]).Returns((ushort)lvalue);
+            RegistersMock.SetupGet(r => r[rightRegister]).Returns((ushort)rvalue);
 
             var sut = CreateSut(leftRegister, rightRegister);
             sut.Execute(CpuMock.Object);
@@ -31,7 +31,7 @@ namespace EmulatorTests.Instructions
 
         private CompareWithRegisterInstruction CreateSut(byte register, byte rightRegister)
         {
-            return new(register, 0, rightRegister);
+            return new CompareWithRegisterInstruction(register, 0, rightRegister);
         }
     }
 }

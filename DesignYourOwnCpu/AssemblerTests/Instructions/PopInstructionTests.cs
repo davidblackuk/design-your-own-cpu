@@ -18,7 +18,7 @@ namespace AssemblerTests.Instructions
 
         private PopInstruction CreateSut()
         {
-            return new();
+            return new PopInstruction();
         }
     }
 }

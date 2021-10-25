@@ -14,7 +14,7 @@ namespace EmulatorTests.Instructions
             ushort stackPointer = 0xFFFC;
             ushort callAddress = 0x3141;
             ushort currentProgramCounter = 0x00F0;
-            var decrementedStackPointer = (ushort) (stackPointer - 4);
+            var decrementedStackPointer = (ushort)(stackPointer - 4);
 
             RegistersMock.SetupGet(r => r.StackPointer).Returns(stackPointer);
             RegistersMock.SetupGet(r => r.ProgramCounter).Returns(currentProgramCounter);
@@ -30,7 +30,7 @@ namespace EmulatorTests.Instructions
 
         private CallInstruction CreateSut(ushort expectedProgramCounter)
         {
-            return new(0, HighByte(expectedProgramCounter), LowByte(expectedProgramCounter));
+            return new CallInstruction(0, HighByte(expectedProgramCounter), LowByte(expectedProgramCounter));
         }
     }
 }

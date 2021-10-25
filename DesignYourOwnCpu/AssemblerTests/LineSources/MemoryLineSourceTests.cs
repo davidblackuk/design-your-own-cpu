@@ -27,7 +27,7 @@ Line 3
 
         private MemoryLineSource CreateSut(string text)
         {
-            return new(text);
+            return new MemoryLineSource(text);
         }
     }
 }

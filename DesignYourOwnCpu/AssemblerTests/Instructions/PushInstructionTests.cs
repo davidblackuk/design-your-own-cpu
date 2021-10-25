@@ -18,7 +18,7 @@ namespace AssemblerTests.Instructions
 
         private PushInstruction CreateSut()
         {
-            return new();
+            return new PushInstruction();
         }
     }
 }

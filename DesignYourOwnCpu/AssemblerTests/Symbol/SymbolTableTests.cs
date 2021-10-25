@@ -52,7 +52,7 @@ namespace AssemblerTests.Symbol
 
         private SymbolTable CreateSut()
         {
-            return new();
+            return new SymbolTable();
         }
     }
 }

@@ -31,7 +31,7 @@ namespace EmulatorTests.Instructions
 
         private BranchLessThanInstruction CreateSut(ushort expectedProgramCounter)
         {
-            return new(0, HighByte(expectedProgramCounter), LowByte(expectedProgramCounter));
+            return new BranchLessThanInstruction(0, HighByte(expectedProgramCounter), LowByte(expectedProgramCounter));
         }
     }
 }
