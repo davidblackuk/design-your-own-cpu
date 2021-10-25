@@ -20,13 +20,13 @@ namespace EmulatorTests.Instructions
 
             var sut = CreateSut(targetRegister);
             sut.Execute(CpuMock.Object);
-            RegistersMock.VerifySet(r => r.StackPointer = (ushort) (expectedStackPointer - 4), Times.Once());
+            RegistersMock.VerifySet(r => r.StackPointer = (ushort)(expectedStackPointer - 4), Times.Once());
             MemoryMock.Verify(m => m.SetWord(It.IsAny<ushort>(), expectedValue));
         }
 
         private PushInstruction CreateSut(byte register)
         {
-            return new(register, 0, 0);
+            return new PushInstruction(register, 0, 0);
         }
     }
 }

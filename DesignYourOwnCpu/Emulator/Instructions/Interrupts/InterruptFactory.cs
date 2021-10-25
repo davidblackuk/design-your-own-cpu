@@ -12,7 +12,7 @@ namespace Emulator.Instructions.Interrupts
         {
             this.services = services;
         }
-        
+
         public IInterrupt Create(ushort vector)
         {
             switch (vector)

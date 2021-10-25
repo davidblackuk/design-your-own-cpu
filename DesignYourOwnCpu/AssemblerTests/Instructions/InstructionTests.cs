@@ -177,7 +177,7 @@ namespace AssemblerTests.Instructions
 
         private SpyInstruction CreateSut()
         {
-            return new();
+            return new SpyInstruction();
         }
 
         [ExcludeFromCodeCoverage]

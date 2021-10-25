@@ -7,17 +7,18 @@ using Shared;
 namespace AssemblerTests.Instructions
 {
     [ExcludeFromCodeCoverage]
-    public class BranchEqualInstructionTests
+    public class SoftwareInterruptInstructionTests
     {
         [Test]
         public void Ctor_WhenInvoked_ShouldCorrectlySetOpCode()
         {
-            CreateSut().OpCode.Should().Be(OpCodes.BranchEqual);
+            var sut = CreateSut();
+            sut.OpCode.Should().Be(OpCodes.Swi);
         }
 
-        private BranchEqualInstruction CreateSut()
+        private SoftwareInterruptInstruction CreateSut()
         {
-            return new BranchEqualInstruction();
+            return new SoftwareInterruptInstruction();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Emulator.Instructions
 
         public void Execute(ICPU cpu)
         {
-            cpu.Memory[Value] = (byte) ((cpu.Registers[Register] >> 8) & 0xFF);
+            cpu.Memory[Value] = (byte)((cpu.Registers[Register] >> 8) & 0xFF);
         }
     }
 }

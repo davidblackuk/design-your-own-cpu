@@ -1,4 +1,5 @@
-﻿using Shared;
+﻿using System.Diagnostics.CodeAnalysis;
+using Shared;
 
 namespace Assembler.Instructions.PsuedoInstructions
 {
@@ -12,7 +13,7 @@ namespace Assembler.Instructions.PsuedoInstructions
         /// <summary>
         ///     Size of space defined in bytes
         /// </summary>
-        public override ushort Size => (ushort) ((ByteHigh << 8) | ByteLow);
+        public override ushort Size => (ushort)((ByteHigh << 8) | ByteLow);
 
         /// <summary>
         /// </summary>
@@ -28,11 +29,13 @@ namespace Assembler.Instructions.PsuedoInstructions
             // TODO: decision - zero the bytes or leave as is?
         }
 
+        [ExcludeFromCodeCoverage]
         public override string BytesString()
         {
             return ".. .. .. ..";
         }
 
+        [ExcludeFromCodeCoverage]
         public override string ToString()
         {
             return $"defs 0x{Size:X4}";

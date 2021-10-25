@@ -4,7 +4,7 @@
     {
         byte[] RawBytes { get; }
         byte this[ushort address] { get; set; }
-        
+
         (byte opcode, byte register, byte byteHigh, byte byteLow) Instruction(ushort address);
 
         ushort GetWord(ushort address);

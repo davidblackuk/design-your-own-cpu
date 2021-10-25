@@ -6,7 +6,7 @@
         private const ushort StackPointerDefaultValue = 0xFFFF;
 
         private ushort[] registers { get; } =
-            {0, 0, 0, 0, 0, 0, 0, 0, ProgramCounterDefaultValue, StackPointerDefaultValue};
+            { 0, 0, 0, 0, 0, 0, 0, 0, ProgramCounterDefaultValue, StackPointerDefaultValue };
 
         public ushort this[byte index]
         {

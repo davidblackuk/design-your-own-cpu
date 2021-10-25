@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using Pastel;
 
 namespace Assembler.Extensions
 {
+    [ExcludeFromCodeCoverage]
     public static class AssemblerFilesExtensions
     {
         public static void ToConsole(this IAssemblerFiles files)

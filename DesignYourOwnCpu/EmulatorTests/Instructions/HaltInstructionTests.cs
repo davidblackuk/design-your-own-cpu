@@ -23,7 +23,7 @@ namespace EmulatorTests.Instructions
 
         private HaltInstruction CreateSut()
         {
-            return new(0, 0, 0);
+            return new HaltInstruction(0, 0, 0);
         }
     }
 }

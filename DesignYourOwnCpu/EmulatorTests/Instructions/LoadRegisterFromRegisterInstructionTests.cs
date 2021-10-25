@@ -23,7 +23,7 @@ namespace EmulatorTests.Instructions
 
         private LoadRegisterFromRegisterInstruction CreateSut(byte register, byte sourceRegister)
         {
-            return new(register, 0, sourceRegister);
+            return new LoadRegisterFromRegisterInstruction(register, 0, sourceRegister);
         }
     }
 }

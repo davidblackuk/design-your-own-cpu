@@ -24,7 +24,7 @@ namespace EmulatorTests.Instructions
 
         private LoadRegisterFromMemoryInstruction CreateSut(byte register, ushort expectedAddress)
         {
-            return new(register, HighByte(expectedAddress), LowByte(expectedAddress));
+            return new LoadRegisterFromMemoryInstruction(register, HighByte(expectedAddress), LowByte(expectedAddress));
         }
     }
 }

@@ -17,7 +17,7 @@ namespace AssemblerTests.Instructions
 
         private BranchLessThanInstruction CreateSut()
         {
-            return new();
+            return new BranchLessThanInstruction();
         }
     }
 }

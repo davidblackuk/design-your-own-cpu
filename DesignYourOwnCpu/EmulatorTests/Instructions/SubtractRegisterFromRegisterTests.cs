@@ -24,12 +24,12 @@ namespace EmulatorTests.Instructions
 
             sut.Execute(CpuMock.Object);
 
-            RegistersMock.VerifySet(reg => reg[firstRegister] = (ushort) (firstRegisterValue - secondRegisterValue));
+            RegistersMock.VerifySet(reg => reg[firstRegister] = (ushort)(firstRegisterValue - secondRegisterValue));
         }
 
         private SubtractRegisterFromRegisterInstruction CreateSut(byte register, byte otherRegister)
         {
-            return new(register, 0, otherRegister);
+            return new SubtractRegisterFromRegisterInstruction(register, 0, otherRegister);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Emulator.Instructions
         public void Execute(ICPU cpu)
         {
             var indirectAddress = cpu.Registers[ByteLow];
-            var value = (byte) (cpu.Registers[Register] & 0xFF);
+            var value = (byte)(cpu.Registers[Register] & 0xFF);
             cpu.Memory[indirectAddress] = value;
         }
     }

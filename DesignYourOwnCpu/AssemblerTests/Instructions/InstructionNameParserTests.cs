@@ -24,7 +24,7 @@ namespace AssemblerTests.Instructions
 
         private InstructionNameParser CreateSut()
         {
-            return new();
+            return new InstructionNameParser();
         }
     }
 }

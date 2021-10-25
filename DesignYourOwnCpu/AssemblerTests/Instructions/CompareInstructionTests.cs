@@ -25,7 +25,7 @@ namespace AssemblerTests.Instructions
 
         private CompareInstruction CreateSut()
         {
-            return new();
+            return new CompareInstruction();
         }
     }
 }

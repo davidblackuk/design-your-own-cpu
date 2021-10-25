@@ -25,7 +25,7 @@ namespace AssemblerTests.Instructions
 
         private StoreHiInstruction CreateSut()
         {
-            return new();
+            return new StoreHiInstruction();
         }
     }
 }

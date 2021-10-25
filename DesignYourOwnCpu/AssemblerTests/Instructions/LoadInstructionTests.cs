@@ -27,7 +27,7 @@ namespace AssemblerTests.Instructions
 
         private LoadInstruction CreateSut()
         {
-            return new();
+            return new LoadInstruction();
         }
     }
 }

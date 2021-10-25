@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Assembler.Exceptions;
 using Shared;
 
@@ -7,10 +8,10 @@ namespace Assembler.Instructions
     public class AssemblerInstruction : Instruction, IAssemblerInstruction
     {
         /// <summary>
-        /// TODO: We should inject this
+        ///     TODO: We should inject this
         /// </summary>
         private readonly INumberParser numberParser = new NumberParser();
-        
+
         /// <summary>
         ///     For symbols this contains the name that needs to be resolved
         /// </summary>
@@ -24,10 +25,11 @@ namespace Assembler.Instructions
 
         public void StoreData(ushort value)
         {
-            ByteLow = (byte) (value & 0xff);
-            ByteHigh = (byte) ((value >> 8) & 0xff);
+            ByteLow = (byte)(value & 0xff);
+            ByteHigh = (byte)((value >> 8) & 0xff);
         }
 
+        [ExcludeFromCodeCoverage]
         public virtual void Parse(string source)
         {
             throw new NotImplementedException();

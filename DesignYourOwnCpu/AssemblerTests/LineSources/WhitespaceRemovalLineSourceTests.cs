@@ -32,7 +32,7 @@ Line 3
 
         private WhitespaceRemovalLineSource CreateSut(string text)
         {
-            return new(new MemoryLineSource(text));
+            return new WhitespaceRemovalLineSource(new MemoryLineSource(text));
         }
     }
 }

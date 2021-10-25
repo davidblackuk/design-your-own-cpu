@@ -18,12 +18,12 @@ namespace EmulatorTests.Instructions
             RegistersMock.SetupGet(r => r[expectedRegister]).Returns(initialRegisterValue);
             sut.Execute(CpuMock.Object);
 
-            RegistersMock.VerifySet(reg => reg[expectedRegister] = (ushort) (initialRegisterValue - constValue));
+            RegistersMock.VerifySet(reg => reg[expectedRegister] = (ushort)(initialRegisterValue - constValue));
         }
 
         private SubtractConstantFromRegisterInstruction CreateSut(byte register, ushort value)
         {
-            return new(register, HighByte(value), LowByte(value));
+            return new SubtractConstantFromRegisterInstruction(register, HighByte(value), LowByte(value));
         }
     }
 }

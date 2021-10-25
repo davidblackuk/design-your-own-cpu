@@ -3,7 +3,7 @@
 namespace Emulator.Instructions.Interrupts
 {
     /// <summary>
-    /// Reads a word from the console. 
+    ///     Reads a word from the console.
     /// </summary>
     public class WriteWordInterrupt : IInterrupt
     {

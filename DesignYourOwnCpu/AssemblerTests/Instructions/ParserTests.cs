@@ -64,7 +64,7 @@ namespace AssemblerTests.Instructions
 
             var mockLineSource = new Mock<ILineSource>();
             mockLineSource.Setup(ls => ls.Lines())
-                .Returns(new List<string> {"blah"});
+                .Returns(new List<string> { "blah" });
             nameParserMock.Setup(np => np.Parse("blah"))
                 .Returns(("blah", ""));
 
@@ -81,7 +81,7 @@ namespace AssemblerTests.Instructions
         {
             var mockLineSource = new Mock<ILineSource>();
             mockLineSource.Setup(ls => ls.Lines())
-                .Returns(new List<string> {".loop"});
+                .Returns(new List<string> { ".loop" });
             nameParserMock.Setup(np => np.Parse(".loop"))
                 .Returns((".loop", ""));
             sut.ParseAllLines(mockLineSource.Object);
@@ -90,7 +90,7 @@ namespace AssemblerTests.Instructions
 
         private Parser CreateSut()
         {
-            return new(nameParserMock?.Object, instructionFactoryMock?.Object, symbolTableMock?.Object);
+            return new Parser(nameParserMock?.Object, instructionFactoryMock?.Object, symbolTableMock?.Object);
         }
     }
 }

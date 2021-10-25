@@ -39,7 +39,7 @@ Line 5 # Really this is also; erm... possible
 
         private CommentStrippingLineSource CreateSut(string text)
         {
-            return new(new WhitespaceRemovalLineSource(new MemoryLineSource(text)));
+            return new CommentStrippingLineSource(new WhitespaceRemovalLineSource(new MemoryLineSource(text)));
         }
     }
 }

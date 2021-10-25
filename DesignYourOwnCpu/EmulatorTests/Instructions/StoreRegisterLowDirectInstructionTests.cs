@@ -25,7 +25,7 @@ namespace EmulatorTests.Instructions
 
         private StoreRegisterLowDirectInstruction CreateSut(byte register, ushort expectedAddress)
         {
-            return new(register, HighByte(expectedAddress), LowByte(expectedAddress));
+            return new StoreRegisterLowDirectInstruction(register, HighByte(expectedAddress), LowByte(expectedAddress));
         }
     }
 }

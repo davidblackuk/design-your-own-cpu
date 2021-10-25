@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
-using System.IO;
 using Assembler.Exceptions;
 using Assembler.Extensions;
-using Assembler.Instructions;
 using Assembler.LineSources;
-using Assembler.Symbols;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Pastel;
 using Shared;
@@ -25,7 +21,7 @@ namespace Assembler
             startup.ConfigureServices(services);
             IServiceProvider serviceProvider = services.BuildServiceProvider();
 
-            IAssemblerFiles files = serviceProvider.GetService<IAssemblerFiles>();
+            var files = serviceProvider.GetService<IAssemblerFiles>();
 
             if (files.SourceFilename == null)
             {
@@ -67,7 +63,7 @@ namespace Assembler
         {
             Console.WriteLine();
             Console.WriteLine("Usage:");
-            Console.WriteLine($"    dotnet run  -p <path to project file> --input <path for the bin file>");
+            Console.WriteLine("    dotnet run  -p <path to project file> --input <path for the bin file>");
             Console.WriteLine();
             Environment.Exit(0);
         }

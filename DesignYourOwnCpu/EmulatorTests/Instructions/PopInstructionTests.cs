@@ -21,7 +21,7 @@ namespace EmulatorTests.Instructions
 
         private PopInstruction CreateSut(byte register)
         {
-            return new(register, 0, 0);
+            return new PopInstruction(register, 0, 0);
         }
     }
 }

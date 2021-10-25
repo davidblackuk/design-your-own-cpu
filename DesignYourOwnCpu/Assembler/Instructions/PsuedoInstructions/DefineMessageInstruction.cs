@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Assembler.Exceptions;
 using Shared;
 
@@ -13,7 +14,7 @@ namespace Assembler.Instructions.PsuedoInstructions
         /// <summary>
         ///     Size of space defined in bytes
         /// </summary>
-        public override ushort Size => (ushort) bytes.Count;
+        public override ushort Size => (ushort)bytes.Count;
 
         /// <summary>
         /// </summary>
@@ -44,9 +45,10 @@ namespace Assembler.Instructions.PsuedoInstructions
 
         public override void WriteBytes(IRandomAccessMemory ram, ushort address)
         {
-            for (ushort i = 0; i < bytes.Count; i++) ram[(ushort) (address + i)] = bytes[i];
+            for (ushort i = 0; i < bytes.Count; i++) ram[(ushort)(address + i)] = bytes[i];
         }
 
+        [ExcludeFromCodeCoverage]
         public override string BytesString()
         {
             return ".. .. .. ..";
@@ -91,6 +93,7 @@ namespace Assembler.Instructions.PsuedoInstructions
             return !isEscaped;
         }
 
+        [ExcludeFromCodeCoverage]
         public override string ToString()
         {
             return $"defm \"{rawMessage}\" ({rawMessage.Length} chars";

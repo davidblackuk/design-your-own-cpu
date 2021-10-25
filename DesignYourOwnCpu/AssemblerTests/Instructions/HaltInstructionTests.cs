@@ -22,7 +22,7 @@ namespace AssemblerTests.Instructions
 
         private HaltInstruction CreateSut()
         {
-            return new();
+            return new HaltInstruction();
         }
     }
 }

@@ -18,12 +18,12 @@ namespace EmulatorTests.Instructions
             var sut = CreateSut(expectedStackPointer);
             sut.Execute(CpuMock.Object);
             RegistersMock.VerifySet(reg => reg.ProgramCounter = extepedReturnAddress);
-            RegistersMock.VerifySet(r => r.StackPointer = (ushort) (expectedStackPointer + 4));
+            RegistersMock.VerifySet(r => r.StackPointer = (ushort)(expectedStackPointer + 4));
         }
 
         private ReturnInstruction CreateSut(ushort expectedProgramCounter)
         {
-            return new(0, HighByte(expectedProgramCounter), LowByte(expectedProgramCounter));
+            return new ReturnInstruction(0, HighByte(expectedProgramCounter), LowByte(expectedProgramCounter));
         }
     }
 }

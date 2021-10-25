@@ -52,7 +52,7 @@ namespace EmulatorTests
             SetUpMockCPU();
             var sut = CreateSut();
             sut.Run();
-            registersMock.VerifySet(r => r.ProgramCounter = (ushort) (expectedAddress + expectedSize));
+            registersMock.VerifySet(r => r.ProgramCounter = (ushort)(expectedAddress + expectedSize));
         }
 
         [Test]
@@ -81,7 +81,7 @@ namespace EmulatorTests
 
         private CPU CreateSut()
         {
-            return new(memoryMock?.Object, registersMock?.Object, flagsMock?.Object,
+            return new CPU(memoryMock?.Object, registersMock?.Object, flagsMock?.Object,
                 instructionFactoryMock?.Object);
         }
     }

@@ -26,11 +26,8 @@ namespace Emulator
         {
             var binaryToExecute = Configuration["input"];
 
-            if (binaryToExecute == null)
-            {
-                Usage();
-            }
-            
+            if (binaryToExecute == null) Usage();
+
             IRamFactory ramFactory = new RamFactory();
             var memory = ramFactory.Create(binaryToExecute);
             services.AddSingleton<IRandomAccessMemory>(memory);
@@ -51,7 +48,7 @@ namespace Emulator
         {
             Console.WriteLine();
             Console.WriteLine("Usage:");
-            Console.WriteLine($"    dotnet run  -p <path to project file> --input <path for the bin file>");
+            Console.WriteLine("    dotnet run  -p <path to project file> --input <path for the bin file>");
             Console.WriteLine();
             Environment.Exit(0);
         }

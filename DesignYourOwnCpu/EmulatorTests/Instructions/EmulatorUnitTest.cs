@@ -28,12 +28,12 @@ namespace EmulatorTests.Instructions
 
         protected byte HighByte(ushort value)
         {
-            return (byte) (value >> 8);
+            return (byte)(value >> 8);
         }
 
         protected byte LowByte(ushort value)
         {
-            return (byte) (value & 0xff);
+            return (byte)(value & 0xff);
         }
     }
 }

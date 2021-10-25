@@ -1,16 +1,8 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using Microsoft.Extensions.Configuration;
 
 namespace Assembler
 {
-    public interface IAssemblerFiles
-    {
-        string SourceFilename { get; }
-        string SymbolFilename { get; }
-        string BinaryFilename { get; }
-    }
-
     public class AssemblerFiles : IAssemblerFiles
     {
         private readonly IConfigurationRoot config;

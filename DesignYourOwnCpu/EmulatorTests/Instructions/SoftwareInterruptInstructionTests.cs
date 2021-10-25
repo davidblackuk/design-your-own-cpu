@@ -7,10 +7,10 @@ using NUnit.Framework;
 namespace EmulatorTests.Instructions
 {
     [ExcludeFromCodeCoverage]
-    public class SoftwareInterruptInstructionTests: EmulatorUnitTest
+    public class SoftwareInterruptInstructionTests : EmulatorUnitTest
     {
         private Mock<IInterruptFactory> interruptFactoryMock;
-        
+
         [SetUp]
         public override void SetUp()
         {
@@ -24,22 +24,22 @@ namespace EmulatorTests.Instructions
             ushort expectedValue = 0x2376;
             var interruptMock = new Mock<IInterrupt>();
             interruptFactoryMock.Setup(ifm => ifm.Create(expectedValue)).Returns(interruptMock.Object);
-            
+
             var sut = CreateSut(expectedValue);
-            
+
             sut.Execute(CpuMock.Object);
             interruptFactoryMock.Verify(im => im.Create(expectedValue));
         }
-        
+
         [Test]
         public void Execute_WhenInvoked_ShouldExecuteTHeInterruptOnTheCpu()
         {
             ushort expectedValue = 0x2376;
             var interruptMock = new Mock<IInterrupt>();
             interruptFactoryMock.Setup(ifm => ifm.Create(expectedValue)).Returns(interruptMock.Object);
-            
+
             var sut = CreateSut(expectedValue);
-            
+
             sut.Execute(CpuMock.Object);
             interruptMock.Verify(im => im.Execute(CpuMock.Object));
         }

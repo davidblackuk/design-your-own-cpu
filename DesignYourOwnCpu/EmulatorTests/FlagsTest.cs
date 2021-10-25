@@ -54,7 +54,7 @@ namespace EmulatorTests
 
         private Flags CreateSut()
         {
-            return new();
+            return new Flags();
         }
     }
 }

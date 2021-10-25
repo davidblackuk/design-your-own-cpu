@@ -19,7 +19,7 @@ namespace EmulatorTests.Instructions
 
         private LoadRegisterWithConstantInstruction CreateSut(byte register, ushort value)
         {
-            return new(register, HighByte(value), LowByte(value));
+            return new LoadRegisterWithConstantInstruction(register, HighByte(value), LowByte(value));
         }
     }
 }
