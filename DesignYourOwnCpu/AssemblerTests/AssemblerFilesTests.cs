@@ -1,4 +1,5 @@
-﻿using Assembler;
+﻿using System.Diagnostics.CodeAnalysis;
+using Assembler;
 using FluentAssertions;
 using Microsoft.Extensions.Configuration;
 using Moq;
@@ -6,6 +7,7 @@ using NUnit.Framework;
 
 namespace AssemblerTests
 {
+    [ExcludeFromCodeCoverage]
     public class AssemblerFilesTests
     {
         private Mock<IConfigurationRoot> configurationMock;
