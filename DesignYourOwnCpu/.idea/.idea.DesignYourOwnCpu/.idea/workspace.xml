@@ -30,13 +30,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Shared/IRandomAccessMemoryExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SharedTests/MockAsciiMapperTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/IRamFactory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/IRandomAccessMemory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/IRandomAccessMemory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/RamFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SharedTests/SharedTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SharedTests/SharedTests.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,7 +332,7 @@
       <workItem from="1626707919539" duration="4266000" />
       <workItem from="1628337908678" duration="6841000" />
       <workItem from="1635073528027" duration="7006000" />
-      <workItem from="1635163227604" duration="4457000" />
+      <workItem from="1635163227604" duration="5426000" />
     </task>
     <servers />
   </component>
@@ -344,50 +340,43 @@
     <option name="version" value="3" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="39" />
+    <option name="coveragePercentColumnWidth" value="93" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="233" />
+    <option name="symbolColumnWidth" value="289" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 87% 124/929" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 89% 101/894" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 87% 124/929" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 89% 101/894" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Emulator 83% 54/318" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 87% 124/929" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 89% 101/894" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Emulator 83% 54/318" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Emulator 83% 54/318" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 87% 124/929" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 73% 24/90" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 89% 101/894" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Shared 99% 1/72" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 87% 124/929" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 73% 24/90" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 73% 24/90" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 89% 101/894" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Shared 99% 1/72" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Shared 99% 1/72" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 87% 124/929" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 73% 24/90" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 73% 24/90" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="RamFactory 0% 6/6" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 87% 124/929" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 73% 24/90" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 73% 24/90" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="RamPersistence 0% 3/3" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 89% 101/894" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Shared 99% 1/72" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Shared 99% 1/72" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="MockAsciiMapper 95% 1/22" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
