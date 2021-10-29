@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 
 namespace Assembler.LineSources
 {
+    [ExcludeFromCodeCoverage] // not integrattion testing
     public class FileLineSource : ILineSource
     {
         private readonly string inputFile;

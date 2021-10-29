@@ -30,9 +30,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SharedTests/MockAsciiMapperTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/Interrupts/InterruptFactoryTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SharedTests/SharedTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SharedTests/SharedTests.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/PsuedoInstructions/DefineMessageInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/PsuedoInstructions/DefineMessageInstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/LineSources/FileLineSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/LineSources/FileLineSource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Symbols/SymbolTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Symbols/SymbolTable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/AssemblerInstructionFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/AssemblerInstructionFactoryTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/InstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/InstructionTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/PsuedoInstructions/DefineMessageInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/PsuedoInstructions/DefineMessageInstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblerTests/Symbol/SymbolTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Symbol/SymbolTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmulatorTests/EmulatorTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/EmulatorTests.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +82,6 @@
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/AddInstruction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/CompareInstruction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Emulator/Instructions/EmulatorInstruction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/IAssemblerInstruction.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -332,7 +339,9 @@
       <workItem from="1626707919539" duration="4266000" />
       <workItem from="1628337908678" duration="6841000" />
       <workItem from="1635073528027" duration="7006000" />
-      <workItem from="1635163227604" duration="5426000" />
+      <workItem from="1635163227604" duration="8010000" />
+      <workItem from="1635506901364" duration="3509000" />
+      <workItem from="1635519292964" duration="1455000" />
     </task>
     <servers />
   </component>
@@ -340,43 +349,14 @@
     <option name="version" value="3" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="93" />
+    <option name="coveragePercentColumnWidth" value="67" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="289" />
+    <option name="symbolColumnWidth" value="199" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 101/894" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 101/894" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 83% 54/318" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 101/894" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 83% 54/318" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 83% 54/318" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 101/894" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 99% 1/72" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 101/894" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 99% 1/72" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 99% 1/72" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 101/894" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 99% 1/72" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Shared 99% 1/72" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="MockAsciiMapper 95% 1/22" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 95% 41/891" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
@@ -399,6 +379,25 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AssemblerTests/Instructions/PsuedoInstructions/DefineMessageInstruction.cs</url>
+          <line>60</line>
+          <properties documentPath="D:\git\my-cpu\DesignYourOwnCpu\AssemblerTests\Instructions\PsuedoInstructions\DefineMessageInstruction.cs" initialLine="52" containingFunctionPresentation="method 'PWriteBytes_WhenInvoked_ShouldStoreTheStringCorrectly'">
+            <startOffsets>
+              <option value="2318" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2353" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

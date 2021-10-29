@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Assembler.Exceptions;
 using Assembler.Instructions;
+using Assembler.Instructions.PsuedoInstructions;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -35,6 +36,9 @@ namespace AssemblerTests.Instructions
         [TestCase("ret", typeof(ReturnInstruction))]
         [TestCase("push", typeof(PushInstruction))]
         [TestCase("pop", typeof(PopInstruction))]
+        [TestCase("defs", typeof(DefineSpaceInstruction))]
+        [TestCase("defm", typeof(DefineMessageInstruction))]
+        [TestCase("swi", typeof(SoftwareInterruptInstruction))]
         public void Create_WhenCalledWithAKnownInstructionName_ShouldReturnCorrectType(
             string instructionName, Type expectedType)
         {

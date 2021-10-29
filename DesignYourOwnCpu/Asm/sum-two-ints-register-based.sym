@@ -1,8 +1,0 @@
-0x0063 enter-number-message
-0x009A eol
-0x004C hello-message
-0x007B results-message
-0x0003 sys-read-string
-0x0004 sys-read-word
-0x0001 sys-write-string
-0x0002 sys-write-word

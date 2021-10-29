@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -63,6 +64,7 @@ namespace Assembler.Symbols
             return table[name];
         }
 
+        [ExcludeFromCodeCoverage]  // not integration testing
         public void Save(string symbolFile)
         {
             var allText = new StringBuilder();

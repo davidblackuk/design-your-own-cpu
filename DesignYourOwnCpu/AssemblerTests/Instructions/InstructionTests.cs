@@ -2,7 +2,9 @@
 using Assembler.Exceptions;
 using Assembler.Instructions;
 using FluentAssertions;
+using Moq;
 using NUnit.Framework;
+using Shared;
 
 namespace AssemblerTests.Instructions
 {
@@ -175,6 +177,21 @@ namespace AssemblerTests.Instructions
             sut.Size.Should().Be(4);
         }
 
+        [Test]
+        public void WriteBytes_WhenInvoked_ShouldWriteTheCorrectBytes()
+        {
+            Mock<IRandomAccessMemory> ram = new Mock<IRandomAccessMemory>();
+            var sut = CreateSut();
+            sut.SetBytes(8,23, 48, 127);
+            sut.WriteBytes(ram.Object, 2345);
+            
+            ram.VerifySet(r => r[2345] = 8);
+            ram.VerifySet(r => r[2346] = 23);
+            ram.VerifySet(r => r[2347] = 48);
+            ram.VerifySet(r => r[2348] = 127);
+        }
+
+        
         private SpyInstruction CreateSut()
         {
             return new SpyInstruction();
