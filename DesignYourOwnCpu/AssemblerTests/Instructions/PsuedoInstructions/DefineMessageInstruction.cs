@@ -2,6 +2,7 @@
 using Assembler.Exceptions;
 using Assembler.Instructions.PsuedoInstructions;
 using FluentAssertions;
+using Moq;
 using NUnit.Framework;
 using Shared;
 
@@ -39,6 +40,30 @@ namespace AssemblerTests.Instructions.PsuedoInstructions
         {
             var sut = CreateSut();
             Assert.Throws<AssemblerException>(() => { sut.Parse("\"I, \\y, am an error\""); });
+        }
+
+        [Test]
+        public void Parse_WhenInvokedWithUnquotedText_ShouldThrow()
+        {
+            var sut = CreateSut();
+            Assert.Throws<AssemblerException>(() => { sut.Parse("hello"); });
+        }
+
+        
+        [Test]
+        public void WriteBytes_WhenInvoked_ShouldStoreTheStringCorrectly()
+        {
+            var sut = CreateSut();
+            sut.Parse("\"hello\"");
+
+            Mock<IRandomAccessMemory> ramMock = new();
+            
+            sut.WriteBytes(ramMock.Object, 22);
+            ramMock.VerifySet(s => s[22] = MockAsciiMapper.ConvertCharToByte('h'));
+            ramMock.VerifySet(s => s[23] = MockAsciiMapper.ConvertCharToByte('e'));
+            ramMock.VerifySet(s => s[24] = MockAsciiMapper.ConvertCharToByte('l'));
+            ramMock.VerifySet(s => s[25] = MockAsciiMapper.ConvertCharToByte('l'));
+            ramMock.VerifySet(s => s[26] = MockAsciiMapper.ConvertCharToByte('o'));
         }
 
         private DefineMessageInstruction CreateSut()

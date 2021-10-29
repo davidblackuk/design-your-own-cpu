@@ -376,3 +376,4 @@ MigrationBackup/
 .ionide/
 
 Asm/*.bin
+Asm/*.sym

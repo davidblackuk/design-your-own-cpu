@@ -63,7 +63,7 @@ namespace Assembler
         {
             Console.WriteLine();
             Console.WriteLine("Usage:");
-            Console.WriteLine("    dotnet run  -p <path to project file> --input <path for the bin file>");
+            Console.WriteLine("    dotnet run  -p <path to project file> --input <path for the file to assemble>");
             Console.WriteLine();
             Environment.Exit(0);
         }

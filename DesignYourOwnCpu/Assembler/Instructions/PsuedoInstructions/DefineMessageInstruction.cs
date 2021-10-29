@@ -25,6 +25,7 @@ namespace Assembler.Instructions.PsuedoInstructions
 
             StripEnclosingQuotes(source);
             foreach (var character in rawMessage)
+            {
                 if (character == '\\')
                 {
                     isEscaped = HandleStartEscapeSymbol(isEscaped, character);
@@ -38,6 +39,7 @@ namespace Assembler.Instructions.PsuedoInstructions
                 {
                     bytes.Add(MockAsciiMapper.ConvertCharToByte(character));
                 }
+            }
 
             // if we got here then we have a \ at the very end of the string
             if (isEscaped) throw new AssemblerException("Unterminated escape sequence at line end");
