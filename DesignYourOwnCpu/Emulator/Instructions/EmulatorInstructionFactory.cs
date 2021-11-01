@@ -64,6 +64,15 @@ namespace Emulator.Instructions
                     return new SubtractConstantFromRegisterInstruction(register, high, low);
                 case OpCodes.SubtractRegisterFromRegister:
                     return new SubtractRegisterFromRegisterInstruction(register, high, low);
+                
+                case OpCodes.MultiplyConstantWithRegister:
+                    return new MultiplyConstantWithRegisterInstruction(register, high, low);
+                case OpCodes.MultiplyRegisterWithRegister:
+                    return new MultiplyRegisterWithRegisterInstruction(register, high, low);
+                case OpCodes.DivideConstantWithRegister:
+                    return new DivideConstantWithRegisterInstruction(register, high, low);
+                case OpCodes.DivideRegisterWithRegister:
+                    return new DivideRegisterWithRegisterInstruction(register, high, low);
 
                 case OpCodes.Push:
                     return new PushInstruction(register, high, low);

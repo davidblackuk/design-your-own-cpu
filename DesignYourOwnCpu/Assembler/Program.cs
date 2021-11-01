@@ -49,11 +49,11 @@ namespace Assembler
             }
             catch (AssemblerException e)
             {
-                Console.WriteLine($"Emulator error: {e.Message}\n".Pastel(Color.Tomato));
+                Console.WriteLine($"Assembler error: {e.Message}\n".Pastel(Color.Tomato));
             }
             catch (Exception otherException)
             {
-                Console.WriteLine($"Emulator Failure: {otherException.Message}\n".Pastel(Color.Tomato));
+                Console.WriteLine($"Assembler Failure: {otherException.Message}\n".Pastel(Color.Tomato));
             }
 
             Console.WriteLine();

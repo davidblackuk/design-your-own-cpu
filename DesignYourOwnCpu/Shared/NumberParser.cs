@@ -13,11 +13,24 @@ namespace Shared
         {
             ushort value = 0;
             if (text.ToLowerInvariant().StartsWith("0x"))
+            {
                 value = Convert.ToUInt16(text.Substring(2), 16);
+            }
             else if (text.ToLowerInvariant().StartsWith("0"))
-                value = Convert.ToUInt16(text.Substring(1), 8);
+            {
+                if (text.Length > 1)
+                {
+                    value = Convert.ToUInt16(text.Substring(1), 8);
+                }
+                else
+                {
+                    value = 0;
+                }
+            }
             else
+            {
                 value = Convert.ToUInt16(text, 10);
+            }
 
             return value;
         }

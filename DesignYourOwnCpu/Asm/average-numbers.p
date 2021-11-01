@@ -3,13 +3,13 @@
 
 var sum, number, current;
   begin
-    sum := 0; { sum of all non-zero values read so fat }
+    sum := 0; { sum of all non-zero values read so far }
     number := 0; { number of values read }
     current := read;
 
     while current <> 0 do
     begin
-        sum := sum + t;
+        sum := sum + current;
         number := number + 1;
         current := read
     end;

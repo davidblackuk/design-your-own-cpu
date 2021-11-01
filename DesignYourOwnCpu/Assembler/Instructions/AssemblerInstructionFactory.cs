@@ -34,6 +34,12 @@ namespace Assembler.Instructions
                 case SubtractInstruction.InstructionName:
                     return new SubtractInstruction();
 
+                case MultiplyInstruction.InstructionName:
+                    return new MultiplyInstruction();
+                case DivideInstruction.InstructionName:
+                    return new DivideInstruction();
+
+                
                 case ReturnInstruction.InstructionName:
                     return new ReturnInstruction();
                 case CallInstruction.InstructionName:
