@@ -72,6 +72,12 @@ Instruction definitions. All instructions are 32 bits long, unused bytes set to 
 | `SUB R1, 0xabcd` | `0x41` | `0..7` | `0xAB` | `0xCD` | subtract constant value from register|
 | `ADD R1, R2`     | `0x42` | `0..7` | `0x00` |  `0..7` | add register 2 to register 1 (result in r1) |
 | `SUB R1, R2`     | `0x43` | `0..7` | `0x00` |  `0..7` | subtract register 2 from register 1 (result in r1)|
+| `MUL R1, 0xabcd` | `0x44` | `0..7` | `0xAB` | `0xCD` | multiply constant value with register|
+| `DIV R1, 0xabcd` | `0x45` | `0..7` | `0xAB` | `0xCD` | divide register by constant value|
+| `MUL R1, R2`     | `0x46` | `0..7` | `0x00` |  `0..7` | multiply register 1  with register 2 (result in r1) |
+| `DIV R1, R2`     | `0x47` | `0..7` | `0x00` |  `0..7` | divide register 1 by register 2 (result in r1)|
+
+
 
 ### Stack-oriented instructions
 |   Instruction   | Opcode | Register | Data H | Data L | Description |

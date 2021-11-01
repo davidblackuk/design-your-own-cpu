@@ -39,6 +39,9 @@ In particular there are no notions of
 + the `else` or `elif` components of an `if` statement;
 + signed numbers (all constants are unsigned 16 bit integers) 
 
+Almost all of the diagrams here will be implemented as methods in the recursive descent parser. However some items like the comments are just there for completeness as they are stripped during the lexical analysis phase.
+
+
 ### program
 
 A program consists of an optional declaration of variables,  a  `block` and is terminated by a `.` 
