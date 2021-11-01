@@ -202,11 +202,11 @@ The following example applications available
 
 Here is the assembler and emulator running on windows 
 
-![Drag Racing](images/windows.png)
+![Assembler on Windows](images/windows.png)
 
 and here they are gamboling on Linux
 
-![Drag Racing](images/linux.png)
+![Assembler on Linux](images/linux.png)
 
 
 
