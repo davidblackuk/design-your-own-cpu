@@ -31,19 +31,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/DivideConstantWithRegisterInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/DivideRegisterWithRegisterInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/MultiplyConstantWithRegisterInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/MultiplyRegisterWithRegisterInstruction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assembler/Extensions/SymbolTableExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assembler/IAssemblerConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asm/average-numbers.p" beforeDir="false" afterPath="$PROJECT_DIR$/Asm/average-numbers.p" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/AddInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/AddInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/AssemblerInstructionFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/AssemblerInstructionFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/AssemblerFiles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/AssemblerConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/CodeGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/CodeGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Extensions/AssemblerFilesExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Extensions/AssemblerFilesExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/IAssemblerFiles.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/LineSources/CommentStrippingLineSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/LineSources/CommentStrippingLineSource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/LineSources/FileLineSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/LineSources/FileLineSource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/LineSources/ILineSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/LineSources/ILineSource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/LineSources/MemoryLineSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/LineSources/MemoryLineSource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/LineSources/WhitespaceRemovalLineSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/LineSources/WhitespaceRemovalLineSource.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembler/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Emulator.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Emulator.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/EmulatorInstructionFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/EmulatorInstructionFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/NumberParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/NumberParser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/OpCodes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/OpCodes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Symbols/ISymbolTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Symbols/ISymbolTable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Symbols/SymbolTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Symbols/SymbolTable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblerTests/AssemblerFilesTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/AssemblerFilesTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/InputStream.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/LexicalAnalysis/InputStream.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +91,8 @@
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/CompareInstruction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/IAssemblerInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29a328843bdc4762af89c8fdc084c4d68f5778/41A/List.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2a671dd69ea540b0803140b5c39022b07788/A/ConfigurationRoot.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29a328843bdc4762af89c8fdc084c4d68f5778/C4/ParseNumbers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29a328843bdc4762af89c8fdc084c4d68f5778/F1/UInt16.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -154,7 +161,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34986946" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3499777" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -369,6 +376,7 @@
       <workItem from="1635521618138" duration="2894000" />
       <workItem from="1635589548451" duration="25286000" />
       <workItem from="1635777679796" duration="6622000" />
+      <workItem from="1635852204998" duration="4808000" />
     </task>
     <servers />
   </component>
@@ -378,56 +386,30 @@
   <component name="UnitTestsCoverage.Settings">
     <option name="coveragePercentColumnWidth" value="61" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="178" />
+    <option name="symbolColumnWidth" value="238" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 122/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 86% 162/1134" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 122/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Assembler 98% 9/485" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 86% 162/1134" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 75% 42/169" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 122/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Assembler 98% 9/485" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Assembler 98% 9/485" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 86% 162/1134" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 75% 42/169" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 75% 42/169" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 122/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Assembler 98% 9/485" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Assembler 98% 9/485" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Instructions 97% 9/310" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 122/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 75% 43/170" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 122/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 75% 43/170" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 75% 43/170" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 122/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 75% 43/170" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 75% 43/170" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="LexicalAnalysis 74% 43/164" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 89% 122/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 75% 43/170" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 75% 43/170" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="LexicalAnalysis 74% 43/164" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Lexer 98% 2/106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 86% 162/1134" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 75% 42/169" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 75% 42/169" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="LexicalAnalysis 74% 42/163" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />

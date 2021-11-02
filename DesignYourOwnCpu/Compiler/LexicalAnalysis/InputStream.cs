@@ -77,11 +77,10 @@ namespace Compiler.LexicalAnalysis
                 throw new CompilerException("Unexpected end of file", LineNumber, ColumnNumber);
             }
 
-            /// pad both sides space so that a new line in source becomes a break;
+            /// pad both sides space so that a new line in source becomes a lexeme break;
             currentLine = " " + currentLine + " ";
             LineNumber += 1;
             ColumnNumber = 0;
-            Console.WriteLine($"\n{LineNumber:0000}: {currentLine}".Pastel(Color.Goldenrod));
         }
 
         /// <summary>

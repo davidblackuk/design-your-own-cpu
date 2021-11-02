@@ -31,7 +31,7 @@ namespace Assembler
             services.AddSingleton<IRandomAccessMemory, RandomAccessMemory>();
             services.AddSingleton<ICodeGenerator, CodeGenerator>();
             services.AddSingleton<IParser, Parser>();
-            services.AddSingleton<IAssemblerFiles, AssemblerFiles>();
+            services.AddSingleton<IAssemblerConfig, AssemblerConfig>();
             services.AddSingleton<IAssembler, Assembler>();
         }
     }

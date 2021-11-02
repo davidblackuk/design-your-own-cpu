@@ -3,14 +3,16 @@ using Microsoft.Extensions.Configuration;
 
 namespace Assembler
 {
-    public class AssemblerFiles : IAssemblerFiles
+    public class AssemblerConfig : IAssemblerConfig
     {
         private readonly IConfigurationRoot config;
 
-        public AssemblerFiles(IConfigurationRoot config)
+        public AssemblerConfig(IConfigurationRoot config)
         {
             this.config = config;
         }
+
+        public bool QuietOutput => config["quiet"] != null && config["quiet"].ToLowerInvariant() == "true";
 
         public string SourceFilename => config["input"];
 

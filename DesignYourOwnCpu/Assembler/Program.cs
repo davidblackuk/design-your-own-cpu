@@ -21,31 +21,43 @@ namespace Assembler
             startup.ConfigureServices(services);
             IServiceProvider serviceProvider = services.BuildServiceProvider();
 
-            var files = serviceProvider.GetService<IAssemblerFiles>();
+            var assemblerConfig = serviceProvider.GetService<IAssemblerConfig>();
 
-            if (files.SourceFilename == null)
+            if (assemblerConfig.SourceFilename == null)
             {
                 Usage();
                 return;
             }
 
-            files.ToConsole();
 
+            // set up the pipeline of line source from file first, then strip white space, finally strip comments.
+            // TODO: Move to startup and wire there
             var lineSource =
                 new CommentStrippingLineSource(
-                    new WhitespaceRemovalLineSource(new FileLineSource(files.SourceFilename)));
+                    new WhitespaceRemovalLineSource(
+                        new FileLineSource(assemblerConfig.SourceFilename)));
 
+            if (!assemblerConfig.QuietOutput)
+            {
+                assemblerConfig.ToConsole();
+            }
+            
             try
             {
                 var start = DateTime.Now;
 
                 var assembler = serviceProvider.GetService<IAssembler>();
                 assembler.Assemble(lineSource);
-                assembler.Ram.Save(files.BinaryFilename);
-                Console.WriteLine("\nSymbols\n");
-                assembler.SymbolTable.Save(files.SymbolFilename);
-
-                Console.WriteLine($"\nComplete in {(DateTime.Now - start).TotalMilliseconds} (ms)\n");
+                assembler.Ram.Save(assemblerConfig.BinaryFilename);
+                assembler.SymbolTable.Save(assemblerConfig.SymbolFilename);
+                
+                if (!assemblerConfig.QuietOutput)
+                {
+                    Console.WriteLine("\nSymbols\n");
+                    assembler.SymbolTable.ToConsole();
+                }
+                
+                Console.WriteLine($"\nAssembled {lineSource.ProcessedLines} lines in {(DateTime.Now - start).TotalMilliseconds} (ms)\n");
             }
             catch (AssemblerException e)
             {
@@ -56,7 +68,6 @@ namespace Assembler
                 Console.WriteLine($"Assembler Failure: {otherException.Message}\n".Pastel(Color.Tomato));
             }
 
-            Console.WriteLine();
         }
 
         private static void Usage()

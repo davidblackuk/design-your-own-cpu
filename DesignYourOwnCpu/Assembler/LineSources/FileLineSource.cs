@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Assembler.LineSources
 {
-    [ExcludeFromCodeCoverage] // not integrattion testing
+    [ExcludeFromCodeCoverage] // no integration tests
     public class FileLineSource : ILineSource
     {
         private readonly string inputFile;
@@ -18,8 +18,16 @@ namespace Assembler.LineSources
         public IEnumerable<string> Lines()
         {
             foreach (var line in File.ReadLines(inputFile))
+            {
+                ProcessedLines += 1;
                 // check if include file and insert new file?
                 yield return line;
+            }
         }
+        
+        /// <summary>
+        /// Gets the count of processed lines
+        /// </summary>
+        public int ProcessedLines { get; private set;  }
     }
 }

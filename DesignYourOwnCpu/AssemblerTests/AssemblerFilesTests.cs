@@ -48,9 +48,9 @@ namespace AssemblerTests
             sut.BinaryFilename.Should().Be(resolvedPath);
         }
 
-        private AssemblerFiles CreateSut()
+        private AssemblerConfig CreateSut()
         {
-            return new AssemblerFiles(configurationMock?.Object);
+            return new AssemblerConfig(configurationMock?.Object);
         }
     }
 }

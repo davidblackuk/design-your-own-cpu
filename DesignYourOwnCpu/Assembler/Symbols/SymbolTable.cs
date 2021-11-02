@@ -27,6 +27,11 @@ namespace Assembler.Symbols
         }
 
         /// <summary>
+        /// gets the list of all defined symbols
+        /// </summary>
+        public IEnumerable<string> SymbolNames => table.Keys.OrderBy(o => o);
+
+        /// <summary>
         ///     Define a symbol with it's address. the symbol may already have been referenced, but
         ///     if the address is already present this is a duplicate definition
         /// </summary>
@@ -69,13 +74,11 @@ namespace Assembler.Symbols
         {
             var allText = new StringBuilder();
 
-            foreach (var symbol in table.Keys.OrderBy(o => o))
+            foreach (var symbol in SymbolNames)
             {
                 var definition = table[symbol];
                 allText.Append($"{definition}\n");
-                definition.ToConsole();
             }
-
             File.WriteAllText(symbolFile, allText.ToString());
         }
     }
