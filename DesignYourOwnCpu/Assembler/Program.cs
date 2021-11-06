@@ -32,10 +32,11 @@ namespace Assembler
 
             // set up the pipeline of line source from file first, then strip white space, finally strip comments.
             // TODO: Move to startup and wire there
-            var lineSource =
+            FileLineSource rawFileSource = new FileLineSource(assemblerConfig.SourceFilename);
+            ILineSource lineSource =
                 new CommentStrippingLineSource(
                     new WhitespaceRemovalLineSource(
-                        new FileLineSource(assemblerConfig.SourceFilename)));
+                        rawFileSource));
 
             if (!assemblerConfig.QuietOutput)
             {
@@ -61,15 +62,22 @@ namespace Assembler
             }
             catch (AssemblerException e)
             {
-                Console.WriteLine($"Assembler error: {e.Message}\n".Pastel(Color.Tomato));
+                ShowError(rawFileSource, "Assembler", e.Message);
             }
             catch (Exception otherException)
             {
-                Console.WriteLine($"Assembler Failure: {otherException.Message}\n".Pastel(Color.Tomato));
+                ShowError(rawFileSource, "Internal", otherException.Message);
             }
-
         }
 
+        private static void ShowError(FileLineSource fileSource, string type, string message)
+        {
+            Console.Write($"{type} error: ".Pastel(Color.Tomato));
+            Console.WriteLine(message);
+            Console.Write($"\nLine {fileSource.ProcessedLines}: ");
+            Console.WriteLine($"{fileSource.CurrentLine}\n".Pastel(Color.Teal));
+        }
+        
         private static void Usage()
         {
             Console.WriteLine();

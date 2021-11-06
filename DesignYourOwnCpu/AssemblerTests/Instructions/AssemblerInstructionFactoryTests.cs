@@ -32,6 +32,8 @@ namespace AssemblerTests.Instructions
         [TestCase("bra", typeof(BranchAlwaysInstruction))]
         [TestCase("add", typeof(AddInstruction))]
         [TestCase("sub", typeof(SubtractInstruction))]
+        [TestCase("mul", typeof(MultiplyInstruction))]
+        [TestCase("div", typeof(DivideInstruction))]
         [TestCase("call", typeof(CallInstruction))]
         [TestCase("ret", typeof(ReturnInstruction))]
         [TestCase("push", typeof(PushInstruction))]

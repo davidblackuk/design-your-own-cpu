@@ -56,7 +56,7 @@ namespace Assembler.Symbols
 
         /// <summary>
         ///     Used during code generation, this retrieves the symbol information for code generation,
-        ///     if a symbol is not peresnt at this point (forwards or backwards declaration), there is a problem
+        ///     if a symbol is not present at this point (forwards or backwards declaration), there is a problem
         ///     and an exception is thrown
         /// </summary>
         /// <param name="name">Name of the symbol to retrieve</param>

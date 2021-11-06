@@ -7,7 +7,7 @@ namespace CompilerTests.LexicalAnalysis
     public class InputStreamMock: IInputStream
     {
         private readonly string source;
-        private int current = 0;
+        private int current;
         
         public InputStreamMock(string source)
         {

@@ -1,8 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Assembler.Exceptions;
 using Assembler.Symbols;
 using FluentAssertions;
 using NUnit.Framework;
+using Shared;
 
 namespace AssemblerTests.Symbol
 {
@@ -43,6 +45,28 @@ namespace AssemblerTests.Symbol
             Assert.Throws<AssemblerException>(() => sut.DefineSymbol("label", 9089));
         }
 
+        [Test] 
+        public void SymbolNames_WhenRead_ShouldBeInAlphabeticalOrder()
+        {
+            var sut = CreateSut();
+            sut.DefineSymbol("z", 3456);
+            sut.DefineSymbol("a", 3456);
+            sut.DefineSymbol("g", 3456);
+            sut.SymbolNames.Should().BeInAscendingOrder();
+        }
+
+        [Test] 
+        public void SymbolTable_whenInitialized_ShouldContainTheSystemSymbols()
+        {
+            var sut = CreateSut();
+            var symbols = sut.SymbolNames;
+            foreach (var expectedSymbol in InternalSymbols.SystemDefinedSymbols.Keys)
+            {
+                symbols.Should().Contain(expectedSymbol);
+            }
+        }
+
+        
         [Test]
         public void GetSymbol_WhenInvokedForANonExistentSymbol_ShouldThrowUndefinedSymbolException()
         {

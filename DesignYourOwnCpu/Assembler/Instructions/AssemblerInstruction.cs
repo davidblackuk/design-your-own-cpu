@@ -157,7 +157,13 @@ namespace Assembler.Instructions
 
         protected void ParseValue(string text)
         {
+            if (String.IsNullOrWhiteSpace(text))
+            {
+                throw new AssemblerException("Expected constant value but none found");
+            }
+
             text = text.Trim();
+            
             StoreData(numberParser.Parse(text));
         }
 

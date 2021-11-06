@@ -43,10 +43,19 @@ namespace EmulatorTests.Instructions
         [TestCase(OpCodes.AddRegisterToRegister, typeof(AddRegisterToRegisterInstruction))]
         [TestCase(OpCodes.SubtractConstantFromRegister, typeof(SubtractConstantFromRegisterInstruction))]
         [TestCase(OpCodes.SubtractRegisterFromRegister, typeof(SubtractRegisterFromRegisterInstruction))]
+
+        [TestCase(OpCodes.MultiplyRegisterWithConstant, typeof(MultiplyRegisterWithConstantInstruction))]
+        [TestCase(OpCodes.DivideRegisterByConstant, typeof(DivideRegisterByConstantInstruction))]
+        [TestCase(OpCodes.MultiplyRegisterWithRegister, typeof(MultiplyRegisterWithRegisterInstruction))]
+        [TestCase(OpCodes.DivideRegisterByRegister, typeof(DivideRegisterByRegisterInstruction))]
+  
         [TestCase(OpCodes.Push, typeof(PushInstruction))]
         [TestCase(OpCodes.Pop, typeof(PopInstruction))]
         [TestCase(OpCodes.Call, typeof(CallInstruction))]
         [TestCase(OpCodes.Ret, typeof(ReturnInstruction))]
+        
+        [TestCase(OpCodes.Swi, typeof(SoftwareInterruptInstruction))]
+
         public void Create_WhenCalledWithAKnownOpcode_ShouldReturnCorrectType(
             byte opcode, Type expectedType)
         {

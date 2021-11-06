@@ -37,6 +37,11 @@ namespace Emulator
                 var instruction =
                     instructionFactory.Create(bytes.opcode, bytes.register, bytes.byteHigh, bytes.byteLow);
 
+                if (instruction.OpCode == OpCodes.Unknown)
+                {
+                    throw new EmulatorException($"Unknown opcode 0x{bytes.opcode:X2} found at address 0x{Registers.ProgramCounter:X4}");
+                }
+                
                 // we increment the program counter here, instructions that directly modify the program counter
                 // may do so during execution (BRA, CALL etc)
                 Registers.ProgramCounter = (ushort)(Registers.ProgramCounter + instruction.Size);

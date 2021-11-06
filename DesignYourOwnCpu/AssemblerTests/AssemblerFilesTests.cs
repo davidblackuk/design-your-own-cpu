@@ -17,6 +17,22 @@ namespace AssemblerTests
         {
             configurationMock = new Mock<IConfigurationRoot>();
         }
+        
+        [Test]
+        public void QuietOutput_WhenValueTrue_ShouldBeTrue()
+        {
+            configurationMock.SetupGet(c => c["quiet"]).Returns("true");
+            var sut = CreateSut();
+            sut.QuietOutput.Should().BeTrue();
+        }
+
+        [Test]
+        public void QuietOutput_WhenValueNull_ShouldBeFalse()
+        {
+            var sut = CreateSut();
+            sut.QuietOutput.Should().BeFalse();
+        }
+
 
         [Test]
         [TestCase("foo.txt", "foo.txt")]

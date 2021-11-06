@@ -1,8 +1,3 @@
-0x005C eol
-0x0024 loop_ends
-0x000C next_number
-0x004C output_number
-0x0048 skip_average
 0x0003 sys-read-string
 0x0004 sys-read-word
 0x0001 sys-write-string

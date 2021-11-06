@@ -7,6 +7,5 @@ namespace Assembler.LineSources
         IEnumerable<string> Lines();
 
         int ProcessedLines { get; }
-    
     }
 }

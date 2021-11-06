@@ -26,7 +26,12 @@ namespace Assembler.Instructions.PsuedoInstructions
 
         public override void WriteBytes(IRandomAccessMemory ram, ushort address)
         {
-            // TODO: decision - zero the bytes or leave as is?
+            for (ushort i = 0; i < Size; i++)
+            {
+                // we might add defs 32, 7 in future to initialize 32 bytes with the value 7
+                // for now we zero out the space
+                ram[(ushort)(address + i)] = 0;
+            }
         }
 
         [ExcludeFromCodeCoverage]

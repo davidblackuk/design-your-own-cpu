@@ -19,6 +19,7 @@ namespace AssemblerTests
         private const byte ExpectedByteLow = 0xF4;
         private Mock<IRandomAccessMemory> memoryMock;
         private Mock<IAssemblerInstruction> mockInstruction;
+        private Mock<IAssemblerConfig> configMock;
 
         private Mock<ISymbolTable> symbolTableMock;
 
@@ -27,7 +28,8 @@ namespace AssemblerTests
         {
             memoryMock = new Mock<IRandomAccessMemory>();
             symbolTableMock = new Mock<ISymbolTable>();
-
+            configMock = new Mock<IAssemblerConfig>();
+            
             mockInstruction = new Mock<IAssemblerInstruction>();
             mockInstruction.SetupGet(instr => instr.OpCode).Returns(ExpectedOpCode);
             mockInstruction.SetupGet(instr => instr.Register).Returns(ExpectedRegister);
@@ -79,7 +81,7 @@ namespace AssemblerTests
 
         private CodeGenerator CreateSut()
         {
-            return new CodeGenerator(symbolTableMock?.Object, memoryMock?.Object);
+            return new CodeGenerator(symbolTableMock?.Object, memoryMock?.Object, configMock?.Object);
         }
     }
 }

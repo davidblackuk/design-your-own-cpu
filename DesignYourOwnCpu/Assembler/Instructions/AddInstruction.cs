@@ -15,7 +15,7 @@ namespace Assembler.Instructions
     {
         public const string InstructionName = "mul";
 
-        public MultiplyInstruction() : base(InstructionName, OpCodes.MultiplyRegisterWithRegister, OpCodes.MultiplyConstantWithRegister)
+        public MultiplyInstruction() : base(InstructionName, OpCodes.MultiplyRegisterWithRegister, OpCodes.MultiplyRegisterWithConstant)
         {
         }
     }
@@ -24,7 +24,7 @@ namespace Assembler.Instructions
     {
         public const string InstructionName = "div";
 
-        public DivideInstruction() : base(InstructionName, OpCodes.DivideRegisterWithRegister, OpCodes.DivideConstantWithRegister)
+        public DivideInstruction() : base(InstructionName, OpCodes.DivideRegisterByRegister, OpCodes.DivideRegisterByConstant)
         {
         }
     }

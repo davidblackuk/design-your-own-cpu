@@ -68,7 +68,6 @@ namespace Compiler.LexicalAnalysis
                 case LexemeType.AddOp:
                 case LexemeType.MulOp:
                     return $"[{Type} = {Value}]";
-                    break;
                 default:
                     return $"[{Type}]";
             }            
