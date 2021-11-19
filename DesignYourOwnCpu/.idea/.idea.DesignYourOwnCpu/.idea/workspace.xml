@@ -31,59 +31,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/DivideInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/MultiplyInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignYourOwnCpu.sln.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Emulator/Instructions/UnknownInstruction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/DivideConstantWithRegisterInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/DivideRegisterWithRegisterInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/MultiplyRegisterWithConstantInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/MultiplyRegisterWithRegisterInstructionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Src/Asm/average-numbers-hand-coded.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Src/Asm/ge-hello-world-orig.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Src/Asm/ge-hello-world-ported.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Src/Asm/ge-hello-world-ported.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Src/Asm/ge-hello-world-ported.sym" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Src/Asm/hello-world.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Src/Asm/sum-two-ints-register-based.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Src/Asm/sum-two-ints-register-based.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Src/Asm/sum-two-ints-register-based.sym" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Src/Pas/average-numbers.p" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asm/average-numbers-hand-coded.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asm/average-numbers-hand-coded.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asm/average-numbers-hand-coded.sym" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asm/average-numbers.p" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asm/hello-world.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asm/sum-two-ints-register-based.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asm/test.p" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/AddInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/AddInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/AssemblerInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/AssemblerInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/PsuedoInstructions/DefineSpaceInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/PsuedoInstructions/DefineSpaceInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/LineSources/FileLineSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/LineSources/FileLineSource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/LineSources/ILineSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/LineSources/ILineSource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Symbols/SymbolTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Symbols/SymbolTable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/AssemblerFilesTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/AssemblerFilesTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/AssemblerTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/AssemblerTests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/CodeGeneratorTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/CodeGeneratorTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/AssemblerInstructionFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/AssemblerInstructionFactoryTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/PsuedoInstructions/DefineMessageInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/PsuedoInstructions/DefineMessageInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/PsuedoInstructions/DefineSpaceInstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/PsuedoInstructions/DefineSpaceInstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/Symbol/SymbolTableTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Symbol/SymbolTableTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/Lexeme.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/LexicalAnalysis/Lexeme.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompilerTests/LexicalAnalysis/InputStreamMock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CompilerTests/LexicalAnalysis/InputStreamMock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/CPU.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/CPU.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/DivideConstantWithRegisterInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/DivideRegisterByConstantInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/DivideRegisterWithRegisterInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/DivideRegisterByRegisterInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/EmulatorInstructionFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/EmulatorInstructionFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/ReadWordInterrupt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/ReadWordInterrupt.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteStringInterrupt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteStringInterrupt.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteWordInterrupt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/Interrupts/WriteWordInterrupt.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/MultiplyConstantWithRegisterInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/MultiplyRegisterWithConstantInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/OpCodes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/OpCodes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/Asm/ge-hello-world-ported.asm" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Asm/ge-hello-world-ported.asm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +160,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="CodeCleanupOptionsPage" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Project.Assembler">
@@ -416,7 +365,9 @@
       <workItem from="1636119039049" duration="441000" />
       <workItem from="1636119499395" duration="355000" />
       <workItem from="1636119952437" duration="119000" />
-      <workItem from="1636120216858" duration="8587000" />
+      <workItem from="1636120216858" duration="9440000" />
+      <workItem from="1636412758412" duration="26000" />
+      <workItem from="1637332452939" duration="535000" />
     </task>
     <servers />
   </component>
@@ -426,12 +377,30 @@
   <component name="UnitTestsCoverage.Settings">
     <option name="coveragePercentColumnWidth" value="61" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="325" />
+    <option name="symbolColumnWidth" value="329" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 95% 56/1106" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 95% 51/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 95% 51/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 95% 51/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 95% 51/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="CPU 92% 2/24" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
