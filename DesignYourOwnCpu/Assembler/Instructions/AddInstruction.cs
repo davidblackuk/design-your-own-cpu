@@ -10,4 +10,22 @@ namespace Assembler.Instructions
         {
         }
     }
+    
+    public class MultiplyInstruction : ArithmeticInstruction
+    {
+        public const string InstructionName = "mul";
+
+        public MultiplyInstruction() : base(InstructionName, OpCodes.MultiplyRegisterWithRegister, OpCodes.MultiplyRegisterWithConstant)
+        {
+        }
+    }
+    
+    public class DivideInstruction : ArithmeticInstruction
+    {
+        public const string InstructionName = "div";
+
+        public DivideInstruction() : base(InstructionName, OpCodes.DivideRegisterByRegister, OpCodes.DivideRegisterByConstant)
+        {
+        }
+    }
 }

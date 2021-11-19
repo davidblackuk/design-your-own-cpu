@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Shared;
 
 namespace Emulator.Instructions.Interrupts
@@ -7,6 +8,7 @@ namespace Emulator.Instructions.Interrupts
     ///     Writes out a zero terminated MASCII string located at the address held in register 0
     ///     to the console in .net land.
     /// </summary>
+    [ExcludeFromCodeCoverage] // this would be an integration test
     public class WriteStringInterrupt : IInterrupt
     {
         public void Execute(ICPU cpu)

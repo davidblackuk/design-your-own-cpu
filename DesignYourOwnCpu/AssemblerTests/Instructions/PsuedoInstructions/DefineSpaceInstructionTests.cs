@@ -2,7 +2,9 @@
 using System.Diagnostics.CodeAnalysis;
 using Assembler.Instructions.PsuedoInstructions;
 using FluentAssertions;
+using Moq;
 using NUnit.Framework;
+using Shared;
 
 namespace AssemblerTests.Instructions
 {
@@ -10,7 +12,7 @@ namespace AssemblerTests.Instructions
     public class DefineSpaceInstructionTests
     {
         [Test]
-        public void Parse_whenCalled_ShouldThrowErrorForNnnNumericLengthValues()
+        public void Parse_WhenCalled_ShouldThrowErrorForNnnNumericLengthValues()
         {
             var sut = CreateSut();
             Assert.Throws<FormatException>(() => sut.Parse("Hello"));
@@ -18,7 +20,7 @@ namespace AssemblerTests.Instructions
 
 
         [Test]
-        public void Parse_whenCalled_ShouldCorrectlyParseInstruction()
+        public void Parse_WhenCalled_ShouldCorrectlyParseInstruction()
         {
             var sut = CreateSut();
             sut.Parse("0x1267");
@@ -27,11 +29,26 @@ namespace AssemblerTests.Instructions
         }
 
         [Test]
-        public void Parse_whenCalled_ShouldCorrectlySetTheSize()
+        public void Parse_WhenCalled_ShouldCorrectlySetTheSize()
         {
             var sut = CreateSut();
             sut.Parse("0x1267");
             sut.Size.Should().Be(0x1267);
+        }
+        
+        [Test]
+        public void WriteBytes_WhenCalled_ShouldZeroOutTHeRamAtTHeSpecifiedLocation()
+        {
+            const ushort startAddress = 0x123;
+            var ramMock = new Mock<IRandomAccessMemory>();
+            var sut = CreateSut();
+            sut.Parse("0x4");
+            sut.WriteBytes(ramMock.Object, startAddress);
+            
+            ramMock.VerifySet(r => r[startAddress] = 0);
+            ramMock.VerifySet(r => r[startAddress + 1] = 0);
+            ramMock.VerifySet(r => r[startAddress + 2] = 0);
+            ramMock.VerifySet(r => r[startAddress + 3] = 0);
         }
 
 

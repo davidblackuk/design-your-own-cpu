@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assembler", "Assembler\Asse
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Emulator", "Emulator\Emulator.csproj", "{824EA7CF-1F86-4060-A872-B74B17A1DE50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblerTests", "AssemblerTests\AssemblerTests.csproj", "{0E96F9F1-3201-4BE8-991E-C4D49A281982}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssemblerTests", "AssemblerTests\AssemblerTests.csproj", "{0E96F9F1-3201-4BE8-991E-C4D49A281982}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{A54F3F6E-F232-4442-8B16-159483C168B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{A54F3F6E-F232-4442-8B16-159483C168B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmulatorTests", "EmulatorTests\EmulatorTests.csproj", "{12B0275B-74B9-469A-BA99-FDB32F2A7AFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmulatorTests", "EmulatorTests\EmulatorTests.csproj", "{12B0275B-74B9-469A-BA99-FDB32F2A7AFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedTests", "SharedTests\SharedTests.csproj", "{A83B2EF8-430F-41E2-9ACB-BD4BE2968E66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedTests", "SharedTests\SharedTests.csproj", "{A83B2EF8-430F-41E2-9ACB-BD4BE2968E66}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1AE4E2B5-9038-4E3B-8668-ED8A5AD50476}"
 EndProject

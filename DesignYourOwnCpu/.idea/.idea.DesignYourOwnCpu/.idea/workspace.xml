@@ -6,6 +6,7 @@
     <projectFile>AssemblerTests/AssemblerTests.csproj</projectFile>
     <projectFile>EmulatorTests/EmulatorTests.csproj</projectFile>
     <projectFile>SharedTests/SharedTests.csproj</projectFile>
+    <projectFile>Compiler/Compiler.csproj</projectFile>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
@@ -30,17 +31,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/Interrupts/InterruptFactoryTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/PsuedoInstructions/DefineMessageInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/PsuedoInstructions/DefineMessageInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/LineSources/FileLineSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/LineSources/FileLineSource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Symbols/SymbolTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Symbols/SymbolTable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/AssemblerInstructionFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/AssemblerInstructionFactoryTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/InstructionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/InstructionTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/Instructions/PsuedoInstructions/DefineMessageInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Instructions/PsuedoInstructions/DefineMessageInstruction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/Symbol/SymbolTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/Symbol/SymbolTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/EmulatorTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/EmulatorTests.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/Compiler.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/Exceptions/CompilerException.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/IInputStream.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/InputStream.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/KeywordLexemeTypeMap.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/Lexeme.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/Lexer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/Startup.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/appsettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompilerTests/CompilerTests.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompilerTests/LexicalAnalysis/InputStreamMock.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompilerTests/LexicalAnalysis/LexerTests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesignYourOwnCpu.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DesignYourOwnCpu.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/Asm/ge-hello-world-ported.sym" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Asm/ge-hello-world-ported.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/tool.ps1" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +91,10 @@
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/CompareInstruction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/IAssemblerInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29a328843bdc4762af89c8fdc084c4d68f5778/41A/List.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2a671dd69ea540b0803140b5c39022b07788/A/ConfigurationRoot.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29a328843bdc4762af89c8fdc084c4d68f5778/C4/ParseNumbers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29a328843bdc4762af89c8fdc084c4d68f5778/F1/UInt16.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -148,8 +160,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3496583" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35022625" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -163,13 +176,13 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="CodeCleanupOptionsPage" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Project.Emulator">
+  <component name="RunManager" selected=".NET Project.Assembler">
     <configuration name="Assembler" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Assembler/bin/Debug/net5.0/Assembler.exe" />
-      <option name="PROGRAM_PARAMETERS" value="--input ..\..\..\..\Asm\hello-world.asm" />
+      <option name="PROGRAM_PARAMETERS" value="--input ..\..\..\..\Src\Asm\ge-hello-world-ported.asm" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Assembler/bin/Debug/net5.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -199,6 +212,24 @@
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="DotNetCore" />
       <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Compiler" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Compiler/bin/Debug/net5.0/Compiler.exe" />
+      <option name="PROGRAM_PARAMETERS" value="--input ..\..\..\..\Asm\test.p" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Compiler/bin/Debug/net5.0" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Compiler/Compiler.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="net5.0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -263,6 +294,7 @@
       <item itemvalue=".NET Project.Emulator" />
       <item itemvalue=".NET Project.EmulatorTests" />
       <item itemvalue=".NET Project.SharedTests" />
+      <item itemvalue=".NET Project.Compiler" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -341,7 +373,17 @@
       <workItem from="1635073528027" duration="7006000" />
       <workItem from="1635163227604" duration="8010000" />
       <workItem from="1635506901364" duration="3509000" />
-      <workItem from="1635519292964" duration="1455000" />
+      <workItem from="1635519292964" duration="2138000" />
+      <workItem from="1635521618138" duration="2894000" />
+      <workItem from="1635589548451" duration="25286000" />
+      <workItem from="1635777679796" duration="6622000" />
+      <workItem from="1635852204998" duration="6553000" />
+      <workItem from="1636119039049" duration="441000" />
+      <workItem from="1636119499395" duration="355000" />
+      <workItem from="1636119952437" duration="119000" />
+      <workItem from="1636120216858" duration="9440000" />
+      <workItem from="1636412758412" duration="26000" />
+      <workItem from="1637332452939" duration="1191000" />
     </task>
     <servers />
   </component>
@@ -349,14 +391,32 @@
     <option name="version" value="3" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="67" />
+    <option name="coveragePercentColumnWidth" value="61" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="199" />
+    <option name="symbolColumnWidth" value="330" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 95% 41/891" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 99% 9/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 99% 9/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 99% 9/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 99% 9/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="CPU 92% 2/24" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
@@ -378,23 +438,48 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <breakpoint enabled="true" type="DotNet Exception Breakpoints">
+          <properties exception="Assembler.Exceptions.AssemblerException" displayValue="AssemblerException" namespaceName="Assembler.Exceptions" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet Exception Breakpoints">
+          <properties exception="Compiler.Exceptions.CompilerException" displayValue="CompilerException" namespaceName="Compiler.Exceptions" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet Exception Breakpoints">
+          <properties exception="Emulator.EmulatorException" displayValue="EmulatorException" namespaceName="Emulator" />
+          <option name="timeStamp" value="5" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet Exception Breakpoints">
+          <properties exception="System.IndexOutOfRangeException" isInternal="false" displayValue="IndexOutOfRangeException" namespaceName="System">
+            <option name="internal" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet Exception Breakpoints">
+          <properties exception="System.ArgumentOutOfRangeException" isInternal="false" displayValue="ArgumentOutOfRangeException" namespaceName="System">
+            <option name="internal" value="false" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AssemblerTests/Instructions/PsuedoInstructions/DefineMessageInstruction.cs</url>
-          <line>60</line>
-          <properties documentPath="D:\git\my-cpu\DesignYourOwnCpu\AssemblerTests\Instructions\PsuedoInstructions\DefineMessageInstruction.cs" initialLine="52" containingFunctionPresentation="method 'PWriteBytes_WhenInvoked_ShouldStoreTheStringCorrectly'">
+          <url>file://$PROJECT_DIR$/Assembler/Instructions/ArithmeticInstruction.cs</url>
+          <line>20</line>
+          <properties documentPath="D:\git\my-cpu\DesignYourOwnCpu\Assembler\Instructions\ArithmeticInstruction.cs" initialLine="20" containingFunctionPresentation="method 'Parse'">
             <startOffsets>
-              <option value="2318" />
+              <option value="644" />
             </startOffsets>
             <endOffsets>
-              <option value="2353" />
+              <option value="696" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

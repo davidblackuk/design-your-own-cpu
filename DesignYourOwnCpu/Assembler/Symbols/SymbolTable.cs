@@ -27,6 +27,11 @@ namespace Assembler.Symbols
         }
 
         /// <summary>
+        /// gets the list of all defined symbols
+        /// </summary>
+        public IEnumerable<string> SymbolNames => table.Keys.OrderBy(o => o);
+
+        /// <summary>
         ///     Define a symbol with it's address. the symbol may already have been referenced, but
         ///     if the address is already present this is a duplicate definition
         /// </summary>
@@ -51,7 +56,7 @@ namespace Assembler.Symbols
 
         /// <summary>
         ///     Used during code generation, this retrieves the symbol information for code generation,
-        ///     if a symbol is not peresnt at this point (forwards or backwards declaration), there is a problem
+        ///     if a symbol is not present at this point (forwards or backwards declaration), there is a problem
         ///     and an exception is thrown
         /// </summary>
         /// <param name="name">Name of the symbol to retrieve</param>
@@ -69,13 +74,11 @@ namespace Assembler.Symbols
         {
             var allText = new StringBuilder();
 
-            foreach (var symbol in table.Keys.OrderBy(o => o))
+            foreach (var symbol in SymbolNames)
             {
                 var definition = table[symbol];
                 allText.Append($"{definition}\n");
-                definition.ToConsole();
             }
-
             File.WriteAllText(symbolFile, allText.ToString());
         }
     }

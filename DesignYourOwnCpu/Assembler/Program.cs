@@ -21,44 +21,63 @@ namespace Assembler
             startup.ConfigureServices(services);
             IServiceProvider serviceProvider = services.BuildServiceProvider();
 
-            var files = serviceProvider.GetService<IAssemblerFiles>();
+            var assemblerConfig = serviceProvider.GetService<IAssemblerConfig>();
 
-            if (files.SourceFilename == null)
+            if (assemblerConfig.SourceFilename == null)
             {
                 Usage();
                 return;
             }
 
-            files.ToConsole();
 
-            var lineSource =
+            // set up the pipeline of line source from file first, then strip white space, finally strip comments.
+            // TODO: Move to startup and wire there
+            FileLineSource rawFileSource = new FileLineSource(assemblerConfig.SourceFilename);
+            ILineSource lineSource =
                 new CommentStrippingLineSource(
-                    new WhitespaceRemovalLineSource(new FileLineSource(files.SourceFilename)));
+                    new WhitespaceRemovalLineSource(
+                        rawFileSource));
 
+            if (!assemblerConfig.QuietOutput)
+            {
+                assemblerConfig.ToConsole();
+            }
+            
             try
             {
                 var start = DateTime.Now;
 
                 var assembler = serviceProvider.GetService<IAssembler>();
                 assembler.Assemble(lineSource);
-                assembler.Ram.Save(files.BinaryFilename);
-                Console.WriteLine("\nSymbols\n");
-                assembler.SymbolTable.Save(files.SymbolFilename);
-
-                Console.WriteLine($"\nComplete in {(DateTime.Now - start).TotalMilliseconds} (ms)\n");
+                assembler.Ram.Save(assemblerConfig.BinaryFilename);
+                assembler.SymbolTable.Save(assemblerConfig.SymbolFilename);
+                
+                if (!assemblerConfig.QuietOutput)
+                {
+                    Console.WriteLine("\nSymbols\n");
+                    assembler.SymbolTable.ToConsole();
+                }
+                
+                Console.WriteLine($"\nAssembled {lineSource.ProcessedLines} lines in {(DateTime.Now - start).TotalMilliseconds} (ms)\n");
             }
             catch (AssemblerException e)
             {
-                Console.WriteLine($"Emulator error: {e.Message}\n".Pastel(Color.Tomato));
+                ShowError(rawFileSource, "Assembler", e.Message);
             }
             catch (Exception otherException)
             {
-                Console.WriteLine($"Emulator Failure: {otherException.Message}\n".Pastel(Color.Tomato));
+                ShowError(rawFileSource, "Internal", otherException.Message);
             }
-
-            Console.WriteLine();
         }
 
+        private static void ShowError(FileLineSource fileSource, string type, string message)
+        {
+            Console.Write($"{type} error: ".Pastel(Color.Tomato));
+            Console.WriteLine(message);
+            Console.Write($"\nLine {fileSource.ProcessedLines}: ");
+            Console.WriteLine($"{fileSource.CurrentLine}\n".Pastel(Color.Teal));
+        }
+        
         private static void Usage()
         {
             Console.WriteLine();

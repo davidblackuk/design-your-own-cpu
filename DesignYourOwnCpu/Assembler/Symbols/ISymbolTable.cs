@@ -1,4 +1,6 @@
-﻿namespace Assembler.Symbols
+﻿using System.Collections.Generic;
+
+namespace Assembler.Symbols
 {
     public interface ISymbolTable
     {
@@ -18,6 +20,11 @@
         /// </summary>
         /// <param name="name">The symbol name</param>
         void ReferenceSymbol(string name);
+
+        /// <summary>
+        /// gets the list of all defined symbols
+        /// </summary>
+        IEnumerable<string> SymbolNames { get; }
 
         /// <summary>
         ///     Used during code generation, this retrieves the symbol information for code generation,

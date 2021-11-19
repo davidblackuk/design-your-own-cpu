@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Text;
 using Pastel;
@@ -12,6 +13,7 @@ namespace Emulator.Instructions.Interrupts
     ///     <para>0x1234 (hexadecimal)</para>
     ///     <para>1234 (decimal)</para>
     /// </summary>
+    [ExcludeFromCodeCoverage] // this would be an integration test
     public class ReadWordInterrupt : IInterrupt
     {
         /// <summary>

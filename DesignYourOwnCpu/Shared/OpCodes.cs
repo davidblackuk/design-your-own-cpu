@@ -29,6 +29,11 @@
         public const byte AddRegisterToRegister = 0x42;
         public const byte SubtractRegisterFromRegister = 0x43;
 
+        public const byte MultiplyRegisterWithConstant = 0x44;
+        public const byte DivideRegisterByConstant = 0x45;
+        public const byte MultiplyRegisterWithRegister = 0x46;
+        public const byte DivideRegisterByRegister = 0x47;
+
         public const byte Push = 0x50;
         public const byte Pop = 0x51;
         public const byte Call = 0x52;
@@ -41,8 +46,14 @@
 
 
         /// <summary>
-        ///     The unused opcode is useful for unit tests as it is gaurenteed never to be inimplemented
+        ///     The unused opcode is useful for unit tests as it is guaranteed never to be implemented
         /// </summary>
         public const byte Unused = 0xFD;
+        
+        /// <summary>
+        /// Indicates the emulator read an unknown opcode
+        /// </summary>
+        public const byte Unknown = 0xFC;
+
     }
 }

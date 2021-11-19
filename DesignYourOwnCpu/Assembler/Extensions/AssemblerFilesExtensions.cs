@@ -8,12 +8,12 @@ namespace Assembler.Extensions
     [ExcludeFromCodeCoverage]
     public static class AssemblerFilesExtensions
     {
-        public static void ToConsole(this IAssemblerFiles files)
+        public static void ToConsole(this IAssemblerConfig config)
         {
             Console.WriteLine();
-            OutputFileInfo("Source file:", files.SourceFilename);
-            OutputFileInfo("Output file:", files.BinaryFilename);
-            OutputFileInfo("Symbol file:", files.SymbolFilename);
+            OutputFileInfo("Source file:", config.SourceFilename);
+            OutputFileInfo("Output file:", config.BinaryFilename);
+            OutputFileInfo("Symbol file:", config.SymbolFilename);
             Console.WriteLine();
         }
 

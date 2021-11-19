@@ -47,13 +47,13 @@ Instruction definitions. All instructions are 32 bits long, unused bytes set to 
 |-----------------|--------|----------|--------|--------|-------------|
 | `LD R1, 0xDEBA`    | `0x00`   | `0..7` | `0xDE` | `0xBA` | Load register with constant value         |
 | `LD R1, R2`        | `0x01`   | `0..7` | `0x00` | `0..7` | Load register from another register       |
-| `LD R1, (0xBEAD)`  | `0x02`   | `0..7` | `0xBE` | `0xAD` | Load register direct from a memory address |
-| `ST  R1, (0xDEBA)` | `0x10`   | `0..7` | `0xDE` | `0xBA` | store register direct to address      |
-| `STL R1, (0xDEBA)` | `0x11`   | `0..7` | `0xDE` | `0xBA` | store low byte of register direct to address     |
-| `STH R1, (0xDEBA)` | `0x12`   | `0..7` | `0xDE` | `0xBA` | store high byte of register direct to address   |
-| `ST  R1, (R2)`     | `0x13`   | `0..7` | `0x00` | `0..7` | store register to indirect address held in second register |
-| `STL R1, (R2)`     | `0x14`   | `0..7` | `0x00` | `0..7` | store low byte of register to indirect address held in second register |
-| `STH R1, (R2)`     | `0x15`   | `0..7` | `0x00` | `0..7` | store high byte of register to indirect address held in second register       |
+| `LD R1, (0xBEAD)`  | `0x02`   | `0..7` | `0xBE` | `0xAD` | <sup>2</sup> Load register direct from a memory address |
+| `ST  R1, (0xDEBA)` | `0x10`   | `0..7` | `0xDE` | `0xBA` | <sup>2</sup>store register direct to address      |
+| `STL R1, (0xDEBA)` | `0x11`   | `0..7` | `0xDE` | `0xBA` | <sup>2</sup>store low byte of register direct to address     |
+| `STH R1, (0xDEBA)` | `0x12`   | `0..7` | `0xDE` | `0xBA` | <sup>2</sup>store high byte of register direct to address   |
+| `ST  R1, (R2)`     | `0x13`   | `0..7` | `0x00` | `0..7` | <sup>2</sup>store register to indirect address held in second register |
+| `STL R1, (R2)`     | `0x14`   | `0..7` | `0x00` | `0..7` | <sup>2</sup>store low byte of register to indirect address held in second register |
+| `STH R1, (R2)`     | `0x15`   | `0..7` | `0x00` | `0..7` | s<sup>2</sup>tore high byte of register to indirect address held in second register       |
 
 ### Compare and branch instructions
 |   Instruction   | Opcode | Register | Data H | Data L | Description |
@@ -72,15 +72,21 @@ Instruction definitions. All instructions are 32 bits long, unused bytes set to 
 | `SUB R1, 0xabcd` | `0x41` | `0..7` | `0xAB` | `0xCD` | subtract constant value from register|
 | `ADD R1, R2`     | `0x42` | `0..7` | `0x00` |  `0..7` | add register 2 to register 1 (result in r1) |
 | `SUB R1, R2`     | `0x43` | `0..7` | `0x00` |  `0..7` | subtract register 2 from register 1 (result in r1)|
+| `MUL R1, 0xabcd` | `0x44` | `0..7` | `0xAB` | `0xCD` |<sup>1</sup> multiply constant value with register|
+| `DIV R1, 0xabcd` | `0x45` | `0..7` | `0xAB` | `0xCD` | <sup>1</sup> divide register by constant value|
+| `MUL R1, R2`     | `0x46` | `0..7` | `0x00` |  `0..7` | <sup>1</sup> multiply register 1  with register 2 (result in r1) |
+| `DIV R1, R2`     | `0x47` | `0..7` | `0x00` |  `0..7` | <sup>1</sup> divide register 1 by register 2 (result in r1)|
+
+
 
 ### Stack-oriented instructions
 |   Instruction   | Opcode | Register | Data H | Data L | Description |
 |-----------------|--------|----------|--------|--------|-------------|
-| `PUSH R2` | `0x50` | `0..7` | `0x00` | `0x00` | Push register onto the stack|
-| `POP R2` | `0x51` | `0..7` | `0x00` | `0x00` | pop register from the stack|
-| `CALL 0x3498` | `0x52` | `0x00` | `0x34` | `0x98` | calls a subroutine, storing the return address on the stack|
-| `RET` | `0x53` | `0x00` | `0x00` | `0x00` | pop the return address of a subroutine from the stack and jump there|
-| `SWI 0x0003` | `0x54` | `0x00` | `0x00` | `0x03` | invokes a software interrupt (see section below) execution continues with the next instruction after this when the interrupt exits.|
+| `PUSH R2` | `0x50` | `0..7` | `0x00` | `0x00` | <sup>1</sup> Push register onto the stack|
+| `POP R2` | `0x51` | `0..7` | `0x00` | `0x00` | <sup>1</sup> pop register from the stack|
+| `CALL 0x3498` | `0x52` | `0x00` | `0x34` | `0x98` | <sup>1</sup> calls a subroutine, storing the return address on the stack|
+| `RET` | `0x53` | `0x00` | `0x00` | `0x00` | <sup>1</sup> pop the return address of a subroutine from the stack and jump there|
+| `SWI 0x0003` | `0x54` | `0x00` | `0x00` | `0x03` | <sup>1</sup> invokes a software interrupt (see section below) execution continues with the next instruction after this when the interrupt exits.|
 
 ### Miscellaneous instructions
 |   Instruction   | Opcode | Register | Data H | Data L | Description |
@@ -92,8 +98,8 @@ Instruction definitions. All instructions are 32 bits long, unused bytes set to 
 |   Instruction   | Description |
 |-----------------|-----------------------------------------------------------------------------------|
 | `.label`        | Defines a label that holds the current address. placed on a line by itself        |
-| `defs 0x20`     | reserves 0x20 bytes of storage at the current address                             |
-| `defm "hello world\n\0"` | Defines a message. This is a MASCII string that can contain any valid MASCII characters, plus \0 (0 byte terminator) \n (start new line) \t (tab) |
+| `defs 0x20`     | <sup>1</sup>reserves 0x20 bytes of storage at the current address                             |
+| `defm "hello world\n\0"` | <sup>1</sup>Defines a message. This is a MASCII string that can contain any valid MASCII characters, plus \0 (0 byte terminator) \n (start new line) \t (tab) |
 
 ## Software interrupts
 
@@ -101,10 +107,10 @@ Software interrupts allow the program to invoke methods in the pseudo-kernel or 
 
 | Interrupt name | interrupt number | DEscription |
 | --- | --- | --- |
-| `sys-write-string` | Write the MASCII string whose address is contained in `R0` to the console |
-| `sys-write-word` | Write the 32 bit word whose value is contained in `R0` to the console |
-| `sys-read-string` | Read a string from the console and store it at the address in `R0` with a max length stored in `R1`. THe max length includes a zero terminator that is always added | 
-| `sys-read-word` | read an integer value from the console and return it in `R0` | 
+| `sys-write-string` | <sup>1</sup>Write the MASCII string whose address is contained in `R0` to the console |
+| `sys-write-word` | <sup>1</sup>Write the 32 bit word whose value is contained in `R0` to the console |
+| `sys-read-string` | <sup>1</sup>Read a string from the console and store it at the address in `R0` with a max length stored in `R1`. The max length includes a zero terminator that is always added | 
+| `sys-read-word` | <sup>1</sup>read an integer value from the console and return it in `R0` | 
 
 
 ### Example: `sys-write-string`
@@ -202,11 +208,17 @@ The following example applications available
 
 Here is the assembler and emulator running on windows 
 
-![Drag Racing](images/windows.png)
+![Assembler on Windows](images/windows.png)
 
 and here they are gamboling on Linux
 
-![Drag Racing](images/linux.png)
+![Assembler on Linux](images/linux.png)
+
+---
+
+<sup>1</sup> A new instruction not in the original Gary explains Instruction Set Architecture
+
+<sup>2</sup> Altered instruction syntax for addressing which replaces the `$constant` format with the form `(constant)`, which is closer to real world syntax used in assemblers. The original syntax of `$constant` made the parser easier to implement. At the cost of a more complex assembler implementation, the bracketed format is easier to understand, particularly for those of use who are dyslexic.
 
 
 

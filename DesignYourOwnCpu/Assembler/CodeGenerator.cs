@@ -9,8 +9,11 @@ namespace Assembler
 {
     public class CodeGenerator : ICodeGenerator
     {
-        public CodeGenerator(ISymbolTable symbolTable, IRandomAccessMemory ram)
+        private readonly IAssemblerConfig config;
+
+        public CodeGenerator(ISymbolTable symbolTable, IRandomAccessMemory ram, IAssemblerConfig config)
         {
+            this.config = config ?? throw new ArgumentNullException(nameof(config));
             SymbolTable = symbolTable ?? throw new ArgumentNullException(nameof(symbolTable));
             Ram = ram ?? throw new ArgumentNullException(nameof(ram));
         }
@@ -26,7 +29,12 @@ namespace Assembler
             {
                 ResolveSymbolsIfRequired(instruction);
                 instruction.WriteBytes(Ram, address);
-                instruction.ToConsole(address);
+
+                if (!config.QuietOutput)
+                {
+                    instruction.ToConsole(address);
+                }
+
                 address += instruction.Size;
             }
         }

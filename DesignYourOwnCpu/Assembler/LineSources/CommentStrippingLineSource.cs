@@ -14,12 +14,23 @@ namespace Assembler.LineSources
         public IEnumerable<string> Lines()
         {
             foreach (var line in source.Lines())
+            {
                 if (IsCommentLine(line))
                 {
                     var trimmed = RemoveTrailingComments(line);
-                    if (!string.IsNullOrWhiteSpace(trimmed)) yield return trimmed;
+                    if (!string.IsNullOrWhiteSpace(trimmed))
+                    {
+                        ProcessedLines += 1;
+                        yield return trimmed;
+                    }
                 }
+            }
         }
+
+        /// <summary>
+        /// Gets the count of processed lines
+        /// </summary>
+        public int ProcessedLines { get; private set;  }
 
 
         /// <summary>
