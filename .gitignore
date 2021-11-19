@@ -41,6 +41,7 @@ mono_crash.*
 **/.idea/**/*.iml
 **/.idea/**/contentModel.xml
 **/.idea/**/modules.xml
+**/.idea/**/workspace.xml
 
 # Build results
 [Dd]ebug/
