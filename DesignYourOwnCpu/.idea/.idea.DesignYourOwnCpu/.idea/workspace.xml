@@ -31,24 +31,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Compiler.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Exceptions/CompilerException.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/IInputStream.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/InputStream.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/KeywordLexemeTypeMap.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/Lexeme.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/Lexer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Startup.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompilerTests/CompilerTests.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompilerTests/LexicalAnalysis/InputStreamMock.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompilerTests/LexicalAnalysis/LexerTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DesignYourOwnCpu.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DesignYourOwnCpu.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/Asm/ge-hello-world-ported.sym" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Asm/ge-hello-world-ported.sym" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/tool.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/ClassDiagram.cd" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/ClassDiagram.cd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Parser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Parser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -384,6 +369,7 @@
       <workItem from="1636120216858" duration="9440000" />
       <workItem from="1636412758412" duration="26000" />
       <workItem from="1637332452939" duration="1191000" />
+      <workItem from="1637406241053" duration="294000" />
     </task>
     <servers />
   </component>

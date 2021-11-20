@@ -56,6 +56,7 @@ namespace EmulatorTests.Instructions
         
         [TestCase(OpCodes.Swi, typeof(SoftwareInterruptInstruction))]
 
+
         public void Create_WhenCalledWithAKnownOpcode_ShouldReturnCorrectType(
             byte opcode, Type expectedType)
         {
@@ -72,12 +73,12 @@ namespace EmulatorTests.Instructions
         }
 
         [Test]
-        public void Create_WhenUnimplementedInstructionPassed_ShouldThrowEmulationException()
+        public void Create_WhenCalledWithAOpcodeTHatIsNotKnown_ShouldReturnUnknownException()
         {
             var sut = CreateSut();
-            Assert.Throws<EmulatorException>(() => sut.Create(OpCodes.Unused, 0, 0, 0));
+            var instruction = sut.Create(OpCodes.Unused,0,0,0);
+            instruction.GetType().Name.Should().Be(nameof(UnknownInstruction));
         }
-
 
         private EmulatorInstructionFactory CreateSut()
         {

@@ -1,2 +1,205 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Assembler.Instructions.AddInstruction" Collapsed="true">
+    <Position X="7.25" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\AddInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assembler.Instructions.ArithmeticInstruction" Collapsed="true">
+    <Position X="10.5" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAgABAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAACAAAg=</HashCode>
+      <FileName>Instructions\ArithmeticInstruction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assembler.Instructions.AssemblerInstruction" Collapsed="true">
+    <Position X="24.25" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>YCAkAAAAAIIAAAAEAkAAACggQAAAAAAQAAgAAAAACAg=</HashCode>
+      <FileName>Instructions\AssemblerInstruction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assembler.Instructions.BrachGreaterThanInstruction" Collapsed="true">
+    <Position X="43.5" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\BrachGreaterThanInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assembler.Instructions.BranchAlwaysInstruction" Collapsed="true">
+    <Position X="45.75" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\BranchAlwaysInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assembler.Instructions.BranchEqualInstruction" Collapsed="true">
+    <Position X="34.5" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\BranchEqualInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assembler.Instructions.BranchLessThanInstruction" Collapsed="true">
+    <Position X="39" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\BranchLessThanInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assembler.Instructions.CallInstruction" Collapsed="true">
+    <Position X="41.25" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\CallInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assembler.Instructions.CompareInstruction" Collapsed="true">
+    <Position X="13.25" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgCAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\CompareInstruction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assembler.Instructions.DivideInstruction" Collapsed="true">
+    <Position X="9.5" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\AddInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assembler.Instructions.HaltInstruction" Collapsed="true">
+    <Position X="5.25" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgCAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\HaltInstruction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assembler.Instructions.LoadInstruction" Collapsed="true">
+    <Position X="25.25" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgCAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\LoadInstruction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assembler.Instructions.MultiplyInstruction" Collapsed="true">
+    <Position X="11.75" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\AddInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assembler.Instructions.NopInstruction" Collapsed="true">
+    <Position X="8" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgCAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\NopInstruction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assembler.Instructions.PopInstruction" Collapsed="true">
+    <Position X="29.75" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\PopInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assembler.Instructions.PushInstruction" Collapsed="true">
+    <Position X="32" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\PushInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assembler.Instructions.ReturnInstruction" Collapsed="true">
+    <Position X="15.75" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgCAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\ReturnInstruction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assembler.Instructions.SingleRegisterInstruction" Collapsed="true">
+    <Position X="31" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Instructions\SingleRegisterInstruction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assembler.Instructions.SingleValueInstruction" Collapsed="true">
+    <Position X="40.25" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Instructions\SingleValueInstruction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assembler.Instructions.SoftwareInterruptInstruction" Collapsed="true">
+    <Position X="36.75" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\SoftwareInterruptInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assembler.Instructions.StoreHiInstruction" Collapsed="true">
+    <Position X="16.25" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\StoreHiInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assembler.Instructions.StoreInstruction" Collapsed="true">
+    <Position X="18.5" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\StoreInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assembler.Instructions.StoreInstructionBase" Collapsed="true">
+    <Position X="18.5" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAIAAAAAIAg=</HashCode>
+      <FileName>Instructions\StoreInstructionBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assembler.Instructions.StoreLowInstruction" Collapsed="true">
+    <Position X="20.75" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\StoreLowInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assembler.Instructions.SubtractInstruction" Collapsed="true">
+    <Position X="14" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\SubtractInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assembler.Instructions.PsuedoInstructions.DefineMessageInstruction" Collapsed="true">
+    <Position X="27.5" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AEAgCAAAAAEAgAAEAAAAAAAAQAIAEAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\PsuedoInstructions\DefineMessageInstruction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assembler.Instructions.PsuedoInstructions.DefineSpaceInstruction" Collapsed="true">
+    <Position X="23" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgCAAAAAAAgAAEAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Instructions\PsuedoInstructions\DefineSpaceInstruction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
