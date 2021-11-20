@@ -43,7 +43,6 @@ namespace Assembler
                     currentAddress += instruction.Size;
                 }
             }
-            // todo: throw exception with message for any undefined symbols at this point.
         }
 
         // defines a label at the current address in the assembly process. This is the count of
