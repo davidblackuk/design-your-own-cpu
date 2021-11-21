@@ -56,6 +56,7 @@ namespace EmulatorTests.Instructions
         
         [TestCase(OpCodes.Swi, typeof(SoftwareInterruptInstruction))]
 
+
         public void Create_WhenCalledWithAKnownOpcode_ShouldReturnCorrectType(
             byte opcode, Type expectedType)
         {

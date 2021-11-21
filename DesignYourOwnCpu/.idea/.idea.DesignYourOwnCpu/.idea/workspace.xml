@@ -31,8 +31,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/Asm/ge-hello-world-ported.asm" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Asm/ge-hello-world-ported.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/ClassDiagram.cd" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/ClassDiagram.cd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Parser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Parser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -368,6 +369,7 @@
       <workItem from="1636120216858" duration="9440000" />
       <workItem from="1636412758412" duration="26000" />
       <workItem from="1637332452939" duration="1191000" />
+      <workItem from="1637406241053" duration="294000" />
     </task>
     <servers />
   </component>
@@ -377,27 +379,27 @@
   <component name="UnitTestsCoverage.Settings">
     <option name="coveragePercentColumnWidth" value="61" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="329" />
+    <option name="symbolColumnWidth" value="330" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 95% 51/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 99% 9/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 95% 51/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 99% 9/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 95% 51/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 99% 9/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 95% 51/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 99% 9/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="CPU 92% 2/24" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
