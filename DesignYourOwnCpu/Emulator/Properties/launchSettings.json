@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Emulator": {
+      "commandName": "Project",
+      "commandLineArgs": "--input ../../../../Src/Asm/average-numbers-hand-coded.bin"
+    }
+  }
+}

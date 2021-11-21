@@ -1,0 +1,11 @@
+0x00AB eol
+0x006C greeting
+0x002C loop_ends
+0x0014 next_number
+0x005C output_number
+0x008E result-message
+0x0058 skip_average
+0x0003 sys-read-string
+0x0004 sys-read-word
+0x0001 sys-write-string
+0x0002 sys-write-word

@@ -11,9 +11,9 @@ namespace Assembler.LineSources
         private readonly string inputFile;
         private string currentLine = String.Empty;
         
-        public FileLineSource(string inputFile)
+        public FileLineSource(IAssemblerConfig config)
         {
-            this.inputFile = inputFile ?? throw new ArgumentNullException(nameof(inputFile));
+            this.inputFile = config.SourceFilename;
         }
 
         public IEnumerable<string> Lines()
@@ -26,13 +26,19 @@ namespace Assembler.LineSources
                 yield return line;
             }
         }
-        
+
+        public ILineSource ChainTo(ILineSource downStreamSource)
+        {
+            // we are the end of the chain
+            return downStreamSource;
+        }
+
         /// <summary>
         /// Gets the count of processed lines
         /// </summary>
         public int ProcessedLines { get; private set;  }
 
-        public string CurrentLine => currentLine;
+        public string CurrentRawLine => currentLine;
 
     }
 }

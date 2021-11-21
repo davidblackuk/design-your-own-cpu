@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Assembler": {
+      "commandName": "Project",
+      "commandLineArgs": "--input ../../../../Src/Asm/average-numbers-hand-coded.asm"
+    }
+  }
+}
