@@ -7,6 +7,8 @@
     <projectFile>EmulatorTests/EmulatorTests.csproj</projectFile>
     <projectFile>SharedTests/SharedTests.csproj</projectFile>
     <projectFile>Compiler/Compiler.csproj</projectFile>
+    <projectFile profileName="Assembler">Assembler/Assembler.csproj</projectFile>
+    <projectFile profileName="Emulator">Emulator/Emulator.csproj</projectFile>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
@@ -31,9 +33,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/ClassDiagram.cd" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/ClassDiagram.cd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Parser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Parser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/Instructions/EmulatorInstructionFactoryTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +75,7 @@
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/AddInstruction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/CompareInstruction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/git/my-cpu/DesignYourOwnCpu/Assembler/LineSources/CommentStrippingLineSource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/IAssemblerInstruction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29a328843bdc4762af89c8fdc084c4d68f5778/41A/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2a671dd69ea540b0803140b5c39022b07788/A/ConfigurationRoot.cs" root0="SKIP_HIGHLIGHTING" />
@@ -379,30 +380,12 @@
   <component name="UnitTestsCoverage.Settings">
     <option name="coveragePercentColumnWidth" value="61" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="330" />
+    <option name="symbolColumnWidth" value="409" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 99% 9/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 99% 9/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 99% 9/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 99% 9/940" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="CPU 92% 2/24" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 94% 38/636" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />

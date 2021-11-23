@@ -72,6 +72,7 @@ namespace EmulatorTests.Instructions
             instruction.ByteLow.Should().Be(expectedLow);
         }
 
+
         [Test]
         public void Create_WhenCalledWithAOpcodeTHatIsNotKnown_ShouldReturnUnknownException()
         {
