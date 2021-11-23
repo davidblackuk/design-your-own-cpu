@@ -10,6 +10,7 @@ namespace Emulator.Extensions
     {
         public static void ToConsole(this IRegisters registers)
         {
+            Console.WriteLine();
             WriteRegister("PC", registers.ProgramCounter);
             WriteRegister("SP", registers.StackPointer);
             Console.WriteLine();

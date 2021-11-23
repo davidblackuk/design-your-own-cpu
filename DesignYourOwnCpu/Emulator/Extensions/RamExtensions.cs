@@ -16,6 +16,7 @@ namespace Emulator.Extensions
             var characterBuilder = new StringBuilder(16);
 
             ushort width = 16;
+            Console.WriteLine();
             for (var address = start; address <= start + length; address += width)
             {
                 Console.Write($"{address:X4} ".Pastel(Color.Goldenrod));
@@ -36,6 +37,7 @@ namespace Emulator.Extensions
 
                 Console.WriteLine();
             }
+            Console.WriteLine();
         }
     }
 }

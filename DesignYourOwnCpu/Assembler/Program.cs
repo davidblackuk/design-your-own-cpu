@@ -13,78 +13,116 @@ namespace Assembler
     [ExcludeFromCodeCoverage]
     internal class Program
     {
+        private static IServiceProvider ServiceProvider { get; set; }
+        private static ILineSource LineSource;
+        private static IAssemblerConfig Configuration;
+
         private static void Main(string[] args)
+        {
+            ServiceProvider = GetServiceProvider(args);
+
+            Configuration = GetConfiguration();
+
+            LineSource = GetLineSource();
+
+            if (!Configuration.QuietOutput) Configuration.ToConsole();
+
+            try
+            {
+                var start = DateTime.Now;
+
+                PerformAssembly();
+
+                Console.WriteLine($"\nAssembled {LineSource.ProcessedLines} lines in {(DateTime.Now - start).TotalMilliseconds} (ms)\n");
+            }
+            catch (AssemblerException e)
+            {
+                ShowError("Assembler", e);
+            }
+            catch (Exception otherException)
+            {
+                ShowError("Internal", otherException);
+            }
+        }
+
+        /// <summary>
+        /// invoke the assembler and save the results
+        /// </summary>
+        private static void PerformAssembly()
+        {
+            var assembler = ServiceProvider.GetService<IAssembler>();
+            assembler.Assemble(LineSource);
+            assembler.Ram.Save(Configuration.BinaryFilename);
+            assembler.SymbolTable.Save(Configuration.SymbolFilename);
+
+            if (!Configuration.QuietOutput) assembler.SymbolTable.ToConsole();
+        }
+
+        /// <summary>
+        /// Initialize or DI container
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        private static IServiceProvider GetServiceProvider(string[] args)
         {
             IServiceCollection services = new ServiceCollection();
 
             var startup = new Startup(args);
             startup.ConfigureServices(services);
-            IServiceProvider serviceProvider = services.BuildServiceProvider();
 
-            var assemblerConfig = serviceProvider.GetService<IAssemblerConfig>();
+            return services.BuildServiceProvider();
+        }
 
-            if (assemblerConfig.SourceFilename == null)
+        /// <summary>
+        /// Gets the configuration settings for the assembler
+        /// </summary>
+        /// <returns></returns>
+        private static IAssemblerConfig GetConfiguration()
+        {
+            var config = ServiceProvider.GetService<IAssemblerConfig>();
+            if (config.SourceFilename == null)
             {
                 Usage();
-                return;
+                Environment.Exit(0);
             }
-
-
-            // set up the pipeline of line source from file first, then strip white space, finally strip comments.
-            // TODO: Move to startup and wire there
-            FileLineSource rawFileSource = new FileLineSource(assemblerConfig.SourceFilename);
-            ILineSource lineSource =
-                new CommentStrippingLineSource(
-                    new WhitespaceRemovalLineSource(
-                        rawFileSource));
-
-            if (!assemblerConfig.QuietOutput)
-            {
-                assemblerConfig.ToConsole();
-            }
-            
-            try
-            {
-                var start = DateTime.Now;
-
-                var assembler = serviceProvider.GetService<IAssembler>();
-                assembler.Assemble(lineSource);
-                assembler.Ram.Save(assemblerConfig.BinaryFilename);
-                assembler.SymbolTable.Save(assemblerConfig.SymbolFilename);
-                
-                if (!assemblerConfig.QuietOutput)
-                {
-                    Console.WriteLine("\nSymbols\n");
-                    assembler.SymbolTable.ToConsole();
-                }
-                
-                Console.WriteLine($"\nAssembled {lineSource.ProcessedLines} lines in {(DateTime.Now - start).TotalMilliseconds} (ms)\n");
-            }
-            catch (AssemblerException e)
-            {
-                ShowError(rawFileSource, "Assembler", e.Message);
-            }
-            catch (Exception otherException)
-            {
-                ShowError(rawFileSource, "Internal", otherException.Message);
-            }
+            return config;
         }
 
-        private static void ShowError(FileLineSource fileSource, string type, string message)
+        /// <summary>
+        /// Create and wire up the chain of responsibility tat processes input lines into a 
+        /// stream of non empty, comment free and trimmed lines.
+        /// </summary>
+        /// <returns></returns>
+        private static ILineSource GetLineSource()
+        {
+            var res = ServiceProvider.GetService<CommentStrippingLineSource>();
+            res.ChainTo(ServiceProvider.GetService<WhitespaceRemovalLineSource>())
+               .ChainTo(ServiceProvider.GetService<FileLineSource>());
+            return res;
+        }
+
+        /// <summary>
+        /// Report an error to the console
+        /// </summary>
+        /// <param name="type">Type of error can be assembler, internal etc</param>
+        /// <param name="e"></param>
+        private static void ShowError(string type, Exception e)
         {
             Console.Write($"{type} error: ".Pastel(Color.Tomato));
-            Console.WriteLine(message);
-            Console.Write($"\nLine {fileSource.ProcessedLines}: ");
-            Console.WriteLine($"{fileSource.CurrentLine}\n".Pastel(Color.Teal));
+            Console.WriteLine(e.Message);
+            Console.Write($"\nLine {LineSource.ProcessedLines}: ");
+            Console.WriteLine($"{LineSource.CurrentRawLine}\n".Pastel(Color.Teal));
         }
         
+        /// <summary>
+        /// Show usage information for thwe app and quit execution.
+        /// </summary>
         private static void Usage()
         {
             Console.WriteLine();
             Console.WriteLine("Usage:");
             Console.WriteLine("    dotnet run  -p <path to project file> --input <path for the file to assemble>");
             Console.WriteLine();
-            Environment.Exit(0);
         }
     }
 }

@@ -36,6 +36,7 @@ namespace Emulator
             services.AddSingleton<IInterruptFactory, InterruptFactory>();
             services.AddSingleton<INumberParser, NumberParser>();
             services.AddSingleton<IFileOperations, FileOperations>();
+            services.AddSingleton<IEmulatorConfig, EmulatorConfig>();
         }
     }
 }

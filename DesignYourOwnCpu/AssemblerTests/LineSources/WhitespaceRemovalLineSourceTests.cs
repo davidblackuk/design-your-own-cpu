@@ -32,7 +32,9 @@ Line 3
 
         private WhitespaceRemovalLineSource CreateSut(string text)
         {
-            return new WhitespaceRemovalLineSource(new MemoryLineSource(text));
+            var res = new WhitespaceRemovalLineSource();
+            res.ChainTo(new MemoryLineSource(text));
+            return res;
         }
     }
 }

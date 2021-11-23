@@ -4,11 +4,10 @@ namespace Assembler.LineSources
 {
     public class WhitespaceRemovalLineSource : ILineSource
     {
-        private readonly ILineSource source;
+        private ILineSource source;
 
-        public WhitespaceRemovalLineSource(ILineSource source)
+        public WhitespaceRemovalLineSource()
         {
-            this.source = source;
         }
 
         public IEnumerable<string> Lines()
@@ -17,16 +16,26 @@ namespace Assembler.LineSources
             {
                 if (!string.IsNullOrWhiteSpace(line))
                 {
-                    ProcessedLines += 1;                
                     yield return line;
                 }
             }
         }
-        
+
+        public ILineSource ChainTo(ILineSource downStreamSource)
+        {
+            source = downStreamSource;
+            return downStreamSource;
+        }
+
         /// <summary>
-        /// Gets the count of processed lines
+        /// Gets the count of processed lines, we delegate to the down stream source
         /// </summary>
-        public int ProcessedLines { get; private set;  }
+        public int ProcessedLines => source.ProcessedLines;
+
+        /// <summary>
+        /// Gets the current raw line (we delegate to the down stream source
+        /// </summary>
+        public string CurrentRawLine => source.CurrentRawLine;
 
     }
 }

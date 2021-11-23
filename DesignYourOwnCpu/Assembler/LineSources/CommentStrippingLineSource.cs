@@ -4,11 +4,10 @@ namespace Assembler.LineSources
 {
     public class CommentStrippingLineSource : ILineSource
     {
-        private readonly ILineSource source;
+        private ILineSource source;
 
-        public CommentStrippingLineSource(ILineSource source)
+        public CommentStrippingLineSource()
         {
-            this.source = source;
         }
 
         public IEnumerable<string> Lines()
@@ -20,7 +19,6 @@ namespace Assembler.LineSources
                     var trimmed = RemoveTrailingComments(line);
                     if (!string.IsNullOrWhiteSpace(trimmed))
                     {
-                        ProcessedLines += 1;
                         yield return trimmed;
                     }
                 }
@@ -28,9 +26,14 @@ namespace Assembler.LineSources
         }
 
         /// <summary>
-        /// Gets the count of processed lines
+        /// Gets the count of processed lines, we delegate to the down stream source
         /// </summary>
-        public int ProcessedLines { get; private set;  }
+        public int ProcessedLines => source.ProcessedLines;
+
+        /// <summary>
+        /// Gets the current raw line (we delegate to the down stream source
+        /// </summary>
+        public string CurrentRawLine => source.CurrentRawLine;
 
 
         /// <summary>
@@ -67,6 +70,13 @@ namespace Assembler.LineSources
             var index = line.IndexOf(commentCharacter);
             if (index >= 0) line = line.Substring(0, index);
             return line;
+        }
+
+        public ILineSource ChainTo(ILineSource downStreamSource)
+        {
+            this.source = downStreamSource;
+            return downStreamSource;
+
         }
     }
 }

@@ -1,6 +1,9 @@
 # Average out a series of numbers 
 # enter one number per line and terminate with a zero 
 
+    LD R0, greeting
+    SWI SYS-WRITE-STRING
+
     LD R1, 0                # sum of all non-zero values read so far
     LD R2, 0                # number of values read
 
@@ -26,9 +29,15 @@
     CMP R2, 0               # did we not get any numbers input?
     BEQ SKIP_AVERAGE        # if so skip the average calculation to avoid a divide by zero
 
+    LD R0, result-message
+    SWI SYS-WRITE-STRING
+
     LD R0, R1               # sum into R0
     DIV R0, R2              # average (R0) = sum / number 
     CALL OUTPUT_NUMBER      # write out the average
+
+
+
 
 .SKIP_AVERAGE
     HALT                    # program complete
@@ -39,5 +48,10 @@
     SWI SYS-WRITE-STRING    # got to the next line
     RET
 
+.greeting
+    DEFM "\nEnter numbers (zero terminates)\n\0"
+.result-message
+    DEFM "\nAverage of your values is: \0"
+
 .eol
-    DEFM "\n"
+    DEFM "\n\0"

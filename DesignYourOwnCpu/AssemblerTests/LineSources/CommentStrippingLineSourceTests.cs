@@ -39,7 +39,10 @@ Line 5 # Really this is also; erm... possible
 
         private CommentStrippingLineSource CreateSut(string text)
         {
-            return new CommentStrippingLineSource(new WhitespaceRemovalLineSource(new MemoryLineSource(text)));
+            var res = new CommentStrippingLineSource();
+            res.ChainTo(new WhitespaceRemovalLineSource()
+               .ChainTo(new MemoryLineSource(text)));
+            return res;
         }
     }
 }

@@ -8,40 +8,78 @@ using Shared;
 
 namespace Emulator
 {
-    [ExcludeFromCodeCoverageAttribute]
+    [ExcludeFromCodeCoverage]
     internal class Program
     {
+        private static IServiceProvider ServiceProvider { get; set; }
+        private static IEmulatorConfig Configuration;
+
         private static void Main(string[] args)
         {
-            IServiceCollection services = new ServiceCollection();
+            ServiceProvider = GetServiceProvider(args);
+            Configuration = GetConfiguration();
 
-            var startup = new Startup(args);
-            startup.ConfigureServices(services);
-            IServiceProvider serviceProvider = services.BuildServiceProvider();
-            
-            var binaryToExecute = startup.Configuration["input"];
-            if (binaryToExecute == null) Usage();
-            
             try
             {
-                // Get Service and call method
-                var cpu = serviceProvider.GetService<ICPU>();
-                cpu.Memory.Load(binaryToExecute);
-                
-                cpu.Run();
-
-                Console.WriteLine();
-                cpu.Registers.ToConsole();
-                Console.WriteLine();
-                cpu.Memory.ToConsole(0, 128);
-                Console.WriteLine();
+                Emulate();
             }
             catch (EmulatorException e)
             {
                 Console.WriteLine($"Emulator error: {e.Message}\n".Pastel(Color.Tomato));
             }
         }
-        
+
+        /// <summary>
+        /// Loads the binary image and emulates it until a HALT
+        /// instruction in encountered or an exception ocurrs
+        /// </summary>
+        private static void Emulate()
+        {
+            var cpu = ServiceProvider.GetService<ICPU>();
+            cpu.Memory.Load(Configuration.BinaryFilename);
+
+            cpu.Run();
+
+            if (!Configuration.QuietOutput)
+            {
+                cpu.Registers.ToConsole();
+                cpu.Memory.ToConsole(0, 128);
+            }
+        }
+
+        /// <summary>
+        /// Gets the configuration for the app
+        /// </summary>
+        /// <returns></returns>
+        private static IEmulatorConfig GetConfiguration()
+        {
+            var config = ServiceProvider.GetService<IEmulatorConfig>();
+
+            if (config.BinaryFilename == null)
+            {
+                Usage();
+                Environment.Exit(0);
+            }
+            return config;
+        }
+
+        /// <summary>
+        /// Gets the DI container after asking Startup to wire the dependancies
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        private static IServiceProvider GetServiceProvider(string[] args)
+        {
+            IServiceCollection services = new ServiceCollection();
+
+            var startup = new Startup(args);
+            startup.ConfigureServices(services);
+            return services.BuildServiceProvider();
+        }
+
+        /// <summary>
+        /// Output usage information to the console
+        /// </summary>
         private static void Usage()
         {
             Console.WriteLine();

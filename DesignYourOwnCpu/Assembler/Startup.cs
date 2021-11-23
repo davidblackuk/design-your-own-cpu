@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Assembler.Instructions;
+using Assembler.LineSources;
 using Assembler.Symbols;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,6 +34,11 @@ namespace Assembler
             services.AddSingleton<IParser, Parser>();
             services.AddSingleton<IAssemblerConfig, AssemblerConfig>();
             services.AddSingleton<IAssembler, Assembler>();
+
+            services.AddSingleton<FileLineSource>();
+            services.AddSingleton<CommentStrippingLineSource>();
+            services.AddSingleton<WhitespaceRemovalLineSource>();
+
         }
     }
 }
