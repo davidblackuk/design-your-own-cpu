@@ -3,7 +3,7 @@ using Shared;
 
 namespace Assembler.Instructions
 {
-    public class CompareInstruction : AssemblerInstruction, IAssemblerInstruction
+    public class CompareInstruction : AssemblerInstruction
     {
         public const string InstructionName = "cmp";
 

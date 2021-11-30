@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using Compiler.Exceptions;
-using Compiler.LexicalAnalysis;
+using Compiler.SyntacticAnalysis;
 using Microsoft.Extensions.DependencyInjection;
 using Pastel;
 
@@ -23,15 +23,8 @@ namespace Compiler
             
             try
             {
-                var x = serviceProvider.GetService<ILexer>();
-                while (true)
-                {
-                    var res = x.GetLexeme();
-                    if (res != null)
-                    {
-                        Console.Write(res);
-                    }
-                }
+                var x = serviceProvider.GetService<ISyntaxAnalyser>();
+                x.Scan();
             }
             catch (CompilerException e)
             {

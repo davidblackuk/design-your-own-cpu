@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using Emulator;
 using Emulator.Instructions;
 using Emulator.Instructions.Interrupts;
 using FluentAssertions;

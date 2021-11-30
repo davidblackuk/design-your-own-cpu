@@ -46,15 +46,14 @@ namespace Compiler.LexicalAnalysis
     {
         public object Value { get; }
 
-        public LexemeType Type { get; }
+        public int LineNumber { get; }
 
-        public Lexeme(LexemeType type)
+        public LexemeType Type { get; }
+        
+        public Lexeme(LexemeType type, object value, int lineNumber)
         {
             Type = type;
-        }
-
-        public Lexeme(LexemeType type, object value): this(type)
-        {
+            LineNumber = lineNumber;
             Value = value;
         }
 

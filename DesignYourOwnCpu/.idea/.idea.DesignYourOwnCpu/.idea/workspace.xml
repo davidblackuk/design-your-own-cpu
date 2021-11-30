@@ -7,6 +7,8 @@
     <projectFile>EmulatorTests/EmulatorTests.csproj</projectFile>
     <projectFile>SharedTests/SharedTests.csproj</projectFile>
     <projectFile>Compiler/Compiler.csproj</projectFile>
+    <projectFile profileName="Assembler">Assembler/Assembler.csproj</projectFile>
+    <projectFile profileName="Emulator">Emulator/Emulator.csproj</projectFile>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
@@ -31,8 +33,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74138cce-d9c5-40a2-abc2-fbaec8f7d346" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Compiler/Ast/Ast.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Compiler/Ast/AstNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Compiler/Ast/SymbolTable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Compiler/LexicalAnalysis/LexemeFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Compiler/SyntacticAnalysis/LexemeSet.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Compiler/SyntacticAnalysis/SyntaxAnalyser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CompilerTests/SyntacticAnalysis/LexemeSetTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Src/Pas/average-numbers.pas" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Src/Pas/test.pas" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/Asm/ge-hello-world-ported.asm" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Asm/ge-hello-world-ported.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/ArithmeticInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/ArithmeticInstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/CompareInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/CompareInstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/HaltInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/HaltInstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/NopInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/NopInstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/ReturnInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/ReturnInstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/SingleRegisterInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/SingleRegisterInstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/SingleValueInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/SingleValueInstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembler/Instructions/StoreInstructionBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Instructions/StoreInstructionBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/Lexeme.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/LexicalAnalysis/Lexeme.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/Lexer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/LexicalAnalysis/Lexer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompilerTests/LexicalAnalysis/LexerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CompilerTests/LexicalAnalysis/LexerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/Pas/average-numbers.p" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,13 +96,20 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29a328843bdc4762af89c8fdc084c4d68f5778/2B3/CastHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/AddInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29a328843bdc4762af89c8fdc084c4d68f5778/9B/Lazy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29a328843bdc4762af89c8fdc084c4d68f5778/412/Dictionary.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/CompareInstruction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29a328843bdc4762af89c8fdc084c4d68f5778/70/Char.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/IAssemblerInstruction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29a328843bdc4762af89c8fdc084c4d68f5778/41A/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2a671dd69ea540b0803140b5c39022b07788/A/ConfigurationRoot.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f90429cc0220488dbef4a1bcd913cfad9d800/BF/LateBoundTestFramework.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29a328843bdc4762af89c8fdc084c4d68f5778/413/HashSet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29a328843bdc4762af89c8fdc084c4d68f5778/C4/ParseNumbers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bdd96c5f630a45298dacc07d80deb23b11d78/D/CallSiteFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29a328843bdc4762af89c8fdc084c4d68f5778/F1/UInt16.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -146,7 +178,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35022625" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35045567" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -160,10 +192,13 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Project.Assembler">
+  <component name="ReaderModeSettings">
+    <option name="showLigatures" value="false" />
+  </component>
+  <component name="RunManager" selected=".NET Project.Compiler">
     <configuration name="Assembler" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Assembler/bin/Debug/net5.0/Assembler.exe" />
       <option name="PROGRAM_PARAMETERS" value="--input ..\..\..\..\Src\Asm\ge-hello-world-ported.asm" />
@@ -202,7 +237,7 @@
     </configuration>
     <configuration name="Compiler" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Compiler/bin/Debug/net5.0/Compiler.exe" />
-      <option name="PROGRAM_PARAMETERS" value="--input ..\..\..\..\Asm\test.p" />
+      <option name="PROGRAM_PARAMETERS" value="--input ..\..\..\..\Src\Pas\test.pas" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Compiler/bin/Debug/net5.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -368,6 +403,15 @@
       <workItem from="1636120216858" duration="9440000" />
       <workItem from="1636412758412" duration="26000" />
       <workItem from="1637332452939" duration="1191000" />
+      <workItem from="1637836320380" duration="4000" />
+      <workItem from="1637838082207" duration="11338000" />
+      <workItem from="1637928909158" duration="11436000" />
+      <workItem from="1638014235328" duration="828000" />
+      <workItem from="1638021473827" duration="644000" />
+      <workItem from="1638022139575" duration="1465000" />
+      <workItem from="1638096820076" duration="6013000" />
+      <workItem from="1638182866014" duration="9890000" />
+      <workItem from="1638265940102" duration="4373000" />
     </task>
     <servers />
   </component>
@@ -375,32 +419,64 @@
     <option name="version" value="3" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="61" />
+    <option name="coveragePercentColumnWidth" value="55" />
     <option name="sortOrder" value="ASCENDING" />
-    <option name="symbolColumnWidth" value="329" />
+    <option name="symbolColumnWidth" value="442" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 95% 51/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 78% 307/1389" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 95% 51/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 78% 307/1389" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 32% 298/438" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 95% 51/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 78% 307/1389" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 32% 298/438" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 32% 298/438" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 95% 51/1109" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Emulator 99% 4/312" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="CPU 92% 2/24" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 78% 307/1389" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 32% 298/438" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 32% 298/438" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="LexicalAnalysis 75% 43/170" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 78% 307/1389" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 32% 298/438" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 32% 298/438" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="LexicalAnalysis 75% 43/170" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Lexeme 89% 1/9" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 78% 307/1389" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 32% 298/438" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 32% 298/438" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="LexicalAnalysis 75% 43/170" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Lexeme 89% 1/9" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="LineNumber 0% 1/1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 78% 307/1389" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 32% 298/438" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 32% 298/438" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="SyntacticAnalysis 3% 213/220" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 78% 307/1389" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 32% 298/438" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 32% 298/438" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="SyntacticAnalysis 3% 213/220" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="LexemeSet 15% 39/46" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
@@ -452,19 +528,6 @@
           </properties>
           <option name="timeStamp" value="7" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assembler/Instructions/ArithmeticInstruction.cs</url>
-          <line>20</line>
-          <properties documentPath="D:\git\my-cpu\DesignYourOwnCpu\Assembler\Instructions\ArithmeticInstruction.cs" initialLine="20" containingFunctionPresentation="method 'Parse'">
-            <startOffsets>
-              <option value="644" />
-            </startOffsets>
-            <endOffsets>
-              <option value="696" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

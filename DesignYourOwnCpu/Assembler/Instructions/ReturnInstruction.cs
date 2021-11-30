@@ -3,7 +3,7 @@ using Shared;
 
 namespace Assembler.Instructions
 {
-    public class ReturnInstruction : AssemblerInstruction, IAssemblerInstruction
+    public class ReturnInstruction : AssemblerInstruction
     {
         public const string InstructionName = "ret";
 

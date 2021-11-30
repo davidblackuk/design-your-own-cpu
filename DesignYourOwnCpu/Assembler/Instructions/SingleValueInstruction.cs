@@ -7,7 +7,7 @@ namespace Assembler.Instructions
     ///     label),
     ///     examples are branches, calls, interrupts etc
     /// </summary>
-    public class SingleValueInstruction : AssemblerInstruction, IAssemblerInstruction
+    public class SingleValueInstruction : AssemblerInstruction
     {
         private readonly string instructionName;
 

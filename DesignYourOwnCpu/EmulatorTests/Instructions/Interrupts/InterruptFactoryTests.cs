@@ -1,5 +1,4 @@
 ﻿using System;
-using Assembler.Instructions;
 using Emulator;
 using Emulator.Instructions.Interrupts;
 using FluentAssertions;

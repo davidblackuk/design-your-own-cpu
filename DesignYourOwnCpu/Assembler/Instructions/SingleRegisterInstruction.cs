@@ -5,7 +5,7 @@ namespace Assembler.Instructions
     /// <summary>
     ///     Base class for single register instructions like push, pop, rotr, rotl etc
     /// </summary>
-    public class SingleRegisterInstruction : AssemblerInstruction, IAssemblerInstruction
+    public class SingleRegisterInstruction : AssemblerInstruction
     {
         private readonly string instructionName;
 

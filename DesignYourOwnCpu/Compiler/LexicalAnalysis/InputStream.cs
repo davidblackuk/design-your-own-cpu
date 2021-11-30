@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Drawing;
 using System.IO;
 using Compiler.Exceptions;
-using Pastel;
 
 namespace Compiler.LexicalAnalysis
 {

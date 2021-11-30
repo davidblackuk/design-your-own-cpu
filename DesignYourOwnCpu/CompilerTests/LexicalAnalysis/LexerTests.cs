@@ -96,7 +96,8 @@ namespace CompilerTests.LexicalAnalysis
 
         private Lexer CreateSut(string line)
         {
-            return new Lexer(new InputStreamMock(line), new KeywordLexemeTypeMap());
+            var inputStreamMock = new InputStreamMock(line);
+            return new Lexer(inputStreamMock, new KeywordLexemeTypeMap(), new LexemeFactory(inputStreamMock));
         }
     }
 }

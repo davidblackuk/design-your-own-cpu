@@ -3,7 +3,7 @@ using Shared;
 
 namespace Assembler.Instructions
 {
-    public class HaltInstruction : AssemblerInstruction, IAssemblerInstruction
+    public class HaltInstruction : AssemblerInstruction
     {
         public const string InstructionName = "halt";
 

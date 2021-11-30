@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Assembler.Exceptions;
-using Assembler.Extensions;
 using Shared;
 
 namespace Assembler.Symbols

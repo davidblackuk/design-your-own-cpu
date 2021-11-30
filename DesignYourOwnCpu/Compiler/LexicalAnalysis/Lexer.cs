@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using Compiler.Exceptions;
 
@@ -16,11 +15,13 @@ namespace Compiler.LexicalAnalysis
         
         private readonly IInputStream inputStream;
         private readonly IKeywordLexemeTypeMap lexemeMapper;
+        private readonly ILexemeFactory lexemeFactory;
 
-        public Lexer(IInputStream inputStream, IKeywordLexemeTypeMap lexemeMapper)
+        public Lexer(IInputStream inputStream, IKeywordLexemeTypeMap lexemeMapper, ILexemeFactory lexemeFactory)
         {
             this.inputStream = inputStream;
             this.lexemeMapper = lexemeMapper;
+            this.lexemeFactory = lexemeFactory;
         }
         
         public Lexeme GetLexeme()
@@ -45,23 +46,23 @@ namespace Compiler.LexicalAnalysis
                 return RecognizeOperator(current);
             }
             
-            return new Lexeme(LexemeType.Unknown);
+            return lexemeFactory.Create(LexemeType.Unknown);
         }
 
         private Lexeme RecognizeOperator(char current)
         {
             if (".,();".Contains(current))
             {
-                return new Lexeme(lexemeMapper.MapsToLexeme(""+current));
+                return lexemeFactory.Create(lexemeMapper.MapsToLexeme(""+current));
             }
             if ("+-*/".Contains(current))
             {
                 switch (current)
                 {
-                    case '+': return new Lexeme(LexemeType.AddOp, OperationType.Addition);
-                    case '-': return new Lexeme(LexemeType.AddOp, OperationType.Subtraction);
-                    case '/': return new Lexeme(LexemeType.MulOp, OperationType.Division);
-                    default:  return new Lexeme(LexemeType.MulOp, OperationType.Multiplication);
+                    case '+': return lexemeFactory.Create(LexemeType.AddOp, OperationType.Addition);
+                    case '-': return lexemeFactory.Create(LexemeType.AddOp, OperationType.Subtraction);
+                    case '/': return lexemeFactory.Create(LexemeType.MulOp, OperationType.Division);
+                    default:  return lexemeFactory.Create(LexemeType.MulOp, OperationType.Multiplication);
                 }
             }
 
@@ -70,7 +71,7 @@ namespace Compiler.LexicalAnalysis
                 if (inputStream.Peek() == '=')
                 {
                     inputStream.Next();
-                    return new Lexeme(LexemeType.Assign);
+                    return lexemeFactory.Create(LexemeType.Assign);
                 }
                 else
                 {
@@ -84,19 +85,19 @@ namespace Compiler.LexicalAnalysis
                 if (next == '=')
                 {
                     inputStream.Next();
-                    return new Lexeme(LexemeType.RelOp, OperationType.LessThanOrEquals);
+                    return lexemeFactory.Create(LexemeType.RelOp, OperationType.LessThanOrEquals);
                 }
                 if (next == '>')
                 {
                     inputStream.Next();
-                    return new Lexeme(LexemeType.RelOp, OperationType.NotEqual);
+                    return lexemeFactory.Create(LexemeType.RelOp, OperationType.NotEqual);
                 }
-                return new Lexeme(LexemeType.RelOp, OperationType.LessThan);
+                return lexemeFactory.Create(LexemeType.RelOp, OperationType.LessThan);
             }
 
             if (current == '=')
             {
-                return new Lexeme(LexemeType.RelOp, OperationType.Equal);
+                return lexemeFactory.Create(LexemeType.RelOp, OperationType.Equal);
             }
             
             // this has to be true
@@ -106,9 +107,9 @@ namespace Compiler.LexicalAnalysis
                 if (next == '=')
                 {
                     inputStream.Next();
-                    return new Lexeme(LexemeType.RelOp, OperationType.GreaterThanOrEquals);
+                    return lexemeFactory.Create(LexemeType.RelOp, OperationType.GreaterThanOrEquals);
                 }
-                return new Lexeme(LexemeType.RelOp, OperationType.GreaterThan);
+                return lexemeFactory.Create(LexemeType.RelOp, OperationType.GreaterThan);
             }
             
             // we really can't get here
@@ -129,10 +130,10 @@ namespace Compiler.LexicalAnalysis
             var type = lexemeMapper.MapsToLexeme(identifier);
             if (type != LexemeType.Unknown)
             {
-                return new Lexeme(type);
+                return lexemeFactory.Create(type);
             }
 
-            return new Lexeme(LexemeType.Identifier, identifier);
+            return lexemeFactory.Create(LexemeType.Identifier, identifier);
 
         }
 
@@ -153,7 +154,7 @@ namespace Compiler.LexicalAnalysis
 
             if (UInt16.TryParse(builder.ToString(), out ushort value))
             {
-                return new Lexeme(LexemeType.Constant, value);
+                return lexemeFactory.Create(LexemeType.Constant, value);
             }
             else
             {
@@ -180,6 +181,7 @@ namespace Compiler.LexicalAnalysis
         {
             return ".,;:()+-*/<>=".Contains(candidate);
         }
+
         
     }
 }

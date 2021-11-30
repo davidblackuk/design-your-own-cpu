@@ -2,7 +2,7 @@
 
 namespace Assembler.Instructions
 {
-    public class ArithmeticInstruction : AssemblerInstruction, IAssemblerInstruction
+    public class ArithmeticInstruction : AssemblerInstruction
     {
         private readonly string instructionName;
         private readonly byte opcodeConstant;
