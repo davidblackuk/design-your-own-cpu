@@ -13,7 +13,7 @@ namespace EmulatorTests.Instructions
         public void Execute_WhenInvoked_ShouldDoNothing()
         {
             var sut = CreateSut();
-            var cpuMock = new Mock<ICPU>();
+            var cpuMock = new Mock<ICpu>();
 
             // no memory set or gegisters so pass is no null ref exceptions
             sut.Execute(cpuMock.Object);

@@ -6,12 +6,12 @@ using Shared;
 
 namespace Emulator
 {
-    public class CPU : ICPU
+    public class Cpu : ICpu
     {
         private readonly IEmulatorInstructionFactory instructionFactory;
 
 
-        public CPU(IRandomAccessMemory memory, IRegisters registers, IFlags flags,
+        public Cpu(IRandomAccessMemory memory, IRegisters registers, IFlags flags,
             IEmulatorInstructionFactory instructionFactory)
         {
             Memory = memory ?? throw new ArgumentNullException(nameof(memory));

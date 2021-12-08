@@ -5,11 +5,6 @@ using Compiler.LexicalAnalysis;
 
 namespace Compiler.SyntacticAnalysis
 {
-    internal interface ISyntaxAnalyser
-    {
-        void Scan();
-    }
-
     internal class SyntaxAnalyser : ISyntaxAnalyser
     {
         private readonly ILexer lexer;
@@ -42,14 +37,13 @@ namespace Compiler.SyntacticAnalysis
                 NextLexeme();
                 
                 // read a comma seperated list of IDS, terminated by a semicolon
-                IDList(LexemeSet.From(LexemeType.Begin, LexemeType.Semicolon, LexemeType.Dot));
+                IdList(LexemeSet.From(LexemeType.Begin, LexemeType.Semicolon, LexemeType.Dot));
             }
 
             do
             {
-                BlockNode node = new BlockNode();
-                ast.Root.Add(node);
-                Block(LexemeSet.From(LexemeType.Dot), node);
+                ast.Root = new BlockNode();
+                Block(LexemeSet.From(LexemeType.Dot), ast.Root);
                 // wile we are not at the terminating period
             } while (!CheckOrSkip(LexemeType.Dot, LexemeSet.Empty));
 
@@ -58,9 +52,9 @@ namespace Compiler.SyntacticAnalysis
         }
 
         
-        private void IDList(LexemeSet stopSet )
+        private void IdList(LexemeSet stopSet )
         {
-            bool complete = false;
+            bool complete;
             do
             {
                 // we expect an identifier
@@ -99,6 +93,8 @@ namespace Compiler.SyntacticAnalysis
                 
                 CheckOrSkip(LexemeSet.From(LexemeType.Semicolon, LexemeType.End), stopSet + LexemeType.Semicolon + startBlock);
 
+                
+                
                 while ((startBlock + LexemeType.Semicolon).Contains(currentLexeme.Type))
                 {
                     StepOverCurrentLexemeIfItsA(LexemeType.Semicolon);
@@ -109,6 +105,7 @@ namespace Compiler.SyntacticAnalysis
             }
             else
             {
+               // StepOverCurrentLexemeIfItsA(LexemeType.Semicolon);
                 var statement = Statement(stopSet);
                 if (statement != null)
                 {
@@ -126,6 +123,7 @@ namespace Compiler.SyntacticAnalysis
                 switch (currentLexeme.Type)
                 {
                     case LexemeType.Identifier:
+                        string identifier = currentLexeme.Value.ToString();
                         // check id exists in the symbol table in the semantic analysis pass
                         NextLexeme();
 
@@ -134,7 +132,7 @@ namespace Compiler.SyntacticAnalysis
                             NextLexeme();
                             res = new AssignmentNode()
                             {
-                                Identifier = "",
+                                Identifier = identifier,
                                 Expression =  Expression(stopSet),
                             };
                         }
@@ -177,6 +175,8 @@ namespace Compiler.SyntacticAnalysis
                         {
                             NextLexeme();
                         }
+
+                        res = writeNode;
                         break;
                 }
             }
@@ -215,13 +215,14 @@ namespace Compiler.SyntacticAnalysis
             
             // left
             var res = Term(stopSet + LexemeType.AddOp);
+            var currentOp = currentLexeme.Value;
             while (currentLexeme.Type == LexemeType.AddOp)
             {
                 Console.WriteLine($"Expression: {currentLexeme} [{stopSet}]");
                 NextLexeme();
                 
                 var nextTerm = Term(stopSet + LexemeType.AddOp);
-                res = new PairNode() { Left = res, Right = nextTerm };
+                res = new PairNode() { Left = res, Right = nextTerm, Operator = currentOp.ToString() };
 
             }
 
@@ -232,15 +233,15 @@ namespace Compiler.SyntacticAnalysis
         {
             Console.WriteLine($"Term: {currentLexeme} [{stopSet}]");
             var res = Factor(stopSet + LexemeType.MulOp);
-            
-            Console.WriteLine($"first factor: {res.ToString()}");
+            var currentOp = currentLexeme.Value;
+            Console.WriteLine($"first factor: {res}");
             while (currentLexeme.Type == LexemeType.MulOp)
             {
                 Console.WriteLine($"Term: {currentLexeme} [{stopSet}]");
                 NextLexeme();
                 var nextFactor = Factor(stopSet + LexemeType.MulOp);
-                Console.WriteLine($"next factor: {nextFactor.ToString()}");
-                res = new PairNode() { Left = res, Right = nextFactor };
+                Console.WriteLine($"next factor: {nextFactor}");
+                res = new PairNode() { Left = res, Right = nextFactor, Operator = currentOp.ToString()};
             }
 
             return res;

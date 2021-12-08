@@ -41,7 +41,7 @@ namespace EmulatorTests
         [Test]
         public void Run_whenHaltedSet_ShouldExitTheRunLoopAndStop()
         {
-            SetUpMockCPU();
+            SetUpMockCpu();
             var sut = CreateSut();
             sut.Run();
         }
@@ -49,7 +49,7 @@ namespace EmulatorTests
         [Test]
         public void Run_whenInstructionExecuted_ShouldIncrementTheProgramCounter()
         {
-            SetUpMockCPU();
+            SetUpMockCpu();
             var sut = CreateSut();
             sut.Run();
             registersMock.VerifySet(r => r.ProgramCounter = (ushort)(expectedAddress + expectedSize));
@@ -58,13 +58,13 @@ namespace EmulatorTests
         [Test]
         public void Run_whenInstructionExecuted_ShouldExecuteTHeCurrentInstruction()
         {
-            var instructionMock = SetUpMockCPU();
+            var instructionMock = SetUpMockCpu();
             var sut = CreateSut();
             sut.Run();
             instructionMock.Verify(i => i.Execute(sut));
         }
 
-        private Mock<IEmulatorInstruction> SetUpMockCPU()
+        private Mock<IEmulatorInstruction> SetUpMockCpu()
         {
             var expectedInstructionMock = new Mock<IEmulatorInstruction>();
             expectedInstructionMock.SetupGet(i => i.Size).Returns(expectedSize);
@@ -79,9 +79,9 @@ namespace EmulatorTests
             return expectedInstructionMock;
         }
 
-        private CPU CreateSut()
+        private Cpu CreateSut()
         {
-            return new CPU(memoryMock?.Object, registersMock?.Object, flagsMock?.Object,
+            return new Cpu(memoryMock?.Object, registersMock?.Object, flagsMock?.Object,
                 instructionFactoryMock?.Object);
         }
     }

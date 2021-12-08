@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Compiler.Exceptions;
 
 namespace Compiler.LexicalAnalysis
 {
+    [ExcludeFromCodeCoverage]  // we don't do integration tests
     internal class InputStream : IInputStream
     {
         private readonly string inputFilename;
@@ -75,7 +77,7 @@ namespace Compiler.LexicalAnalysis
                 throw new CompilerException("Unexpected end of file", LineNumber, ColumnNumber);
             }
 
-            /// pad both sides space so that a new line in source becomes a lexeme break;
+            // pad both sides space so that a new line in source becomes a lexeme break;
             currentLine = " " + currentLine + " ";
             LineNumber += 1;
             ColumnNumber = 0;

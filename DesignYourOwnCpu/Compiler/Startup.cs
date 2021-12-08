@@ -25,7 +25,7 @@ namespace Compiler
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IInputStream>(s => new InputStream(SourceFile));
+            services.AddSingleton<IInputStream>(_ => new InputStream(SourceFile));
             services.AddSingleton<ILexer, Lexer>();
             services.AddSingleton<ISyntaxAnalyser, SyntaxAnalyser>();
             services.AddSingleton<ILexemeFactory, LexemeFactory>();

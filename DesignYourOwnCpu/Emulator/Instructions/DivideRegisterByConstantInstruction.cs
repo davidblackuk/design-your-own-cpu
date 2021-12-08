@@ -10,7 +10,7 @@ namespace Emulator.Instructions
         {
         }
 
-        public void Execute(ICPU cpu)
+        public void Execute(ICpu cpu)
         {
             cpu.Registers[Register] /= Value;
         }

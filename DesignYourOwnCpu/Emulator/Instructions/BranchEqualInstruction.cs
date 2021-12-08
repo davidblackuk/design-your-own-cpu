@@ -10,7 +10,7 @@ namespace Emulator.Instructions
         {
         }
 
-        public void Execute(ICPU cpu)
+        public void Execute(ICpu cpu)
         {
             if (cpu.Flags.Equal) cpu.Registers.ProgramCounter = Value;
         }

@@ -10,7 +10,7 @@ namespace Emulator.Instructions
         {
         }
 
-        public void Execute(ICPU cpu)
+        public void Execute(ICpu cpu)
         {
             cpu.Registers.StackPointer -= 4;
             cpu.Memory.SetWord(cpu.Registers.StackPointer, cpu.Registers.ProgramCounter);

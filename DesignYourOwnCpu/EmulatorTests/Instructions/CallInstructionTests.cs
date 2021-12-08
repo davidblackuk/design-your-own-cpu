@@ -24,8 +24,8 @@ namespace EmulatorTests.Instructions
             RegistersMock.VerifySet(r => r.StackPointer = decrementedStackPointer);
 
             // since its a mock the pre-decrement isn't real, so ignore the address
-            MemoryMock.Verify(M => M.SetWord(It.IsAny<ushort>(), currentProgramCounter));
-            RegistersMock.VerifySet(R => R.ProgramCounter = callAddress);
+            MemoryMock.Verify(m => m.SetWord(It.IsAny<ushort>(), currentProgramCounter));
+            RegistersMock.VerifySet(r => r.ProgramCounter = callAddress);
         }
 
         private CallInstruction CreateSut(ushort expectedProgramCounter)

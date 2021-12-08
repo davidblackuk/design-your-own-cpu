@@ -2,7 +2,7 @@
 
 namespace Emulator
 {
-    public interface ICPU
+    public interface ICpu
     {
         public IRegisters Registers { get; }
 

@@ -2,6 +2,6 @@
 {
     public interface IInterrupt
     {
-        void Execute(ICPU cpu);
+        void Execute(ICpu cpu);
     }
 }

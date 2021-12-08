@@ -36,7 +36,6 @@ namespace Assembler.Symbols
         /// </summary>
         /// <param name="name">symbol name</param>
         /// <param name="address">address for the symbol</param>
-        /// <exception cref="DuplicateSymbolException"></exception>
         public void DefineSymbol(string name, ushort address)
         {
             if (table.ContainsKey(name) && table[name].Address.HasValue)
@@ -60,7 +59,7 @@ namespace Assembler.Symbols
         /// </summary>
         /// <param name="name">Name of the symbol to retrieve</param>
         /// <returns>The requested symbol</returns>
-        /// <exception cref="???"></exception>
+
         public Symbol GetSymbol(string name)
         {
             if (!table.ContainsKey(name))

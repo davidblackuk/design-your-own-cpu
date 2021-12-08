@@ -10,7 +10,6 @@ namespace Assembler.Symbols
         /// </summary>
         /// <param name="name">symbol name</param>
         /// <param name="address">address for the symbol</param>
-        /// <exception cref="DuplicateSymbolException"></exception>
         void DefineSymbol(string name, ushort address);
 
         /// <summary>
@@ -33,7 +32,6 @@ namespace Assembler.Symbols
         /// </summary>
         /// <param name="name">Name of the symbol to retrieve</param>
         /// <returns>The requested symbol</returns>
-        /// <exception cref="???"></exception>
         Symbol GetSymbol(string name);
 
         /// <summary>

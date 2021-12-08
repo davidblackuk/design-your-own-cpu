@@ -4,11 +4,6 @@ using Compiler.Exceptions;
 
 namespace Compiler.LexicalAnalysis
 {
-    internal interface ILexer
-    {
-        Lexeme GetLexeme();
-    }
-
     internal class Lexer : ILexer
     {
        

@@ -5,11 +5,6 @@ using Pastel;
 
 namespace Compiler.Ast
 {
-    internal interface ISymbolTable
-    {
-        void Declare(string identifier);
-    }
-
     internal class SymbolTable: Dictionary<string, Symbol>, ISymbolTable
     {
         public void Declare(string identifier)
@@ -23,16 +18,4 @@ namespace Compiler.Ast
             Console.WriteLine($"Declare identifier: {identifier}");
         }
     }
-    
-    internal class Symbol
-    {
-        public Symbol(string name)
-        {
-            Name = name;
-        }
-        
-        public string Name { get; private set; }
-    }
-
-    
 }

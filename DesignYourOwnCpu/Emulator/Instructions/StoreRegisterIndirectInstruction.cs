@@ -10,7 +10,7 @@ namespace Emulator.Instructions
         {
         }
 
-        public void Execute(ICPU cpu)
+        public void Execute(ICpu cpu)
         {
             var indirectAddress = cpu.Registers[ByteLow];
             cpu.Memory.SetWord(indirectAddress, cpu.Registers[Register]);

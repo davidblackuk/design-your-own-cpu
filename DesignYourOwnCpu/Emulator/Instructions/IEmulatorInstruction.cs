@@ -4,6 +4,6 @@ namespace Emulator.Instructions
 {
     public interface IEmulatorInstruction : IInstruction
     {
-        void Execute(ICPU cpu);
+        void Execute(ICpu cpu);
     }
 }

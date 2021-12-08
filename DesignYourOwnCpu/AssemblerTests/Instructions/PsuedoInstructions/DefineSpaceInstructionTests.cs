@@ -6,7 +6,7 @@ using Moq;
 using NUnit.Framework;
 using Shared;
 
-namespace AssemblerTests.Instructions
+namespace AssemblerTests.Instructions.PsuedoInstructions
 {
     [ExcludeFromCodeCoverage]
     public class DefineSpaceInstructionTests

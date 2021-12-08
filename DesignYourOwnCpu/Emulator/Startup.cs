@@ -27,7 +27,7 @@ namespace Emulator
 
             services.AddLogging();
             services.AddSingleton(Configuration);
-            services.AddSingleton<ICPU, CPU>();
+            services.AddSingleton<ICpu, Cpu>();
             services.AddSingleton<IRandomAccessMemory, RandomAccessMemory>();
             services.AddSingleton<IRegisters, Registers>();
             services.AddSingleton<IEmulatorInstructionFactory, EmulatorInstructionFactory>();

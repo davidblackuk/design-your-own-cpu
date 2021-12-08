@@ -9,7 +9,7 @@ namespace EmulatorTests.Instructions
     [ExcludeFromCodeCoverage]
     public class EmulatorUnitTest
     {
-        protected Mock<ICPU> CpuMock;
+        protected Mock<ICpu> CpuMock;
         protected Mock<IFlags> FlagsMock;
         protected Mock<IRandomAccessMemory> MemoryMock;
         protected Mock<IRegisters> RegistersMock;
@@ -17,7 +17,7 @@ namespace EmulatorTests.Instructions
         [SetUp]
         public virtual void SetUp()
         {
-            CpuMock = new Mock<ICPU>();
+            CpuMock = new Mock<ICpu>();
             RegistersMock = new Mock<IRegisters>();
             MemoryMock = new Mock<IRandomAccessMemory>();
             FlagsMock = new Mock<IFlags>();

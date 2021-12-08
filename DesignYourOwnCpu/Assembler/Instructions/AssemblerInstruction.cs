@@ -61,6 +61,8 @@ namespace Assembler.Instructions
         ///     operand as trimmed strings
         /// </summary>
         /// <param name="???"></param>
+        /// <param name="instructionName"></param>
+        /// <param name="line"></param>
         /// <returns></returns>
         protected (string left, string right) GetOperands(string instructionName, string line)
         {

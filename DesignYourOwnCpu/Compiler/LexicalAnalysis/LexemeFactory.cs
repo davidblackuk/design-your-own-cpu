@@ -1,10 +1,5 @@
 ﻿namespace Compiler.LexicalAnalysis
 {
-    internal interface ILexemeFactory
-    {
-        Lexeme Create(LexemeType type, object value = null);
-    }
-
     internal class LexemeFactory : ILexemeFactory
     {
         private readonly IInputStream inputStream;

@@ -11,7 +11,7 @@ namespace Emulator.Instructions.Interrupts
     [ExcludeFromCodeCoverage] // this would be an integration test
     public class WriteStringInterrupt : IInterrupt
     {
-        public void Execute(ICPU cpu)
+        public void Execute(ICpu cpu)
         {
             var address = cpu.Registers[0];
             while (cpu.Memory[address] != 0)

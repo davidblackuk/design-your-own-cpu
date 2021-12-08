@@ -5,16 +5,16 @@ using Shared;
 
 namespace Assembler.Instructions.PsuedoInstructions
 {
-    public class DefineMessageInstruction : AssemblerInstruction, IAssemblerInstruction
+    public class DefineMessageInstruction : AssemblerInstruction
     {
         public const string InstructionName = "defm";
-        internal readonly List<byte> bytes = new();
+        internal readonly List<byte> Bytes = new();
         private string rawMessage;
 
         /// <summary>
         ///     Size of space defined in bytes
         /// </summary>
-        public override ushort Size => (ushort)bytes.Count;
+        public override ushort Size => (ushort)Bytes.Count;
 
         /// <summary>
         /// </summary>
@@ -37,7 +37,7 @@ namespace Assembler.Instructions.PsuedoInstructions
                 }
                 else
                 {
-                    bytes.Add(MockAsciiMapper.ConvertCharToByte(character));
+                    Bytes.Add(MockAsciiMapper.ConvertCharToByte(character));
                 }
             }
 
@@ -47,7 +47,7 @@ namespace Assembler.Instructions.PsuedoInstructions
 
         public override void WriteBytes(IRandomAccessMemory ram, ushort address)
         {
-            for (ushort i = 0; i < bytes.Count; i++) ram[(ushort)(address + i)] = bytes[i];
+            for (ushort i = 0; i < Bytes.Count; i++) ram[(ushort)(address + i)] = Bytes[i];
         }
 
         [ExcludeFromCodeCoverage]
@@ -72,17 +72,17 @@ namespace Assembler.Instructions.PsuedoInstructions
             switch (character)
             {
                 case '0':
-                    bytes.Add(0);
+                    Bytes.Add(0);
                     break;
                 case 'n':
-                    bytes.Add(MockAsciiMapper.NewLine);
+                    Bytes.Add(MockAsciiMapper.NewLine);
                     break;
                 case 't':
-                    bytes.Add(MockAsciiMapper.Tab);
+                    Bytes.Add(MockAsciiMapper.Tab);
                     break;
                 case '\"':
                 case '\\':
-                    bytes.Add(MockAsciiMapper.ConvertCharToByte(character));
+                    Bytes.Add(MockAsciiMapper.ConvertCharToByte(character));
                     break;
                 default:
                     throw new AssemblerException($"Unknown escape sequence \\{character}");
@@ -91,7 +91,7 @@ namespace Assembler.Instructions.PsuedoInstructions
 
         private bool HandleStartEscapeSymbol(bool isEscaped, char character)
         {
-            if (isEscaped) bytes.Add(MockAsciiMapper.ConvertCharToByte(character));
+            if (isEscaped) Bytes.Add(MockAsciiMapper.ConvertCharToByte(character));
             return !isEscaped;
         }
 

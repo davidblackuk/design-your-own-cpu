@@ -6,7 +6,7 @@ namespace Assembler.Instructions.PsuedoInstructions
     /// <summary>
     ///     Reserves a chunk of memory for storage etc. Only accepts a single size argument
     /// </summary>
-    public class DefineSpaceInstruction : AssemblerInstruction, IAssemblerInstruction
+    public class DefineSpaceInstruction : AssemblerInstruction
     {
         public const string InstructionName = "defs";
 

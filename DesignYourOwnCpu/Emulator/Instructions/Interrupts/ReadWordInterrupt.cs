@@ -26,7 +26,7 @@ namespace Emulator.Instructions.Interrupts
             this.numberParser = numberParser;
         }
 
-        public void Execute(ICPU cpu)
+        public void Execute(ICpu cpu)
         {
             var text = EditNumber();
             cpu.Registers[0] = numberParser.Parse(text);

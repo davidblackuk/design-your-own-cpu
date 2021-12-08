@@ -2,11 +2,6 @@
 
 namespace Compiler.LexicalAnalysis
 {
-    internal interface IKeywordLexemeTypeMap
-    {
-        LexemeType MapsToLexeme(string from);
-    }
-
     internal class KeywordLexemeTypeMap : IKeywordLexemeTypeMap
     {
         private Dictionary<string, LexemeType> map = new()

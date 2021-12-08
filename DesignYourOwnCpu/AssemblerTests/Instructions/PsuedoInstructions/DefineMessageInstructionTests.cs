@@ -23,9 +23,9 @@ namespace AssemblerTests.Instructions.PsuedoInstructions
         {
             var sut = CreateSut();
             sut.Parse($"\"{original}\"");
-            sut.bytes.Count.Should().Be(mascii.Length);
+            sut.Bytes.Count.Should().Be(mascii.Length);
             sut.Size.Should().Be((ushort)mascii.Length);
-            sut.bytes.Should().ContainInOrder(mascii);
+            sut.Bytes.Should().ContainInOrder(mascii);
         }
 
         [Test]

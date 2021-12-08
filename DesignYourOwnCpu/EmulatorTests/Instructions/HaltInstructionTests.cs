@@ -13,7 +13,7 @@ namespace EmulatorTests.Instructions
         public void Execute_WhenInvoked_ShouldStoreTheValueInTheRegister()
         {
             var sut = CreateSut();
-            var cpuMock = new Mock<ICPU>();
+            var cpuMock = new Mock<ICpu>();
             var flagsMock = new Mock<IFlags>();
             cpuMock.SetupGet(c => c.Flags).Returns(flagsMock.Object);
             sut.Execute(cpuMock.Object);

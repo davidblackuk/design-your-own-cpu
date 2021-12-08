@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Assembler.LineSources
 {
@@ -64,7 +65,7 @@ namespace Assembler.LineSources
         /// <returns>The line trimmed. Any comments present are removed</returns>
         private static string RemoveCommentIfPresent(string line, string commentCharacter)
         {
-            var index = line.IndexOf(commentCharacter);
+            var index = line.IndexOf(commentCharacter, StringComparison.Ordinal);
             if (index >= 0) line = line.Substring(0, index);
             return line;
         }

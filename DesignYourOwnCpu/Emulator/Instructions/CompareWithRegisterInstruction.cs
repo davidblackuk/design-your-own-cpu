@@ -10,7 +10,7 @@ namespace Emulator.Instructions
         {
         }
 
-        public void Execute(ICPU cpu)
+        public void Execute(ICpu cpu)
         {
             var left = cpu.Registers[Register];
             var right = cpu.Registers[ByteLow];

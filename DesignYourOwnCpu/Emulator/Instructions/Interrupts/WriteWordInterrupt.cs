@@ -9,7 +9,7 @@ namespace Emulator.Instructions.Interrupts
     [ExcludeFromCodeCoverage] // this would be an integration test
     public class WriteWordInterrupt : IInterrupt
     {
-        public void Execute(ICPU cpu)
+        public void Execute(ICpu cpu)
         {
             Console.Write($"0x{cpu.Registers[0]:X4}");
         }

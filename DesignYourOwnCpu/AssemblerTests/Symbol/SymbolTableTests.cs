@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Assembler.Exceptions;
 using Assembler.Symbols;
 using FluentAssertions;
@@ -58,7 +59,7 @@ namespace AssemblerTests.Symbol
         public void SymbolTable_whenInitialized_ShouldContainTheSystemSymbols()
         {
             var sut = CreateSut();
-            var symbols = sut.SymbolNames;
+            var symbols = sut.SymbolNames.ToArray();
             foreach (var expectedSymbol in InternalSymbols.SystemDefinedSymbols.Keys)
             {
                 symbols.Should().Contain(expectedSymbol);

@@ -5,7 +5,7 @@ using Pastel;
 
 namespace Assembler.Extensions
 {
-    public static class IAssemblerInstructionExtensions
+    public static class AssemblerInstructionExtensions
     {
         public static void ToConsole(this IAssemblerInstruction instruction, ushort address)
         {

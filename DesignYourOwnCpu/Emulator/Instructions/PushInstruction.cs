@@ -10,7 +10,7 @@ namespace Emulator.Instructions
         {
         }
 
-        public void Execute(ICPU cpu)
+        public void Execute(ICpu cpu)
         {
             var registerValue = cpu.Registers[Register];
             cpu.Registers.StackPointer -= 4;

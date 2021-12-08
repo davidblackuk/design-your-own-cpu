@@ -25,7 +25,7 @@ namespace Emulator
             try
             {
                 // Get Service and call method
-                var cpu = serviceProvider.GetService<ICPU>();
+                var cpu = serviceProvider.GetService<ICpu>();
                 cpu.Memory.Load(binaryToExecute);
                 
                 cpu.Run();
