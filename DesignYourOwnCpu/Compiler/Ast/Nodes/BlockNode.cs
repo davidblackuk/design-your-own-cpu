@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Compiler.Ast
+namespace Compiler.Ast.Nodes
 {
     internal class BlockNode : AstNode
     {

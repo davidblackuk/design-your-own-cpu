@@ -37,7 +37,7 @@ $AssemblerFolder = ".\Assembler"
 $EmulatorFolder = ".\Emulator"
 $CompilerFolder = ".\Compiler"
 
-$ExecutableSubFolder="bin\Debug\net5.0"
+$ExecutableSubFolder="bin\Debug\net6.0"
 
 $Assembler = "$AssemblerFolder\$ExecutableSubFolder\Assembler.exe"
 $Emulator = "$EmulatorFolder\$ExecutableSubFolder\Emulator.exe"

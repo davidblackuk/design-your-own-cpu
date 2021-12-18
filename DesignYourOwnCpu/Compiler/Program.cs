@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
-using Compiler.Exceptions;
+using System.IO;
+using System.Reflection;
+using Compiler.Ast;
+using Compiler.LexicalAnalysis;
 using Compiler.SyntacticAnalysis;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Pastel;
+using Microsoft.Extensions.Hosting;
 
 namespace Compiler
 {
@@ -13,32 +16,36 @@ namespace Compiler
     {
         private static void Main(string[] args)
         {
-            IServiceCollection services = new ServiceCollection();
-
-            var startup = new Startup(args);
-            startup.ConfigureServices(services);
-            IServiceProvider serviceProvider = services.BuildServiceProvider();
-
-            if (startup.SourceFile == null) Usage();
-            
-            try
-            {
-                var x = serviceProvider.GetService<ISyntaxAnalyser>();
-                x.Scan();
-            }
-            catch (CompilerException e)
-            {
-                Console.WriteLine($"\nEmulator error: {e.Message}\n".Pastel(Color.Tomato));
-            }
+            CreateHostBuilder(args)
+                .Build()
+                .Run();
         }
-
-        private static void Usage()
+        
+        public static IHostBuilder CreateHostBuilder(string[] args)
         {
-            Console.WriteLine();
-            Console.WriteLine("Emulator Usage:");
-            Console.WriteLine("    dotnet run  -p <path to project file> --input <path for the bin file>");
-            Console.WriteLine();
-            Environment.Exit(0);
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    config.AddJsonFile($"{AppDomain.CurrentDomain.BaseDirectory}{Path.DirectorySeparatorChar}appsettings.json", optional: false);
+                    config.AddEnvironmentVariables();
+
+                    if (args != null)
+                    {
+                        config.AddCommandLine(args);
+                    }
+                })
+                .ConfigureServices((hostContext, services) =>
+                {
+                    services.AddSingleton<IInputStream>(_ => new InputStream(hostContext.Configuration["input"]));
+                    services.AddSingleton<ILexer, Lexer>();
+                    services.AddSingleton<ISyntaxAnalyser, SyntaxAnalyser>();
+                    services.AddSingleton<ILexemeFactory, LexemeFactory>();
+                    services.AddSingleton<IKeywordLexemeTypeMap, KeywordLexemeTypeMap>();
+                    services.AddSingleton<ISymbolTable, SymbolTable>();
+                    services.AddSingleton<IAbstractSyntaxTree, AbstractSyntaxTree>();
+
+                    services.AddHostedService<Compiler>();
+                });
         }
     }
 }

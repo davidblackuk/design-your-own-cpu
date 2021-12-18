@@ -1,6 +1,6 @@
-﻿namespace Compiler.Ast
+﻿namespace Compiler.Ast.Nodes
 {
-    internal class PairNode : AstNode
+    internal class ExpressionNode : AstNode
     {
         public string Operator { get; set; }
 

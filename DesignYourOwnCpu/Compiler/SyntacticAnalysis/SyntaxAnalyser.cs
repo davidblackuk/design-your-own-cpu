@@ -1,7 +1,9 @@
 ﻿using System;
 using Compiler.Ast;
+using Compiler.Ast.Nodes;
 using Compiler.Exceptions;
 using Compiler.LexicalAnalysis;
+using Microsoft.Extensions.Logging;
 
 namespace Compiler.SyntacticAnalysis
 {
@@ -10,16 +12,18 @@ namespace Compiler.SyntacticAnalysis
         private readonly ILexer lexer;
         private readonly IAbstractSyntaxTree ast;
         private readonly ISymbolTable symbolTable;
+        private readonly ILogger<SyntaxAnalyser> logger;
         private Lexeme currentLexeme;
 
         private readonly LexemeSet startExpression = LexemeSet.From(LexemeType.LBracket, LexemeType.Identifier, LexemeType.Constant, LexemeType.Read); 
         private readonly LexemeSet startBlock = LexemeSet.From(LexemeType.Begin, LexemeType.Identifier, LexemeType.If, LexemeType.While, LexemeType.Write); 
         
-        public SyntaxAnalyser(ILexer lexer, IAbstractSyntaxTree ast, ISymbolTable symbolTable)
+        public SyntaxAnalyser(ILexer lexer, IAbstractSyntaxTree ast, ISymbolTable symbolTable, ILogger<SyntaxAnalyser> logger)
         {
             this.lexer = lexer;
             this.ast = ast;
             this.symbolTable = symbolTable;
+            this.logger = logger;
         }
         
         public void Scan()
@@ -47,7 +51,7 @@ namespace Compiler.SyntacticAnalysis
                 // wile we are not at the terminating period
             } while (!CheckOrSkip(LexemeType.Dot, LexemeSet.Empty));
 
-            ast.Dump();
+            ast.Display();
 
         }
 
@@ -82,18 +86,15 @@ namespace Compiler.SyntacticAnalysis
         
         private void Block(LexemeSet stopSet, BlockNode containingBlock)
         {
-            Console.WriteLine($"Block: {currentLexeme} [{stopSet}]");
+            logger.LogDebug($"Block: {currentLexeme} [{stopSet}]");
             CheckOrSkip(stopSet+ startBlock, stopSet + startBlock);
             if (currentLexeme.Type == LexemeType.Begin)
             {
                 NextLexeme();
-                containingBlock = containingBlock.Add(new BlockNode());
-                 
+
                 Block(stopSet + LexemeType.Semicolon + LexemeType.End, containingBlock);
                 
                 CheckOrSkip(LexemeSet.From(LexemeType.Semicolon, LexemeType.End), stopSet + LexemeType.Semicolon + startBlock);
-
-                
                 
                 while ((startBlock + LexemeType.Semicolon).Contains(currentLexeme.Type))
                 {
@@ -117,7 +118,7 @@ namespace Compiler.SyntacticAnalysis
         private AstNode Statement(LexemeSet stopSet)
         {
             AstNode res = null;
-            Console.WriteLine($"Statement: {currentLexeme} [{stopSet}]");
+            logger.LogDebug($"Statement: {currentLexeme} [{stopSet}]");
             if (CheckOrSkip(stopSet + startBlock, stopSet))
             {
                 switch (currentLexeme.Type)
@@ -186,7 +187,7 @@ namespace Compiler.SyntacticAnalysis
 
         private PairNode Comparison(LexemeSet stopSet)
         {
-            Console.WriteLine($"Comparison: {currentLexeme} [{stopSet}]");
+            logger.LogDebug($"Comparison: {currentLexeme} [{stopSet}]");
             
             // left
             var left = Expression(stopSet + LexemeType.RelOp);
@@ -211,18 +212,18 @@ namespace Compiler.SyntacticAnalysis
   
         private AstNode Expression(LexemeSet stopSet)
         {
-            Console.WriteLine($"Expression: {currentLexeme} [{stopSet}]");
+            logger.LogDebug($"Expression: {currentLexeme} [{stopSet}]");
             
             // left
             var res = Term(stopSet + LexemeType.AddOp);
             var currentOp = currentLexeme.Value;
             while (currentLexeme.Type == LexemeType.AddOp)
             {
-                Console.WriteLine($"Expression: {currentLexeme} [{stopSet}]");
+                logger.LogDebug($"Expression: {currentLexeme} [{stopSet}]");
                 NextLexeme();
                 
                 var nextTerm = Term(stopSet + LexemeType.AddOp);
-                res = new PairNode() { Left = res, Right = nextTerm, Operator = currentOp.ToString() };
+                res = new ExpressionNode { Left = res, Right = nextTerm, Operator = currentOp.ToString() };
 
             }
 
@@ -231,16 +232,16 @@ namespace Compiler.SyntacticAnalysis
         
         private AstNode Term(LexemeSet stopSet)
         {
-            Console.WriteLine($"Term: {currentLexeme} [{stopSet}]");
+            logger.LogDebug($"Term: {currentLexeme} [{stopSet}]");
             var res = Factor(stopSet + LexemeType.MulOp);
             var currentOp = currentLexeme.Value;
-            Console.WriteLine($"first factor: {res}");
+            logger.LogDebug($"first factor: {res}");
             while (currentLexeme.Type == LexemeType.MulOp)
             {
-                Console.WriteLine($"Term: {currentLexeme} [{stopSet}]");
+                logger.LogDebug($"Term: {currentLexeme} [{stopSet}]");
                 NextLexeme();
                 var nextFactor = Factor(stopSet + LexemeType.MulOp);
-                Console.WriteLine($"next factor: {nextFactor}");
+                logger.LogDebug($"next factor: {nextFactor}");
                 res = new PairNode() { Left = res, Right = nextFactor, Operator = currentOp.ToString()};
             }
 
@@ -249,7 +250,7 @@ namespace Compiler.SyntacticAnalysis
         
         private AstNode Factor(LexemeSet stopSet)
         {
-            Console.WriteLine($"Factor: {currentLexeme} [{stopSet}]");
+            logger.LogDebug($"Factor: {currentLexeme} [{stopSet}]");
             if (CheckOrSkip(startExpression, stopSet))
             {
                 switch (currentLexeme.Type)
@@ -293,11 +294,11 @@ namespace Compiler.SyntacticAnalysis
             }
 
             // Error message
-            Console.WriteLine($"Line {currentLexeme.LineNumber}: Found token: '{currentLexeme.Type}', Expected (one of): [{okSet}]");
+            logger.LogDebug($"Line {currentLexeme.LineNumber}: Found token: '{currentLexeme.Type}', Expected (one of): [{okSet}]");
 
             while (!skipList.Contains(currentLexeme.Type))
             {
-                Console.WriteLine("skipped lexeme " + currentLexeme.Type);
+                logger.LogDebug("skipped lexeme " + currentLexeme.Type);
                 NextLexeme();
             }
 

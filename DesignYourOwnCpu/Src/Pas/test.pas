@@ -1,6 +1,3 @@
-{ Avaerage out a series of numbers }
-{ enter one number per line and terminate with a zero }
-
 var sum, number, current;
   begin
     sum := 0; { sum of all non-zero values read so far }
@@ -17,6 +14,7 @@ var sum, number, current;
     write(number);
     write(sum);
 
-    if number <> 0 then 
+    if number <> 0 then begin
         write(sum / number); { the average valiue }
+    end;
 end.
