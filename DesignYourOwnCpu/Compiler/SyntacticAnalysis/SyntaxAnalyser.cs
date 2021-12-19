@@ -133,7 +133,7 @@ namespace Compiler.SyntacticAnalysis
                             NextLexeme();
                             res = new AssignmentNode()
                             {
-                                Identifier = identifier,
+                                Identifier = new IdentifierNode(identifier),
                                 Expression =  Expression(stopSet),
                             };
                         }

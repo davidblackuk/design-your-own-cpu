@@ -11,42 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11902a6e-a03a-45f1-9e2c-132ddaafa110" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Compiler/Ast/AstExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Compiler/Compiler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestConfig/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestConfig/TestConfig.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembler/Assembler.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembler/Assembler.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblerTests/AssemblerTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblerTests/AssemblerTests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/AbstractSyntaxTree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/AbstractSyntaxTree.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/AssignmentNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/Nodes/AssignmentNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/AstNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/Nodes/AstNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/BlockNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/Nodes/BlockNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/ComparisonNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/Nodes/ComparisonNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/ConstantNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/Nodes/ConstantNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/ExpressionNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/Nodes/ExpressionNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/IAbstractSyntaxTree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/IAbstractSyntaxTree.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/IdentifierNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/Nodes/IdentifierNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/IfNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/Nodes/IfNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/PairNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/Nodes/PairNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/ProgramNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/Nodes/ProgramNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/ReadNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/Nodes/ReadNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/SymbolTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/SymbolTable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/WhileNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/Nodes/WhileNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/WriteNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/Nodes/WriteNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Compiler.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Compiler.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Startup.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/Ast/AstExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/AstExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/Ast/Nodes/AssignmentNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/Nodes/AssignmentNode.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compiler/SyntacticAnalysis/SyntaxAnalyser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/SyntacticAnalysis/SyntaxAnalyser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompilerTests/CompilerTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CompilerTests/CompilerTests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator/Emulator.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Emulator.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EmulatorTests/EmulatorTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/EmulatorTests/EmulatorTests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/Shared.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Shared.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SharedTests/SharedTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SharedTests/SharedTests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/Pas/test.pas" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Pas/test.pas" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/tool.ps1" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +145,7 @@
       <option name="presentableId" value="Default" />
       <updated>1639827077267</updated>
       <workItem from="1639827080739" duration="214000" />
-      <workItem from="1639827370094" duration="12579000" />
+      <workItem from="1639827370094" duration="13889000" />
     </task>
     <servers />
   </component>

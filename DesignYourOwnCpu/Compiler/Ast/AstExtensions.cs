@@ -23,13 +23,13 @@ internal static class AstExtensions
         WriteTreeStructure(indent);
         if (last)
         {
-            WriteTreeStructure("└─");
-            indent += "  ";
+            WriteTreeStructure(" └─");
+            indent += "   ";
         }
         else
         {
-            WriteTreeStructure("│─");
-            indent += "│ ";
+            WriteTreeStructure(" ├─");
+            indent += " │ ";
         }
         
         switch (node)
@@ -44,7 +44,8 @@ internal static class AstExtensions
 
                 break;
             case AssignmentNode assign:
-                Console.WriteLine($" {assign.Identifier} (:=) ");
+                WriteLineReservedWord(" :=");
+                Display(assign.Identifier, indent, false);
                 Display(assign.Expression, indent, true);
                 break;
             case ConstantNode constant:

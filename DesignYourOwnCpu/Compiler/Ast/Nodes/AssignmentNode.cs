@@ -2,7 +2,7 @@
 {
     internal class AssignmentNode : AstNode
     {
-        public string Identifier { get; set; }
+        public IdentifierNode Identifier { get; set; }
         public AstNode Expression = new ExpressionNode();
        
     }
