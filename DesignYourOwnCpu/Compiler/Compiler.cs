@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
 using Compiler.Exceptions;
+using Compiler.SymanticAnalysis;
 using Compiler.SyntacticAnalysis;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -15,15 +16,18 @@ internal class Compiler : IHostedService
 {
     private readonly IHostApplicationLifetime applicationLifetime;
     private readonly ISyntaxAnalyser syntaxAnalyser;
+    private readonly ISemanticAnalyser semanticAnalyser;
     private readonly IConfiguration config;
     private ILogger<Compiler> logger;
 
     public Compiler(IHostApplicationLifetime applicationLifetime, 
-        ISyntaxAnalyser syntaxAnalyser,
+        ISyntaxAnalyser syntaxAnalyser, 
+        ISemanticAnalyser semanticAnalyser,
         IConfiguration config, ILogger<Compiler> logger)
     {
         this.applicationLifetime = applicationLifetime;
         this.syntaxAnalyser = syntaxAnalyser;
+        this.semanticAnalyser = semanticAnalyser;
         this.config = config;
         this.logger = logger;
     }
@@ -40,6 +44,7 @@ internal class Compiler : IHostedService
         try
         {
             syntaxAnalyser.Scan();
+            semanticAnalyser.Scan();
         }
         catch (CompilerException e)
         {

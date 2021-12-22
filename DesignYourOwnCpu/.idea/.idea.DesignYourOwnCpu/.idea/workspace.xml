@@ -11,10 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11902a6e-a03a-45f1-9e2c-132ddaafa110" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Compiler/SymanticAnalysis/ISemanticAnalyser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Compiler/SymanticAnalysis/SemanticAnalyser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/AstExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/AstExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/Nodes/AssignmentNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/Nodes/AssignmentNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/Ast/ISymbolTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/ISymbolTable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/Ast/SymbolTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/SymbolTable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/Compiler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Compiler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compiler/SyntacticAnalysis/SyntaxAnalyser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/SyntacticAnalysis/SyntaxAnalyser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesignYourOwnCpu.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/DesignYourOwnCpu.sln.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/Pas/average-numbers.pas" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Pas/average-numbers.pas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/Pas/test.pas" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Pas/test.pas" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +40,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a6f849887064ec974cac2c14c9f42e258dc53c4733d5b7791c447f1f885e/IHostBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eeae490c3300468da793a39c7791ea02a588/2b/8886b36b/ILoggingBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3741a4d890ad691432681c46e83ca9a441937df0c9ee454b156c63c0d28cc347/LoggerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -146,6 +154,8 @@
       <updated>1639827077267</updated>
       <workItem from="1639827080739" duration="214000" />
       <workItem from="1639827370094" duration="13889000" />
+      <workItem from="1639911297608" duration="3283000" />
+      <workItem from="1639998696579" duration="7594000" />
     </task>
     <servers />
   </component>
@@ -153,15 +163,15 @@
     <option name="version" value="3" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="97" />
+    <option name="coveragePercentColumnWidth" value="82" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="98" />
+    <option name="symbolColumnWidth" value="83" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 72% 429/1523" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 69% 482/1576" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />

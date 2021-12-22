@@ -52,7 +52,6 @@ namespace Compiler.SyntacticAnalysis
             } while (!CheckOrSkip(LexemeType.Dot, LexemeSet.Empty));
 
             ast.Display();
-
         }
 
         
@@ -65,6 +64,8 @@ namespace Compiler.SyntacticAnalysis
                 if (CheckOrSkip(LexemeSet.From(LexemeType.Identifier), stopSet+ LexemeType.Semicolon + LexemeType.Comma))
                 {
                     // we got an identifier add it to the symbol table
+                    // adding a duplicate symbol outputs a warning, this is really semantic analysis
+                    // but we do that in this phase for convinience
                     symbolTable.Declare(currentLexeme.Value.ToString());
                     NextLexeme();
                 }

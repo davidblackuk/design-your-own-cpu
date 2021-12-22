@@ -25,5 +25,12 @@ namespace Compiler.Ast
             Add(identifier, new Symbol(identifier));
             logger.LogDebug($"Declare identifier: {identifier}");
         }
+
+        public bool Exists(string identifier)
+        {
+            // this is case sensitive at the moment, need to decide if this is the approach we want?
+            return ContainsKey(identifier);
+        }
+        
     }
 }

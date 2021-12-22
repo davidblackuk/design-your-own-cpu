@@ -4,6 +4,7 @@ using System.IO;
 using System.Reflection;
 using Compiler.Ast;
 using Compiler.LexicalAnalysis;
+using Compiler.SymanticAnalysis;
 using Compiler.SyntacticAnalysis;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,11 +39,12 @@ namespace Compiler
                 {
                     services.AddSingleton<IInputStream>(_ => new InputStream(hostContext.Configuration["input"]));
                     services.AddSingleton<ILexer, Lexer>();
-                    services.AddSingleton<ISyntaxAnalyser, SyntaxAnalyser>();
                     services.AddSingleton<ILexemeFactory, LexemeFactory>();
                     services.AddSingleton<IKeywordLexemeTypeMap, KeywordLexemeTypeMap>();
                     services.AddSingleton<ISymbolTable, SymbolTable>();
                     services.AddSingleton<IAbstractSyntaxTree, AbstractSyntaxTree>();
+                    services.AddSingleton<ISyntaxAnalyser, SyntaxAnalyser>();
+                    services.AddSingleton<ISemanticAnalyser, SemanticAnalyser>();
 
                     services.AddHostedService<Compiler>();
                 });

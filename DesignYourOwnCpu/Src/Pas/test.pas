@@ -1,20 +1,22 @@
-var sum, number, current;
+{ Avaerage out a series of numbers }
+{ enter one number per line and terminate with a zero }
+
+var total, count, current;
   begin
-    sum := 0; { sum of all non-zero values read so far }
-    number := 0; { number of values read }
+    total := 0; { total of all non-zero values read so far }
+    count := 0; { count of values read }
     current := read;
 
     while current <> 0 do
     begin
-        sum := sum + current;
-        number := number + 1;
+        total := total + current;
+        count := count + 1;
         current := read
     end;
 
-    write(number);
-    write(sum);
+    write(count);
+    write(total);
 
-    if number <> 0 then begin
-        write(sum / number); { the average valiue }
-    end;
+    if count <> 0 then 
+        write(total / count); { the average valiue }
 end.
