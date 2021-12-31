@@ -13,9 +13,11 @@ internal static class AstExtensions
     
     public static void Display(this IAbstractSyntaxTree tree)
     {
-        Display(tree.Root, "", true);
-        Console.WriteLine();
-        
+        if (tree?.Root != null)
+        {
+            Display(tree.Root, "", true);
+            Console.WriteLine();
+        }
     }
 
     private static void Display(AstNode node, string indent, bool last)
