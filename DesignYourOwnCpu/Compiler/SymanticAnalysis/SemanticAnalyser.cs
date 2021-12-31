@@ -28,7 +28,6 @@ internal class SemanticAnalyser : ISemanticAnalyser
     
     public void Scan(AstNode node)
     {
-        
         switch (node)
         {
             case BlockNode block:
