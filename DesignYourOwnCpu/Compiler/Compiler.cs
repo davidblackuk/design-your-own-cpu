@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using Pastel;
 
 namespace Compiler;
 
+[ExcludeFromCodeCoverage]
 internal class Compiler : IHostedService
 {
     private readonly IHostApplicationLifetime applicationLifetime;

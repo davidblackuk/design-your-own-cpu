@@ -10,7 +10,7 @@ namespace Compiler.LexicalAnalysis
 
         public LexemeType Type { get; }
         
-        public Lexeme(LexemeType type, object value, int lineNumber)
+        public Lexeme(LexemeType type, object value = null, int lineNumber = 0)
         {
             Type = type;
             LineNumber = lineNumber;

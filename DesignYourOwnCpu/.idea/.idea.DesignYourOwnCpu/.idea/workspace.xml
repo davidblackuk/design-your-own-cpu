@@ -11,11 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11902a6e-a03a-45f1-9e2c-132ddaafa110" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CompilerTests/SyntacticAnalysis/SyntaxAnalyserTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Ast/AstExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Ast/AstExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompilerTests/SyntacticAnalysis/LexemeSetTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CompilerTests/SyntacticAnalysis/LexemeSetTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/Compiler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Compiler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/Lexeme.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/LexicalAnalysis/Lexeme.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompilerTests/SyntacticAnalysis/SyntaxAnalyserTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CompilerTests/SyntacticAnalysis/SyntaxAnalyserTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +33,22 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assembler/Instructions/AddInstruction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/49954eb56c674e768be7a97e2a6794c343e00/46/f60ab618/Mock`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assembler/Instructions/CompareInstruction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assembler/Instructions/IAssemblerInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assembler/Instructions/LoadInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/da2d5e229cc352535d41b8acbb2c224edf7fea561499e081e517d56efa9856/OptionsServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/17c935e8e783b3baaff3752f33bda9b6bfa326edf751e8d93b0566db3686a/CallSiteFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/83518354313decd8787bf5eea926117aa37a6b7c14c774d733c6f9be7a8e/FilterLoggingBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eeae490c3300468da793a39c7791ea02a588/2b/8886b36b/ILoggingBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3741a4d890ad691432681c46e83ca9a441937df0c9ee454b156c63c0d28cc347/LoggerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestConfig/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/759ea1f1e492215f8ba139f63e1d1cf15eb8f2e4baf78985ecbb9c9d27e661/HostBuilderContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/446c52e79003a7fc74f3337e27fd90f72fe1d1859ff86b8c66dfeefbb6c5b/LoggingServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/225d9583e6f9a3d6562454fe6c321ad48dbcf7efa345cdb4926c9ea94e419b4/IHostedService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assembler/Instructions/AddInstruction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/241afb45b276872f47b45d544d287d16de4c7d8dca3958485c4f540a4156d/LoggingBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a6f849887064ec974cac2c14c9f42e258dc53c4733d5b7791c447f1f885e/IHostBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assembler/Instructions/CompareInstruction.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -159,6 +168,8 @@
       <workItem from="1639998696579" duration="7594000" />
       <workItem from="1640861717117" duration="378000" />
       <workItem from="1640862343938" duration="10760000" />
+      <workItem from="1640957250956" duration="3486000" />
+      <workItem from="1641044854992" duration="2020000" />
     </task>
     <servers />
   </component>
@@ -166,46 +177,39 @@
     <option name="version" value="3" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="60" />
+    <option name="coveragePercentColumnWidth" value="93" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="214" />
+    <option name="symbolColumnWidth" value="234" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 85% 241/1603" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 94% 103/1664" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 85% 241/1603" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 61% 232/593" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 94% 103/1664" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 84% 94/581" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 85% 241/1603" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 61% 232/593" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 61% 232/593" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 94% 103/1664" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 84% 94/581" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 84% 94/581" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 85% 241/1603" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 61% 232/593" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 61% 232/593" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="SyntacticAnalysis 70% 66/223" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 85% 241/1603" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 61% 232/593" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 61% 232/593" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 94% 103/1664" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 84% 94/581" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 84% 94/581" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="SymanticAnalysis 0% 48/48" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 85% 241/1603" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 61% 232/593" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Compiler 61% 232/593" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 94% 103/1664" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 84% 94/581" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Compiler 84% 94/581" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="SymanticAnalysis 0% 48/48" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="SemanticAnalyser 0% 48/48" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
@@ -230,25 +234,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Compiler/Ast/AstExtensions.cs</url>
-          <line>17</line>
-          <properties documentPath="C:\Users\dablack\Documents\git\design-your-own-cpu\DesignYourOwnCpu\Compiler\Ast\AstExtensions.cs" initialLine="15" containingFunctionPresentation="method 'Display'">
-            <startOffsets>
-              <option value="330" />
-            </startOffsets>
-            <endOffsets>
-              <option value="359" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
