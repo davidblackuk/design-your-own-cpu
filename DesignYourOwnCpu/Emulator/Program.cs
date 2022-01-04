@@ -24,10 +24,13 @@ namespace Emulator
             
             try
             {
-                // Get Service and call method
-                var cpu = serviceProvider.GetService<ICpu>();
+                // Get the CPU
+                ICpu cpu = serviceProvider.GetService<ICpu>();
+
+                // Load the app image at address zero
                 cpu.Memory.Load(binaryToExecute);
                 
+                // Run the CPU
                 cpu.Run();
 
                 Console.WriteLine();

@@ -33,7 +33,10 @@ namespace Emulator
         {
             do
             {
+                // get the 4 bytes from the next instruction
                 var bytes = Memory.Instruction(Registers.ProgramCounter);
+
+                // get an object that emulates the effects of the instruction
                 var instruction =
                     instructionFactory.Create(bytes.opcode, bytes.register, bytes.byteHigh, bytes.byteLow);
 
