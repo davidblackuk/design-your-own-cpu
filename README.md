@@ -239,6 +239,6 @@ and here they are gamboling on Linux
 [8]: https://github.com/davidblackuk/design-your-own-cpu/blob/main/images/linux.png
 [9]: https://github.com/davidblackuk/design-your-own-cpu/blob/main/images/windows.png
 
-[10]: DesignYourOwnCpu\Assembler\Readme.md
-[11]: DesignYourOwnCpu\Emulator\Readme.md
-[12]: DesignYourOwnCpu\Compiler\Readme.md
+[10]: DesignYourOwnCpu/Assembler/Readme.md
+[11]: DesignYourOwnCpu/Emulator/Readme.md
+[12]: DesignYourOwnCpu/Compiler/Readme.md
