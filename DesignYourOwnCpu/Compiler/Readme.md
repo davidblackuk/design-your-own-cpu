@@ -4,11 +4,11 @@ Before leaping into the syntax of the language here's a demo program that averag
 
 ```pascal
 { Average a series of numbers }
-{ enter one number per line and terminate with a zero }
+{ enter one poitive number per line and terminate with a zero }
 
 var sum, number, current;
   begin
-    sum := 0;           { sum of all non-zero values read so fat }
+    sum := 0;           { sum of all non-zero values read so far }
     number := 0;        { number of values read }
     current := read;    { reads the first int }
 
@@ -46,21 +46,21 @@ Almost all of the diagrams here will be implemented as methods in the recursive 
 
 A program consists of an optional declaration of variables,  a  `block` and is terminated by a `.` 
 
-![program definition](images/compiler/program.svg)
+![program definition](images/program.svg)
 
 
 ### block
 
 A `block` is either a single statement, or the keyword `BEGIN` followed by a semicolon separated set of nested blocks and a terminating `END` keyword.
 
-![program definition](images/compiler/block.svg)
+![program definition](images/block.svg)
 
 
 ### idList
 
 An `idList` consists of a comma separated list of identifiers, terminated with a "`;`". Variables in the language are currently 16 bit integers, this maps onto the register size of our CPU design. 
 
-![program definition](images/compiler/idlist.svg)
+![program definition](images/idlist.svg)
 
 
 ### statement
@@ -72,28 +72,28 @@ Statements form the main meat of the source program. They are composed of
 + An `if` statement that optionally executes a block of code based on a condition
 + A `while` loop that iterates while a particular condition is true 
 
-![program definition](images/compiler/statement.svg)
+![program definition](images/statement.svg)
 
 
 ### comparison
 
 Comparisons are composed of two expressions seperated by a `relop` (a relational operator such as '`>`', '`<`' etc)
 
-![program definition](images/compiler/comparison.svg)
+![program definition](images/comparison.svg)
 
 
 ### expression
 
 For an expression we have a `term`, or a series of `term`s separated by `addop`s ("`+`" or "`-`").
 
-![program definition](images/compiler/expression.svg)
+![program definition](images/expression.svg)
 
 
 ### addop
 
 An addop is either a plus or minus.
 
-![program definition](images/compiler/addop.svg)
+![program definition](images/addop.svg)
 
 
 
@@ -104,7 +104,7 @@ Note due to the recursive nature of this, the `term` consists of `factor`s separ
 
 This splitting of the addition and multiplication  enforces the rule that `/` or `*` are processed before `+` or `-`. This enforces operator president and implements BODMAS.
 
-![program definition](images/compiler/term.svg)
+![program definition](images/term.svg)
 
 
 
@@ -112,7 +112,7 @@ This splitting of the addition and multiplication  enforces the rule that `/` or
 
 A `mulop` is either a star or a slash
 
-![program definition](images/compiler/mulop.svg)
+![program definition](images/mulop.svg)
 
 
 ### factor
@@ -124,31 +124,31 @@ A factor is either
 + the read function (that returns an integer read from the console)
 + a bracket delimited expression
 
-![program definition](images/compiler/factor.svg)
+![program definition](images/factor.svg)
 
  
 ### relop
 
 THe supported relational operators are:
 
-![program definition](images/compiler/relop.svg)
+![program definition](images/relop.svg)
 
 ### identifier
 
 Identifiers are composed of one or more upper or lower case letters. Identifiers are not case sensitive in the language.
 
-![program definition](images/compiler/identifier.svg)
+![program definition](images/identifier.svg)
 
  
 ### constant
 
 Contsants are composed of one or more decimal digits.
 
-![program definition](images/compiler/constant.svg)
+![program definition](images/constant.svg)
 
 ### comment
 
 A comment is any series of characters inside a pair of curly braces. Comments **do not nest**
 
-![program definition](images/compiler/comment.svg)
+![program definition](images/comment.svg)
  
