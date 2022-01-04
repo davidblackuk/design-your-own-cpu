@@ -46,21 +46,21 @@ Almost all of the diagrams here will be implemented as methods in the recursive 
 
 A program consists of an optional declaration of variables,  a  `block` and is terminated by a `.` 
 
-![program definition](images/program.svg)
+![program definition](Images/program.svg)
 
 
 ### block
 
 A `block` is either a single statement, or the keyword `BEGIN` followed by a semicolon separated set of nested blocks and a terminating `END` keyword.
 
-![program definition](images/block.svg)
+![program definition](Images/block.svg)
 
 
 ### idList
 
 An `idList` consists of a comma separated list of identifiers, terminated with a "`;`". Variables in the language are currently 16 bit integers, this maps onto the register size of our CPU design. 
 
-![program definition](images/idlist.svg)
+![program definition](Images/idlist.svg)
 
 
 ### statement
@@ -72,28 +72,28 @@ Statements form the main meat of the source program. They are composed of
 + An `if` statement that optionally executes a block of code based on a condition
 + A `while` loop that iterates while a particular condition is true 
 
-![program definition](images/statement.svg)
+![program definition](Images/statement.svg)
 
 
 ### comparison
 
 Comparisons are composed of two expressions seperated by a `relop` (a relational operator such as '`>`', '`<`' etc)
 
-![program definition](images/comparison.svg)
+![program definition](Images/comparison.svg)
 
 
 ### expression
 
 For an expression we have a `term`, or a series of `term`s separated by `addop`s ("`+`" or "`-`").
 
-![program definition](images/expression.svg)
+![program definition](Images/expression.svg)
 
 
 ### addop
 
 An addop is either a plus or minus.
 
-![program definition](images/addop.svg)
+![program definition](Images/addop.svg)
 
 
 
@@ -104,7 +104,7 @@ Note due to the recursive nature of this, the `term` consists of `factor`s separ
 
 This splitting of the addition and multiplication  enforces the rule that `/` or `*` are processed before `+` or `-`. This enforces operator president and implements BODMAS.
 
-![program definition](images/term.svg)
+![program definition](Images/term.svg)
 
 
 
@@ -112,7 +112,7 @@ This splitting of the addition and multiplication  enforces the rule that `/` or
 
 A `mulop` is either a star or a slash
 
-![program definition](images/mulop.svg)
+![program definition](Images/mulop.svg)
 
 
 ### factor
@@ -124,31 +124,31 @@ A factor is either
 + the read function (that returns an integer read from the console)
 + a bracket delimited expression
 
-![program definition](images/factor.svg)
+![program definition](Images/factor.svg)
 
  
 ### relop
 
 THe supported relational operators are:
 
-![program definition](images/relop.svg)
+![program definition](Images/relop.svg)
 
 ### identifier
 
 Identifiers are composed of one or more upper or lower case letters. Identifiers are not case sensitive in the language.
 
-![program definition](images/identifier.svg)
+![program definition](Images/identifier.svg)
 
  
 ### constant
 
 Contsants are composed of one or more decimal digits.
 
-![program definition](images/constant.svg)
+![program definition](Images/constant.svg)
 
 ### comment
 
 A comment is any series of characters inside a pair of curly braces. Comments **do not nest**
 
-![program definition](images/comment.svg)
+![program definition](Images/comment.svg)
  
