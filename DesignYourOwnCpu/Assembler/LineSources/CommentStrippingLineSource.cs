@@ -66,7 +66,11 @@ namespace Assembler.LineSources
         private static string RemoveCommentIfPresent(string line, string commentCharacter)
         {
             var index = line.IndexOf(commentCharacter, StringComparison.Ordinal);
-            if (index >= 0) line = line.Substring(0, index);
+            if (index >= 0)
+            {
+                line = line.Substring(0, index);
+            }
+
             return line;
         }
     }

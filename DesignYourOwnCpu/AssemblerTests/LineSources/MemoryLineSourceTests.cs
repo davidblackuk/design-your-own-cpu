@@ -19,7 +19,11 @@ Line 3
         {
             var sut = CreateSut(TestText);
             var lines = new List<string>();
-            foreach (var line in sut.Lines()) lines.Add(line);
+            foreach (var line in sut.Lines())
+            {
+                lines.Add(line);
+            }
+
             CollectionAssert.Contains(lines, "Line 1");
             CollectionAssert.Contains(lines, "Line 2");
             CollectionAssert.Contains(lines, "Line 3");

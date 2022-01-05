@@ -20,8 +20,11 @@ namespace Emulator
             IServiceProvider serviceProvider = services.BuildServiceProvider();
             
             var binaryToExecute = startup.Configuration["input"];
-            if (binaryToExecute == null) Usage();
-            
+            if (binaryToExecute == null)
+            {
+                Usage();
+            }
+
             try
             {
                 // Get the CPU

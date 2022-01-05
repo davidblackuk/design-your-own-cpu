@@ -36,7 +36,10 @@ namespace Assembler.Instructions
         public override string ToString()
         {
             if (OpCode == opcodeConstant)
+            {
                 return $"{instructionName} r{Register}, 0x{ByteHigh:X2}{ByteLow:X2}";
+            }
+
             return $"{instructionName}  r{Register}, r{ByteLow}";
         }
     }

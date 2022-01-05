@@ -42,12 +42,18 @@ namespace Assembler.Instructions.PsuedoInstructions
             }
 
             // if we got here then we have a \ at the very end of the string
-            if (isEscaped) throw new AssemblerException("Unterminated escape sequence at line end");
+            if (isEscaped)
+            {
+                throw new AssemblerException("Unterminated escape sequence at line end");
+            }
         }
 
         public override void WriteBytes(IRandomAccessMemory ram, ushort address)
         {
-            for (ushort i = 0; i < Bytes.Count; i++) ram[(ushort)(address + i)] = Bytes[i];
+            for (ushort i = 0; i < Bytes.Count; i++)
+            {
+                ram[(ushort)(address + i)] = Bytes[i];
+            }
         }
 
         [ExcludeFromCodeCoverage]
@@ -62,7 +68,9 @@ namespace Assembler.Instructions.PsuedoInstructions
             var endIndex = source.LastIndexOf('"');
 
             if (startIndex == -1 || endIndex == -1 || startIndex == endIndex)
+            {
                 throw new AssemblerException("Malformed message definition: Messages must be enclosed in quotes");
+            }
 
             rawMessage = source.Substring(startIndex + 1, endIndex - startIndex - 1);
         }
@@ -91,7 +99,11 @@ namespace Assembler.Instructions.PsuedoInstructions
 
         private bool HandleStartEscapeSymbol(bool isEscaped, char character)
         {
-            if (isEscaped) Bytes.Add(MockAsciiMapper.ConvertCharToByte(character));
+            if (isEscaped)
+            {
+                Bytes.Add(MockAsciiMapper.ConvertCharToByte(character));
+            }
+
             return !isEscaped;
         }
 

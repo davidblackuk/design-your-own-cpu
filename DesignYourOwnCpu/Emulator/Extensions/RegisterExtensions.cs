@@ -14,7 +14,11 @@ namespace Emulator.Extensions
             WriteRegister("SP", registers.StackPointer);
             Console.WriteLine();
 
-            for (byte index = 0; index < 8; index++) WriteRegister($"R{index}", registers[index]);
+            for (byte index = 0; index < 8; index++)
+            {
+                WriteRegister($"R{index}", registers[index]);
+            }
+
             Console.WriteLine();
         }
 

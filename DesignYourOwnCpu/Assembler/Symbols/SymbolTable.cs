@@ -22,7 +22,9 @@ namespace Assembler.Symbols
         public SymbolTable()
         {
             foreach (var symbol in InternalSymbols.SystemDefinedSymbols.Keys)
+            {
                 DefineSymbol(symbol, InternalSymbols.SystemDefinedSymbols[symbol]);
+            }
         }
 
         /// <summary>
@@ -39,7 +41,10 @@ namespace Assembler.Symbols
         public void DefineSymbol(string name, ushort address)
         {
             if (table.ContainsKey(name) && table[name].Address.HasValue)
+            {
                 throw new AssemblerException($"Duplicate symbol '{name}' defined");
+            }
+
             table[name] = new Symbol(name, address);
         }
 
@@ -49,7 +54,10 @@ namespace Assembler.Symbols
         /// <param name="name">The symbol name</param>
         public void ReferenceSymbol(string name)
         {
-            if (!table.ContainsKey(name)) table[name] = new Symbol(name);
+            if (!table.ContainsKey(name))
+            {
+                table[name] = new Symbol(name);
+            }
         }
 
         /// <summary>
@@ -63,7 +71,10 @@ namespace Assembler.Symbols
         public Symbol GetSymbol(string name)
         {
             if (!table.ContainsKey(name))
+            {
                 throw new AssemblerException($"Undefined symbol: {name}");
+            }
+
             return table[name];
         }
 

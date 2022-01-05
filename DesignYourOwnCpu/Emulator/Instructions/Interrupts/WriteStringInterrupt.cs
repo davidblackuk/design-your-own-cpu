@@ -18,9 +18,14 @@ namespace Emulator.Instructions.Interrupts
             {
                 var mascii = cpu.Memory[address];
                 if (mascii == MockAsciiMapper.NewLine)
+                {
                     Console.WriteLine();
+                }
                 else
+                {
                     Console.Write(MockAsciiMapper.ConvertByteToChar(mascii));
+                }
+
                 address++;
             }
         }

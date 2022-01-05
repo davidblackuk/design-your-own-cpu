@@ -97,7 +97,10 @@ namespace SharedTests
         private RandomAccessMemory CreateSut(byte[] bytes = null)
         {
             if (bytes == null)
+            {
                 return new RandomAccessMemory();
+            }
+
             return new RandomAccessMemory(bytes);
         }
     }

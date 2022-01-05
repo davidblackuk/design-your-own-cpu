@@ -22,7 +22,10 @@ Line 3
         {
             var sut = CreateSut(TestText);
             var lines = new List<string>();
-            foreach (var line in sut.Lines()) lines.Add(line);
+            foreach (var line in sut.Lines())
+            {
+                lines.Add(line);
+            }
 
             lines.Count.Should().Be(3);
             CollectionAssert.Contains(lines, "Line 1");

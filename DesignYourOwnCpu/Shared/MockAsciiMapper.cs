@@ -239,25 +239,39 @@ namespace Shared
 
         public static char ConvertByteToChar(byte ascii)
         {
-            if (ByteToCharMap.ContainsKey(ascii)) return ByteToCharMap[ascii];
+            if (ByteToCharMap.ContainsKey(ascii))
+            {
+                return ByteToCharMap[ascii];
+            }
 
             return '.';
         }
 
         public static byte ConvertCharToByte(char character)
         {
-            if (CharToByteMap.Keys.Count == 0) CreateCharToByteMap();
+            if (CharToByteMap.Keys.Count == 0)
+            {
+                CreateCharToByteMap();
+            }
 
-            if (!CharToByteMap.ContainsKey(character)) return 255;
+            if (!CharToByteMap.ContainsKey(character))
+            {
+                return 255;
+            }
+
             return CharToByteMap[character];
         }
 
         private static void CreateCharToByteMap()
         {
             foreach (var code in ByteToCharMap.Keys)
+            {
                 // the byte to char map maps a couple of things to underscore, so the reverse map only need one
                 if (!CharToByteMap.ContainsKey(ByteToCharMap[code]))
+                {
                     CharToByteMap.Add(ByteToCharMap[code], code);
+                }
+            }
         }
     }
 }

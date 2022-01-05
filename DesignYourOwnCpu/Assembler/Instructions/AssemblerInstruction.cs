@@ -69,8 +69,10 @@ namespace Assembler.Instructions
             var parts = line.Split(",".ToCharArray(),
                 StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
             if (parts.Length != 2)
+            {
                 throw new AssemblerException(
                     $"Expected two operands for instruction: {instructionName} , but found {parts.Length}");
+            }
 
             return (parts[0], parts[1]);
         }
@@ -114,21 +116,31 @@ namespace Assembler.Instructions
         protected void ParseConstantValueOrSymbol(string source)
         {
             if (IsLabel(source))
+            {
                 RecordSymbolForResolution(source);
+            }
             else
+            {
                 ParseValue(source);
+            }
         }
 
         protected byte ParseRegister(string source)
         {
-            if (!IsRegister(source)) throw new AssemblerException("Expected a register but got: " + source);
+            if (!IsRegister(source))
+            {
+                throw new AssemblerException("Expected a register but got: " + source);
+            }
 
             var registerNumber = source.Substring(1);
 
             // no need to try parse as we know it's a valis register so has to be a numeric digit
             var register = byte.Parse(registerNumber);
             if (register > Constants.MaxRegisterNumber)
+            {
                 throw new AssemblerException($"{source} is an illegal register number, values registers are r0..r7");
+            }
+
             return register;
         }
 

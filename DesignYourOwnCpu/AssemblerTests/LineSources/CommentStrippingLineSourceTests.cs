@@ -28,7 +28,10 @@ Line 5 # Really this is also; erm... possible
         {
             var sut = CreateSut(TestText);
             var lines = new List<string>();
-            foreach (var line in sut.Lines()) lines.Add(line);
+            foreach (var line in sut.Lines())
+            {
+                lines.Add(line);
+            }
 
             lines.Count.Should().Be(6);
             CollectionAssert.Contains(lines, ".label1");

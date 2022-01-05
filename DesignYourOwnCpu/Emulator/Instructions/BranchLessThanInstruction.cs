@@ -12,7 +12,10 @@ namespace Emulator.Instructions
 
         public void Execute(ICpu cpu)
         {
-            if (cpu.Flags.LessThan) cpu.Registers.ProgramCounter = Value;
+            if (cpu.Flags.LessThan)
+            {
+                cpu.Registers.ProgramCounter = Value;
+            }
         }
     }
 }

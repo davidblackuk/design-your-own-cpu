@@ -24,8 +24,12 @@ namespace EmulatorTests
             sut[(byte)register] = ExpectedValue;
             sut[(byte)register].Should().Be(ExpectedValue);
             for (byte i = 0; i < 8; i++)
+            {
                 if (i != register)
+                {
                     sut[i].Should().Be(0);
+                }
+            }
         }
 
         [Test]
