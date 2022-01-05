@@ -8,7 +8,7 @@
         public byte OpCode { get; protected set; }
 
         /// <summary>
-        ///     The rsgister r0..7
+        ///     The register r0..7
         /// </summary>
         public byte Register { get; protected set; }
 

@@ -2,7 +2,7 @@
 
 namespace Emulator.Instructions
 {
-    public class MultiplyRegisterWithRegisterInstruction : CompareInstruction, IEmulatorInstruction
+    public class MultiplyRegisterWithRegisterInstruction : EmulatorInstruction, IEmulatorInstruction
     {
         public const byte Opcode = OpCodes.MultiplyRegisterWithRegister;
 

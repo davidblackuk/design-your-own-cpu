@@ -5,6 +5,9 @@
         private const ushort ProgramCounterDefaultValue = 0;
         private const ushort StackPointerDefaultValue = 0xFFFF;
 
+        private const int ProgramCounterRegister = 8;
+        private const int StackPointerRegister = 9;
+        
         private readonly ushort[] registers  =
             { 0, 0, 0, 0, 0, 0, 0, 0, ProgramCounterDefaultValue, StackPointerDefaultValue };
 
@@ -19,8 +22,8 @@
         /// </summary>
         public ushort ProgramCounter
         {
-            get => registers[8];
-            set => registers[8] = value;
+            get => registers[ProgramCounterRegister];
+            set => registers[ProgramCounterRegister] = value;
         }
 
         /// <summary>
@@ -28,8 +31,8 @@
         /// </summary>
         public ushort StackPointer
         {
-            get => registers[9];
-            set => registers[9] = value;
+            get => registers[StackPointerRegister];
+            set => registers[StackPointerRegister] = value;
         }
     }
 }

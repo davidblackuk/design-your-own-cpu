@@ -2,7 +2,7 @@
 
 namespace Emulator.Instructions
 {
-    public class SubtractRegisterFromRegisterInstruction : CompareInstruction, IEmulatorInstruction
+    public class SubtractRegisterFromRegisterInstruction : EmulatorInstruction, IEmulatorInstruction
     {
         public const byte Opcode = OpCodes.SubtractRegisterFromRegister;
 

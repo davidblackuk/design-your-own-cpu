@@ -4,7 +4,7 @@ Before leaping into the syntax of the language here's a demo program that averag
 
 ```pascal
 { Average a series of numbers }
-{ enter one poitive number per line and terminate with a zero }
+{ enter one positive number per line and terminate with a zero }
 
 var sum, number, current;
   begin
@@ -23,7 +23,7 @@ var sum, number, current;
     write(sum);
 
     if number <> 0 then 
-        write(sum / number); { the average valiue }
+        write(sum / number); { the average value }
 end.
 
 ```
@@ -31,7 +31,7 @@ end.
 
 ## Syntax
 
-The following railroad diagrams show the syntax of the version 0.1 of the Pascal-ish compiler. Many simplyfying assumptions have been made to bootstrap the compiler that may be revisited later.
+The following railroad diagrams show the syntax of the version 0.1 of the Pascal-ish compiler. Many simplifying assumptions have been made to bootstrap the compiler that may be revisited later.
 
 In particular there are no notions of
 

@@ -2,7 +2,7 @@
 
 namespace Emulator.Instructions
 {
-    public class DivideRegisterByRegisterInstruction : CompareInstruction, IEmulatorInstruction
+    public class DivideRegisterByRegisterInstruction : EmulatorInstruction, IEmulatorInstruction
     {
         public const byte Opcode = OpCodes.DivideRegisterByRegister;
 

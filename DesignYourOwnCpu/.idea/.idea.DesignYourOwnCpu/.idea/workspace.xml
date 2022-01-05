@@ -11,10 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11902a6e-a03a-45f1-9e2c-132ddaafa110" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesignYourOwnCpu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/Compiler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Compiler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler/LexicalAnalysis/Lexeme.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/LexicalAnalysis/Lexeme.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CompilerTests/SyntacticAnalysis/SyntaxAnalyserTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CompilerTests/SyntacticAnalysis/SyntaxAnalyserTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emulator/Class Diagrams/Noop.cd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emulator/Images/block-diagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Emulator/Images/nop.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/AddRegisterToRegisterInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/AddRegisterToRegisterInstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/DivideRegisterByRegisterInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/DivideRegisterByRegisterInstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/MultiplyRegisterWithRegisterInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/MultiplyRegisterWithRegisterInstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Instructions/SubtractRegisterFromRegisterInstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Instructions/SubtractRegisterFromRegisterInstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Emulator/Registers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator/Registers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/Instruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Instruction.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,6 +177,7 @@
       <workItem from="1640862343938" duration="10760000" />
       <workItem from="1640957250956" duration="3486000" />
       <workItem from="1641044854992" duration="2020000" />
+      <workItem from="1641379272114" duration="630000" />
     </task>
     <servers />
   </component>
@@ -180,34 +188,34 @@
     <option name="coveragePercentColumnWidth" value="93" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="234" />
+    <option name="symbolColumnWidth" value="241" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 94% 103/1664" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 93% 99/1353" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 94% 103/1664" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 93% 99/1353" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Compiler 84% 94/581" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 94% 103/1664" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 93% 99/1353" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Compiler 84% 94/581" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Compiler 84% 94/581" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 94% 103/1664" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 93% 99/1353" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Compiler 84% 94/581" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Compiler 84% 94/581" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="SymanticAnalysis 0% 48/48" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 94% 103/1664" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 93% 99/1353" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Compiler 84% 94/581" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Compiler 84% 94/581" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="SymanticAnalysis 0% 48/48" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
