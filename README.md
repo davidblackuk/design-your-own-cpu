@@ -8,7 +8,7 @@ Specific videos:
  - [Write Your Own Assembler for Your Own CPU][4]
  - [As yet un released video][5]
 
-Gary's [original source][2] is available on Github
+Gary's [original source][2] is available on Github, this is in the  python file `vASM.py` at the top level. My project is written in C# and ever so slightly larger.
 
 This page contains a descriptions of the Instruction Set Architecture and the tooling that the suite provides to assemble and execute that ISA. Specific pages exist that outline the implementation of the tools in the suite
 
@@ -19,9 +19,13 @@ This page contains a descriptions of the Instruction Set Architecture and the to
 
 ## Assembly language
 
-Assembly language is written one instruction per line. Lines starting with the comment character `#` are ignored. Any lines with trailing comments 
+Assembly language is written one instruction per line. Lines starting with the comment character `#` are ignored. Any lines with trailing comments :
 
+
+```nasm
     LD R1, 65535 # set all bits to 1
+```
+
 
 will have the training comment removed before parsing.
 
