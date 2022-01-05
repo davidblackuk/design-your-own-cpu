@@ -2,7 +2,7 @@
 
 namespace Emulator.Instructions
 {
-    public class PopInstruction : EmulatorInstruction, IEmulatorInstruction
+    public class PopInstruction : StackInstruction, IEmulatorInstruction
     {
         public const byte Opcode = OpCodes.Pop;
 
@@ -10,10 +10,6 @@ namespace Emulator.Instructions
         {
         }
 
-        public void Execute(ICpu cpu)
-        {
-            cpu.Registers[Register] = cpu.Memory.GetWord(cpu.Registers.StackPointer);
-            cpu.Registers.StackPointer += 4;
-        }
+        public void Execute(ICpu cpu) => cpu.Registers[Register] = Pop(cpu);
     }
 }

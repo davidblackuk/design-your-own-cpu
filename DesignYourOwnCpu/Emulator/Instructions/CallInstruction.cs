@@ -2,7 +2,8 @@
 
 namespace Emulator.Instructions
 {
-    public class CallInstruction : EmulatorInstruction, IEmulatorInstruction
+
+    public class CallInstruction : StackInstruction, IEmulatorInstruction
     {
         public const byte Opcode = OpCodes.Call;
 
@@ -12,8 +13,7 @@ namespace Emulator.Instructions
 
         public void Execute(ICpu cpu)
         {
-            cpu.Registers.StackPointer -= 4;
-            cpu.Memory.SetWord(cpu.Registers.StackPointer, cpu.Registers.ProgramCounter);
+            Push(cpu.Registers.ProgramCounter, cpu);
             cpu.Registers.ProgramCounter = Value;
         }
     }

@@ -152,12 +152,156 @@ comes from the ByteLow property of the `Instruction` base class, the value comes
 
 Comparisons, like mathematical operations come in two variants, one comparing a register to another register: `CompareWithRegisterInstruction` 
 and the other comparing a register to a constant value: `CompareWithConstantInstruction`. Comparions are slightly different to other instructions 
-as we interpose a new base class 'CompareInstruction' between the implementation class and the 'EmulatorInstruction'. 
+as we interpose a new base class `CompareInstruction` between the implementation class and the `EmulatorInstruction`. 
 
-We introduced 'CompareInstruction' because the the code to set the Flags is independant of the source of the value (register or constant).
+![Compare](Images/compare.png)
+
+We introduced `CompareInstruction` because the the code to set the Flags is independant of the source of the value (register or constant).
+
+```C#
+    public class CompareInstruction : EmulatorInstruction
+    {
+        public void Compare(ushort left, ushort right, IFlags flags)
+        {
+            flags.Equal = left == right;
+            flags.GreaterThan = left > right;
+            flags.LessThan = left < right;
+        }
+    }
+```
+The compare function sets the actual Flags. All flags are set in one action. THe ISA has no notion of branch if greater than or equal,
+in a RISC instruction set like the original Gary Explains ISA, you would compare and then `BGE Address`, `BEQ Address`. 
+
+The implementations of the two compare instructions as previously mentioned, differ only by the source of the second value to compare with
+
+```C#
+    public class CompareWithRegisterInstruction : CompareInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu)
+        {
+            var left = cpu.Registers[Register];
+            var right = cpu.Registers[ByteLow];
+            Compare(left, right, cpu.Flags);
+        }
+    }
+
+    public class CompareWithConstantInstruction : CompareInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu)
+        {
+            var left = cpu.Registers[Register];
+            var right = Value;
+            Compare(left, right, cpu.Flags);
+        }
+    }
+```
+
+### Branch operations (`BRA`, `BEQ`, `BGT`, `BLT`)
+
+Branch operations work by (optionally) setting the `PC` to the address from which execution should continue on the 
+next CPU cycle. the `BRA` instruction does this regardless of any conditions, the address is sored in the `ByteHigh` 
+and `ByteLow` of the instructions data and acessed via the `Value` property:
+
+```C#
+    public class BranchAlwaysInstruction : EmulatorInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu)
+        {
+            cpu.Registers.ProgramCounter = Value;
+        }
+    }
+```
+
+the `BEQ`, `BGT` and `BLT` instructions only differ by the flag they test to determine if the branch should be taken. Here 
+is the implementation of `BEQ`. 
+
+```C#
+    public class BranchEqualInstruction : EmulatorInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu)
+        {
+            if (cpu.Flags.Equal) { 
+                cpu.Registers.ProgramCounter = Value;
+            }
+        }
+    }
+```
+
+### Stack operations (`PUSH`, `POP`, `CALL`, `RET`)
+
+Once again for stack opperations we have a shared base class `StackInstruction` that implements the Push and Pop operations as these 
+are used by the `CALL`, `RET`, `PUSH` and `POP` Instructions.
+
+![Stack](Images/stack.png)
+
+```C#
+    public class StackInstruction : EmulatorInstruction
+    {
+       
+        public void Push(ushort value, ICpu cpu)
+        {
+            cpu.Registers.StackPointer -= 4;
+            cpu.Memory.SetWord(cpu.Registers.StackPointer, value);
+        }
+
+        public ushort Pop(ICpu cpu)
+        {
+            var res = cpu.Memory.GetWord(cpu.Registers.StackPointer);
+            cpu.Registers.StackPointer += 4;
+            return res;
+        }
+    }
+```
+
+`Push()`, decrements the stack pointer (remember the stack grows down from the top of memory), and stores the value being 
+pushed at the address now contained in that stack pointer.
+
+`Pop()`, gets the word stored at the address in the current stack pointer and then increments the stack pointer to point to 
+the preceding value on the stack.
+
+The `PushInstruction` and `PopInstruction` both operate by delegating there functionality to the methods in the base class. Here 
+is the `PushInstruction` as an example:
+
+```C#
+    public class PushInstruction : StackInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu) => Push(cpu.Registers[Register], cpu);
+    }
+```
+
+this pushes the specified register's value onto the stack.
+
+The call instruction pushes the current Program Counter value onto the stack and then jumps to the sub-routine
+at the address specified in the `Value` property from the instruction bytes.
 
 
-### Logical operations
+```C#
+    public class CallInstruction : StackInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu)
+        {
+            Push(cpu.Registers.ProgramCounter, cpu);
+            cpu.Registers.ProgramCounter = Value;
+        }
+    }
+```
+
+To return from a sub-routine to the address after the call instruction, we Pop the address off the stack and then
+set the Program Counter to that address. 
+
+```C#
+    public class ReturnInstruction : StackInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu) => cpu.Registers.ProgramCounter = Pop(cpu);
+    }
+```
+
+
+
+### Load and store operations (`LD`, `ST`, `STH`, `STL`)
+
+No `LDL` or `LDH`
+
 
 
 

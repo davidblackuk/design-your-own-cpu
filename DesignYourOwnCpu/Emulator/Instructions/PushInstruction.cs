@@ -2,7 +2,8 @@
 
 namespace Emulator.Instructions
 {
-    public class PushInstruction : EmulatorInstruction, IEmulatorInstruction
+  
+    public class PushInstruction : StackInstruction, IEmulatorInstruction
     {
         public const byte Opcode = OpCodes.Push;
 
@@ -10,11 +11,6 @@ namespace Emulator.Instructions
         {
         }
 
-        public void Execute(ICpu cpu)
-        {
-            var registerValue = cpu.Registers[Register];
-            cpu.Registers.StackPointer -= 4;
-            cpu.Memory.SetWord(cpu.Registers.StackPointer, registerValue);
-        }
+        public void Execute(ICpu cpu) => Push(cpu.Registers[Register], cpu);
     }
 }
