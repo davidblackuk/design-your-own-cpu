@@ -24,7 +24,7 @@ namespace Emulator.Instructions
                 case OpCodes.LoadRegisterWithConstant:
                     return new LoadRegisterWithConstantInstruction(register, high, low);
                 case OpCodes.LoadRegisterFromMemory:
-                    return new LoadRegisterFromMemoryInstruction(register, high, low);
+                    return new LoadRegisterDirectInstruction(register, high, low);
                 case OpCodes.LoadRegisterFromRegister:
                     return new LoadRegisterFromRegisterInstruction(register, high, low);
 

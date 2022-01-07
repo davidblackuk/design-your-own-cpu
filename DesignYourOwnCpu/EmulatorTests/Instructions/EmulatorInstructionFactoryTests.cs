@@ -24,7 +24,7 @@ namespace EmulatorTests.Instructions
         [TestCase(OpCodes.Nop, typeof(NopInstruction))]
         [TestCase(OpCodes.Halt, typeof(HaltInstruction))]
         [TestCase(OpCodes.LoadRegisterWithConstant, typeof(LoadRegisterWithConstantInstruction))]
-        [TestCase(OpCodes.LoadRegisterFromMemory, typeof(LoadRegisterFromMemoryInstruction))]
+        [TestCase(OpCodes.LoadRegisterFromMemory, typeof(LoadRegisterDirectInstruction))]
         [TestCase(OpCodes.LoadRegisterFromRegister, typeof(LoadRegisterFromRegisterInstruction))]
         [TestCase(OpCodes.StoreRegisterDirect, typeof(StoreRegisterDirectInstruction))]
         [TestCase(OpCodes.StoreRegisterHiDirect, typeof(StoreRegisterHighDirectInstruction))]

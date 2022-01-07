@@ -49,8 +49,6 @@ The run method from the CPU class minus error checking is:
     } while (!Flags.Halted);
 ```
 
-
-
 The most important thing to note is we pre-increment the `PC` 
 before executing the current instruction. If the current 
 instruction modifies `PC` (for example `BRA address`) then the instruction 
@@ -60,6 +58,46 @@ takes place from there.
 For instructions that do not alter the program counter the next 
 instruction in memory will be the next one to be fetched and 
 executed. So in the absence of instructions that alter `PC`, instructions execute in sequential manner.
+
+## InstructionFactory
+
+We saw that the get the next instruction to execute from the `InstructionFactory` this is a simple factory class that creates instructions based 
+on the opcode of the instruction to create.
+
+Here is a highly elided version of it
+
+```C#
+
+    public class EmulatorInstructionFactory : IEmulatorInstructionFactory
+    {
+
+        public IEmulatorInstruction Create(byte opcode, byte register, byte high, byte low)
+        {
+            switch (opcode)
+            {
+                case OpCodes.Halt:
+                    return new HaltInstruction(register, high, low);
+                case OpCodes.Nop:
+                    return new NopInstruction(register, high, low);
+                // many, many lines elided
+                default:
+                    return new UnknownInstruction();
+            }
+        }
+    }
+
+```
+
+It functions by switching on the opcode and newing up an instruction class based on that opcode. For unknown 
+opcodes, it returns an `UnknownInstruction` which will cause the emulator to quit after reporting the error.
+
+There are two possible sources for unknown instructions: 
+
++ If executtion goes past the end of executable code and hits areas used for strings or storage.
++ We add an instruction to the assembler, but do not update the emulator
+
+The latter shouldn't happen, but it has in the past!
+
 
 ## Instructions
 
@@ -296,18 +334,207 @@ set the Program Counter to that address.
     }
 ```
 
-
-
 ### Load and store operations (`LD`, `ST`, `STH`, `STL`)
 
-No `LDL` or `LDH`
+The load and store instructions are not orthoganal, this is hold over from the original GE version of the ISA, for example there is a 
+Store Register High instruction but no matching Load Register High. More imporantly you can store a registers value indirectly (`ST R0 , (R1)`), but 
+not load it in the same way (`LD R0, (R1)`). This is a gap that should be fixed in a future version.
 
+The load instruction has three variants: 
 
++ `LD R1, (0xBEAD)`: load a R1 directly from an address specified in the instruction (`LoadRegisterDirectInstruction`)
++ `LD R7, 0x1234`:  load R7 with a constant value specified in the instruction  (`LoadRegisterWithConstantInstruction`)
++ `LD R4, R6`: load R4 with the value of R6 (`LoadRegisterFromRegisterInstruction`) 
+
+The implementation of these instructions are: 
+
+```C#
+    public class LoadRegisterDirectInstruction : EmulatorInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu)
+        {
+            // Value is the address in memory
+            cpu.Registers[Register] = cpu.Memory.GetWord(Value);
+        }
+    }
+
+    public class LoadRegisterFromRegisterInstruction : EmulatorInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu)
+        {
+            // ByteLow contains the register to load from
+            cpu.Registers[Register] = cpu.Registers[ByteLow];
+        }
+    }
+
+    public class LoadRegisterWithConstantInstruction : EmulatorInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu)
+        {
+            // value contains the constant ro load (16 buts stored in ByteHigh and ByteLow)
+            cpu.Registers[Register] = Value;
+        }
+    }
+```
+
+The the are two store instructions that complement the above three load ones.
+
++ `ST R1, (0xBEAD)`: store the value in R1 to a direct address im memory specified as a constant (`StoreRegisterDirectInstruction`)
++ `ST R7, (R0)`:  store R7 indirectly via the address contained in R0 (`StoreRegisterDirectInstruction`)
 
 
 ```C#
+    public class StoreRegisterDirectInstruction : EmulatorInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu)
+        {
+            // store two bytes to the const address in VAlue
+            cpu.Memory.SetWord(Value, cpu.Registers[Register]);
+        }
+    }
+
+    public class StoreRegisterIndirectInstruction : EmulatorInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu)
+        {
+            // get the destination address from the specified register
+            var indirectAddress = cpu.Registers[ByteLow];
+
+            // store two bytes
+            cpu.Memory.SetWord(indirectAddress, cpu.Registers[Register]);
+        }
+    }
 
 ```
+
+If you are wondering why 3 load instructions and two store?: There is no _store register to register_ instruction because 
+there is already a load register from register, which does the same thing.
+
+There are two store instructions that store just the high or low byte of the source register, as usual there are two 
+variations for these instructions, for the direct and indirect addressing modes.
+
++ `STH R1, 0x4356`: store the high byte of R1 to the direct address specified as a constant (`StoreRegisterHighDirectInstruction`). 
++ `STH R1, (R3)`:store the high byte of R1 to the indirect address held in register R3 (`StoreRegisterHighIndirectInstruction`).
++ `STL R1, 0x4356`: store the low byte of R1 to the direct address specified as a constant (`StoreRegisterLowDirectInstruction`). 
++ `STL R1, (R3)`:store the low byte of R1 to the indirect address held in register R3 (`StoreRegisterLowIndirectInstruction`).
+
+```C#
+      public class StoreRegisterHighDirectInstruction : EmulatorInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu)
+        {
+            cpu.Memory[Value] = (byte)((cpu.Registers[Register] >> 8) & 0xFF);
+        }
+    }
+
+    public class StoreRegisterHighIndirectInstruction : EmulatorInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu)
+        {
+            var indirectAddress = cpu.Registers[ByteLow];
+            var value = (byte)((cpu.Registers[Register] >> 8) & 0xFF);
+            cpu.Memory[indirectAddress] = value;
+        }
+    }
+
+    public class StoreRegisterLowDirectInstruction : EmulatorInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu)
+        {
+            cpu.Memory[Value] = (byte)(cpu.Registers[Register] & 0xFF);
+        }
+    }
+
+    public class StoreRegisterLowIndirectInstruction : EmulatorInstruction, IEmulatorInstruction
+    {
+        public void Execute(ICpu cpu)
+        {
+            var indirectAddress = cpu.Registers[ByteLow];
+            var value = (byte)(cpu.Registers[Register] & 0xFF);
+            cpu.Memory[indirectAddress] = value;
+        }
+    }
+```
+The only note worth thing here for beginning developers is that we have a 16 bit value in the source register.  To get the registers low data byte we 'AND' the value with 0xFF (`cpu.Registers[Register] & 0xFF`). OxFF is binary `0000000011111111`, 
+the effect of this is to set the upper 8 bits to zero and retain the lowest 8 bits. This would turn `10110110 10100011` (0xB6A3)  into '00000000 10100011' (0x00A3) , which we then cast to a byte and store the 8 bit value.
+
+To get the upper 8 bits as a byte we use a similar trick but first we shift the 16 bit value right 8 binary places, then mask it
+`((cpu.Registers[Register] >> 8) & 0xFF)`. This would turn `10110110 10100011`  (0xB6A3) into '00000000  10110110'  (0x00B6), which we then cast to a byte and store it as an 8 bit value in memory.
+
+### Software Interups (`SWI`)
+
+The software interrupt instruction takes as an argument the interrupt number and then executes the instruction associated with it. There are
+software interrupts to read and write integer values and to write a string to the console. The `EmulatorInstructionFactory` 
+returns a `SoftWareInterruptInstruction`, this uses a second factory (`InterruptFactory`) to create an instruction that implements the  functionality 
+specified in the value of the `SWI` call.
+
+```C#
+    public class SoftwareInterruptInstruction : EmulatorInstruction, IEmulatorInstruction
+    {
+        public const byte Opcode = OpCodes.Swi;
+        private readonly IInterruptFactory interruptFactory;
+
+        public SoftwareInterruptInstruction(IInterruptFactory interruptFactory, byte register, byte high, byte low) :
+            base(Opcode, register, high, low)
+        {
+            this.interruptFactory = interruptFactory;
+        }
+
+        public void Execute(ICpu cpu)
+        {
+            // Create the interupt from the vector number in the Value operand.
+            var interrupt = interruptFactory.Create(Value);
+            interrupt.Execute(cpu);
+        }
+    }  
+```
+
+The interrupt factory uses the instructions `Value` to determine the instruction to return 
+
+```C#
+    public class InterruptFactory : IInterruptFactory
+    {
+        public IInterrupt Create(ushort vector)
+        {
+            switch (vector)
+            {
+                // Other interrupts elided
+                case InternalSymbols.WriteWordInterrupt:
+                    return new WriteWordInterrupt();
+                default:
+                    throw new EmulatorException($"Unknown interrupt vector {vector}");
+            }
+        }
+    }
+```
+
+Finally the returned instruction will be executed. Software Interrupts are faked calls to a ROM kernel, since we are emulating the ISA and 
+not a hardware platform, there is no device to send data to, so in the example of the write word interrupt, we simply echo the value to 
+the console from C#
+
+
+```C#
+    public class WriteWordInterrupt : IInterrupt
+    {
+        // outputs the value in register R0 to the console
+        public void Execute(ICpu cpu)
+        {
+            Console.Write($"0x{cpu.Registers[0]:X4}");
+        }
+    }
+```
+
+## Wrap up
+
+This concludes the description of the emulator, we've covered all of the key classes that makes the emulator tick. Some of the details of
+the wire-up of the executable from a dependency injection point of view were skipped, but those can be covered in a separate document, 
+these are cross cutting concerns and need to be detailed in one place and one place only.
+
+
+In my opinion the emulator is far simpler than the assembler. The assembler has to deal with uncertain human written input, 
+the emulator can slavishly follow the well formed input: a byte, is a byte, is a byte. 
+
+Grab the source, build it and have a play.
 
 
 [1]: ../../Readme.md

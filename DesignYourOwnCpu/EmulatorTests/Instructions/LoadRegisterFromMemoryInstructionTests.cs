@@ -22,9 +22,9 @@ namespace EmulatorTests.Instructions
             RegistersMock.VerifySet(r => r[targetRegister] = expectedValue);
         }
 
-        private LoadRegisterFromMemoryInstruction CreateSut(byte register, ushort expectedAddress)
+        private LoadRegisterDirectInstruction CreateSut(byte register, ushort expectedAddress)
         {
-            return new LoadRegisterFromMemoryInstruction(register, HighByte(expectedAddress), LowByte(expectedAddress));
+            return new LoadRegisterDirectInstruction(register, HighByte(expectedAddress), LowByte(expectedAddress));
         }
     }
 }
