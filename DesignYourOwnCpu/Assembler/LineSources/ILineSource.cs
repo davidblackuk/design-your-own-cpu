@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace Assembler.LineSources
-{
-    public interface ILineSource
-    {
-        IEnumerable<string> Lines();
+namespace Assembler.LineSources;
 
-        int ProcessedLines { get; }
-    }
+public interface ILineSource
+{
+    IEnumerable<string> Lines();
+
+    int ProcessedLines { get; }
 }

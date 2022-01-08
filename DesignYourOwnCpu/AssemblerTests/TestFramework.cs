@@ -1,15 +1,14 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using NUnit.Framework;
 
-namespace AssemblerTests
+namespace AssemblerTests;
+
+[ExcludeFromCodeCoverage]
+public class TestFramework
 {
-    [ExcludeFromCodeCoverage]
-    public class TestFramework
+    [Test]
+    public void TestUnitTestFrameworkIsWorking()
     {
-        [Test]
-        public void TestUnitTestFrameworkIsWorking()
-        {
-            Assert.Pass();
-        }
+        Assert.Pass();
     }
 }

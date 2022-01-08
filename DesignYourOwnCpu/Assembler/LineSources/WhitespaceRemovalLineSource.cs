@@ -1,32 +1,31 @@
 ﻿using System.Collections.Generic;
 
-namespace Assembler.LineSources
+namespace Assembler.LineSources;
+
+public class WhitespaceRemovalLineSource : ILineSource
 {
-    public class WhitespaceRemovalLineSource : ILineSource
+    private readonly ILineSource source;
+
+    public WhitespaceRemovalLineSource(ILineSource source)
     {
-        private readonly ILineSource source;
+        this.source = source;
+    }
 
-        public WhitespaceRemovalLineSource(ILineSource source)
+    public IEnumerable<string> Lines()
+    {
+        foreach (var line in source.Lines())
         {
-            this.source = source;
-        }
-
-        public IEnumerable<string> Lines()
-        {
-            foreach (var line in source.Lines())
+            if (!string.IsNullOrWhiteSpace(line))
             {
-                if (!string.IsNullOrWhiteSpace(line))
-                {
-                    ProcessedLines += 1;                
-                    yield return line;
-                }
+                ProcessedLines += 1;                
+                yield return line;
             }
         }
-        
-        /// <summary>
-        /// Gets the count of processed lines
-        /// </summary>
-        public int ProcessedLines { get; private set;  }
-
     }
+        
+    /// <summary>
+    /// Gets the count of processed lines
+    /// </summary>
+    public int ProcessedLines { get; private set;  }
+
 }

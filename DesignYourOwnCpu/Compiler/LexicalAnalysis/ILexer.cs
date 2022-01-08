@@ -1,7 +1,6 @@
-﻿namespace Compiler.LexicalAnalysis
+﻿namespace Compiler.LexicalAnalysis;
+
+internal interface ILexer
 {
-    internal interface ILexer
-    {
-        Lexeme GetLexeme();
-    }
+    Lexeme GetLexeme();
 }

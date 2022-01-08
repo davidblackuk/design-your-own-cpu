@@ -1,21 +1,20 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Shared;
 
-namespace Assembler.Instructions
+namespace Assembler.Instructions;
+
+public class HaltInstruction : AssemblerInstruction
 {
-    public class HaltInstruction : AssemblerInstruction
+    public const string InstructionName = "halt";
+
+    public override void Parse(string source)
     {
-        public const string InstructionName = "halt";
+        OpCode = OpCodes.Halt;
+    }
 
-        public override void Parse(string source)
-        {
-            OpCode = OpCodes.Halt;
-        }
-
-        [ExcludeFromCodeCoverage]
-        public override string ToString()
-        {
-            return InstructionName;
-        }
+    [ExcludeFromCodeCoverage]
+    public override string ToString()
+    {
+        return InstructionName;
     }
 }

@@ -1,17 +1,16 @@
-﻿namespace Compiler.Ast.Nodes
+﻿namespace Compiler.Ast.Nodes;
+
+internal class IdentifierNode : AstNode
 {
-    internal class IdentifierNode : AstNode
+    public string Value { get; }
+
+    public IdentifierNode(string value)
     {
-        public string Value { get; }
+        this.Value = value;
+    }
 
-        public IdentifierNode(string value)
-        {
-            this.Value = value;
-        }
-
-        public override string ToString()
-        {
-            return Value;
-        }
+    public override string ToString()
+    {
+        return Value;
     }
 }

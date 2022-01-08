@@ -1,16 +1,15 @@
-﻿namespace Compiler.LexicalAnalysis
+﻿namespace Compiler.LexicalAnalysis;
+
+public enum OperationType
 {
-    public enum OperationType
-    {
-        Addition,
-        Subtraction,
-        Multiplication,
-        Division,
-        Equal,
-        NotEqual,
-        GreaterThan,
-        LessThan,
-        GreaterThanOrEquals,
-        LessThanOrEquals
-    }
+    Addition,
+    Subtraction,
+    Multiplication,
+    Division,
+    Equal,
+    NotEqual,
+    GreaterThan,
+    LessThan,
+    GreaterThanOrEquals,
+    LessThanOrEquals
 }

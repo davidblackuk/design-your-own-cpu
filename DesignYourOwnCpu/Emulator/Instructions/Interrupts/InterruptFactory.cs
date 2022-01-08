@@ -2,30 +2,29 @@
 using Microsoft.Extensions.DependencyInjection;
 using Shared;
 
-namespace Emulator.Instructions.Interrupts
+namespace Emulator.Instructions.Interrupts;
+
+public class InterruptFactory : IInterruptFactory
 {
-    public class InterruptFactory : IInterruptFactory
+    private readonly IServiceProvider services;
+
+    public InterruptFactory(IServiceProvider services)
     {
-        private readonly IServiceProvider services;
+        this.services = services;
+    }
 
-        public InterruptFactory(IServiceProvider services)
+    public IInterrupt Create(ushort vector)
+    {
+        switch (vector)
         {
-            this.services = services;
-        }
-
-        public IInterrupt Create(ushort vector)
-        {
-            switch (vector)
-            {
-                case InternalSymbols.WriteStringInterrupt:
-                    return new WriteStringInterrupt();
-                case InternalSymbols.ReadWordInterrupt:
-                    return new ReadWordInterrupt(services.GetService<INumberParser>());
-                case InternalSymbols.WriteWordInterrupt:
-                    return new WriteWordInterrupt();
-                default:
-                    throw new EmulatorException($"Unknown interrupt vector {vector}");
-            }
+            case InternalSymbols.WriteStringInterrupt:
+                return new WriteStringInterrupt();
+            case InternalSymbols.ReadWordInterrupt:
+                return new ReadWordInterrupt(services.GetService<INumberParser>());
+            case InternalSymbols.WriteWordInterrupt:
+                return new WriteWordInterrupt();
+            default:
+                throw new EmulatorException($"Unknown interrupt vector {vector}");
         }
     }
 }

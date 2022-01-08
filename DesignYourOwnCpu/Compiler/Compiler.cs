@@ -37,8 +37,11 @@ internal class Compiler : IHostedService
     public Task StartAsync(CancellationToken cancellationToken)
     {
         var inputFile = config["input"];
-        if (inputFile == null) Usage();
-            
+        if (inputFile == null)
+        {
+            Usage();
+        }
+
         logger.LogInformation("start async");
             
         logger.LogInformation($"Input file: {inputFile}");

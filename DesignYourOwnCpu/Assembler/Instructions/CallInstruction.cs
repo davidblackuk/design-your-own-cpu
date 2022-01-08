@@ -1,13 +1,12 @@
 ﻿using Shared;
 
-namespace Assembler.Instructions
-{
-    public class CallInstruction : SingleValueInstruction
-    {
-        public const string InstructionName = "call";
+namespace Assembler.Instructions;
 
-        public CallInstruction() : base(InstructionName, OpCodes.Call)
-        {
-        }
+public class CallInstruction : SingleValueInstruction
+{
+    public const string InstructionName = "call";
+
+    public CallInstruction() : base(InstructionName, OpCodes.Call)
+    {
     }
 }

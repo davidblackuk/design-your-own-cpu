@@ -1,6 +1,5 @@
-﻿namespace Compiler.Ast.Nodes
+﻿namespace Compiler.Ast.Nodes;
+
+internal class AstNode
 {
-    internal class AstNode
-    {
-    }
 }

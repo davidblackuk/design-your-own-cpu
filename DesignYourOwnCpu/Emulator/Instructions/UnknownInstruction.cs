@@ -1,18 +1,17 @@
 ﻿using Shared;
 
-namespace Emulator.Instructions
+namespace Emulator.Instructions;
+
+public class UnknownInstruction: EmulatorInstruction, IEmulatorInstruction
 {
-    public class UnknownInstruction: EmulatorInstruction, IEmulatorInstruction
+    public const byte Opcode = OpCodes.Halt;
+
+    public UnknownInstruction() : base(OpCodes.Unknown, 0,0, 0)
     {
-        public const byte Opcode = OpCodes.Halt;
+    }
 
-        public UnknownInstruction() : base(OpCodes.Unknown, 0,0, 0)
-        {
-        }
-
-        public void Execute(ICpu cpu)
-        {
+    public void Execute(ICpu cpu)
+    {
            
-        }
     }
 }

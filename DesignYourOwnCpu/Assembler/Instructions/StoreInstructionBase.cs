@@ -1,46 +1,51 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Assembler.Instructions
+namespace Assembler.Instructions;
+
+public class StoreInstructionBase : AssemblerInstruction
 {
-    public class StoreInstructionBase : AssemblerInstruction
+    private readonly byte directOpCode;
+    private readonly byte indirectOpCode;
+    private readonly string instructionName;
+
+    public StoreInstructionBase(string instructionName, byte indirectOpCode, byte directOpCode)
     {
-        private readonly byte directOpCode;
-        private readonly byte indirectOpCode;
-        private readonly string instructionName;
+        this.instructionName = instructionName;
+        this.indirectOpCode = indirectOpCode;
+        this.directOpCode = directOpCode;
+    }
 
-        public StoreInstructionBase(string instructionName, byte indirectOpCode, byte directOpCode)
+    public override void Parse(string source)
+    {
+        var operands = GetOperands(instructionName, source);
+        Register = ParseRegister(operands.left);
+        if (IsIndirectAddress(operands.right))
         {
-            this.instructionName = instructionName;
-            this.indirectOpCode = indirectOpCode;
-            this.directOpCode = directOpCode;
+            ByteLow = ParseIndirectAddress(operands.right);
+
+            OpCode = indirectOpCode;
+        }
+        else // its load a constant
+        {
+            ParseAddress(operands.right);
+            OpCode = directOpCode;
+        }
+    }
+
+
+    [ExcludeFromCodeCoverage]
+    public override string ToString()
+    {
+        if (OpCode == directOpCode)
+        {
+            return $"{instructionName} r{Register}, (0x{ByteHigh:X2}{ByteLow:X2})";
         }
 
-        public override void Parse(string source)
+        if (OpCode == indirectOpCode)
         {
-            var operands = GetOperands(instructionName, source);
-            Register = ParseRegister(operands.left);
-            if (IsIndirectAddress(operands.right))
-            {
-                ByteLow = ParseIndirectAddress(operands.right);
-
-                OpCode = indirectOpCode;
-            }
-            else // its load a constant
-            {
-                ParseAddress(operands.right);
-                OpCode = directOpCode;
-            }
+            return $"{instructionName} r{Register}, (r{ByteLow})";
         }
 
-
-        [ExcludeFromCodeCoverage]
-        public override string ToString()
-        {
-            if (OpCode == directOpCode)
-                return $"{instructionName} r{Register}, (0x{ByteHigh:X2}{ByteLow:X2})";
-            if (OpCode == indirectOpCode)
-                return $"{instructionName} r{Register}, (r{ByteLow})";
-            return "!!ERROR!!";
-        }
+        return "!!ERROR!!";
     }
 }

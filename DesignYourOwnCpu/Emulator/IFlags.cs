@@ -1,10 +1,9 @@
-﻿namespace Emulator
+﻿namespace Emulator;
+
+public interface IFlags
 {
-    public interface IFlags
-    {
-        bool Equal { get; set; }
-        bool LessThan { get; set; }
-        bool GreaterThan { get; set; }
-        bool Halted { get; set; }
-    }
+    bool Equal { get; set; }
+    bool LessThan { get; set; }
+    bool GreaterThan { get; set; }
+    bool Halted { get; set; }
 }

@@ -1,7 +1,6 @@
-﻿namespace Emulator.Instructions.Interrupts
+﻿namespace Emulator.Instructions.Interrupts;
+
+public interface IInterrupt
 {
-    public interface IInterrupt
-    {
-        void Execute(ICpu cpu);
-    }
+    void Execute(ICpu cpu);
 }

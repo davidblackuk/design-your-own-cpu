@@ -8,80 +8,79 @@ using Moq;
 using NUnit.Framework;
 using Shared;
 
-namespace AssemblerTests
+namespace AssemblerTests;
+
+[ExcludeFromCodeCoverage]
+public class CodeGeneratorTests
 {
-    [ExcludeFromCodeCoverage]
-    public class CodeGeneratorTests
+    private const byte ExpectedOpCode = 0x23;
+    private const byte ExpectedRegister = 0x03;
+    private const byte ExpectedByteHigh = 0xEE;
+    private const byte ExpectedByteLow = 0xF4;
+    private Mock<IRandomAccessMemory> memoryMock;
+    private Mock<IAssemblerInstruction> mockInstruction;
+    private Mock<IAssemblerConfig> configMock;
+
+    private Mock<ISymbolTable> symbolTableMock;
+
+    [SetUp]
+    public void SetUp()
     {
-        private const byte ExpectedOpCode = 0x23;
-        private const byte ExpectedRegister = 0x03;
-        private const byte ExpectedByteHigh = 0xEE;
-        private const byte ExpectedByteLow = 0xF4;
-        private Mock<IRandomAccessMemory> memoryMock;
-        private Mock<IAssemblerInstruction> mockInstruction;
-        private Mock<IAssemblerConfig> configMock;
-
-        private Mock<ISymbolTable> symbolTableMock;
-
-        [SetUp]
-        public void SetUp()
-        {
-            memoryMock = new Mock<IRandomAccessMemory>();
-            symbolTableMock = new Mock<ISymbolTable>();
-            configMock = new Mock<IAssemblerConfig>();
+        memoryMock = new Mock<IRandomAccessMemory>();
+        symbolTableMock = new Mock<ISymbolTable>();
+        configMock = new Mock<IAssemblerConfig>();
             
-            mockInstruction = new Mock<IAssemblerInstruction>();
-            mockInstruction.SetupGet(instr => instr.OpCode).Returns(ExpectedOpCode);
-            mockInstruction.SetupGet(instr => instr.Register).Returns(ExpectedRegister);
-            mockInstruction.SetupGet(instr => instr.ByteHigh).Returns(ExpectedByteHigh);
-            mockInstruction.SetupGet(instr => instr.ByteLow).Returns(ExpectedByteLow);
-        }
+        mockInstruction = new Mock<IAssemblerInstruction>();
+        mockInstruction.SetupGet(instr => instr.OpCode).Returns(ExpectedOpCode);
+        mockInstruction.SetupGet(instr => instr.Register).Returns(ExpectedRegister);
+        mockInstruction.SetupGet(instr => instr.ByteHigh).Returns(ExpectedByteHigh);
+        mockInstruction.SetupGet(instr => instr.ByteLow).Returns(ExpectedByteLow);
+    }
 
-        [Test]
-        public void Ctor_WhenInvokedWithMissingSymbolTableDependancy_ShouldThorwArgumentNullException()
-        {
-            symbolTableMock = null;
-            Assert.Throws<ArgumentNullException>(() => CreateSut());
-        }
+    [Test]
+    public void Ctor_WhenInvokedWithMissingSymbolTableDependancy_ShouldThorwArgumentNullException()
+    {
+        symbolTableMock = null;
+        Assert.Throws<ArgumentNullException>(() => CreateSut());
+    }
 
-        [Test]
-        public void Ctor_WhenInvokedWithMissingRamDependancy_ShouldThorwArgumentNullException()
-        {
-            memoryMock = null;
-            Assert.Throws<ArgumentNullException>(() => CreateSut());
-        }
+    [Test]
+    public void Ctor_WhenInvokedWithMissingRamDependancy_ShouldThorwArgumentNullException()
+    {
+        memoryMock = null;
+        Assert.Throws<ArgumentNullException>(() => CreateSut());
+    }
 
-        [Test]
-        public void GenerateCode_WhenCalled_ShouldStoreTheCorrectBytes()
-        {
-            var instructions = new List<IAssemblerInstruction> { mockInstruction.Object };
-            var sut = CreateSut();
-            sut.GenerateCode(instructions);
-            mockInstruction.Verify(i => i.WriteBytes(memoryMock.Object, 0));
-        }
+    [Test]
+    public void GenerateCode_WhenCalled_ShouldStoreTheCorrectBytes()
+    {
+        var instructions = new List<IAssemblerInstruction> { mockInstruction.Object };
+        var sut = CreateSut();
+        sut.GenerateCode(instructions);
+        mockInstruction.Verify(i => i.WriteBytes(memoryMock.Object, 0));
+    }
 
-        [Test]
-        public void GenerateCode_WhenCalledWithAnInstructionRequiringResolution_ShouldResolveTheAddress()
-        {
-            var expectedSymbol = "sym";
-            ushort expectedAddress = 0xFEAA;
-            mockInstruction.SetupGet(i => i.RequresSymbolResolution).Returns(true);
-            mockInstruction.SetupGet(i => i.Symbol).Returns(expectedSymbol);
+    [Test]
+    public void GenerateCode_WhenCalledWithAnInstructionRequiringResolution_ShouldResolveTheAddress()
+    {
+        var expectedSymbol = "sym";
+        ushort expectedAddress = 0xFEAA;
+        mockInstruction.SetupGet(i => i.RequresSymbolResolution).Returns(true);
+        mockInstruction.SetupGet(i => i.Symbol).Returns(expectedSymbol);
 
-            var symbol = new Assembler.Symbols.Symbol(expectedSymbol, expectedAddress);
-            symbolTableMock.Setup(st => st.GetSymbol(expectedSymbol)).Returns(symbol);
+        var symbol = new Assembler.Symbols.Symbol(expectedSymbol, expectedAddress);
+        symbolTableMock.Setup(st => st.GetSymbol(expectedSymbol)).Returns(symbol);
 
-            var instructions = new List<IAssemblerInstruction> { mockInstruction.Object };
-            var sut = CreateSut();
-            sut.GenerateCode(instructions);
+        var instructions = new List<IAssemblerInstruction> { mockInstruction.Object };
+        var sut = CreateSut();
+        sut.GenerateCode(instructions);
 
-            mockInstruction.Verify(i => i.StoreData(expectedAddress));
-        }
+        mockInstruction.Verify(i => i.StoreData(expectedAddress));
+    }
 
 
-        private CodeGenerator CreateSut()
-        {
-            return new CodeGenerator(symbolTableMock?.Object, memoryMock?.Object, configMock?.Object);
-        }
+    private CodeGenerator CreateSut()
+    {
+        return new CodeGenerator(symbolTableMock?.Object, memoryMock?.Object, configMock?.Object);
     }
 }

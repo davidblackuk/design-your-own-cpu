@@ -1,13 +1,12 @@
 ﻿using Shared;
 
-namespace Assembler.Instructions
-{
-    public class PushInstruction : SingleRegisterInstruction
-    {
-        public const string InstructionName = "push";
+namespace Assembler.Instructions;
 
-        public PushInstruction() : base(InstructionName, OpCodes.Push)
-        {
-        }
+public class PushInstruction : SingleRegisterInstruction
+{
+    public const string InstructionName = "push";
+
+    public PushInstruction() : base(InstructionName, OpCodes.Push)
+    {
     }
 }

@@ -1,15 +1,14 @@
-﻿namespace Compiler.Ast.Nodes
+﻿namespace Compiler.Ast.Nodes;
+
+internal class PairNode : AstNode
 {
-    internal class PairNode : AstNode
+    public string Operator { get; set; }
+
+    public AstNode Left { get; set; }
+    public AstNode Right { get; set; }
+
+    public override string ToString()
     {
-        public string Operator { get; set; }
-
-        public AstNode Left { get; set; }
-        public AstNode Right { get; set; }
-
-        public override string ToString()
-        {
-            return $"{Operator}";
-        }
+        return $"{Operator}";
     }
 }

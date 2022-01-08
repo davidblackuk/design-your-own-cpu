@@ -3,10 +3,9 @@ using System.Drawing;
 using Compiler.Ast.Nodes;
 using Pastel;
 
-namespace Compiler.Ast
+namespace Compiler.Ast;
+
+internal class AbstractSyntaxTree : IAbstractSyntaxTree
 {
-    internal class AbstractSyntaxTree : IAbstractSyntaxTree
-    {
-        public BlockNode Root { get; set; }
-    }
+    public BlockNode Root { get; set; }
 }

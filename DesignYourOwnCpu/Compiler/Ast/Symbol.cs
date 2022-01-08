@@ -1,12 +1,11 @@
-﻿namespace Compiler.Ast
+﻿namespace Compiler.Ast;
+
+internal class Symbol
 {
-    internal class Symbol
+    public Symbol(string name)
     {
-        public Symbol(string name)
-        {
-            Name = name;
-        }
-        
-        public string Name { get; private set; }
+        Name = name;
     }
+        
+    public string Name { get; private set; }
 }

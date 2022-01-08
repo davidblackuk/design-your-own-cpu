@@ -1,7 +1,6 @@
-﻿namespace Compiler.Ast.Nodes
+﻿namespace Compiler.Ast.Nodes;
+
+internal class WriteNode : AstNode
 {
-    internal class WriteNode : AstNode
-    {
-        public AstNode Expression { get; set; }
-    }
+    public AstNode Expression { get; set; }
 }

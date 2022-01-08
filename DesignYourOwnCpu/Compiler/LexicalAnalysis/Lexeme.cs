@@ -1,35 +1,34 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Compiler.LexicalAnalysis
+namespace Compiler.LexicalAnalysis;
+
+internal class Lexeme
 {
-    internal class Lexeme
-    {
-        public object Value { get; }
+    public object Value { get; }
 
-        public int LineNumber { get; }
+    public int LineNumber { get; }
 
-        public LexemeType Type { get; }
+    public LexemeType Type { get; }
         
-        public Lexeme(LexemeType type, object value = null, int lineNumber = 0)
-        {
-            Type = type;
-            LineNumber = lineNumber;
-            Value = value;
-        }
+    public Lexeme(LexemeType type, object value = null, int lineNumber = 0)
+    {
+        Type = type;
+        LineNumber = lineNumber;
+        Value = value;
+    }
 
-        [ExcludeFromCodeCoverage]
-        public override string ToString()
+    [ExcludeFromCodeCoverage]
+    public override string ToString()
+    {
+        switch (Type)
         {
-            switch (Type)
-            {
-                case LexemeType.Constant:
-                case LexemeType.Identifier:
-                case LexemeType.AddOp:
-                case LexemeType.MulOp:
-                    return $"[{Type} = {Value}]";
-                default:
-                    return $"[{Type}]";
-            }            
-        }
+            case LexemeType.Constant:
+            case LexemeType.Identifier:
+            case LexemeType.AddOp:
+            case LexemeType.MulOp:
+                return $"[{Type} = {Value}]";
+            default:
+                return $"[{Type}]";
+        }            
     }
 }

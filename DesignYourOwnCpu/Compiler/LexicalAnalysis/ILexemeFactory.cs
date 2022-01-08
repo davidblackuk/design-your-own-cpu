@@ -1,7 +1,6 @@
-﻿namespace Compiler.LexicalAnalysis
+﻿namespace Compiler.LexicalAnalysis;
+
+internal interface ILexemeFactory
 {
-    internal interface ILexemeFactory
-    {
-        Lexeme Create(LexemeType type, object value = null);
-    }
+    Lexeme Create(LexemeType type, object value = null);
 }

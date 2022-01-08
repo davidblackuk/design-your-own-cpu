@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace Assembler.Exceptions
+namespace Assembler.Exceptions;
+
+public class AssemblerException : Exception
 {
-    public class AssemblerException : Exception
+    public AssemblerException(string name) : base(name)
     {
-        public AssemblerException(string name) : base(name)
-        {
-        }
     }
 }

@@ -1,40 +1,39 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Assembler.Instructions
+namespace Assembler.Instructions;
+
+/// <summary>
+///     Base class for single register instructions like push, pop, rotr, rotl etc
+/// </summary>
+public class SingleRegisterInstruction : AssemblerInstruction
 {
+    private readonly string instructionName;
+
+
     /// <summary>
-    ///     Base class for single register instructions like push, pop, rotr, rotl etc
+    ///     Constructs a new instance of a branch instruction. This is a base class that is
+    ///     used to handle all common tasks processing the instruction (ie most of it)
     /// </summary>
-    public class SingleRegisterInstruction : AssemblerInstruction
+    /// <param name="instructionName">The instruction name (beq, bra etc)</param>
+    /// <param name="opCode">Op code for this instruction</param>
+    public SingleRegisterInstruction(string instructionName, byte opCode)
     {
-        private readonly string instructionName;
+        this.instructionName = instructionName;
+        OpCode = opCode;
+    }
 
+    /// <summary>
+    ///     Parses the branch instruction and
+    /// </summary>
+    /// <param name="source"></param>
+    public override void Parse(string source)
+    {
+        Register = ParseRegister(source);
+    }
 
-        /// <summary>
-        ///     Constructs a new instance of a branch instruction. This is a base class that is
-        ///     used to handle all common tasks processing the instruction (ie most of it)
-        /// </summary>
-        /// <param name="instructionName">The instruction name (beq, bra etc)</param>
-        /// <param name="opCode">Op code for this instruction</param>
-        public SingleRegisterInstruction(string instructionName, byte opCode)
-        {
-            this.instructionName = instructionName;
-            OpCode = opCode;
-        }
-
-        /// <summary>
-        ///     Parses the branch instruction and
-        /// </summary>
-        /// <param name="source"></param>
-        public override void Parse(string source)
-        {
-            Register = ParseRegister(source);
-        }
-
-        [ExcludeFromCodeCoverage]
-        public override string ToString()
-        {
-            return $"{instructionName} r{Register}";
-        }
+    [ExcludeFromCodeCoverage]
+    public override string ToString()
+    {
+        return $"{instructionName} r{Register}";
     }
 }

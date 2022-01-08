@@ -1,7 +1,6 @@
-﻿namespace Assembler.Instructions
+﻿namespace Assembler.Instructions;
+
+public interface IAssemblerInstructionFactory
 {
-    public interface IAssemblerInstructionFactory
-    {
-        IAssemblerInstruction Create(string name);
-    }
+    IAssemblerInstruction Create(string name);
 }

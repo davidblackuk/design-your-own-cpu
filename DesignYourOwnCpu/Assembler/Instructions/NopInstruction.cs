@@ -1,21 +1,20 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Shared;
 
-namespace Assembler.Instructions
+namespace Assembler.Instructions;
+
+public class NopInstruction : AssemblerInstruction
 {
-    public class NopInstruction : AssemblerInstruction
+    public const string InstructionName = "nop";
+
+    public override void Parse(string source)
     {
-        public const string InstructionName = "nop";
+        OpCode = OpCodes.Nop;
+    }
 
-        public override void Parse(string source)
-        {
-            OpCode = OpCodes.Nop;
-        }
-
-        [ExcludeFromCodeCoverage]
-        public override string ToString()
-        {
-            return $"{InstructionName}";
-        }
+    [ExcludeFromCodeCoverage]
+    public override string ToString()
+    {
+        return $"{InstructionName}";
     }
 }

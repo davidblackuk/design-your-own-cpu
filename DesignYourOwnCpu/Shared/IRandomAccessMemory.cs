@@ -1,15 +1,14 @@
-﻿namespace Shared
+﻿namespace Shared;
+
+public interface IRandomAccessMemory
 {
-    public interface IRandomAccessMemory
-    {
-        byte[] RawBytes { get; }
+    byte[] RawBytes { get; }
         
-        byte this[ushort address] { get; set; }
+    byte this[ushort address] { get; set; }
 
-        (byte opcode, byte register, byte byteHigh, byte byteLow) Instruction(ushort address);
+    (byte opcode, byte register, byte byteHigh, byte byteLow) Instruction(ushort address);
 
-        ushort GetWord(ushort address);
+    ushort GetWord(ushort address);
 
-        void SetWord(ushort address, ushort value);
-    }
+    void SetWord(ushort address, ushort value);
 }
