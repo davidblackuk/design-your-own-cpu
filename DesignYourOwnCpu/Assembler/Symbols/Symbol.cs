@@ -1,28 +1,27 @@
-﻿namespace Assembler.Symbols
+﻿namespace Assembler.Symbols;
+
+/// <summary>
+///     a symbol in the symbol table, a name and an address
+/// </summary>
+public class Symbol
 {
-    /// <summary>
-    ///     a symbol in the symbol table, a name and an address
-    /// </summary>
-    public class Symbol
+    public Symbol(string name, ushort address)
     {
-        public Symbol(string name, ushort address)
-        {
-            Name = name;
-            Address = address;
-        }
+        Name = name;
+        Address = address;
+    }
 
-        public Symbol(string name)
-        {
-            Name = name;
-        }
+    public Symbol(string name)
+    {
+        Name = name;
+    }
 
-        public string Name { get; }
+    public string Name { get; }
 
-        public ushort? Address { get; }
+    public ushort? Address { get; }
 
-        public override string ToString()
-        {
-            return $"0x{Address:X4} {Name}";
-        }
+    public override string ToString()
+    {
+        return $"0x{Address:X4} {Name}";
     }
 }

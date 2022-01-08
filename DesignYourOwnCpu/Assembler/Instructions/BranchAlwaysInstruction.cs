@@ -1,13 +1,12 @@
 ﻿using Shared;
 
-namespace Assembler.Instructions
-{
-    public class BranchAlwaysInstruction : SingleValueInstruction
-    {
-        public const string InstructionName = "bra";
+namespace Assembler.Instructions;
 
-        public BranchAlwaysInstruction() : base(InstructionName, OpCodes.Branch)
-        {
-        }
+public class BranchAlwaysInstruction : SingleValueInstruction
+{
+    public const string InstructionName = "bra";
+
+    public BranchAlwaysInstruction() : base(InstructionName, OpCodes.Branch)
+    {
     }
 }

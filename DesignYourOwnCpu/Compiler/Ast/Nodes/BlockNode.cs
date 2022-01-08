@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
 
-namespace Compiler.Ast.Nodes
-{
-    internal class BlockNode : AstNode
-    {
-        public List<AstNode> Nodes = new List<AstNode>();
+namespace Compiler.Ast.Nodes;
 
-        public T Add<T>(T node) where T : AstNode
-        {
-            Nodes.Add(node);
-            return node;
-        }
+internal class BlockNode : AstNode
+{
+    public List<AstNode> Nodes = new List<AstNode>();
+
+    public T Add<T>(T node) where T : AstNode
+    {
+        Nodes.Add(node);
+        return node;
     }
 }

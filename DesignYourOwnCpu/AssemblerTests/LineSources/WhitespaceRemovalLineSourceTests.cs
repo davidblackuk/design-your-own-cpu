@@ -4,12 +4,12 @@ using Assembler.LineSources;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace AssemblerTests.LineSources
+namespace AssemblerTests.LineSources;
+
+[ExcludeFromCodeCoverage]
+public class WhitespaceRemovalLineSourceTests
 {
-    [ExcludeFromCodeCoverage]
-    public class WhitespaceRemovalLineSourceTests
-    {
-        private readonly string TestText = @"
+    private readonly string TestText = @"
 Line 1
 
 Line 2
@@ -17,25 +17,24 @@ Line 3
 
 ";
 
-        [Test]
-        public void Line_WhenIterated_ShouldRemoveEmptyLines()
+    [Test]
+    public void Line_WhenIterated_ShouldRemoveEmptyLines()
+    {
+        var sut = CreateSut(TestText);
+        var lines = new List<string>();
+        foreach (var line in sut.Lines())
         {
-            var sut = CreateSut(TestText);
-            var lines = new List<string>();
-            foreach (var line in sut.Lines())
-            {
-                lines.Add(line);
-            }
-
-            lines.Count.Should().Be(3);
-            CollectionAssert.Contains(lines, "Line 1");
-            CollectionAssert.Contains(lines, "Line 2");
-            CollectionAssert.Contains(lines, "Line 3");
+            lines.Add(line);
         }
 
-        private WhitespaceRemovalLineSource CreateSut(string text)
-        {
-            return new WhitespaceRemovalLineSource(new MemoryLineSource(text));
-        }
+        lines.Count.Should().Be(3);
+        CollectionAssert.Contains(lines, "Line 1");
+        CollectionAssert.Contains(lines, "Line 2");
+        CollectionAssert.Contains(lines, "Line 3");
+    }
+
+    private WhitespaceRemovalLineSource CreateSut(string text)
+    {
+        return new WhitespaceRemovalLineSource(new MemoryLineSource(text));
     }
 }

@@ -4,20 +4,19 @@ using FluentAssertions;
 using NUnit.Framework;
 using Shared;
 
-namespace AssemblerTests.Instructions
-{
-    [ExcludeFromCodeCoverage]
-    public class BranchLessthanInstructionTests
-    {
-        [Test]
-        public void Ctor_WhenInvoked_ShouldCorrectlySetOpCode()
-        {
-            CreateSut().OpCode.Should().Be(OpCodes.BranchLessThan);
-        }
+namespace AssemblerTests.Instructions;
 
-        private BranchLessThanInstruction CreateSut()
-        {
-            return new BranchLessThanInstruction();
-        }
+[ExcludeFromCodeCoverage]
+public class BranchLessthanInstructionTests
+{
+    [Test]
+    public void Ctor_WhenInvoked_ShouldCorrectlySetOpCode()
+    {
+        CreateSut().OpCode.Should().Be(OpCodes.BranchLessThan);
+    }
+
+    private BranchLessThanInstruction CreateSut()
+    {
+        return new BranchLessThanInstruction();
     }
 }

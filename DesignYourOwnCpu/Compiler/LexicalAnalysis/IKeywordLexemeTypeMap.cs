@@ -1,7 +1,6 @@
-﻿namespace Compiler.LexicalAnalysis
+﻿namespace Compiler.LexicalAnalysis;
+
+internal interface IKeywordLexemeTypeMap
 {
-    internal interface IKeywordLexemeTypeMap
-    {
-        LexemeType MapsToLexeme(string from);
-    }
+    LexemeType MapsToLexeme(string from);
 }

@@ -2,34 +2,33 @@
 using Emulator.Instructions;
 using NUnit.Framework;
 
-namespace EmulatorTests.Instructions
+namespace EmulatorTests.Instructions;
+
+[ExcludeFromCodeCoverage]
+public class SubtractRegisterFromRegisterTests : EmulatorUnitTest
 {
-    [ExcludeFromCodeCoverage]
-    public class SubtractRegisterFromRegisterTests : EmulatorUnitTest
+    [Test]
+    public void Execute_WhenInvoked_ShouldAddTheConstantToTheRigister()
     {
-        [Test]
-        public void Execute_WhenInvoked_ShouldAddTheConstantToTheRigister()
-        {
-            // SUB R7, R4
-            byte firstRegister = 7;
-            byte secondRegister = 4;
+        // SUB R7, R4
+        byte firstRegister = 7;
+        byte secondRegister = 4;
 
-            ushort firstRegisterValue = 0x3456;
-            ushort secondRegisterValue = 0x1234;
+        ushort firstRegisterValue = 0x3456;
+        ushort secondRegisterValue = 0x1234;
 
-            RegistersMock.SetupGet(r => r[firstRegister]).Returns(firstRegisterValue);
-            RegistersMock.SetupGet(r => r[secondRegister]).Returns(secondRegisterValue);
+        RegistersMock.SetupGet(r => r[firstRegister]).Returns(firstRegisterValue);
+        RegistersMock.SetupGet(r => r[secondRegister]).Returns(secondRegisterValue);
 
-            var sut = CreateSut(firstRegister, secondRegister);
+        var sut = CreateSut(firstRegister, secondRegister);
 
-            sut.Execute(CpuMock.Object);
+        sut.Execute(CpuMock.Object);
 
-            RegistersMock.VerifySet(reg => reg[firstRegister] = (ushort)(firstRegisterValue - secondRegisterValue));
-        }
+        RegistersMock.VerifySet(reg => reg[firstRegister] = (ushort)(firstRegisterValue - secondRegisterValue));
+    }
 
-        private SubtractRegisterFromRegisterInstruction CreateSut(byte register, byte otherRegister)
-        {
-            return new SubtractRegisterFromRegisterInstruction(register, 0, otherRegister);
-        }
+    private SubtractRegisterFromRegisterInstruction CreateSut(byte register, byte otherRegister)
+    {
+        return new SubtractRegisterFromRegisterInstruction(register, 0, otherRegister);
     }
 }

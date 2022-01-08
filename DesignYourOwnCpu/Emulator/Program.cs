@@ -6,55 +6,54 @@ using Microsoft.Extensions.DependencyInjection;
 using Pastel;
 using Shared;
 
-namespace Emulator
+namespace Emulator;
+
+[ExcludeFromCodeCoverageAttribute]
+internal class Program
 {
-    [ExcludeFromCodeCoverageAttribute]
-    internal class Program
+    private static void Main(string[] args)
     {
-        private static void Main(string[] args)
-        {
-            IServiceCollection services = new ServiceCollection();
+        IServiceCollection services = new ServiceCollection();
 
-            var startup = new Startup(args);
-            startup.ConfigureServices(services);
-            IServiceProvider serviceProvider = services.BuildServiceProvider();
+        var startup = new Startup(args);
+        startup.ConfigureServices(services);
+        IServiceProvider serviceProvider = services.BuildServiceProvider();
             
-            var binaryToExecute = startup.Configuration["input"];
-            if (binaryToExecute == null)
-            {
-                Usage();
-            }
-
-            try
-            {
-                // Get the CPU
-                ICpu cpu = serviceProvider.GetService<ICpu>();
-
-                // Load the app image at address zero
-                cpu.Memory.Load(binaryToExecute);
-                
-                // Run the CPU
-                cpu.Run();
-
-                Console.WriteLine();
-                cpu.Registers.ToConsole();
-                Console.WriteLine();
-                cpu.Memory.ToConsole(0, 128);
-                Console.WriteLine();
-            }
-            catch (EmulatorException e)
-            {
-                Console.WriteLine($"Emulator error: {e.Message}\n".Pastel(Color.Tomato));
-            }
-        }
-        
-        private static void Usage()
+        var binaryToExecute = startup.Configuration["input"];
+        if (binaryToExecute == null)
         {
-            Console.WriteLine();
-            Console.WriteLine("Emulator Usage:");
-            Console.WriteLine("    dotnet run  -p <path to project file> --input <path for the bin file>");
-            Console.WriteLine();
-            Environment.Exit(0);
+            Usage();
         }
+
+        try
+        {
+            // Get the CPU
+            ICpu cpu = serviceProvider.GetService<ICpu>();
+
+            // Load the app image at address zero
+            cpu.Memory.Load(binaryToExecute);
+                
+            // Run the CPU
+            cpu.Run();
+
+            Console.WriteLine();
+            cpu.Registers.ToConsole();
+            Console.WriteLine();
+            cpu.Memory.ToConsole(0, 128);
+            Console.WriteLine();
+        }
+        catch (EmulatorException e)
+        {
+            Console.WriteLine($"Emulator error: {e.Message}\n".Pastel(Color.Tomato));
+        }
+    }
+        
+    private static void Usage()
+    {
+        Console.WriteLine();
+        Console.WriteLine("Emulator Usage:");
+        Console.WriteLine("    dotnet run  -p <path to project file> --input <path for the bin file>");
+        Console.WriteLine();
+        Environment.Exit(0);
     }
 }

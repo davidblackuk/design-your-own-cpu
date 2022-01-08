@@ -1,7 +1,6 @@
-﻿namespace Emulator.Instructions
+﻿namespace Emulator.Instructions;
+
+public interface IEmulatorInstructionFactory
 {
-    public interface IEmulatorInstructionFactory
-    {
-        IEmulatorInstruction Create(byte opcode, byte register, byte high, byte low);
-    }
+    IEmulatorInstruction Create(byte opcode, byte register, byte high, byte low);
 }

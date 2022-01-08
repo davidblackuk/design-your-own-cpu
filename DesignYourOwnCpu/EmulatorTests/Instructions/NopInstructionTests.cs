@@ -4,24 +4,23 @@ using Emulator.Instructions;
 using Moq;
 using NUnit.Framework;
 
-namespace EmulatorTests.Instructions
+namespace EmulatorTests.Instructions;
+
+[ExcludeFromCodeCoverage]
+public class NopInstructionTests
 {
-    [ExcludeFromCodeCoverage]
-    public class NopInstructionTests
+    [Test]
+    public void Execute_WhenInvoked_ShouldDoNothing()
     {
-        [Test]
-        public void Execute_WhenInvoked_ShouldDoNothing()
-        {
-            var sut = CreateSut();
-            var cpuMock = new Mock<ICpu>();
+        var sut = CreateSut();
+        var cpuMock = new Mock<ICpu>();
 
-            // no memory set or gegisters so pass is no null ref exceptions
-            sut.Execute(cpuMock.Object);
-        }
+        // no memory set or gegisters so pass is no null ref exceptions
+        sut.Execute(cpuMock.Object);
+    }
 
-        private NopInstruction CreateSut()
-        {
-            return new NopInstruction(0, 0, 0);
-        }
+    private NopInstruction CreateSut()
+    {
+        return new NopInstruction(0, 0, 0);
     }
 }

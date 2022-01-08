@@ -1,22 +1,21 @@
 ﻿using Shared;
 
-namespace Emulator.Instructions
+namespace Emulator.Instructions;
+
+public class BranchGreaterThanInstruction : EmulatorInstruction, IEmulatorInstruction
 {
-    public class BranchGreaterThanInstruction : EmulatorInstruction, IEmulatorInstruction
+    public const byte Opcode = OpCodes.BranchGreaterThan;
+
+    public BranchGreaterThanInstruction(byte register, byte high, byte low) : base(Opcode, register, high, low)
     {
-        public const byte Opcode = OpCodes.BranchGreaterThan;
+    }
 
-        public BranchGreaterThanInstruction(byte register, byte high, byte low) : base(Opcode, register, high, low)
+
+    public void Execute(ICpu cpu)
+    {
+        if (cpu.Flags.GreaterThan)
         {
-        }
-
-
-        public void Execute(ICpu cpu)
-        {
-            if (cpu.Flags.GreaterThan)
-            {
-                cpu.Registers.ProgramCounter = Value;
-            }
+            cpu.Registers.ProgramCounter = Value;
         }
     }
 }

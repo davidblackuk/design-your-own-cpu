@@ -1,8 +1,7 @@
-﻿namespace Shared
+﻿namespace Shared;
+
+public class Constants
 {
-    public class Constants
-    {
-        public const int InstructionWidth = 4;
-        public const byte MaxRegisterNumber = 7;
-    }
+    public const int InstructionWidth = 4;
+    public const byte MaxRegisterNumber = 7;
 }

@@ -1,9 +1,8 @@
-﻿namespace Compiler.Ast.Nodes
+﻿namespace Compiler.Ast.Nodes;
+
+internal class AssignmentNode : AstNode
 {
-    internal class AssignmentNode : AstNode
-    {
-        public IdentifierNode Identifier { get; set; }
-        public AstNode Expression = new ExpressionNode();
+    public IdentifierNode Identifier { get; set; }
+    public AstNode Expression = new ExpressionNode();
        
-    }
 }

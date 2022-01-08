@@ -1,9 +1,8 @@
 ﻿using Shared;
 
-namespace Emulator.Instructions
+namespace Emulator.Instructions;
+
+public interface IEmulatorInstruction : IInstruction
 {
-    public interface IEmulatorInstruction : IInstruction
-    {
-        void Execute(ICpu cpu);
-    }
+    void Execute(ICpu cpu);
 }

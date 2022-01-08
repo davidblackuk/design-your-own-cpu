@@ -5,47 +5,46 @@ using Assembler.Instructions;
 using Assembler.Symbols;
 using Shared;
 
-namespace Assembler
+namespace Assembler;
+
+public class CodeGenerator : ICodeGenerator
 {
-    public class CodeGenerator : ICodeGenerator
+    private readonly IAssemblerConfig config;
+
+    public CodeGenerator(ISymbolTable symbolTable, IRandomAccessMemory ram, IAssemblerConfig config)
     {
-        private readonly IAssemblerConfig config;
+        this.config = config ?? throw new ArgumentNullException(nameof(config));
+        SymbolTable = symbolTable ?? throw new ArgumentNullException(nameof(symbolTable));
+        Ram = ram ?? throw new ArgumentNullException(nameof(ram));
+    }
 
-        public CodeGenerator(ISymbolTable symbolTable, IRandomAccessMemory ram, IAssemblerConfig config)
+    public IRandomAccessMemory Ram { get; }
+
+    public ISymbolTable SymbolTable { get; }
+
+    public void GenerateCode(IEnumerable<IAssemblerInstruction> instructions)
+    {
+        ushort address = 0;
+        foreach (var instruction in instructions)
         {
-            this.config = config ?? throw new ArgumentNullException(nameof(config));
-            SymbolTable = symbolTable ?? throw new ArgumentNullException(nameof(symbolTable));
-            Ram = ram ?? throw new ArgumentNullException(nameof(ram));
-        }
+            ResolveSymbolsIfRequired(instruction);
+            instruction.WriteBytes(Ram, address);
 
-        public IRandomAccessMemory Ram { get; }
-
-        public ISymbolTable SymbolTable { get; }
-
-        public void GenerateCode(IEnumerable<IAssemblerInstruction> instructions)
-        {
-            ushort address = 0;
-            foreach (var instruction in instructions)
+            if (!config.QuietOutput)
             {
-                ResolveSymbolsIfRequired(instruction);
-                instruction.WriteBytes(Ram, address);
-
-                if (!config.QuietOutput)
-                {
-                    instruction.ToConsole(address);
-                }
-
-                address += instruction.Size;
+                instruction.ToConsole(address);
             }
+
+            address += instruction.Size;
         }
+    }
 
-        private void ResolveSymbolsIfRequired(IAssemblerInstruction instruction)
+    private void ResolveSymbolsIfRequired(IAssemblerInstruction instruction)
+    {
+        if (instruction.RequresSymbolResolution)
         {
-            if (instruction.RequresSymbolResolution)
-            {
-                var symbol = SymbolTable.GetSymbol(instruction.Symbol);
-                instruction.StoreData(symbol.Address.Value);
-            }
+            var symbol = SymbolTable.GetSymbol(instruction.Symbol);
+            instruction.StoreData(symbol.Address.Value);
         }
     }
 }

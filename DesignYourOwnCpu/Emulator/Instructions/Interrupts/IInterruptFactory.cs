@@ -1,7 +1,6 @@
-﻿namespace Emulator.Instructions.Interrupts
+﻿namespace Emulator.Instructions.Interrupts;
+
+public interface IInterruptFactory
 {
-    public interface IInterruptFactory
-    {
-        IInterrupt Create(ushort vector);
-    }
+    IInterrupt Create(ushort vector);
 }

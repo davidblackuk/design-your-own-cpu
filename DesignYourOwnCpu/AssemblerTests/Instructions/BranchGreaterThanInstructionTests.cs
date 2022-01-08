@@ -4,20 +4,19 @@ using FluentAssertions;
 using NUnit.Framework;
 using Shared;
 
-namespace AssemblerTests.Instructions
-{
-    [ExcludeFromCodeCoverage]
-    public class BranchGreaterThanInstructionTests
-    {
-        [Test]
-        public void Ctor_WhenInvoked_ShouldCorrectlySetOpCode()
-        {
-            CreateSut().OpCode.Should().Be(OpCodes.BranchGreaterThan);
-        }
+namespace AssemblerTests.Instructions;
 
-        private BrachGreaterThanInstruction CreateSut()
-        {
-            return new BrachGreaterThanInstruction();
-        }
+[ExcludeFromCodeCoverage]
+public class BranchGreaterThanInstructionTests
+{
+    [Test]
+    public void Ctor_WhenInvoked_ShouldCorrectlySetOpCode()
+    {
+        CreateSut().OpCode.Should().Be(OpCodes.BranchGreaterThan);
+    }
+
+    private BrachGreaterThanInstruction CreateSut()
+    {
+        return new BrachGreaterThanInstruction();
     }
 }

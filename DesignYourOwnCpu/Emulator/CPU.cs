@@ -4,55 +4,54 @@ using Emulator.Instructions;
 using Pastel;
 using Shared;
 
-namespace Emulator
+namespace Emulator;
+
+public class Cpu : ICpu
 {
-    public class Cpu : ICpu
+    private readonly IEmulatorInstructionFactory instructionFactory;
+
+
+    public Cpu(IRandomAccessMemory memory, IRegisters registers, IFlags flags,
+        IEmulatorInstructionFactory instructionFactory)
     {
-        private readonly IEmulatorInstructionFactory instructionFactory;
+        Memory = memory ?? throw new ArgumentNullException(nameof(memory));
+        Registers = registers;
+        this.instructionFactory = instructionFactory;
+        Flags = flags;
+    }
 
+    public IRegisters Registers { get; }
 
-        public Cpu(IRandomAccessMemory memory, IRegisters registers, IFlags flags,
-            IEmulatorInstructionFactory instructionFactory)
+    public IRandomAccessMemory Memory { get; }
+
+    public IFlags Flags { get; set; }
+
+    /// <summary>
+    ///     Executes till a halt instruction is hit
+    /// </summary>
+    public void Run()
+    {
+        do
         {
-            Memory = memory ?? throw new ArgumentNullException(nameof(memory));
-            Registers = registers;
-            this.instructionFactory = instructionFactory;
-            Flags = flags;
-        }
+            // get the 4 bytes from the next instruction
+            var bytes = Memory.Instruction(Registers.ProgramCounter);
 
-        public IRegisters Registers { get; }
+            // get an object that emulates the effects of the instruction
+            var instruction =
+                instructionFactory.Create(bytes.opcode, bytes.register, bytes.byteHigh, bytes.byteLow);
 
-        public IRandomAccessMemory Memory { get; }
-
-        public IFlags Flags { get; set; }
-
-        /// <summary>
-        ///     Executes till a halt instruction is hit
-        /// </summary>
-        public void Run()
-        {
-            do
+            if (instruction.OpCode == OpCodes.Unknown)
             {
-                // get the 4 bytes from the next instruction
-                var bytes = Memory.Instruction(Registers.ProgramCounter);
-
-                // get an object that emulates the effects of the instruction
-                var instruction =
-                    instructionFactory.Create(bytes.opcode, bytes.register, bytes.byteHigh, bytes.byteLow);
-
-                if (instruction.OpCode == OpCodes.Unknown)
-                {
-                    throw new EmulatorException($"Unknown opcode 0x{bytes.opcode:X2} found at address 0x{Registers.ProgramCounter:X4}");
-                }
+                throw new EmulatorException($"Unknown opcode 0x{bytes.opcode:X2} found at address 0x{Registers.ProgramCounter:X4}");
+            }
                 
-                // we increment the program counter here, instructions that directly modify the program counter
-                // may do so during execution (BRA, CALL etc)
-                Registers.ProgramCounter = (ushort)(Registers.ProgramCounter + instruction.Size);
+            // we increment the program counter here, instructions that directly modify the program counter
+            // may do so during execution (BRA, CALL etc)
+            Registers.ProgramCounter = (ushort)(Registers.ProgramCounter + instruction.Size);
 
-                instruction.Execute(this);
-            } while (!Flags.Halted);
+            instruction.Execute(this);
+        } while (!Flags.Halted);
 
-            Console.WriteLine("Halted".Pastel(Color.Gray));
-        }
+        Console.WriteLine("Halted".Pastel(Color.Gray));
     }
 }

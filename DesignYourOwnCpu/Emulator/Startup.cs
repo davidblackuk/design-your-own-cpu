@@ -5,36 +5,35 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shared;
 
-namespace Emulator
+namespace Emulator;
+
+[ExcludeFromCodeCoverage]
+public class Startup
 {
-    [ExcludeFromCodeCoverage]
-    public class Startup
+    public Startup(string[] args)
     {
-        public Startup(string[] args)
-        {
-            var builder = new ConfigurationBuilder()
-                .AddCommandLine(args)
-                .AddJsonFile("appsettings.json");
+        var builder = new ConfigurationBuilder()
+            .AddCommandLine(args)
+            .AddJsonFile("appsettings.json");
 
-            Configuration = builder.Build();
-        }
+        Configuration = builder.Build();
+    }
 
-        internal IConfigurationRoot Configuration { get; }
+    internal IConfigurationRoot Configuration { get; }
 
-        public void ConfigureServices(IServiceCollection services)
-        {
+    public void ConfigureServices(IServiceCollection services)
+    {
             
 
-            services.AddLogging();
-            services.AddSingleton(Configuration);
-            services.AddSingleton<ICpu, Cpu>();
-            services.AddSingleton<IRandomAccessMemory, RandomAccessMemory>();
-            services.AddSingleton<IRegisters, Registers>();
-            services.AddSingleton<IEmulatorInstructionFactory, EmulatorInstructionFactory>();
-            services.AddSingleton<IFlags, Flags>();
-            services.AddSingleton<IInterruptFactory, InterruptFactory>();
-            services.AddSingleton<INumberParser, NumberParser>();
-            services.AddSingleton<IFileOperations, FileOperations>();
-        }
+        services.AddLogging();
+        services.AddSingleton(Configuration);
+        services.AddSingleton<ICpu, Cpu>();
+        services.AddSingleton<IRandomAccessMemory, RandomAccessMemory>();
+        services.AddSingleton<IRegisters, Registers>();
+        services.AddSingleton<IEmulatorInstructionFactory, EmulatorInstructionFactory>();
+        services.AddSingleton<IFlags, Flags>();
+        services.AddSingleton<IInterruptFactory, InterruptFactory>();
+        services.AddSingleton<INumberParser, NumberParser>();
+        services.AddSingleton<IFileOperations, FileOperations>();
     }
 }

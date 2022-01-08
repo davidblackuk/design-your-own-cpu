@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace Emulator
+namespace Emulator;
+
+public class EmulatorException : Exception
 {
-    public class EmulatorException : Exception
+    public EmulatorException(string message) : base(message)
     {
-        public EmulatorException(string message) : base(message)
-        {
-        }
     }
 }

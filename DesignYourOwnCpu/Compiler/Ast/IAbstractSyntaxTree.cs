@@ -1,9 +1,8 @@
 ﻿using Compiler.Ast.Nodes;
 
-namespace Compiler.Ast
+namespace Compiler.Ast;
+
+internal interface IAbstractSyntaxTree
 {
-    internal interface IAbstractSyntaxTree
-    {
-        BlockNode Root { get; set; }
-    }
+    BlockNode Root { get; set; }
 }

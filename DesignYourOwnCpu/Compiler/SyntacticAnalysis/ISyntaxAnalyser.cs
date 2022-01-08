@@ -1,7 +1,6 @@
-﻿namespace Compiler.SyntacticAnalysis
+﻿namespace Compiler.SyntacticAnalysis;
+
+internal interface ISyntaxAnalyser
 {
-    internal interface ISyntaxAnalyser
-    {
-        void Scan();
-    }
+    void Scan();
 }
