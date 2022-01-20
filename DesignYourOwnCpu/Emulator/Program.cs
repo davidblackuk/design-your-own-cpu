@@ -1,59 +1,51 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
-using Emulator.Extensions;
+using System.IO;
+using Emulator.Instructions;
+using Emulator.Instructions.Interrupts;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Pastel;
+using Microsoft.Extensions.Hosting;
 using Shared;
 
 namespace Emulator;
 
-[ExcludeFromCodeCoverageAttribute]
+[ExcludeFromCodeCoverage]
 internal class Program
 {
     private static void Main(string[] args)
     {
-        IServiceCollection services = new ServiceCollection();
-
-        var startup = new Startup(args);
-        startup.ConfigureServices(services);
-        IServiceProvider serviceProvider = services.BuildServiceProvider();
-            
-        var binaryToExecute = startup.Configuration["input"];
-        if (binaryToExecute == null)
-        {
-            Usage();
-        }
-
-        try
-        {
-            // Get the CPU
-            ICpu cpu = serviceProvider.GetService<ICpu>();
-
-            // Load the app image at address zero
-            cpu.Memory.Load(binaryToExecute);
-                
-            // Run the CPU
-            cpu.Run();
-
-            Console.WriteLine();
-            cpu.Registers.ToConsole();
-            Console.WriteLine();
-            cpu.Memory.ToConsole(0, 128);
-            Console.WriteLine();
-        }
-        catch (EmulatorException e)
-        {
-            Console.WriteLine($"Emulator error: {e.Message}\n".Pastel(Color.Tomato));
-        }
+        CreateHostBuilder(args)
+           .Build()
+           .Run();
     }
-        
-    private static void Usage()
+
+    private static IHostBuilder CreateHostBuilder(string[] args)
     {
-        Console.WriteLine();
-        Console.WriteLine("Emulator Usage:");
-        Console.WriteLine("    dotnet run  -p <path to project file> --input <path for the bin file>");
-        Console.WriteLine();
-        Environment.Exit(0);
-    }
+        return Host.CreateDefaultBuilder(args)
+           .ConfigureAppConfiguration((hostingContext, config) =>
+           {
+               config.AddJsonFile($"{AppDomain.CurrentDomain.BaseDirectory}{Path.DirectorySeparatorChar}appsettings.json", optional: false);
+               config.AddEnvironmentVariables();
+
+               if (args != null)
+               {
+                   config.AddCommandLine(args);
+               }
+           })
+           .ConfigureServices((hostContext, services) =>
+           {
+               services.AddLogging();
+               services.AddSingleton(hostContext.Configuration);
+               services.AddSingleton<ICpu, Cpu>();
+               services.AddSingleton<IRandomAccessMemory, RandomAccessMemory>();
+               services.AddSingleton<IRegisters, Registers>();
+               services.AddSingleton<IEmulatorInstructionFactory, EmulatorInstructionFactory>();
+               services.AddSingleton<IFlags, Flags>();
+               services.AddSingleton<IInterruptFactory, InterruptFactory>();
+               services.AddSingleton<INumberParser, NumberParser>();
+               services.AddSingleton<IFileOperations, FileOperations>();
+               services.AddHostedService<Emulator>();
+           });
+    }  
 }

@@ -5,9 +5,9 @@ namespace Assembler;
 
 public class AssemblerConfig : IAssemblerConfig
 {
-    private readonly IConfigurationRoot config;
+    private readonly IConfiguration config;
 
-    public AssemblerConfig(IConfigurationRoot config)
+    public AssemblerConfig(IConfiguration config)
     {
         this.config = config;
     }

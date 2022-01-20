@@ -85,6 +85,7 @@ public class AssemblerClassTests
 
     private Assembler.Assembler CreateSut()
     {
-        return new Assembler.Assembler(parserMock?.Object, codeGeneratorMock?.Object);
+        // TODO: Refactor me
+        return new Assembler.Assembler(parserMock?.Object, codeGeneratorMock?.Object, null, null, null);
     }
 }
